@@ -1,0 +1,70 @@
+.banner{
+	height: 50.4vw;
+}
+.banner img{
+	height:50.4vw;
+}
+nav{
+	height: 10.93vw;
+}
+nav ul{
+	height: 10.93vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+nav ul li{
+	font-size: 2.66vw;
+}
+main{
+	flex: 1;
+	overflow: auto;
+	background:#f2f3f8 ;
+}
+
+main ul{
+	height: 49.73vw;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-content: space-around;
+	background:white ;
+	margin: 3vw 0;
+	
+}
+main ul li{
+	width: 25%;
+	height:24vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+main ul li img{
+	width: 15.46vw;
+	height:15.46vw ;
+}
+
+main .list img{
+	height: 25.33vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, input,fieldset, legend, img, div, section, figure,header,nav,main,footer { 
+	margin:0; 
+	padding:0; 
+	box-sizing: border-box;
+}
+body{font-size:12px;}
+
+fieldset, img { border:none; }
+
+em, i, b, strong,h1, h2, h3, h4, h5, h6{ 
+	font-style:normal; 
+	font-weight:normal; 
+}
+
+ul, dl { list-style:none; } 
+
+a {text-decoration:none; }
+html,body{
+	height: 100%;
+}
+body{
+	display: flex;
+	flex-direction: column;
+}
+header{
+	height: 13.33vw;
+	/*background: pink;*/
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: url(../img/addr.png) no-repeat 0.4vw 4.53vw;
+	background-size:2.93vw 4vw ;
+}
+ 
+ header .addr{
+ 	font-size: 3.6vw;
+ }
+ 
+header .email img{
+	width: 4.73vw;
+	height: 3.86vw;
+}
+
+/*header form{
+	margin-top: 2.4vw;
+	margin-left:2.13vw ;
+}*/
+header form input{
+	width:66vw ;
+	height:7.33vw ;
+	background:#eeeff3 url(../img/search.png) no-repeat 15vw center ;
+	background-size:3.46vw 3.46vw ;
+	border-radius: 2vw;
+	font-size:3.33vw;
+	color:#a6a6a6 ; 
+	text-align: center;
+	padding-left: 2vw;
+	border: none;
+}
+footer{
+	height: 13.33vw;
+	/*background: pink;*/
+	border-top:1px solid #eeeeee;
+	
+}
+
+footer ul{
+	height:13.33vw ;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+footer ul li{
+	height:13.33vw ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+footer ul li i{
+	font-size: 5.73 !important;
+	color:#939393;
+	}
+footer ul li span{
+	font-size: 2.4vw;
+	color:#939393;
+}
+
+footer ul li:nth-child(1) i{
+	color:#dc3c58 ;
+}
+
+footer ul li:nth-child(1) span{
+	color:#dc3c58 ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
