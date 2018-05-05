@@ -333,7 +333,7 @@
 	color: white;
 	height:35px;
 	width:570px ;
-	/*margin-bottom:15px ;*/
+	margin-bottom:15px ;
 }
 .wrapcontact .contact .contact_list .left ul{
 	height: 120px;
@@ -393,7 +393,7 @@
 	color: white;
 	height:35px;
 	width:530px ;
-	/*margin-bottom:15px ;*/
+	margin-bottom:15px ;
 }
 /*.wrapcontact .contact .contact_list .right form input{
 	border: none;
@@ -432,7 +432,7 @@
 }*/
 
 
-.wrapcontact .contact .contact_list .right form input,select,textarea,button{
+/*.wrapcontact .contact .contact_list .right form input,select,textarea,button{
 	margin: 6px 0;
 	background: #828282;
 	border: 1px solid #828282;
@@ -493,5 +493,61 @@
 	height: 38px;
 	margin-right: 243px;
 	margin-top: -44px;
+}*/
+
+.wrapcontact .contact .contact_list .right form{
+	height:390px;
+	width:530px ;
 }
 
+.wrapcontact .contact .contact_list .right form input{
+	border: none;
+	width: 270px;
+	height: 30px;
+	background:#828282 ;
+	margin-left: 5px;
+	float: left;
+}
+
+.wrapcontact .contact .contact_list .right form p{
+	width: 530px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+.wrapcontact .contact .contact_list .right form p span{
+	display: block;
+	width: 60px;
+	height: 30px;
+	color: white;
+	line-height: 30px;
+	text-align: right;
+	float: left;
+}
+.wrapcontact .contact .contact_list .right form select{
+	width: 270px;
+	height: 30px;
+	background:#828282 ;
+	margin-left: 5px;
+}
+.wrapcontact .contact .contact_list .right form textarea{
+	width: 350px;
+	height: 60px;
+	background:#828282 ;
+	margin-left: 5px;
+}
+/*.wrapcontact .contact .contact_list .right form .p1{
+	margin-top: 30px;
+}*/
+.wrapcontact .contact .contact_list .right form .bnt{
+	width: 138px;
+	height: 38px;
+	background:#828282 ;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: 40px;
+}
+.wrapcontact .contact .contact_list .right form .ret{
+	width: 72px;
+	height: 38px;
+	margin-top: 40px;
+}
