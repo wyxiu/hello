@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" id="num1" value="" />
+		<select name="" id="operation">
+			<option >+</option>
+			<option >-</option>
+			<option >*</option>
+			<option >/</option>
+			<option >%</option>
+		</select>
+		<input type="text" id="num2" value="" />
+		<button id="eq">=</button>
+		<input type="text" name="res" id="res" value="" />
+		<script type="text/javascript">
+			document.getElementById("eq").onclick = function() {
+				var _num1 = Number(document.getElementById("num1").value),
+					_num2 = Number(document.getElementById("num2").value),
+					op = document.getElementById("operation").value;
+				var reslut;
+				switch (op) {
+					case "*":
+						reslut = _num1 * _num2;
+						break;
+					case "+":
+						reslut = _num1 + _num2;
+						break;
+					case  "-":
+						reslut = _num1 - _num2;
+						break;
+					case  "/":
+						if(_num2==0){
+							alert("除数不能为0");
+						}else{
+							reslut = _num1 / _num2;
+						}
+						break;
+					case  "%":
+						reslut = _num1 % _num2;
+						break;
+				}
+				document.getElementById("res").value=reslut;
+			}
+		</script>
+	</body>
+
+</html>
