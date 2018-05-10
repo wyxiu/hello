@@ -1,0 +1,68 @@
+.banner{
+	width: 100%;
+	height: 400px;
+	background: #067bfe;
+	position: relative;
+}
+.banner div{
+	width: 1023px;
+	height: 400px;
+	float: right;
+}
+.banner div img{
+	width: 1023px;
+	height: 400px;
+	margin: 0 auto;
+}
+.banner ul{
+	height: 400px;
+	width: 205px;
+	position: absolute;
+	top:0px;
+	left: 33px;
+	background: #353044;
+	opacity: .8;
+}
+.banner ul li{
+	width: 205px;
+	height: 33px;
+	text-align: center;
+	line-height: 35px;
+	position: relative;
+}
+.banner ul li i{
+	font-size: 18px !important;
+	position: absolute;
+	top:0px;
+	left: 25px;
+}
+.banner ul li a{
+	color: white;
+	font-size: 14px;
+}
+.banner ul li:hover{
+	background: #eeeeee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

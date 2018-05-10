@@ -1,0 +1,242 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, input,fieldset, legend, img, div, section, figure,header,nav,main,footer { 
+	margin:0; 
+	padding:0; 
+	box-sizing: border-box;
+}
+body{font-size:12px;}
+
+fieldset, img { border:none; }
+
+em, i, b, strong,h1, h2, h3, h4, h5, h6{ 
+	font-style:normal; 
+	font-weight:normal; 
+}
+
+ul, dl { list-style:none; } 
+
+a {text-decoration:none; }
+#top_banner{
+	width: 100%;
+	height: 80px;
+	position: relative;
+	
+}
+#top_banner img{
+	height: 80px;
+	width: 100%;
+}
+#top_banner span{
+	position: absolute;
+	text-align: center;
+	line-height: 20px;
+	top:0px;
+	right: 3px;
+	font-size: 16px;
+	color: white;
+}
+.wraptop_nav{
+	width: 100%;
+	height: 30px;
+	background: #f4f4f4;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.wraptop_nav .top_nav{
+	width: 1225px;
+	height: 30px;
+	margin: 0 auto;
+}
+.top_nav .tn_l{
+	width: 140px;
+	height: 30px;
+	float: left;
+	color: #666666;
+	text-align: center;
+	line-height: 30px;	
+}
+.top_nav .tn_l i{
+	font-size: 16px !important;
+	color: red;	
+}
+.top_nav .tn_r{
+	width: 335px;
+	height: 30px;
+	float: right;
+}
+.top_nav .tn_r ul{
+	width: 365px;
+	height: 30px;
+	/*background: red;*/
+}
+
+.top_nav .tn_r ul li{
+	height: 30px;
+	line-height: 30px;
+	padding-right: 24px;
+	float: left;
+}
+.top_nav .tn_r ul li:last-child{
+	padding-right: 10px;
+}
+.top_nav .tn_r ul li a{
+	color: #666666;
+}
+.top_nav .tn_r ul li i{
+	font-size: 14px !important;
+	color:#aaaaaa;
+}
+.top_nav .tn_r ul li a:hover{
+	color:red;
+}
+
+.wrapheader{
+	width: 100%;
+	height: 150px;
+	/*background: pink;*/
+}
+
+.wrapheader .header{
+	width: 1225px;
+	height: 150px;
+	margin: 0 auto;
+}
+.wrapheader .header .logo{
+	float: left;
+	width: 	260px;
+	height: 150px;
+}
+.wrapheader .header .logo h1 a{
+	display: block;
+	width: 	260px;
+	height: 150px;
+	background:url(../img/logo.png) no-repeat -18px center;
+	background-size: 260px 150px;
+}
+.wrapheader .header .logo h1 a span{
+	display: none;
+}
+
+.wrapheader .header  .search{
+	width: 760px;
+	height: 150px;
+	float: left;
+	/*background: green;*/
+}
+
+.wrapheader .header .search form{
+	width:760px;
+	height:40px;
+	float:left;
+	margin-top:33px;
+	margin-right:20px;
+	margin-bottom: 12px;
+}
+.wrapheader .header  .search form input{
+	border:none;
+	float:left;
+	border:2px solid red;
+}
+.wrapheader .header  .search form .txt{
+	width:700px;
+	height:40px;
+	padding-left:15px;
+	font-size:12px;
+	color:#898989;
+}
+.wrapheader .header .search form .btn{
+	width:60px;
+	height:40px;
+	background: red;
+	border: none;
+}
+.wrapheader .header .search form .btn i{
+	color: white;
+	font-size: 25px !important;
+	text-align: center;
+	line-height: 40px;
+}
+.wrapheader .header .search .sm_nav{
+	margin-bottom: 18px;
+}
+.wrapheader .header .search .sm_nav a{
+	color: #aaaaaa;
+	padding-right: 14px;
+}
+.wrapheader .header .search .sb_nav a{
+	font-size: 14px;
+	padding-right: 35px;
+	color: black;
+}
+
+.wrapheader .header .shopcar{
+	width: 133px;
+	height:40px ;
+	margin-top:35px;
+	border: 1px solid #aaaaaa;
+	float: right;
+	margin-right:15px;
+	color: #666666;
+	font-size: 14px;
+	padding-left:60px ;
+	line-height: 40px;
+	position: relative;
+}
+.wrapheader .header .shopcar i{
+	font-size: 25px !important;
+	color: #666666;
+	position: absolute;
+	top:0px;
+	left: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
