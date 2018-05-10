@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#banner{
+				width: 100%;
+				height: 80px;
+				position: relative;
+			}
+			#banner img{
+				width: 100%;
+				height: 80px;
+			}
+			span{
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background: black;
+				opacity: .6;
+				text-align: center;
+				line-height: 20px;
+				color: white;
+				top:0px;
+				right: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="banner">
+			<img src="images/jd.jpg" />
+			<span id="hide">x</span>
+		</div>
+		<script type="text/javascript">
+			var banner=document.getElementById("banner");
+			var hide=document.getElementById("hide");
+			hide.onclick = function(){		
+				banner.style.display="none";	
+			}
+		</script>
+		<img src="images/jd1.png" id="jd"/>
+		<script type="text/javascript">
+			var jd = document.getElementById("jd");
+			jd.onmouseover = function(){
+				jd.src="images/jd2.png";
+			}
+			jd.onmouseout = function(){
+				jd.src="images/jd1.png";
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

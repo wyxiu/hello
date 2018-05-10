@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.order{
+				height: 300px;
+				width: 500px;
+				margin:0 auto;
+				padding-top: 50px;
+			
+			}
+			.order h5{
+				width: 100px;
+				height: 30px;
+				background: orange;
+				color: white;
+				text-align: center;
+				line-height: 30px;
+				font-size: 14px;
+			}
+			.order ul{
+				width:100px;
+				height: 160px;
+				background: #eeeeee;
+				display: none;
+			}
+			.order ul li{
+				list-style: none;
+				height: 40px;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="order">
+		<h5 id="title">搜狗输入法</h5>
+		<ul id="list">
+			<li>百度输入法</li>
+			<li>百度输入法</li>
+			<li>百度输入法</li>
+			<li>百度输入法</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var title = document.getElementById("title");
+		var list = document.getElementById("list");
+		title.onmouseover= function(){		
+				list.style.display="block";
+		}
+		title.onmouseout = function(){
+				list.style.display="none";	
+		}
+		list.onmouseover = function(){
+				list.style.display ="block";
+		}
+		list.onmouseout = function(){
+				list.style.display ="none";
+		}
+	</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">			
+		*{
+			margin:0;
+			padding: 0;
+		}
+		.pic{
+			height: 160px;
+			width: 100%;
+			background: rgba(234,252,240,.5);
+			/*opacity: .2;*/
+		}
+		.pic div{
+			width: 1000px;
+			height: 160px;
+			margin: 0 auto;
+		}
+		.pic div img{
+			width: 170px;
+			height: 110px;
+			margin: 20px;
+		}
+		</style>
+	</head>
+	<body id="body">
+		<div class="pic">
+			<div>
+			<img src="images/1.jpg"/>
+			<img src="images/2.jpg"/>
+			<img src="images/3.jpg"/>
+			<img src="images/4.jpg"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var aBtn = document.getElementsByTagName("img");
+			var body =document.getElementById("body");
+			aBtn[0].onclick=function(){
+				body.style.background="url(images/1.jpg)";
+			}
+			aBtn[1].onclick=function(){
+				body.style.background="url(images/2.jpg)";
+			}
+			aBtn[2].onclick=function(){
+				body.style.background="url(images/3.jpg)";
+			}
+			aBtn[3].onclick=function(){
+				body.style.background="url(images/4.jpg)";
+			}
+		</script>
+	</body>
+</html>

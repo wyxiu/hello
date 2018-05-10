@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="checkbox" name="interest" value="" />吃饭
+			<input type="checkbox" name="interest" value="" />睡觉
+			<input type="checkbox" name="interest" value="" />运动
+			<input type="checkbox" name="interest" value="" />学习
+			<input type="button" onclick="check()" value="全选/取消"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		var checkAll=false;//定义checkAll为默认不选中
+		function check(){
+			checkAll=!checkAll;//每次调用取是否选中的反值
+			var ainput=document.getElementsByName('interest');//获取name为interest的input标签组
+			for(var i=0;i<ainput.length;i++){
+				ainput[i].checked=checkAll;//依次选中或取消选中
+			}
+		}
+	</script>
+
+</html>

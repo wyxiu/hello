@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height: 200px;
+				width: 200px;
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" onclick="change()"></div>
+		<input type="text" id="txt1" value="" />
+		+
+		<input type="text" id="txt2" value="" />
+		<button onclick="res()">=</button>
+		<input type="text"  id="sum" value="" /><br />
+		<script type="text/javascript">
+			function change(){
+				var _box = document.getElementById("box");
+				box.style.width="500px";
+				box.style.height="300px";
+				box.style.background="red";
+			}
+			
+			function res(){
+				var _txt1=Number(document.getElementById("txt1").value);
+				var	_txt2=Number(document.getElementById("txt2").value);
+				var _sum =_txt1+_txt2;
+				document. getElementById("sum").value=_sum;		
+			}
+			
+			function isSum1(a ,b, n){
+				var sum1;
+				
+				sum1=(a+b)*n/2;
+				return sum1;
+						
+			}
+			
+		document.write(isSum1(1,100,100)+"<br/>");
+			
+			function isSum2(n,m){
+				var sum2=0;
+				for(i=n;i<=m;i++){
+					sum2 +=i;
+				}
+				return sum2;
+			}
+			document.write(isSum2(20,30)+"<br/>");
+			
+			
+			function isMax(a,b){
+				var sum3;
+				if(a>b){
+					sum3=a;
+				}else{
+					sum3=b;
+				}
+				
+				return sum3+100;
+			}
+			document.write(isMax(10,60));
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
