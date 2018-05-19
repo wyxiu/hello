@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="copy">复制</button>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="box" style="border: 1px solid red;">
+			
+		</div>
+		<script type="text/javascript">
+			function $(id){
+					return document.getElementById(id);				
+			}
+			
+			$("copy").onclick=function (){
+				//查找元素
+				var _ul = document.getElementsByTagName("ul")[0];
+				var _copy=_ul.cloneNode(true);
+				document.getElementById("box").appendChild(_copy);
+				
+			}
+		</script>
+	</body>
+</html>

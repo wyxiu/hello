@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="rows" value="" />行
+		<input type="text" name="" id="cols" value="" />列
+		<button id="eq">生成</button>
+		<div id="box">
+			<p id="_p">段落</p>
+		</div>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id);
+			}
+			$("eq").onclick=function(){
+				var _tab=document.createElement("table");
+					_tab.setAttribute("border","1");
+					
+				var _rows= $("rows").value;
+				var _cols=$("cols").value;
+				for(var i=0;i<_rows;i++){
+					var _tr = document.createElement("tr");
+						_tab.appendChild(_tr);
+				for(var j=0;j<_cols;j++){
+						var _td = document.createElement("td");
+						_tr.appendChild(_td);
+						
+						//向单元格里添加内容,首先创建文本对象
+						_td.innerHTML="ok";	
+					}
+					
+				}
+					document.getElementById("box").appendChild(_tab);
+//					var ex= $("_p");
+//					document.getElementById("box").insertBefore(_tab, ex);
+			
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

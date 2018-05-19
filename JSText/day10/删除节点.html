@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="first">删除第一行</button>
+		<button id="last">删除最后行</button>
+		<table border="1" height="200" width="300">
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td><a href="javascript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td><a href="javascript:void(0):">删除</a></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>0</td>
+				<td>8</td>
+					<td><a href="javascript:void(0):">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>8</td>
+				<td><a href="javascript:void(0):">删除</a></td>
+			</tr>
+			<script type="text/javascript">
+				function $(id){
+					return document.getElementById(id);
+				}
+				/*
+				 $("first").onclick=function(){
+				 	var _tb = document.getElementsByTagName("tbody")[0];
+				 	var	_tr = document.getElementsByTagName("tr")[0];
+				 	_tb.removeChild(_tr);
+				 }
+				 
+				  $("last").onclick=function(){
+				 	var _tb = document.getElementsByTagName("tbody")[0];
+				 	var	_tr = document.getElementsByTagName("tr");
+				 	var trs = _tr[_tr.length-1];
+				 	_tb.removeChild(trs);
+				 }
+				*/
+				//先查找出所有的a标签
+				var links = document.getElementsByTagName("a");
+				//为每个超级链接绑定删除事件:
+				for(var i = 0; i<links.length ; i++){
+					links[i].onclick=function(){
+						var _tr = this.parentNode.parentNode;
+						_tr.parentNode.removeChild(_tr);
+					}
+				}
+				
+			</script>
+		</table>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
