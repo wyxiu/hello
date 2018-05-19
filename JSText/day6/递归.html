@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//用递归来实现阶乘
+			function fn(num){
+				if(num==1)
+					return 1;
+				var sum = num *fn(num-1);
+				return sum;
+			}
+			console.log(fn(5));
+		</script>
+	</body>
+</html>

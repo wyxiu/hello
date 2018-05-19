@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function dateTime(datetime){
+//				var year=datetime.getFullYear(),
+//					month=("0"+(datetime.getMonth()+1)).slice(-2),
+//					date=("0"+datetime.getDate()).slice(-2),
+//					hour=("0"+datetime.getHours()).slice(-2),
+//					minu=("0"+datetime.getMinutes()).slice(-2);
+//					
+//				return year+"-"+month+"-"+date+"-"+hour+":"+minu;
+//				
+//			}
+//			var myDate=new Date(2018,4,7,16,34);
+//			var str = dateTime(myDate);
+//			console.log(str);
+
+		</script>
+		<input type="text" name="" id="year" value="" />年
+		<input type="text" name="" id="month" value="" />月
+		<input type="text" name="" id="date" value="" />日
+		<button id="eq">是星期</button>	
+		<input type="text" name="" id="day" value="" />
+
+		<script type="text/javascript">
+				document.getElementById("eq").onclick=function(){
+						var _year=document.getElementById("year").value,
+							_month=document.getElementById("month").value,
+							_date=document.getElementById("date").value,
+							_day=document.getElementById("day").value;
+						var myDate=new Date( _year, _month-1, _date);
+						_day=myDate.getDay();
+						var arr=["天","一","二","三","四","五","六"];
+							_day=arr[_day];
+						document.getElementById("day").value=_day;
+						
+					}
+			
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

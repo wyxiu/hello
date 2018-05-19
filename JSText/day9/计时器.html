@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="deadline" id="deadline" value="2018-08-25" />
+		<button id="eq">倒计时</button>
+		<input type="text" name="res" id="res" value="" />
+		<script type="text/javascript">
+			document.getElementById("eq").onclick = function() {
+			var timer = setInterval(function() {
+				var _deadline = document.getElementById("deadline").value;
+				var now = new Date().getTime();
+				var over = Date.parse(_deadline);
+				var seconds = Math.ceil((over - now) / 1000);
+				var sec = seconds % 60,
+					min = Math.floor(seconds / 60) % 60,
+					hour = Math.floor(seconds / 3600) % 24,
+					day = Math.floor(seconds / (3600 * 24));
+				var result = day + "天" + hour + "时" + min + "分" + sec + "秒";
+				document.getElementById("res").value = result;
+	}, 1000);
+
+}
+		</script>
+	</body>
+</html>

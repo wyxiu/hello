@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getStr(){
+				var str="https://www.baidu.com/s?wd=html5&rsv_spt=1&rsv_iqid=0xff52079000030dcf";	
+				var p={};
+				var _str = str.indexOf("?");
+				var ch =str.slice(_str+1);
+				var obj = ch.split("&");
+				obj.forEach(function(curr,index){
+					var newStr=curr.split("=");
+					var name=newStr[0],
+						 value=newStr[1];
+						 p[name]=value;
+				});
+				return p;
+			}
+			
+			console.log(getStr());
+		</script>
+	</body>
+</html>

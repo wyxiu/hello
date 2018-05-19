@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//记录随机数出现的次数；
+		/*	function rand(arr){
+				//生成随机数
+				for(var i=0;i<1000;i++){
+					arr.push(Math.floor(Math.random()*100));
+				}
+				var count=[];
+				for(var j=0;j<100;j++){
+					//遍历一个数组只需要有下标
+					count.push(0);
+				}
+				arr.forEach(function(curr){
+					count[curr]++;
+				});
+				return count;
+			}
+			var array=[];
+			var res=rand(array);
+			console.log(res);
+			*/
+			//记录字符串出现地 次数
+			/*
+			function rand(){
+				var str = "hiadjiijdiufjdjjfdoisajdifjaofjiaweufjfkdequ[jcuryvgbywoerW'QEIOFHURETYJSDIQPHA;IW";
+				var obj={};
+				for(var i = 0 ; i<str.length; i++){				
+					var ch = str.charAt(i);
+					if(obj[ch]==undefined){
+						obj[ch]=1;
+					}else{
+						obj[ch]++
+					}
+				}
+			return obj;
+			}
+			console.log(rand());
+			*/
+			
+			//提取字符串
+			/*
+			function querryString(){
+				var str = "https://www.baidu.com/s?wd=%E7%BE%8E%E7%99%BD%E9%92%88&rsv_spt=1&rsv_iqid=0xa35bcd4a0000e0f8&issp=1&f=3&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=5&rsv_sug1=5&rsv_sug7=101&rsv_sug2=0&prefixsug=meib&rsp=0&inputT=2117&rsv_sug4=3084";
+				var p={};
+				
+				var ch = str.indexOf("?");
+				var ind=str.slice(ch+1);
+				var words=ind.split("&");
+				words.forEach(function(curr, value){
+					var newS=curr.split("=");
+					var name=newS[0],
+						value=newS[1];
+					p[name]=value;
+						
+					
+						
+				});
+				console.log(p);
+				
+			}
+			querryString();
+			*/
+			//驼峰命名法
+			function isName(){
+				 var str="Learn hOw to PROgram in JAVASCRIPT with guides and tutorials";	 
+				 var lower=str.toLowerCase();
+				
+				 var words=lower.split(" ");
+				for(var i=1;i<words.length;i++){
+					 words[i]=words[i].charAt(0).toUpperCase()+words[i].slice(1);
+				}
+				 str = words.join("");
+				 console.log(str);
+			}
+			isName();
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

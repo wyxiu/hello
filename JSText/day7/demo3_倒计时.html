@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="deadline" value="2018-08-25T00:00:00"> 
+	<button id="btn">倒计时</button> 
+	<input type="text" id="result" value="?天?时?分?秒">
+
+	<script>
+		document.getElementById("btn").onclick = function(){
+			var timer = setInterval(function(){
+				// 当前时间毫秒值
+				var current = new Date().getTime();
+				// 计时终点时间毫秒值(1970-1-1 0:0:0)
+				var _deadline = Date.parse(document.getElementById("deadline").value);
+				// 求时间毫秒差值
+				var diff = _deadline - current;
+				// 换算为总秒数
+				var seconds = Math.ceil(diff / 1000); // 
+				// 将总秒数换算为天时分秒值
+				var sec = seconds % 60, // 秒
+					min = Math.floor(seconds / 60) % 60, // 分
+					hour = Math.floor(seconds / 3600) % 24 , // 时
+					days = Math.floor(seconds / (24 * 60 * 60)); // 天
+				// 连接成字符串
+				var _result = days + "天"+ hour +"时"+ min +"分"+ sec +"秒";
+				// 显示
+				document.getElementById("result").value = _result;
+
+				// 到达计时终点，则停止计时器
+				if (seconds <= 0) {
+					clearInterval(timer);
+				}
+			}, 1000);
+		}
+	</script>
+</body>
+</html>

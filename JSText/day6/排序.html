@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getOrder(){
+				var arrs=[12,23,35,56,78];
+				
+				for(var i=0;i<arrs.length-1;i++){
+					for(var j=i+1;j<arrs.length;j++){
+						if(arrs[i]<arrs[j])
+							var x =arrs[j];
+							arrs[j]=arrs[i];
+							arrs[i]=x;
+					}	
+						
+					}
+				document.write(arrs);
+			}
+			getOrder();
+		</script> 
+	</body>
+</html>

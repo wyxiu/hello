@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function order(){
+				var type=["方块","梅花","黑桃","红桃"];
+				var point=[2,3,4,5,6,7,8,9,10,"A","J","Q","K"];
+				var cards=["大王","小王"];
+				for(var i in type){
+					for(var j in point){
+						cards.push(type[i]+point[j]);
+					}	
+				}
+				var len=cards.length;
+				for(var k=0;k<len;k++){
+					rand=Math.floor(Math.random()*len);
+					var temp = cards[k];
+						cards[k]=cards[rand];
+						cards[rand]=temp;
+				}
+				return cards;
+			}
+			console.log(order());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="checkbox" onclick="check()" value="" id="btn"/>全选/取消<br />
+			<input type="checkbox" name="interest" value="" /><br />
+			<input type="checkbox" name="interest" value="" /><br />
+			<input type="checkbox" name="interest" value="" /><br />
+			<input type="checkbox" name="interest" value="" /><br />
+			
+		</form>
+		<script type="text/javascript">
+			var aAll = document.getElementsByTagName("input");
+			var btn = document.getElementById("btn");
+			function check(){
+				for(i=1; i<aAll.length;i++){
+					aAll[i].checked = btn.checked;
+				}
+			}
+		</script>
+	</body>
+	</body>
+</html>

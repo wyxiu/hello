@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function isSum(n){
+				var arr=new Array(n);	
+				var count="";
+					arr[0]=1;
+				var sum=arr[0];
+				document.write("第1个格子的数量1，重量是0.00001"+"<br/>");
+				for(var i=1;i<arr.length;i++){
+					count++;
+					arr[i]=2*arr [i-1];
+					sum += arr[i];
+					document.write("第"+(count+1)+"个格子的数量"+arr[i]+ ","+"重量为"+sum*0.00001+"<br/>");
+				}
+				document.write("总数量为："+sum+","+"总重量为："+sum*0.00001);
+			}
+		
+				isSum(64);		
+		</script>
+	</body>
+</html>

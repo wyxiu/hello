@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function isName(){
+				var str="Learn hOw to PROgram in JAVASCRIPT with guides and tutorials";
+				var words=[];
+				var _str=str.toLowerCase().split(" ");
+//				console.log(_str);
+				for(var i=1;i<_str.length;i++){
+					 words[i]=_str[i].charAt(0).toUpperCase()+_str[i].slice(1);				
+				}
+				_str=words.join("");
+				console.log(words);
+				
+			}
+			isName();	
+		</script>
+	</body>
+</html>

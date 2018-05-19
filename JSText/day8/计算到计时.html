@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function myDate(){
+				//2018年5月17日的总毫秒数
+				var date1=new Date().getTime();
+//					var now=Date.parse("date1");
+				console.log(date1);
+				//2018年8月25日的总毫秒数
+				var date2=Date.parse("8 25,2018");
+				console.log(date2);
+				var str=(date2-date1)/(1000*60*60*24);
+				console.log(str);
+				
+			}
+			myDate()
+		</script>
+		
+		
+	</body>
+</html>

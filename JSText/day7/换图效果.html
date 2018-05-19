@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width: 1228px;
+				height: 80px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.box1 span{
+				position: absolute;
+				text-align: center;
+				line-height: 20px;
+				top:0px;
+				right: 5px;
+				font-size: 16px;
+				color: white;
+				
+			}
+			.banner{
+				width: 1228px;
+				height: 350px;
+				background: pink;
+				margin:  0 auto;
+			}
+		</style>
+		
+		
+		
+	</head>
+	<body>
+	
+			<div class="box1" id="pic1">
+				<img id="img1" src="img/head_adv1.jpg"/>
+				<span id="sp">X</span>
+			</div>
+	
+		<div class="banner">
+		</div>
+		
+		<script type="text/javascript">
+			var _pic1=document.getElementById("pic1");
+			var _sp=document.getElementById("sp");
+			var img1=document.getElementById("img1");
+			_sp.onclick=function(){
+				_pic1.style.display="none";	
+				_pic2.style.display="none";	
+			}
+				_pic1.onmouseover=function(){
+					_pic1.style.height="250px";
+					 img1.src = "img/head_adv2.jpg"
+				_pic1.onmouseout=function(){
+					_pic1.style.height="80px";
+					 img1.src = "img/head_adv1.jpg"
+				}
+			}
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
