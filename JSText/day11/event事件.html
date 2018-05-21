@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" style="width: 100px;height: 100px;background: red;position: absolute;">
+			
+		</div>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.onmousemove=function (e) {
+				var e= e || event;
+				var x= e.clientX,
+					y=e.clientY;
+					//设置box的定位，有定位就涉及相对定位概念
+				$("#box").style.top=y + "px" ;
+				$("#box").style.left=x + "px" ;
+				
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function isName(){
+				var result;
+				if(document.getElementsByClassName){
+					result=document.getElementsByClassName("test");
+				}else{
+					result=[];
+					var tags=document.getElementsByTagName("*");
+					for(var i=0;i<tags.length;i++){
+						var className=tags[i].className.split(" ");						
+					}
+					for(var j=0;j<className.length;j++){
+						if(className[j]==="test"){
+							result.push(tags[i]);
+							break;
+							
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+			padding:0;
+			margin:0;
+		}
+		#box{
+			width: 500px;
+			height: 300px;
+			background: pink;
+			margin-top: 30px;
+		}
+		</style>
+		
+	</head>
+	
+	<body>
+		<button id="btn">隐藏</button>
+		<button id= "modify">修改</button>
+		<div id="box">	
+		</div>
+		<script src="JS/tools.js"></script>
+		
+		<script type="text/javascript">
+			$("#btn").onclick=function () {
+				$("#box").style.display="none";
+			}
+			
+			$("#modify").onclick = function(){
+				css($("#box"),{
+					border:"10px dashed black",
+					background:"red",
+				
+				});
+			}
+		</script>
+	</body>
+</html>
