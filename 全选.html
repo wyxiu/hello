@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="checkbox" name="" id="btn" value="" onclick="getAll()" />全选/取消<br />
+		<input type="checkbox" name="" id="" value="" /><br />
+		<input type="checkbox" name="" id="" value="" /><br />
+		<input type="checkbox" name="" id="" value="" /><br />
+		<input type="checkbox" name="" id="" value="" />
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var aChose = document.getElementsByTagName("input");
+
+			//			function getAll() {
+			//				for (var i = 1; i < aChose.length; i++) {
+			//					aChose[i].checked = btn.checked;
+			//				}
+			//
+			//			}
+
+			function getAll() {
+				if (btn.checked == true) {
+					for (var i = 1; i < aChose.length; i++) {
+						aChose[i].checked = true;
+					}
+				} else {
+					for (var i = 1; i < aChose.length; i++) {
+						aChose[i].checked = false;
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

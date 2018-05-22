@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<div id="result" style="background: red;width: 200px;height: 50px;"></div>
+		<script type="text/javascript">
+			
+			function deadtime(){
+				
+				var timer= setInterval(function(){	
+					
+				var overtime=Date.parse("2018-8-25");
+				var now = new Date().getTime();
+				var seconds=Math.ceil((overtime-now)/1000);
+				var sec=seconds%60,
+					min=Math.floor(seconds/60)%60,
+					hour=Math.floor(seconds/3600)%24,		
+					day=Math.floor(seconds/(3600*24));	
+					var res=day+"天"+hour+"小时"+min+"分钟"+sec+"秒";
+					document.getElementById("result").innerHTML=res;
+					
+					
+				},1000);
+				
+				return res;
+			}		
+			deadtime();
+		</script>
+	</body>
+</html>

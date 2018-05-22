@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--<input type="text" name="rows" id="rows" value="" />
+		<input type="text" name="cols" id="cols" value="" />
+		<button id="eq">生成</button>
+		<div id="box">
+			
+		</div>-->
+
+		<button id="first">删除第一行</button>
+		<button id="last">删除最后一行</button>
+		<table border="1" cellspacing="0" cellpadding="0" height="300" width="400">
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td><a href="javascript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>22</td>
+				<td>33</td>
+				<td>44</td>
+				<td><a href="javascript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>111</td>
+				<td>222</td>
+				<td>333</td>
+				<td>444</td>
+				<td><a href="javascript:void(0)">删除</a></td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			/*
+						document.getElementById("eq").onclick = function (){
+							var _tab= document.createElement("table");	
+								_tab.border=1;
+							var _rows=document.getElementById("rows").value;
+							var _cols= document.getElementById("cols").value;
+							for(var i =0 ;i < _rows; i++){
+								var _tr = document.createElement("tr");
+								  _tab.appendChild(_tr);
+								for(var j =0 ;j<_cols;j++){
+									var _td = document.createElement("td");
+									  _tr.appendChild(_td);
+									  _td.innerHTML="ok";
+								}
+							}
+							
+							document.getElementById("box").appendChild(_tab);
+							
+						}
+						*/
+			function $(selector, context) {
+				context = context || document;
+				if (selector.indexOf("#") === 0) {
+					return document.getElementById(selector.slice(1));
+				} else if (selector.indexOf(".") === 0) {
+					return byClass(selector.slice(1));
+				} else {
+					return context.getElementsByTagName(selector);
+				}
+
+			}
+
+			function byClass(className, context) {
+				context = document || context;
+				if (context.getElementsByClassName()) {
+					return context.getElementsByClassName(className);
+				} else {
+					var elements = context.getElementsByTagName("*");
+					var result = [];
+					for (var i = 0; i < elements.length; i++) {
+						var classNames = elements[i].className.split(" ");
+						for (var j = 0; j < classNames.length; j++) {
+							if (classNames[j] === className) {
+								result.push(elements[i]);
+							}
+						}
+					}
+
+				}
+				return result;
+			}
+			
+			/*
+
+			$("#first").onclick = function() {
+				var _tab = $("tbody")[0];
+				var _tr = $("tr")[0];
+				_tab.removeChild(_tr);
+
+			}
+			$("#last").onclick = function() {
+				var _tab = $("tbody")[0];
+				var _tr = $("tr");
+				var trs = _tr[_tr.length-1];
+				_tab.removeChild(trs);
+
+			}
+			
+		*/
+		var links= $("a");
+		//给每个a绑定删除事件
+		for(var i=0;i< links.length;i++){
+			links[i].onclick= function (){
+				var _tr = this.parentNode.parentNode;
+				var _tab = _tr.parentNode;
+				_tab.removeChild(_tr);
+				  
+			}
+		}
+		
+		</script>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

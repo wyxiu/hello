@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			for(var i=100; i<=999;i++){
+//				var a= Math.floor(i/100),
+//					b=Math.floor((i%100)/10),
+//					c=Math.floor(i%10);
+//					if(a*a*a+b*b*b+c*c*c===i){
+//							document.write(i+"<br/>");
+//					}
+//				
+//				
+//			}
+	
+	//取得一个随机数
+	var num = Math.floor(Math.random()*100);
+	var count=0;
+	
+	do{
+		var gus = +prompt("请输入一个两位数");
+		count++
+		if(gus>num){
+			
+		alert("输入的数字大了");
+	}else if(gus<num){
+		alert("输入的数字小了");
+	}else{	
+  		 document.write("这是第"+count+"次");			
+	}
+	
+}while(gus!=num)
+	
+	
+	
+	
+	
+//	do{		
+//		count++;
+//		if(gus>num){
+//		alert("输入的数字大了");
+//	}else if(gus<num){
+//		alert("输入的数字小了");
+//	}else{
+//		document.write(gus);
+//	}
+//}while(gue=!num)
+//	
+//	document.write(num);	
+//	document.write("这是第"+count+"次");		
+	
+//	var fi =8;
+//	var age=0;
+//	for(i=1;i<5;i++){
+//		age +=5;
+//	}
+//	age=age+fi;
+//	document.write(age);
+	
+	
+		</script>
+	</body>
+</html>

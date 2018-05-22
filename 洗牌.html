@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function random(){
+				var type = ["红桃","梅花","方块","黑桃"];
+				var point = [2,3,4,5,6,7,8,9,10,"J","Q","K","A"];
+				var cards = ["大王","小王"];
+				var count=[];
+				for(var i in type){
+					for(var j in point){
+						cards.push(type[i]+point[j]);
+						
+					}
+				}
+				for(var k= 0;k<54;k++){
+					var temp=Math.floor(Math.random()*54);
+					count=cards[k];
+					cards[k]=cards[temp];
+					cards[temp]=count;
+					
+				}
+				return cards;
+			}
+			console.log(random());
+		</script>
+	</body>
+</html>
