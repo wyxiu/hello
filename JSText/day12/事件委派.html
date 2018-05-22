@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#menu{
+				width:200px;
+				
+			}
+			#menu li{
+				width: 200px;
+				height: 30px;
+				list-style: none;
+				border: 1px solid;
+			}
+			#menu li:hover{
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">生成li</button>
+		<ul id ="menu">
+			<li>li_1</li>
+			<li>li_2</li>
+			<li>li_3</li>
+		</ul>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			var index = 4;
+			$("#btn").onclick = function () {
+				$("#menu").innerHTML += "<li>li_" + index++ + "</li>";
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#menu {
+				display: none;
+				position: absolute;
+				width: 100px;
+			}
+			#menu li{
+				width: 100px;
+				height: 30px;
+				list-style: none;
+				border: 1px solid;
+			}
+		#menu li:hover{
+			background: #ccc;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<ul id="menu">
+			<li>菜单一</li>
+			<li>菜单二</li>
+			<li>菜单三</li>
+			<li>菜单四</li>
+			<li>菜单五</li>
+		</ul>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.oncontextmenu = function (e) {
+				e = e || event ; 
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+				$("#menu"). style .display= "block";
+				$("#menu") . top = e.pageY + "px";
+				$("#menu") . left = e.pageX + "px";
+				
+				
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

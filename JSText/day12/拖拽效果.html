@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#menu{
+				position: absolute;
+				width: 100px;
+				height: 50px;
+				top:100px;
+				left: 100px;
+				border: 1px solid;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			kaishi			
+		</div>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#menu").onmousedown = function (e) {
+				e = e || event ;
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+				//获取事件源光标的位置
+				var _offsetX = e.offsetX,
+					_offsetY = e.offsetY;
+					
+
+				document.onmousemove = function (e) {
+					e = e || event ;
+					//获取光标在视口中的位置
+					var _clientX = e.clientX,
+						_clientY = e.clientY;
+					// 计算窗口宽高：
+					var winWidth = window.innerWidth || document.documentElement.clientWidth || 									document.body.clientWidth,
+						winHeight = window.innerHeight || document.documentElement.clientHeight									 									|| document.body.clientHeight;
+					//获取元素的宽、高
+					var eWidth = $("#menu").offsetWidth,
+						eHeight =	$("#menu").offsetHeight;
+					//计算 元素的定位位置
+						var _top = _clientY - _offsetY,
+							_left = _clientX - _offsetX;
+						if(_left<0)
+							_left = 0;
+						else if(_left>winWidth - eWidth)
+							_left = winWidth - eWidth;
+						if (_top<0)
+							_top = 0;
+						else if(_top>winHeight - eHeight)
+							_top = winHeight - eHeight;
+						
+						$("#menu").style.top = _top + "px";
+						$("#menu").style.left = _left + "px";
+						
+				}
+				document.onmouseup = function () {
+					document.onmousemove =null;
+					document.onmouseup = null;
+				}
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

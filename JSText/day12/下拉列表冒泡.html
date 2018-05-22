@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			#box{
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				border: 1px solid;
+			}
+			#menu{
+				width: 200px;
+				display: none;
+			}
+			#menu li{
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				list-style: none;
+				border: 1px solid;
+			}
+			#menu li:hover{
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">今晚吃什么</div>
+		<ul id="menu">
+			<li>西餐</li>
+			<li>中餐</li>
+			<li>火锅</li>
+			<li>稀饭</li>
+		</ul>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#box").onclick = function (e) {
+				
+				$("#menu").style.display="block";
+				//阻止事件冒泡行为
+				e= e || event;
+				e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+				
+				
+			}
+			
+			$("#menu").onclick = function (e) {
+				e= e || event;
+				var src = e.target || e.srcElement;
+				//需要判断，ul里有不是li的时候
+				if(src.nodeName==="LI"){
+					$("#box").innerHTML = src.innerHTML;
+					
+				}
+				
+			}
+			
+			/*
+			var lis = $("li");
+			for(var i =0; i<lis.length; i++){
+				lis[i].onclick = function () { 
+					$("#box").innerHTML = this.innerHTML;
+				}
+			}
+			*/
+			
+			document.onclick = function () {
+				
+				$("#menu").style.display="none";
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
