@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function css(elment,attr){
+				context = contxt || document;
+				//获取
+				if(typeof attr === "string" ){
+					return document.getComputedStyle ? document.getComputedStyle(elment[attr])
+							:elment.currentStyle[attr];
+				//设置属性
+				if(typeof attr === "object"){
+					for(var i in attr){
+						elment.style[i] = attr[i];
+					}
+				}
+				}
+			}
+		</script>
+	</body>
+</html>

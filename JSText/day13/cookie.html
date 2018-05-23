@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>记录cookie</h1>
+		<form action="">	
+		<input type="text" name="" id="username"  value="" placeholder="请输入用户名"/><br />
+		<input type="password" name="" id="password"  value="" placeholder="密码"/><br />
+		<input type="checkbox" name="" id="checkbox" value="" />记住用户名<br />
+		<input type="button" name="eq" id="eq" value="登录" />
+		</form>
+		<script type="text/javascript">
+			document.getElementById("eq").onclick = function () {
+				//判断复选框是否为选中状态
+				var status = document.getElementById("checkbox").checked;
+				if(status === true){
+					//保存cookie
+				var _username = document.getElementById("username").value;
+				var _password = document.getElementById("password").value;
+				var datetime = new Date();
+				datetime.setDate(datetime.getDate()+7);
+				document.cookie = "username=" + _username +";expires="+ datetime.toUTCString();
+				document.cookie = "password=" + _password +";expires="+ datetime.toUTCString();
+				
+				}
+				else{
+					//不記住，刪除
+				var datetime = new Date();
+				datetime.setDate(datetime.getDate()-1);
+				document.cookie = "username=" + _username +";expires="+ datetime.toUTCString();
+				document.cookie = "password=" + _password +";expires="+ datetime.toUTCString();
+				}
+				
+			//保存存储的cookie,有则显示在页面
+				window.onload  = function () {
+				var allCookies = document.cookie .split("; ");
+				for(var i =0,len = allCookies.length; i<len;i++){
+					var parts = allCookies[i].split("=");
+					if(parts[0] === "usename"){
+						document.getElementById("username").value = parts[1];
+						
+					}else if(parts[0] === "password"){
+						document.getElementById("password").value = parts[1];
+					}
+					
+				}
+			}
+				
+			}
+		</script>
+	</body>
+</html>

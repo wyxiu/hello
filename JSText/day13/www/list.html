@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表页面-笔记本</title>
+	<link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+	<h1>购物车：</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<td>图片</td>
+				<td>描述</td>
+				<td>价格</td>
+				<td>数量</td>
+				<td>小计</td>
+				<td>操作</td>
+			</tr>			
+		</thead>
+		<tbody id="cart_body" style="display: none;">
+			<td>
+				<img src="images/1.jpg"/>
+			</td>
+			<td>
+				1111
+			</td>
+			<td>4568</td>
+			<td>1</td>
+			<td><a href="javascript:void(0):">删除</a></td>
+		</tbody>
+	</table>
+
+	
+	<h1>推荐商品信息</h1>
+	
+	<div class="container">
+		
+	</div>
+	<div class="template" style="display: none;" data-id="商品id">
+			<img class="img" src="images/1.jpg">
+			<div class="desc"><a href="#">联想(Lenovo)拯救者R720 15.6英寸大屏游戏笔记本电脑(i5-7300HQ 8G 1T+128G SSD GTX1050Ti 4G IPS 黑金)</a></div>
+			<div class="price">￥<span class="pay">4799</span></div>
+			<div class="addToCart">加入购物车</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/list.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	width: 1000px;
+	position: relative;
+	margin: 10px auto;
+}
+
+.container {
+	width: 1000px;
+	position: relative;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+.product {
+	width : 200px;
+	height: 400px;
+	border : 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #666;
+	padding: 10px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 10px;
+}
+
+.img {
+	width: 200px;
+}
+
+.desc {
+	line-height: 25px;
+}
+
+.desc a:link, .desc a:visited {
+	color : #666;
+	text-decoration: none;
+}
+
+.price {
+	color : #f00;
+}
+
+.pay {
+	font-size: 26px;
+}
+
+.addToCart {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border:1px solid #666;
+	background: #ccc;
+}
