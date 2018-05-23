@@ -11,5 +11,33 @@
 				var options = option || {}
 			}
 		</script>
+		<script type="text/javascript">
+			var products =[]
+		products.forEach(function(curr){
+			var copy = $(".content")[0].cloneNode(true);
+			copy.className = "box";
+			copy.display = "inline-block";
+			copy.children[0].src = curr.img;
+			
+			$(".box")[0].appendChild(copy);
+			
+		});
+			//为“加入购物车添加点击事件”
+			$().onclick= function(e){
+				e=e||event;
+				var src = e.target|| e.srcElement;
+				var _list = src.parentNode;
+				var id = _list.dataset.id,
+					img = _list.children[0].src;
+					
+					var _copy = $("#car").cloneNode(true);
+					_copy.className="box";
+					_copy.style.display="block";
+					_copy.children.src=img;
+					
+			}
+		
+		</script>
+		
 	</body>
 </html>
