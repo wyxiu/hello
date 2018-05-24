@@ -47,38 +47,42 @@ products.forEach(function(prod) {
 
 //为加入购物车添加点击事件
 
-$(".container")[0].onclick=function (e) {
-	e = e || event ;
-	var src = e.target || e.srcElement ; 
-	if(src.className === "addToCart"){
+$(".container")[0].onclick = function(e) {
+	e = e || event;
+	var src = e.target || e.srcElement;
+	if (src.className === "addToCart") {
 		var _box = src.parentNode;
-		var  car ={ id:_box.dataset.id,
-					img :_box.children[0].src,
-					desc : _box.children[1].firstChild.innerHTML,
-					price : _box.children[2].lastChild.innerHTML,
-					amount: 1
-			};
-			var carPro = cookie("products");
-			if(carPro){
-				carPro = JSON.parse(carPro);
+		var car = {
+			id: _box.dataset.id,
+			img: _box.children[0].src,
+			desc: _box.children[1].firstChild.innerHTML,
+			price: _box.children[2].lastChild.innerHTML,
+			amount: 1
+		};
+		var carPro = cookie("products");
+		if (carPro) {
+			carPro = JSON.parse(carPro);
+		} else {
+			carPro = [];
+		}
+		
+		carPro.forEach(function(curr, i) {
+			if (curr.id == car.id) {
+				curr.amount = curr.amount + 1;
+				//carPro.splice(i, 1);
+				car.amount = 0;
 			}
-			else{
-				carPro = [];
-			}
-			carPro.forEach(function(curr){
-				if(curr.id == car.id){
-					
-				}
-				
-				curr.amount = curr.amount+1;
-				carPro.splice(curr);
-				
-				
-			});
-				carPro.push(car);
-				cookie("products",JSON.stringify(carPro), {expires:10, path:"/"});
-				console.log("添加成功");
-			
+		});
+		if (car.amount > 0) {
+			carPro.push(car);
+		}
+		console.log(carPro);
+		cookie("products", JSON.stringify(carPro), {
+			expires: 10,
+			path: "/"
+		});
+		console.log("添加成功");
+
 	}
 
 }
