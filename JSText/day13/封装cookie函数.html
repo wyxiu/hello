@@ -6,38 +6,56 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			function cookie(key,value,option){			
-				var cookie =key + "=" + value ;
-				var options = option || {}
+			function cookie(key,value,option){
+				if(value !==undefined){
+				//保存
+				var cookie =encodeURIComponent(key) + "=" + encodeURIComponent(value) ;
+				var options = option || {};
+				if(option.expires){//表示天数的数字
+					var date = new Date();
+					date.setDate(date.getDate()+option.expires);
+					cookie += ";expires=" +　date.toUTCString();
+				}
+				if(optin.path){
+					cookie += ";path=" + option.path;
+				}
+				if(option.domain){
+					cookie += ";domain=" + option.domain;
+				}
+				if(option.secure){
+					cookie += ";secure=" + option.secure;
+				}
+				 document.cookie=cookie;
+				 return;
+				
+				}
+				
+				var cookie = document.cookie.split("; ");
+				for(var i=0;i<cookie.length;i++){
+					var parts = cookie[i].split("=");
+				var name = decodeURIComponent(parts.shift());
+				if(name == key ){
+					return decodeURIComponent(parts.join("="));
+				}
+					
+					
+				}
+				
+				
+				return undefined;
+				
+				
 			}
+			
+			function removeCookie(key,option){
+				option = option ||{};
+				option.expires = -1 ;
+				cookie(key,"",option);
+			}
+			
 		</script>
-		<script type="text/javascript">
-			var products =[]
-		products.forEach(function(curr){
-			var copy = $(".content")[0].cloneNode(true);
-			copy.className = "box";
-			copy.display = "inline-block";
-			copy.children[0].src = curr.img;
-			
-			$(".box")[0].appendChild(copy);
-			
-		});
-			//为“加入购物车添加点击事件”
-			$().onclick= function(e){
-				e=e||event;
-				var src = e.target|| e.srcElement;
-				var _list = src.parentNode;
-				var id = _list.dataset.id,
-					img = _list.children[0].src;
-					
-					var _copy = $("#car").cloneNode(true);
-					_copy.className="box";
-					_copy.style.display="block";
-					_copy.children.src=img;
-					
-			}
 		
-		</script>
+
 		
 	</body>
 </html>

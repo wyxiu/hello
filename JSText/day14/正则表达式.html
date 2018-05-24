@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="word" value="" /><br />
+		<span id="info"></span>
+		<button id="btn">验证</button>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("btn").onclick=function(){
+			var _word = document.getElementById("word").value;
+			// 用户名规则：以字母开头，可以包括字母、数字符号，长度在6到20位之间
+			//var reg = /^[a-zA-Z][a-zA-Z0-9]{5,19}$/;
+			//验证省份证
+			//var reg = /^\d{17}[\dx]$/i;
+			//手机号以131开头
+			var reg = /^131\d{8}$/
+			var b =reg.test(_word);
+			if(b===true){
+				document.getElementById("info").innerHTML = "符合规则";
+			}else{
+			document.getElementById("info").innerHTML = "不符合规则";
+			}
+		}
+		
+		//去掉空白字符的方法
+		function trim(str){
+			if(String.prototype.trim)
+			return str.trim;
+			else{
+				var reg = /^\s+|\s+$/g;
+				return str.replace(reg,"");
+				
+			}
+		}
+	</script>
+</html>

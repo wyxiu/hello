@@ -46,37 +46,50 @@ products.forEach(function(prod) {
 });
 
 //为加入购物车添加点击事件
-/*
-$(".container")[0].onclick = function (e) {
+
+$(".container")[0].onclick=function (e) {
 	e = e || event ;
-	var src = e.target || e.srcElement;
+	var src = e.target || e.srcElement ; 
 	if(src.className === "addToCart"){
 		var _box = src.parentNode;
-		var currProdcut = {
-			id: _box.dataset.id,
-			img:_box.children[0].src,
-			desc : _box.children[1].firstChild.innerHTML,
-			price : _box.children[2].lastChild.innerHTML,
-			amount : 1,
-		};
-		var products = cookie("products");
-		if(products)
-			products = JSON.parse(products);
-		else
-			products = [] ;
-			products.push(currProdcut);
-			cookie("products",JSON.stringify(products),{expires:10, path:"/"});
-		
-		
+		var  car ={ id:_box.dataset.id,
+					img :_box.children[0].src,
+					desc : _box.children[1].firstChild.innerHTML,
+					price : _box.children[2].lastChild.innerHTML,
+					amount: 1
+			};
+			var carPro = cookie("products");
+			if(carPro){
+				carPro = JSON.parse(carPro);
+			}
+			else{
+				carPro = [];
+			}
+			carPro.forEach(function(curr){
+				if(curr.id == car.id){
+					
+				}
+				
+				curr.amount = curr.amount+1;
+				carPro.splice(curr);
+				
+				
+			});
+				carPro.push(car);
+				cookie("products",JSON.stringify(carPro), {expires:10, path:"/"});
+				console.log("添加成功");
+			
 	}
-	
+
 }
-*/
+
+/*
 var count = 0;
 var list = new Array();
-$(".container")[0].onclick = function(e) {
+$(".container")[0].onclick = function(e) {	
 	e = e || event;
 	var src = e.target || e.srcElement;
+	if(src.className === "addToCart"){
 	var _box = src.parentNode;
 	var id = _box.dataset.id,
 		img = _box.children[0].src,
@@ -84,18 +97,18 @@ $(".container")[0].onclick = function(e) {
 		price = _box.children[2].lastChild.innerHTML;
 
 	for (var i = 0; i < list.length; i++) {
-		if (list[i] == img) {
-			var _child = $("table")[0].children[i + 2];
-			var n = parseInt(_child.children[0].children[3].innerHTML);
-			console.log(_child.children[0].children[3].innerHTML);
-			_child.children[0].children[3].innerHTML = parseInt(n + 1);
+		if (list[i] === img) {
+			var _child = $("tbody")[0].children[i].children;
+			var n = _child[0].innerHTML;
+			//console.log(n);
+			_child[0].innerHTML = parseInt(n + 1);
 			return;
 		}
 	}
 	var copy = $(".cart_body")[0].cloneNode(true);
 	//console.log(img, desc, price);
 	copy.className = "cart";
-	copy.style.display = "block";
+	copy.style.display = "table-row";
 	var _child = copy.children;
 	_child[0].firstElementChild.src = img;
 	_child[1].innerText = desc;
@@ -105,8 +118,9 @@ $(".container")[0].onclick = function(e) {
 	};
 	$("tbody")[0].appendChild(copy);
 
-	console.log($("table")[0].innerHTML);
+	//console.log($("table")[0].innerHTML);
 	list[count] = img;
 	count++;
 
 }
+*/
