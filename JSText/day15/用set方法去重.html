@@ -1,109 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			#box{
+			#box {
 				width: 800px;
 				height: 500px;
 				border: 1px solid;
-				margin: 0 auto;
+				margin: 0 		auto;
+				position: relative;
 			}
-			#content{
+			
+			#content {
 				width: 50px;
 				height: 50px;
 				background: #ccc;
 				position: absolute;
-				left: 0px;
-				top: 0px;
 			}
 		</style>
 	</head>
+
 	<body>
 		<div id="box">
 			<div id="content">
-				
+
 			</div>
 		</div>
 		<script type="text/javascript">
 			/*
-			var array = [1,2,1,3,5,2,3,8,5,6,9,5];
-			var result = Array.from(new Set(array));
-			console.log(result);
-			*/
+												var array = [1,2,1,3,5,2,3,8,5,6,9,5];
+												var result = Array.from(new Set(array));
+												console.log(result);
+												*/
 			/*
 			var array = [7,9,7,2];
 			var result = array.map(curr => curr+5);
 			console.log(result);
 			*/
-//			var stu = {
-//				name : "张三",
-//				study : function(){
-//					setTimeout(()=>{
-//						console.log(this.name + " 学习新的知识");
-//					},1000);
-//				}
-//			}
-//			stu.study();
-		
-//		function byClassName(element,context){
-//			var result = [];
-//			context = context || document ;
-//			if(context.getElementsByClassName){
-//				return context.getElementsByClassName(element);
-//			}else{
-//				var elements = context.getElementsByTagName("*");
-//				for(var i =0,len=elements.length;i<len;i++){
-//					
-//					var parts = elements[i].className.split(" ");
-//					for(var j=0;j<parts.length;j++){
-//						if(parts[j] == element){
-//							result.push(elements[i]);
-//							break;
-//						}
-//					}
-//				}
-//			}
-//		}
-	document.getElementById("content").onmousedown = function (e) {
-		e =　e || event ;
-		e.preventDefault ? e.preventDefault() : e.returnValue = false ;
-		var boxWidth = 
-		
-		document.onmouseover = function (e) {
-		e =　e || event ;
-		var _x = e.clientX;
-		var _y = e.clientY;
-		
-		document.getElementById("content").style.left = _x + "px";
-		document.getElementById("content").style.top = _y + "px";
-	}
+			//			var stu = {
+			//				name : "张三",
+			//				study : function(){
+			//					setTimeout(()=>{
+			//						console.log(this.name + " 学习新的知识");
+			//					},1000);
+			//				}
+			//			}
+			//			stu.study();
 
-}
-	
-		document.onmouseup = function(){
-			document.onmouseover = null;
-			document.onmouseup = null;
-		
-	}
-		
+			//		function byClassName(element,context){
+			//			var result = [];
+			//			context = context || document ;
+			//			if(context.getElementsByClassName){
+			//				return context.getElementsByClassName(element);
+			//			}else{
+			//				var elements = context.getElementsByTagName("*");
+			//				for(var i =0,len=elements.length;i<len;i++){
+			//					
+			//					var parts = elements[i].className.split(" ");
+			//					for(var j=0;j<parts.length;j++){
+			//						if(parts[j] == element){
+			//							result.push(elements[i]);
+			//							break;
+			//						}
+			//					}
+			//				}
+			//			}
+			//		}
+
+			var boxWidth = document.getElementById("box").offsetWidth;
+			var boxHeight = document.getElementById("box").offsetHeight;
+			var conWidth = document.getElementById("content").offsetWidth;
+			var conHeight = document.getElementById("content").offsetHeight;
+			var winWidth = window.innerWidth;
+			var winHeight = window.innerHeight;
+			document.getElementById("content").onmousedown = function(e) {
+				e = 　e || event;
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+				document.onmousemove = function(e) {
+					e = 　e || event;
+					var _x = e.clientX;
+					var _y = e.clientY;
+					console.log(_x + "---" + _y);
+					var _left = _x - ((winWidth / 2) - (boxWidth / 2));
+					var _top = _y -((winHeight / 2)-(boxHeight/2));
+					if(_left<0)
+						_left = 0;
+					else if(_left>boxWidth-conWidth)
+						_left = boxWidth-conWidth;
+					if(_top<0)
+						_top = 0;
+					else if (_top>boxHeight-conHeight)
+						_top=boxHeight-conHeight;
+					
+//					var _top = _y;
+//					console.log(_left + "---" + _y);
+					document.getElementById("content").style.left = _left + "px";
+					document.getElementById("content").style.top = _top + "px";
+				}
+
+				document.onmouseup = function() {
+					console.log("---onmouseup");
+					document.onmousemove = null;
+					document.onmouseup = null;
+
+				}
+
+			}
+			
 		</script>
 	</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
