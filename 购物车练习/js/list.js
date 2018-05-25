@@ -59,7 +59,17 @@ $(".container")[0].onclick = function(e) {
 		} else {
 			carPro = [];
 		}
-		carPro.push(car);
+		carPro.forEach(function(curr){
+			if(curr.id == car.id){
+				curr.amount =curr.amount + 1;
+				car.amount=0;		
+			}
+			
+		});
+		if(car.amount>0){
+			carPro.push(car);
+		}
+		
 		cookie("products",JSON.stringify(carPro),{expires: 10,
 			path: "/"});
 

@@ -17,7 +17,7 @@ function refreshCar() {
 					<td><img src="${curr.img}"/></td>
 					<td>${curr.desc}</td>
 					<td>${curr.price}</td>
-					<td><div class="amount">${curr.amount}</div></td>
+					<td><div class="num">${curr.amount}</div></td>
 					<td>${curr.price*curr.amount}</td>
 					<td><a href="javasript:void(0);">删除</a></td>
 				</tr>
@@ -50,9 +50,10 @@ $("#car_shop").onclick = function(e) {
 			expires: 10,
 			path: "/"
 		});
-		//_tr.parentNode.removeChild(_tr);
+		_tr.parentNode.removeChild(_tr);
 		refreshCar();
-	}else if(src.nodeName === "DIV"){
+	}
+	else if(src.nodeName === "DIV"){
 		var _tr = src.parentNode.parentNode;
 		var _id = _tr.children[0].innerHTML;
 		var carPro = cookie("products");
@@ -61,7 +62,7 @@ $("#car_shop").onclick = function(e) {
 		} else {
 			carPro = [];
 		}
-		carPro.forEach(function(cur, i) {
+		carPro.forEach(function(cur) {
 			if (cur.id == _id) {
 				cur.amount++;
 			}
