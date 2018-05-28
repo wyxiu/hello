@@ -29,14 +29,15 @@ var products = [{
 	price: 7988,
 	img: "images/6.jpg"
 }];
-products.forEach(function(currrent) {
+
+products.forEach(function(current) {
 	var copy = $(".template")[0].cloneNode(true);
 	copy.className = "product";
 	copy.style.display = "inline-block";
-	copy.setAttribute("data-id", currrent.id);
-	copy.children[0].src = currrent.img;
-	copy.children[1].firstChild.innerHTML = currrent.desc;
-	copy.children[2].lastChild.innerHTML = currrent.price;
+	copy.setAttribute("data-id", current.id);
+	copy.children[0].src = current.img;
+	copy.children[1].firstChild = current.desc;
+	copy.children[2].lastChild = current.price;
 	$(".container")[0].appendChild(copy);
 
 });
@@ -44,34 +45,53 @@ products.forEach(function(currrent) {
 $(".container")[0].onclick = function(e) {
 	e = e || event;
 	var src = e.target || e.srcElement;
-	if (src.className == "addToCart") {
-		var box = src.parentNode;
+	if(src.className === "addToCart") {
+		var _box = src.parentNode;
 		var car = {
-			id: box.dataset.id,
-			img: box.children[0].src,
-			desc: box.children[1].firstChild.innerHTML,
-			price: box.children[2].lastChild.innerHTML,
+			id: _box.dataset.id,
+			img: _box.children[0].src,
+			desc: _box.children[1].firstChild.innerHTML,
+			price: _box.children[2].lastChild.innerHTML,
 			amount: 1
-		};
-		var carPro = cookie("products");
-		if (carPro) {
-			carPro = JSON.parse(carPro);
-		} else {
-			carPro = [];
-		}
-		carPro.forEach(function(curr){
-			if(curr.id == car.id){
-				curr.amount =curr.amount + 1;
-				car.amount=0;		
-			}
-			
-		});
-		if(car.amount>0){
-			carPro.push(car);
-		}
-		
-		cookie("products",JSON.stringify(carPro),{expires: 10,
-			path: "/"});
 
+		};
+
+		var carShop = cookie("products");
+
+		if(carShop) {
+			carShop = JSON.parse(carShop);
+		} else {
+			carShop = [];	
+		}
+		carShop.forEach(function(curr){
+			if(curr.id == car.id){
+				curr.amount = curr.amount +1 ;
+				car.amount = 0;
+			}
+		});
+		if(car.amount>0)
+		carShop.push(car);
+		
+		cookie("products",JSON.stringify(carShop), {
+			expires: 10,
+			path: "/"});	
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

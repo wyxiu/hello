@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			#container{
+				margin: 100px auto;
+				width: 1000px;
+				height: 600px;
+				background: #ccc;
+				position: relative;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: gold;
+				left: 20px;
+				top: 20px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">开始</button>
+		<div id="container">
+			<div id="box"></div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#btn").onclick=function(){
+				var startW = parseInt(css($("#box") ,"left")),//获取元素其实位置的值，调用css函数转换为数字
+					startT = parseInt(css($("#box") ,"top")),
+					endW = $("#container").clientWidth - $("#box").offsetWidth,
+					endH = $("#container").clientHeight - $("#box").offsetHeight,
+					speedX = 2,//设置水平方向的速度
+					speedY = 6;//设置垂直方向的速度
+				var timer = setInterval(function(){
+					startW +=speedX;
+					startT +=speedY;
+					$("#box").style.left = startW +"px";
+					$("#box").style.top = startT +"px";
+					if(startW >=endW || startW <=0){
+						speedX *= -1;
+					}
+					if(startT>=endH || startT <= 0){
+						speedY *= -1;
+					}		
+					
+				}, 1000/60);
+				
+			}
+			
+		</script>
+	</body>
+</html>

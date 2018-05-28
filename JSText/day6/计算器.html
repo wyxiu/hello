@@ -48,38 +48,38 @@
 		<div class="box">
 			<div class="eq" id="res"></div>
 			<div class="btn">
-				<button id="txt">7</button>
-				<button id="txt">8</button>
-				<button id="txt">9</button>
-				<button id="btn">/</button>
-				<button id="txt">4</button>
-				<button id="txt">5</button>
-				<button id="txt">6</button>
-				<button id="btn">*</button>
-				<button id="txt">1</button>
-				<button id="txt">2</button>
-				<button id="txt">3</button>
-				<button id="btn">-</button>
-				<button id="txt">0</button>
-				<button id="eq" >=</button>
-				<button id="btn">.</button>
-				<button id="btn">+</button>
+				<button >7</button>
+				<button >8</button>
+				<button >9</button>
+				<button >/</button>
+				<button >4</button>
+				<button >5</button>
+				<button >6</button>
+				<button id="fh">*</button>
+				<button >1</button>
+				<button >2</button>
+				<button >3</button>
+				<button >-</button>
+				<button >0</button>
+				<button >=</button>
+				<button >.</button>
+				<button >+</button>
 			</div>
 		</div>
+		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			document.getElementById("eq").onclick = function(value){
-				
-				var _eq=document.getElementById("eq");
-				var _txt=document.getElementById("txt").value;
-				var _btn=document.getElementById("btn").value;
-				var result;
-				switch(_btn){
-					case "+":
-						result=result + _txt;
-						break;
-				}
-				document.getElementById("res").innerHTML=result;
-			}
+			
+			
+			$(".btn")[0].onclick=function(e){
+				e=e || event;
+				src = e.target || e.srcElement;
+				if(src.nodeName === "BUTTON"){	
+					
+					//$("#res").innerText = 
+					}
+			
+		
+		}
 		</script>
 	</body>
 </html>
