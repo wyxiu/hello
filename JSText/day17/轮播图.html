@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width:590px ;
+				height: 470px;
+				border: 1px solid;
+				margin: 50px auto;
+				position: relative;
+			}
+			ul{
+				list-style: none;
+				position: relative;
+			}
+			li{
+				position: absolute;
+				top:0px;
+				left: 0px;
+				display: none;
+			}
+			.points{
+				width:150px;
+				height: 30px;
+				position: absolute;
+				bottom: 0px;
+				left: 35px;
+			}
+			.points i{
+				width: 6px;
+				height: 6px;
+				display: inline-block;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				opacity: .8;
+				margin: 5px;
+			}
+			.points i.current{
+				background: red;
+			}
+			.back, .next{
+				position: absolute;
+				width: 30px;
+				height:50px;
+				line-height: 50px;
+				text-align: center;	
+				background: #ccc;
+				opacity: .8;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.next{
+				right: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li style="display: block;"><img src="images/1.jpg"/></li>
+				<li><img src="images/2.jpg"/></li>
+				<li><img src="images/3.jpg"/></li>
+				<li><img src="images/4.jpg"/></li>				
+			</ul>
+			<div class="points">
+				<i class="current"></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+			<div class="back">&lt;</div>
+			<div class="next">&gt;</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var lis = $("li");
+			var len = lis.length;
+			var currIndex = 0;
+			var nextIndex = 1;
+			var pointsI = $("i");
+			
+			function move(){
+			fadeOut(lis[currIndex],2000);	
+			fadeIn(lis[nextIndex],2000);
+			pointsI[currIndex] .className="";
+			pointsI[nextIndex].className = "current"				
+			//修改索引
+			currIndex = nextIndex;
+			nextIndex++;			
+			//判断结束计时器
+				if(nextIndex>=len){
+					nextIndex=0;
+				}
+			
+			}
+			var timer = setInterval(move, 2000);
+			on($("#box"),"mouseenter",function(){
+				clearInterval(timer);
+			});
+			
+			on($("#box"),"mouseleave",function(){
+				timer = setInterval(move,2000);
+			});
+			
+			for(var i= 0;i<len;i++){//为每个小圆点绑定点击事件
+				 pointsI[i].index = i; 
+				
+				on(pointsI[i],"click",function(){
+					var index = this.index;
+					if(currIndex == index)
+					return;
+					nextIndex = index;
+					move();
+				});
+			}
+			on($(".back")[0],"click",function(){
+				nextIndex = currIndex-1;
+				if(nextIndex<0){
+				nextIndex = len - 1;
+				}
+				move();	
+			});
+			on($(".next")[0],"click",move);
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

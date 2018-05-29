@@ -166,12 +166,8 @@ function removeCookie(key, options) {
 	options.expires = -1;
 	// 保存，过期自动删除
 	cookie(key, "", options);
-}/*
- * 根据选择器条件，查找元素，选择器可以使用: #id   .class   element
- * @param selector 选择器字符串参数，如："#box",".text","div"
- * @param context 查找上下文，可选，默认取 document
- * @return 根据选择器查找到的元素
- */
+}
+
 /*
  * 多属性运动框架
  * @param element 待添加运动动画效果的DOM元素

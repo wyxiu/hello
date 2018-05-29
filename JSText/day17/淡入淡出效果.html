@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background: gold;
+				left: 100px;
+				top: 50px;
+				position: absolute;
+			}			
+		</style>
+	</head>
+	
+	<body>
+		<div id="box"></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function fadeIn(){//淡入
+				$("#box").style.display = "block";
+				$("#box").style.opacity = 0;
+				animate($("#box"),{opacity:1},3000);
+			}
+			function fadeOut(){//淡入
+				$("#box").style.opacity = 1;
+				animate($("#box"),{opacity:0},3000);
+				$("#box").style.display = "none";	
+			}
+			$("#box").onmouseover=function(){
+				fadeIn();
+			}
+			$("#box").onmouseout=function(){
+				fadeOut();
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

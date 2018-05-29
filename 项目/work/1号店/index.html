@@ -11,26 +11,36 @@
 		<div id="top_banner">
 			<img  id="img1" src="img/head_adv1.jpg"/>
 			<span id="hide">X</span>
+			<img  id="img2" src="img/head_adv2.jpg" style="display: none;"/>
 		</div>
+		<script src="js/js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var top_banner = document.getElementById("top_banner");
-			var _pic2=document.getElementById("pic2");
-			var hide = document.getElementById("hide");
-			var img1 = document.getElementById("img1");
-				hide.onclick = function (){
-				top_banner.style.display="none";
-				_pic2.style.display="none";	
+//			var top_banner = document.getElementById("top_banner");
+//			var _pic2=document.getElementById("pic2");
+//			var hide = document.getElementById("hide");
+//			var img1 = document.getElementById("img1");
+//				hide.onclick = function (){
+//				top_banner.style.display="none";
+//				_pic2.style.display="none";	
+//		}
+//				top_banner.onmouseover=function(){
+//						top_banner.style.height="250px";
+//						
+//						 img1.style.width="100%";
+//				top_banner.onmouseout=function(){
+//						top_banner.style.height="80px";
+//						  img1.src = "img/head_adv1.jpg";
+//						  img1.style.width="100%";
+//				}
+//			}
+		$("#top_banner").onmouseover = function(){
+			animate(this,{height:250},1000,function(){
+				$("#img1").style.display="none"
+				$("#img2").style.display="block"
+			});
+			
 		}
-				top_banner.onmouseover=function(){
-						top_banner.style.height="250px";
-						 img1.src = "img/head_adv2.jpg";
-						 img1.style.width="100%";
-				top_banner.onmouseout=function(){
-						top_banner.style.height="80px";
-						  img1.src = "img/head_adv1.jpg";
-						  img1.style.width="100%";
-				}
-			}
+		
 
 		</script>
 		<div class="wraptop_nav">
@@ -98,8 +108,29 @@
 			</div>
 		</div>
 		<div class="banner">
-			<div >
-				<img src="img/banner.jpg"/>
+			<ul class="pages" >	
+				<li><img src="img/banner.jpg"/></li>
+				<li><img src="img/banner1.jpg"/></li>
+				<li><img src="img/banner2.jpg"/></li>
+				<li><img src="img/banner3.jpg"/></li>
+				<li><img src="img/banner5.jpg"/></li>
+				<li><img src="img/banner6.jpg"/></li>
+				<li><img src="img/banner7.jpg"/></li>
+				<li><img src="img/banner8.jpg"/></li>
+				<li><img src="img/banner11.jpg"/></li>
+			</ul>
+			<div id="points">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+				
 			</div>
 			<ul>
 				<li>
