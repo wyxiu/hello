@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background: gold;
+				left: 100px;
+				top: 50px;
+				position: absolute;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function sport(element, options, speed) {
+				clearInterval(element.timer);
+				var start = {};
+				var range = {}
+				for(var attr in options) {
+					start[attr] = parseInt(css(element, attr));//部用number的原因是因为parseInt有一定的容错能力，，number解析100px为NAN；
+					range[attr] = options[attr] - start[attr];
+					//console.log(options[attr]);
+				}
+				var beginT = Date.now();
+				var timer;
+				element.timer = setInterval(function() {
+					var currTime = Date.now();
+					var t = currTime - beginT;
+					t = t > speed ? speed : t;
+					for(var i in options) {
+						var startOver = t * range[i] / speed + start[i];
+						element.style[i] = startOver + "px";
+						console.log(startOver);
+					}
+					//console.log(startOver + "--------" + t);
+
+					if(t === speed) {
+						clearInterval(element.timer);
+					}
+				}, 1000 / 60);
+			}
+
+			on($("#box"), "mouseover", function(){
+				sport($("#box"),{width:300,height:300},3000);
+			});
+//			
+//			$("#box").onmouseenter = function(){
+//			sport(this, {width: 300, height: 200, left: 300, top: 200}, 3000)
+//		}
+		</script>
+	</body>
+
+</html>

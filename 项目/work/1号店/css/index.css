@@ -4,15 +4,37 @@
 	background: #067bfe;
 	position: relative;
 }
-.banner div{
+.banner .pages{
 	width: 1023px;
 	height: 400px;
 	float: right;
 }
-.banner div img{
+.banner .pages li{
 	width: 1023px;
 	height: 400px;
-	margin: 0 auto;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+}
+.banner .points{
+	width:150px;
+	height: 30px;
+	position: absolute;
+	bottom: 0px;
+	left: 35px;
+}
+.banner .points i{
+	width: 6px;
+	height: 6px;
+	display: inline-block;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	opacity: .8;width: 6px;
+	height: 6px;
+	display: inline-block;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	opacity: .8;
 }
 .banner ul{
 	height: 400px;
