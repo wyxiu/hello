@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.content{
+				width: 90%;
+				position: relative;
+				margin: 0 auto;
+				border: 1px solid;
+			}
+			.content div{
+				width: 200px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				padding: 5px;
+				border-radius: 5px;
+				border: 1px solid;
+			}
+			.content div img{
+				width: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div><img src="images/imgs (1).jpg"/></div>
+			<div><img src="images/imgs (2).jpg"/></div>
+			<div><img src="images/imgs (3).jpg"/></div>
+			<div><img src="images/imgs (4).jpg"/></div>
+			<div><img src="images/imgs (5).jpg"/></div>
+			<div><img src="images/imgs (6).jpg"/></div>
+			<div><img src="images/imgs (7).jpg"/></div>
+			<div><img src="images/imgs (8).jpg"/></div>
+			<div><img src="images/imgs (9).jpg"/></div>
+			<div><img src="images/imgs (10).jpg"/></div>
+			<div><img src="images/imgs (11).jpg"/></div>
+			<div><img src="images/imgs (12).jpg"/></div>
+			<div><img src="images/imgs (13).jpg"/></div>
+			<div><img src="images/imgs (14).jpg"/></div>
+			<div><img src="images/imgs (15).jpg"/></div>
+			<div><img src="images/imgs (16).jpg"/></div>
+			<div><img src="images/imgs (17).jpg"/></div>
+			<div><img src="images/imgs (18).jpg"/></div>
+			<div><img src="images/imgs (19).jpg"/></div>
+			<div><img src="images/imgs (20).jpg"/></div>
+			<div><img src="images/imgs (21).jpg"/></div>
+			<div><img src="images/imgs (22).jpg"/></div>
+			<div><img src="images/imgs (23).jpg"/></div>
+			<div><img src="images/imgs (24).jpg"/></div>
+			<div><img src="images/imgs (25).jpg"/></div>
+			<div><img src="images/imgs (26).jpg"/></div>
+			<div><img src="images/imgs (27).jpg"/></div>
+			<div><img src="images/imgs (28).jpg"/></div>
+			<div><img src="images/imgs (29).jpg"/></div>
+			<div><img src="images/imgs (30).jpg"/></div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//先动态计算能放几列
+				var contentW = $(".content")[0].offsetWidth;
+				var divs = $("div",$(".content")[0]);
+				var colWidth = divs[0].offsetWidth;
+				//获得列
+				var cols =Math.floor(contentW/colWidth);
+				var spacing = (contentW - colWidth*cols)/(cols+1);
+				console.log(cols,spacing);
+				var height = new Array(cols);	
+				    height.fill(0);
+				for(var i=0;i<divs.length;i++){
+					var index = i%cols;
+					divs[i].style.left = index*colWidth + (index+1)*spacing + "px";
+					divs[i].style.top = height[index] + 10 + "px";
+					height[index] += divs[i].offsetHeight + 10;
+				}
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

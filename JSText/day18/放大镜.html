@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+			margin:0;
+			padding:0
+		}
+		.box,img{
+			width:400px;
+			height: 400px;
+			
+		}
+		.box{
+			width:400px;
+			height: 400px;
+			margin: 50px 30px;
+			position: relative;
+			border: 1px solid;
+		}
+		.box .len{
+			/*width: 200px;
+			height: 200px;*/
+			background: black;
+			opacity: .4;
+			position: absolute;
+			left:200px;
+			top:0px;
+			display: none;
+		}
+		.bigImg{
+			width:400px;
+			height: 400px;
+			overflow: hidden;	
+			position: absolute;
+			left: 450px;
+			top: 50px;	
+			border: 1px solid;
+			display: none;
+		}
+		.bigImg img{
+			width: 1200px;
+			height: 1200px;
+			position: absolute;
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<img src="images/middle.jpg" id="sImg"/>
+			<div class="len"></div>
+		</div>
+		<div class="bigImg">
+			<img src="images/big.jpg" id ="bImg"/>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var _box = $(".box")[0];
+			var _len = $(".len")[0];
+			var _bigImg = $(".bigImg")[0];
+			var bImg = $("#bImg");
+			var sImg = $("#sImg");
+			var boxL = _box.offsetLeft;
+			var boxT =  _box.offsetTop;
+			var bImgW =1;
+			var sImgW= 1;
+			var persent =1.0;
+			var lenW =1;
+			on(_box,"mouseenter",function(){
+				_len.style.display="block";
+				_bigImg.style.display="block";
+				
+				bImgW = bImg.offsetWidth;
+				sImgW= sImg.offsetWidth;
+				 persent =parseFloat(bImgW )/ parseFloat(sImgW);
+				 lenW = parseInt(sImgW/persent);
+				  _len.style.width = parseInt(lenW)+"px";
+				 _len.style.height = parseInt(lenW)+"px";
+			});
+			on(_box,"mouseleave",function(){
+				_len.style.display="none";
+				_bigImg.style.display="none";
+			});
+			on(_box,"mousemove",function(e){
+				e = e ||event ;
+				var lenX = e.clientX;
+				var lenY = e.clientY;
+				
+				var _left = lenX - boxL -lenW/2;
+				var _top = lenY - boxT - lenW/2;;
+				
+				if(_left<0)
+					_left = 0;
+					
+				else if(_left>sImgW-lenW)
+					_left = sImgW-lenW;
+					
+				if(_top<0)
+					_top = 0;
+				
+				else if(_top>sImgW-lenW)
+					_top = sImgW-lenW;
+				
+				_len.style.left = _left +"px";
+				_len.style.top = _top +"px";
+			
+				bImg.style.left = -persent * _left +"px";
+				bImg.style.top = -persent * _top +"px";
+				
+				
+			});
+			
+		</script>
+	</body>
+</html>

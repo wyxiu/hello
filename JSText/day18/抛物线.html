@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.slider{
+				width: 50px;
+				height: 100%;
+				background: black;
+				position: absolute;
+				top:0px;
+				right: 0px;
+			}
+			.slider .cart{
+				width: 30px;
+				height: 80px;
+				background: #ccc;
+				position: absolute;
+				top:100px;
+				right: 0px;
+			}
+			#addToCart{
+				position: absolute;
+				bottom: 100px;
+				left: 100px;
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slider">
+			<div class="cart">购物车</div>
+		</div>
+		<button id="addToCart">加入购物车</button>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			on($("#addToCart"),"click",function(e){
+				//动态生成一个小物体
+				var box = document.createElement("div");
+				//设置css属性
+				css(box ,{
+					width:"30px",
+					height:"30px",
+					background :"red",
+					position:"absolute",
+					left : e.pageX + "px",
+					top : e.pageY +"px"
+				});
+				document.body.appendChild(box);
+				var start = {
+					x : e.pageX + "px",
+					y :e.pageY + "px"
+				};
+				var end = {
+					x: $(".slider")[0].offsetLeft + $(".cart")[0].offsetLeft,
+					y:  $(".slider")[0].offsetTop + $(".cart")[0].offsetTop
+				};
+				//经过平移到原点，平移的距离
+				var move = {
+					x : end.x - start.x,
+					y : end.y - start.y
+				}
+				//根据公式y = ax*x + bx +c  a给固定值 c =0;
+				var a = 0.001 ;
+				var c = 0
+				var b = (move.y- a *move.x * move.x)/move.x;
+				//开始设置运动
+				var start =0;
+				var end = move.x;
+				var range = end - start;
+				var speed = 3000 ;
+				var beginT = Date.now();
+				var timer = setInterval(function(){
+					var overT = Date.now();
+					var t = overT - beginT;
+					
+				},3000);
+				
+				
+			});
+		</script>
+	</body>
+</html>

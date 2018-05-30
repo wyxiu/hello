@@ -104,23 +104,7 @@
 			    var points = $("i");
 			    
 			    
-			    function move(){
-			     var _left = -nextIndex * lisWidth;
-			     console.log(_left);
-			   //运动
-			  	 animate($("#imgs"),{left :_left},200,function(){//轮播结束后马上还原为初始状态
-			  	 	if(nextIndex>=len){//左还原
-			  	 	currIndex = 1;
-			   		nextIndex = 2;	
-			   		$("#imgs").style.left = -lisWidth + "px";	
-			  	 	}
-			  	 	else if(nextIndex ===1 ){//
-			  	 		currIndex= ;
-			  	 		nextIndex= ;
-			  	 		$("#imgs").style.left =  +"px";
-			  	 	}
-			   });
-			   
+			    function move(){		   
 			    var index = nextIndex - 1;
 			     if(index >= len-2){
 			     	index = 0;
@@ -131,12 +115,28 @@
 			    	points[i].className = "";
 			    }
 			    	points[index].className = "current";
-			    
-			   
+			    	 	
 			        currIndex = nextIndex;
 			        nextIndex++;    
+			     var _left = -nextIndex * lisWidth;
+			     console.log(_left);
 			   
-			   }
+			  
+			   if(nextIndex>=len){
+			  	 	currIndex = 1;
+			   		nextIndex = 2;
+			   		$("#imgs").style.left = 0;	
+			   		
+			   	}else if(nextIndex ===1 ){
+			  	 		currIndex= len-2;
+			  	 		nextIndex= len-1;
+			  	 	$("#imgs").style.left = -5*lisWidth + "px";		
+			  	 	}
+			   	var _left = -currIndex*lisWidth ;
+			   	//运动
+			  	 animate($("#imgs"),{left :_left},200);
+			  	 
+			    }
 			   
 			   var timer = setInterval(move, 2000);
 			    
