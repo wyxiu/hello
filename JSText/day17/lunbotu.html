@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">
+	<style type="text/css">
 			*{
 				margin: 0;
 				padding: 0;
@@ -14,7 +14,7 @@
 				border: 1px solid;
 				margin: 50px auto;
 				position: relative;
-				overflow: hidden;
+				/*overflow: hidden;*/
 			}
 			ul{
 				list-style: none;
@@ -80,75 +80,79 @@
 		</div>
 		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			//克隆第一张和最后一张图
 			var lis = $("li");
+			var lisWidth = $("li")[0].offsetWidth;
 			var len = lis.length;
-			var lisWidth = lis[0].offsetWidth;
-			var first = lis[0].cloneNode(true);
-			var last = lis[len-1].cloneNode(true);
 			var currIndex = 1;
 			var nextIndex = 2;
-				len += 2;
-			$("#imgs").appendChild(first);       //向最后添加
-			$("#imgs").insertBefore(last,lis[0]);//向开始添加
-			//设置ul的宽
-			css($("#imgs"),{
-				width : lisWidth*len+"px",
-				left : -lisWidth + "px"
-			});
-			//生成小圓點
-			var html ="";
-			for(var i=0;i<len-2;i++){
-				html += `<i ${i==0?"class='current'":""}></i>`;
-			}
-			var points = $("i");
-			$(".points")[0].innerHTML = html;
-			
-			function move(){
-				//console.log("aaa")
-			 var _left = -nextIndex * lisWidth ;
-			 console.log(_left)
-		   	 animate($("#imgs"),{left:_left},200,function(){
-				if(nextIndex>=len){//右还原
-					 currIndex = 1;
-					 nextIndex = 2;
-					$("#imgs").style.left = -lisWidth + "px";
-					//console.log($("#imgs").style.left)
-				}else if(nextIndex ==1){//左还原
-					currIndex = len - 2;
-					nextIndex = len - 1;
-					$("#imgs").style.left = -(len - 2) * lisWidth + "px";
-				}
-			});
-			//找出变红的小圆点
-			var index = nextIndex -1 ;
-			    if(index>=len-2)
-					index = 0;
-				else if(index<0)
-					index = len - 3;
-			for(var i=0;i<len-2;i++){
-				points[i].className = "";
-			}
-			points[index].className = "current"	
-				currIndex = nextIndex;
-				nextIndex++;
-			
-			}
-			var timer = setInterval(move, 2000);
-			on($("#box"),"mouseenter",function(){
+			//克隆
+			var first = lis[0].cloneNode(true);
+			var last = lis[len-1].cloneNode(true);
+			    $("#imgs").appendChild(first);
+			    $("#imgs").insertBefore(last,lis[0]);
+			    len += 2;
+			    css($("#imgs"),{
+			    	width : lisWidth * len + "px",
+			    	left :-lisWidth + "px"
+			    });
+			    //动态生成小圆点
+			    var html = "";
+			    for(var i= 0;i<len-2;i++){
+			    	html += `<i ${i===0?"class = 'current'":""}></i>`;
+			    }
+			    $(".points")[0].innerHTML = html;
+			    var points = $("i");
+			    
+			    
+			    function move(){
+			     var _left = -nextIndex * lisWidth;
+			     console.log(_left);
+			   //运动
+			  	 animate($("#imgs"),{left :_left},200,function(){//轮播结束后马上还原为初始状态
+			  	 	if(nextIndex>=len){//左还原
+			  	 	currIndex = 1;
+			   		nextIndex = 2;	
+			   		$("#imgs").style.left = -lisWidth + "px";	
+			  	 	}
+			  	 	else if(nextIndex ===1 ){//
+			  	 		currIndex= ;
+			  	 		nextIndex= ;
+			  	 		$("#imgs").style.left =  +"px";
+			  	 	}
+			   });
+			   
+			    var index = nextIndex - 1;
+			     if(index >= len-2){
+			     	index = 0;
+			     }else if(index<0)
+			     	index = len -3 ;
+			    for(var i=0;i<len-2;i++){
+			    	
+			    	points[i].className = "";
+			    }
+			    	points[index].className = "current";
+			    
+			   
+			        currIndex = nextIndex;
+			        nextIndex++;    
+			   
+			   }
+			   
+			   var timer = setInterval(move, 2000);
+			    
+			  on($("#box"),"mouseenter",function(){
 				clearInterval(timer);
 			});
 			
 			on($("#box"),"mouseleave",function(){
 				timer = setInterval(move,2000);
 			});
-			
-			for(var i= 0;i<len-2;i++){//为每个小圆点绑定点击事件
-				 points[i].index = i; 
-				
+			//为每个小圆点绑定点击事件
+			for(var i = 0;i<len-2;i++){
+				points[i].index = i;
 				on(points[i],"click",function(){
 					var index = this.index;
-					nextIndex = index+1;
+					nextIndex = index + 1 ;
 					move();
 				});
 			}
@@ -157,10 +161,19 @@
 				move();	
 			});
 			on($(".next")[0],"click",move);
-			
 		</script>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
