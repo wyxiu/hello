@@ -70,7 +70,7 @@
 				<li><img src="images/4.jpg"/></li>				
 			</ul>
 			<div class="points">
-				<i class="current"></i>
+				<i class="current" ></i>
 				<i></i>
 				<i></i>
 				<i></i>
@@ -110,10 +110,11 @@
 			});
 			
 			for(var i= 0;i<len;i++){//为每个小圆点绑定点击事件
-				 pointsI[i].index = i; 
+				 pointsI[i].tag = i;
+				 
 				
 				on(pointsI[i],"click",function(){
-					var index = this.index;
+					var index = this.tag;
 					if(currIndex == index)
 					return;
 					nextIndex = index;
