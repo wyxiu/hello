@@ -22,13 +22,14 @@
 			ul {
 				list-style: none;
 				position: absolute;
-				height: 470px;
+				width: 590px;
+				height: 2820px;
 				left: 0px;
 				top: 0px;
 			}
 			
 			li {
-				float: left;
+				/*float: left;*/
 				width: 590px;
 				height: 470px;
 			}
@@ -78,10 +79,12 @@
 	<body>
 		<div id="box">
 			<ul id="imgs">
+
 				<li><img src="images/1.jpg" /></li>
 				<li><img src="images/2.jpg" /></li>
 				<li><img src="images/3.jpg" /></li>
 				<li><img src="images/4.jpg" /></li>
+
 			</ul>
 			<div class="points">
 
@@ -92,72 +95,57 @@
 		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var lis = $("li");
-			var lisWidth = $("li")[0].offsetWidth;
+			var liHeight = lis[0].offsetHeight;
 			var len = lis.length;
 			var currIndex = 1;
 			var nextIndex = 2;
-			//克隆
 			var first = lis[0].cloneNode(true);
 			var last = lis[len - 1].cloneNode(true);
 			$("#imgs").appendChild(first);
 			$("#imgs").insertBefore(last, lis[0]);
 			len += 2;
 			css($("#imgs"), {
-				width: lisWidth * len + "px",
-				left: -lisWidth + "px"
+				top: -liHeight + "px"
 			});
-			//动态生成小圆点
 			var html = "";
 			for (var i = 0; i < len - 2; i++) {
-				html += `<i ${i===0?"class = 'current'":""}></i>`;
+				html += `<i ${i===0?"class = 'current'":""} ></i>`;
 			}
 			$(".points")[0].innerHTML = html;
 			var points = $("i");
 
 			function move() {
 				var index = nextIndex - 1;
-				if (index >= 4) {
+				if (index >= 4)
 					index = 0;
-				} else if (index < 0) {
-					index =  3;
-				}
+				else if (index <= 0)
+					index = 3;
 				for (var i = 0; i < len - 2; i++) {
 					points[i].className = "";
 				}
 				points[index].className = "current";
-
-				//currentIndex = 1;nextIndex = 0;
-				//curentIndex = 4;nextIndex=5;
-
-				//				currIndex = nextIndex;
-				//				nextIndex++;
-
-				//currentIndex = 0;nextIndex=1;
-
-				if (nextIndex <= 0) {
-					currIndex = 5;
-					nextIndex = 4;
-					$("#imgs").style.left = -currIndex * lisWidth + "px";
 					
-					
-				} else if (nextIndex >= 5) {
+				
+				if (nextIndex >= 5) {
 					currIndex = 0;
 					nextIndex = 1;
-					$("#imgs").style.left = -currIndex * lisWidth + "px";
+					$("#imgs").style.top = -currIndex *liHeight + "px";
+				} else if (nextIndex <= 0) {
+					currIndex = 5;
+					nextIndex = 4;
+					$("#imgs").style.top = -currIndex*liHeight + "px";
 				}
-
-				currIndex = nextIndex;
-				nextIndex++;
-
-				var _left = -currIndex * lisWidth;
-				//运动
+					currIndex = nextIndex;
+					nextIndex++;
+					
+				var _top = -currIndex * liHeight;
+				console.log(_top + "----" + nextIndex);
 				animate($("#imgs"), {
-					left: _left
+					top: _top
 				}, 500);
+
 			}
-
-			var timer = setInterval(move, 2000);
-
+			var timer = setInterval(move, 3000);
 			on($("#box"), "mouseenter", function() {
 				clearInterval(timer);
 			});
@@ -165,7 +153,6 @@
 			on($("#box"), "mouseleave", function() {
 				timer = setInterval(move, 2000);
 			});
-			//为每个小圆点绑定点击事件
 			for (var i = 0; i < len - 2; i++) {
 				points[i].index = i;
 				on(points[i], "click", function() {

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 590px;
+				height: 470px;
+				border: 1px solid;
+				margin: 50px auto;
+				position: relative;
+				/*overflow: hidden;*/
+			}
+			
+			ul {
+				list-style: none;
+				position: absolute;
+				height: 470px left: 0px;
+				top: 0px;
+			}
+			
+			img {
+				float: left;
+				width: 590px;
+				height: 470px;
+				display: inline-block;
+			}
+			
+			.points {
+				width: 150px;
+				height: 30px;
+				position: absolute;
+				bottom: 0px;
+				left: 35px;
+			}
+			
+			#imgs {
+				width: 1770px;
+				height: 470px;
+				position: absolute;
+				left: -590px;
+			}
+			
+			.points i {
+				width: 6px;
+				height: 6px;
+				display: inline-block;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				opacity: .8;
+				margin: 5px;
+			}
+			
+			.points i.current {
+				background: red;
+			}
+			
+			.back,
+			.next {
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background: #ccc;
+				opacity: .8;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			
+			.next {
+				right: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="imgs">
+				<img src="images/4.jpg" />
+				<img src="images/1.jpg" />
+				<img src="images/2.jpg" />
+				<!--<li><img src="images/4.jpg" /></li>-->
+			</div>
+			<div class="points">
+
+			</div>
+			<div class="back">&lt;</div>
+			<div class="next">&gt;</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//克隆第一张和最后一张图
+			var lis = $("img");
+			var len = lis.length;
+			var lisWidth = lis[0].offsetWidth;
+			var currIndex = 0;
+			
+			//生成小圓點
+			var html = "";
+			for (var i = 0; i < len - 2; i++) {
+				html += `<i ${i==0?"class='current'":""}></i>`;
+			}
+			var points = $("i");
+			$(".points")[0].innerHTML = html;
+
+			function move() {
+				//console.log("aaa")
+				var _left = -lisWidth;
+				console.log(_left)
+				animate(lis[2], {
+					left: _left
+				}, 200, function() {
+
+					currIndex++;
+					if (currIndex > 3) {
+						currIndex = 0;
+					}
+
+					lis[0].src = currIndex == 0 ? "images/4.jpg" : "images/" + currIndex + ".jpg";
+					lis[1].src = "images/" + (currIndex + 1) + ".jpg";
+					lis[2].src = currIndex == 3 ? "images/1.jpg" : "images/" + (currIndex + 2) + ".jpg";
+				});
+//				var 
+				animate(lis[1], {
+					left: _left
+				}, 200, function() {
+
+				});
+
+			}
+			var timer = setInterval(move, 2000);
+		</script>
+	</body>
+
+</html>
