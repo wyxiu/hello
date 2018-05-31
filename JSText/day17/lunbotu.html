@@ -118,14 +118,11 @@
 			    	 	
 			        currIndex = nextIndex;
 			        nextIndex++;    
-			     var _left = -nextIndex * lisWidth;
-			     console.log(_left);
-			   
-			  
+  
 			   if(nextIndex>=len){
 			  	 	currIndex = 1;
 			   		nextIndex = 2;
-			   		$("#imgs").style.left = 0;	
+			   		$("#imgs").style.left = "0px";	
 			   		
 			   	}else if(nextIndex ===1 ){
 			  	 		currIndex= len-2;
@@ -135,7 +132,6 @@
 			   	var _left = -currIndex*lisWidth ;
 			   	//运动
 			  	 animate($("#imgs"),{left :_left},200);
-			  	 
 			    }
 			   
 			   var timer = setInterval(move, 2000);
