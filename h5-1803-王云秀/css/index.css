@@ -1,0 +1,127 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.nav{
+	width: 95%;
+	height: 70px;
+}
+.nav ul{
+	width:480px ;
+	float: right;
+	height: 70px;
+}
+.nav ul li{
+	list-style: none;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	float: left;
+	font-size: 12px;
+	width: 60px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.box{
+	width:400px ;
+	height: 407px;
+	position: absolute;
+	border: 1px solid;
+	display: none;
+	background: #fff;
+	z-index: 999;
+}
+.box form{
+	width:400px ;
+	height: 407px;
+	padding: 10px;
+}
+.box form #txt, #password{
+	width:302px ;
+	height: 41px;
+	line-height: 41px;
+	border: 1px solid;
+	margin-bottom: 15px;
+}
+#check{
+	width: 150px;
+	height: 41px;
+	line-height: 41px;
+	border: 1px solid;
+	margin-bottom: 15px;
+}
+#code{
+	width: 100px;
+	height: 41px;
+	margin-left: 10px;
+	border: 1px solid;
+	/*//display: inline-block;*/
+	text-align: center;
+	font-size: 12px;
+}
+.box form .top{
+	height: 56px;
+	margin-bottom: 15px;
+	position: relative;
+}
+.box form .top i{
+	font-style: normal;
+	position: absolute;
+	top:8px;
+	right: 0px;
+}
+.box form #btn{
+	width:302px ;
+	height: 41px;
+	text-align: center;
+	line-height: 41px;
+	background: #3f89ec;
+	margin-top: 15px;
+}
+
+.logo {
+	margin: 0 auto;
+	margin-top: 300px;
+	width: 500px;
+	height: 170px;
+	position: relative;
+}
+.logo .logo_top{
+	position: absolute;
+	top: -92px;
+	left: 100px;	
+}
+.logo .search{
+	width: 500px;
+	height: 50px;
+}
+.logo .search input{
+	border: 0px;
+	float: left;
+}
+.logo .search .txt{
+	width: 400px;
+	height: 50px ;
+	border: 1px solid;
+}
+.logo .search .butt{
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	border: 1px solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="#">新闻</a>
+				</li>
+				<li>
+					<a href="#">hao123</a>
+				</li>
+				<li>
+					<a href="#">地图</a>
+				</li>
+				<li>
+					<a href="#">视频</a>
+				</li>
+				<li>
+					<a href="#">贴吧</a>
+				</li>
+				<li>
+					<a href="#">学术</a>
+				</li>
+				<li>
+					<a href="#" id="login">登录</a>
+				</li>
+				<li>
+					<a href="#">设置</a>
+				</li>
+			</ul>
+		</div>
+		<div class="box">
+			<form action="">
+				<div class="top">
+					<img src="img/logo.png" />
+					<span>用户名密码登录</span>
+					<i id="hide">X</i>
+				</div>
+				<input type="text" name="txt" id="txt" placeholder="手机/邮箱/用户名" /><span id="name"></span><br />
+				<input type="password" name="" id="password" placeholder="密码" /><span id="mima"></span><br />
+				<input type="txt" id="check" placeholder="验证码" /><input type="text" id="code"></input><span id="next">下一张</span><i id="yanzhengma"></i><br />
+				<input type="checkbox" id="checkbox" />记住用户名<br />
+				<input type="submit" id="btn" value="登录" />
+			</form>
+		</div>
+		<div class="logo">
+			<div class="logo_top">
+				<img src="img/4ba89442bf1675dce8c47c9baa4ae59.png" />
+			</div>
+			<div class="search">
+				<form action="">
+					<input type="text" value="" class="txt" /><input type="button" class="butt" value="百度一下" />
+				</form>
+			</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			on($("#login"), "click", function() {
+				$(".box")[0].style.display = "block";
+				var _left = (window.innerWidth - $(".box")[0].offsetWidth) / 2;
+				var _top = (window.innerHeight - $(".box")[0].offsetHeight) / 2;
+				$(".box")[0].style.left = _left + "px";
+				$(".box")[0].style.top = _top + "px";
+
+			});
+		</script>
+
+		<script>
+			on($(".top")[0], "mousedown", function(e) {
+				e = e || event;
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+				var _offLeft = e.offsetX;
+				var _offTop = e.offsetY;
+
+				document.onmousemove = function(e) {
+					//获取窗口的宽度
+					var winWidth = window.innerWidth || document.documentElement.clientWidth ||
+						document.body.clientWidth,
+						winHeight = window.innerHeight || document.documentElement.clientHeight ||
+						document.body.clientheight;
+					//获取拖拽盒子的宽和高;
+					var boxWidth = $(".box")[0].offsetWidth,
+						boxHeight = $(".box")[0].offsetHeight;
+					//盒子在文档中的位置
+					var _clientX = e.clientX,
+						_clientY = e.clientY;
+					var _left = _clientX - _offLeft;
+					var _top = _clientY - _offTop;
+
+					console.log(_left + "----" + _top);
+
+					if(_left < 0)
+						_left = 0;
+					else if(_left > winWidth - boxWidth)
+						_left = winWidth - boxWidth;
+					if(_top < 0)
+						_top = 0;
+					else if(_top > winHeight - boxHeight)
+						_top = winHeight - boxHeight
+					$(".box")[0].style.top = _top + "px";
+					$(".box")[0].style.left = _left + "px";
+				}
+				document.onmouseup = function() {
+					document.onmousemove = null;
+					document.onmouseup = null;
+
+				}
+			});
+		</script>
+		<script>
+			$("#hide").onclick = function() {
+				$(".box")[0].style.display = "none";
+			}
+		</script>
+
+		<script>
+			//读取cookie；
+			var user = cookie("username");
+			var password = cookie("password");
+			if(user === $("#txt").value)
+				$("#txt").value = user;
+			else if(password === $("#password").value)
+				$("#password").value = password;
+		</script>
+
+		<script>
+			//正则表达式
+			$("#btn").onclick = function(e) {
+				var _txt = $("#txt").value,
+					_password = $("#password").value;
+				var reg = /^[a-zA-Z_].{3,19}$/;
+				var name = reg.test(_txt);
+				if(!name) {
+					$("#name").innerText = "用户名不正确";
+					console.log("用户名不正确");
+					return false;
+				}
+				console.log(name);
+				var regP = /^.{6,32}$/;
+				var mima = regP.test(_password);
+				if(!mima) {
+					$("#mima").innerText = "密码不正确";
+					console.log("密码不正确");
+					return false;
+				}
+				console.log(mima);
+				var rember = $("#check").value;
+				var t =$("#code").value;
+				if(rember.toLowerCase()!== t.toLowerCase() ) {
+					$("#yanzhengma").innerText = "验证码不正确";
+					$("#code").value = random(4);
+					console.log("验证码不正确");
+					return false;
+				}
+				//如果验证都正确，点击登录则保存cookie；
+
+				if($("#checkbox").checked === true) {
+					cookie("username", _txt, {
+						expires: 10,
+						path: "/"
+					});
+					cookie("password", _password, {
+						expires: 10,
+						path: "/"
+					});
+				} else {
+					cookie("username", "", {
+						expires: -1,
+						path: "/"
+					});
+					cookie("password", "", {
+						expires: -1,
+						path: "/"
+					});
+				}
+				alert("登录成功");
+				$(".box")[0].style.display = "none";
+			}
+		</script>
+		<script>
+			function random(n) {
+				var rand = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+				var checkCode = "";
+				for(var i = 0; i < n; i++) {
+					checkCode += rand[Math.floor(Math.random() * 56)];
+				}
+				return checkCode;
+			}
+
+			$("#next").onclick = function() {
+				$("#code").value = random(4);
+			}
+			$("#code").value = random(4);
+		</script>
+
+	</body>
+
+</html>

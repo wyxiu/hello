@@ -10,24 +10,29 @@
 			box-sizing: border-box;
 		}
 			.box{
-				height: 300px;
+				height: 340px;
 				width: 500px;
 				background: blue;
 				padding: 10px;
 				margin: 0 auto;
+				margin-top:50px;
 			}
 			.box .eq{
-				width: 400px;
+				width: 477px;
 				height: 30px;
 				background: #eeeeee;
 				margin-bottom: 20px;
 				margin: 0 auto;
+				text-align: right;
+				font-size: 16px;
+				color: red;
+				font-weight: 600;
 				
 				
 			}
 			.box .btn{
 				width: 480px;
-				height:230px ;
+				height:270px ;
 				display: flex;
 				justify-content: space-around;
 				flex-wrap: wrap;
@@ -42,11 +47,27 @@
 				color: black;
 		
 			}
+			#start{
+				width: 120px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 12px;
+				color: black;
+			}
+			#clearNum{
+				width: 120px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 12px;
+				background: #ccc;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="box">
-			<div class="eq" id="res"></div>
+			<input type="text" class="eq" id="res" value="" />
 			<div class="btn">
 				<button >7</button>
 				<button >8</button>
@@ -55,15 +76,16 @@
 				<button >4</button>
 				<button >5</button>
 				<button >6</button>
-				<button id="fh">*</button>
+				<button >*</button>
 				<button >1</button>
 				<button >2</button>
 				<button >3</button>
 				<button >-</button>
 				<button >0</button>
-				<button >=</button>
 				<button >.</button>
 				<button >+</button>
+				<input type="button" name="start" id="start" value="=" /><br />
+				<input type="button" name="start" id="clearNum" value="清零" />
 			</div>
 		</div>
 		<script src="JS/tools.js" type="text/javascript" charset="utf-8"></script>
@@ -73,13 +95,17 @@
 			$(".btn")[0].onclick=function(e){
 				e=e || event;
 				src = e.target || e.srcElement;
-				if(src.nodeName === "BUTTON"){	
-					
-					//$("#res").innerText = 
-					}
-			
-		
+				if(src.nodeName === "BUTTON"){				
+				$("#res").value += src.innerHTML;				
+			}
 		}
+			$("#start").onclick = function(){
+				$("#res").value = eval($("#res").value);
+			}
+			$("#clearNum").onclick = function(){
+				$("#res").value = "";
+				$("#res").focus();
+			}
 		</script>
 	</body>
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>百度一下</title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+			#login{
+				height: 400px;
+				width: 300px;
+				border: 1px solid black;
+				position: absolute;
+				background: #ffffff;
+				z-index: 1;
+				display: none;
+			}
+			#login input{
+				display: block;
+				width: 250px;
+				height: 30px;
+				margin: 10px auto;
+			}
+			#login .yanzheng{
+				display: block;
+				width: 250px;
+				height: 50px;
+				margin: 10px auto;
+				overflow: hidden;
+			}
+			#login .yanzheng input{
+				float: left;
+			} 
+			#login .yanzheng #yanzheng{
+				width: 120px;
+			}
+			#login .yanzheng #random{
+				width: 80px;
+				height: 30px;
+				border: 1px solid black;
+				float: left;
+				margin-top: 10px;
+			}
+			#login .yanzheng a{
+				width: 50px;
+				text-align: center;
+				font-size: 12px;
+				color: blue;
+				text-decoration: none;
+				line-height: 50px;
+			}
+			#login p{
+				display: block;
+				width: 250px;
+				height: 30px;
+				margin: 10px auto;
+			}
+			#login #remember{
+				width: 15px;
+				height: 15px;
+				float: left;
+			}
+			#login label{
+				float: left;
+				font-size: 15px;
+				line-height: 30px;
+			}
+			#login input:last-child{
+				
+			}
+			#login #close{
+				float: right;
+				width: 10px;
+				height: 10px;
+				margin-right: 10px;
+			}
+			#big{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background: grey;
+				opacity: .1;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big"></div>
+		<button id="click_b">登陆</button>
+		<div style="width: 250px;height: 100px;margin: 300px auto;">
+			<input type="text" id="input_text" />
+			<button id="search">百度一下</button>
+		</div>
+		<div id="login">
+			<form action="" method="post">
+				<div id="close">X</div>
+				<p id="title">百度账号登陆</p>
+				<input type="text" id="name" placeholder="请输入用户名" style="margin-top: 50px;"/>
+				<input type="password" id="password" placeholder="密码" />
+				<div class="yanzheng">
+					<input type="text" id="yanzheng" placeholder="验证码" />
+					<div id="random"></div>
+					<a href="#">换一张</a>
+				</div>
+				<p><input type="checkbox" id="remember" /><label for="remember">记住用户名</label></p>
+				<input type="submit" value="登陆"/>
+			</form>
+		</div>
+	</body>
+	<script src="js/tools.js"></script>
+	<script type="text/javascript">
+		$("#click_b").onclick=function(){
+			$("#login").style.display="block";
+			var _left=(window.innerWidth-$("#login").offsetWidth)/2;
+			var _top=(window.innerHeight-$("#login").offsetHeight)/2;
+			$("#login").style.left=_left+"px";
+			$("#login").style.top=_top+"px";
+			$("#big").style.display="block";
+		}
+		$("#close").onclick=function(){
+			$("#login").style.display="none";
+			$("#big").style.display="none";
+		}
+		
+	</script>
+	<script>
+		var winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+			winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		var l_Width = $("#login").offsetWidth,
+			l_Height = $("#login").offsetHeight;
+		$("#title").onmousedown = function(e){
+			e.preventDefault();
+			var _offsetX = e.offsetX,
+				_offsetY = e.offsetY;
+			document.onmousemove = function(e){
+				var _left = e.clientX - _offsetX,
+					_top = e.clientY - _offsetY;
+				if (_left < 0) 
+					_left = 0;
+				else if (_left > winWidth- l_Width)
+					_left = winWidth - l_Width;
+				if (_top < 0) 
+					_top = 0;
+				else if (_top > winHeight - l_Width)
+					_top = winHeight - l_Height;
+				css($("#login"), {
+					top : _top + "px",
+					left : _left + "px"
+				});
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+	</script>
+</html>

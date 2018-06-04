@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 590px;
+				height: 470px;
+				border: 1px solid;
+				margin: 300px auto;
+				position: relative;
+				/*overflow: hidden;*/
+			}
+			
+			ul {
+				list-style: none;
+				position: absolute;
+				width: 590px;
+				/*height: 2820px;*/
+				left: 0px;
+				top: 0px;
+			}
+			
+			li {
+				/*float: left;*/
+				width: 590px;
+				height: 470px;
+			}
+			
+			.points {
+				width: 150px;
+				height: 30px;
+				position: absolute;
+				bottom: 0px;
+				left: 35px;
+			}
+			
+			.points i {
+				width: 6px;
+				height: 6px;
+				display: inline-block;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				opacity: .8;
+				margin: 5px;
+			}
+			
+			.points i.current {
+				background: red;
+			}
+			
+			.back,
+			.next {
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background: #ccc;
+				opacity: .8;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			
+			.next {
+				right: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul id="imgs">
+				
+				<li><img src="images/1.jpg" /></li>
+				<li><img src="images/2.jpg" /></li>
+				<li><img src="images/3.jpg" /></li>
+				<li><img src="images/4.jpg" /></li>
+				
+			</ul>
+			<div class="points">
+
+			</div>
+			<div class="back">&lt;</div>
+			<div class="next">&gt;</div>
+		</div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//克隆第一张和最后一张图
+			var lis = $("li");
+			var liHeight = lis[0].offsetHeight;
+			var currIndex = 1;
+			var nextIndex = 2;
+			var len = lis.length;
+			var first = lis[0].cloneNode(true);
+			var last = lis[len-1].cloneNode(true);
+			    $("#imgs").appendChild(first);
+			    $("#imgs").insertBefore(last,lis[0]);
+			    len += 2;
+			css($("#imgs"), {
+				top: -liHeight + "px",
+				height : liHeight *len +"px"
+			});
+			var html = "";
+			for(var i = 0; i < len - 2; i++) {
+				html += `<i ${i===0?"class = 'current'":""}></i>`;
+			}
+			$(".points")[0].innerHTML = html;
+			var points = $("i");
+
+			function move() {
+				var index = nextIndex-1;
+				if(index >= 4)
+					index = 0;
+				else if(index < 0)
+					index = 3;
+
+				for(var i = 0; i < len - 2; i++) {
+					points[i].className = "";
+				}
+				points[index].className = "current";
+				
+				//				console.log(index);
+				currIndex = nextIndex;
+				nextIndex++;
+
+				if(nextIndex >= 6 ) {
+					currIndex = 1;
+					nextIndex = 2;
+					$("#imgs").style.top = -(currIndex-1) *liHeight + "px";
+				} else if(nextIndex === 1) {
+					currIndex = 4;
+					nextIndex = 3;
+					$("#imgs").style.top = -(currIndex+1) *liHeight + "px";;
+				}
+					
+				var _top = -currIndex * liHeight;
+				console.log( _top + "-----"+ nextIndex);
+				animate($("#imgs"), {
+					top: _top
+				}, 500);
+			}
+
+			var timer = setInterval(move, 3000);
+
+			on($("#box"), "mouseenter", function() {
+				clearInterval(timer);
+			});
+
+			on($("#box"), "mouseleave", function() {
+				timer = setInterval(move, 3000);
+			});
+			//为每个小圆点绑定点击事件
+			for(var i = 0; i < len - 2; i++) {
+				points[i].index = i;
+
+				on(points[i], "click", function() {
+					var index = this.index;
+					nextIndex = index + 1;
+					move();
+				});
+			}
+			on($(".back")[0], "click", function(){
+				nextIndex = currIndex-1;
+				move();
+			});
+				
+			
+			on($(".next")[0], "click", move);
+			
+		</script>-->
+	</body>
+
+</html>
