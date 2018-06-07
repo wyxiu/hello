@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<div id="info"></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#txt").onkeyup = function(){
+				var _txt = this.value;
+				var _url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+_txt+"&cb=abc";
+				var _s = document.createElement("script");
+					_s.src = _url;
+					
+					document.body.appendChild(_s);
+					document.body.removeChild(_s);
+				
+			}
+			
+			function abc(data){
+				var html = "";
+				data.s.forEach(function(curr){
+					html +=　"<div>"+curr +"</div>";
+					
+				});
+				$("#info").innerHTML = html;
+			}
+			
+			
+		</script>
+	</body>
+</html>

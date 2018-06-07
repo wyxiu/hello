@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="city" value="成都" />
+		<button id="search">查询</button>
+		<div id="info">
+			
+		</div>
+
+
+	</body>
+	<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		on($("#search"),"click",function(){
+			var _city = $("#city").value;
+			var _url ="http://route.showapi.com/9-2?showapi_appid=66937&showapi_sign=f7b6634391244ac9a5ea2c801ed5ac10&area="+_city; 	
+			ajax({			
+			url:_url,
+			dataType:"json",
+			success:function(resData){
+				var weather = resData.showapi_res_body;	
+				console.log(weather);
+				for(var attr in weather){
+					if(attr.indexOf("f")===0){
+						var forcast = weather[attr];
+						$("#info").innerHTML += "日期："+forcast.day + "温度："+forcast.night_air_temperature + "~"+forcast.day_air_temperature + "；白天天气:"+forcast.day_weather + "<img src =" + forcast.day_weather_pic+"/>"+"<br/> ";
+
+					}
+				}
+				console.log(weather);
+			}
+			
+		});
+					
+		});
+
+//on($("#search"), "click", function(){
+//			// 城市
+//			var _city = $("#city").value;
+//			// 连接API接口，查询天气数据
+//			// URL
+//			var _url = "http://route.showapi.com/9-2?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&area=" + _city;
+//			// ajax
+//			ajax({
+//				url : _url,
+//				dataType : "json",
+//				success : function(resData){
+//					// 获取查询到的天气数据
+//					var weather = resData.showapi_res_body;
+//					// 筛选天气预报数据
+//					//var html = "";
+//					for (var attr in weather) {
+//						if (attr.indexOf("f") === 0) { // 以f开头，则是预报数据
+//							var forcast = weather[attr];
+//							$("#info").innerHTML += "日期："+forcast.day + "温度："+forcast.night_air_temperature + "~"+forcast.day_air_temperature + "；白天天气:"+forcast.day_weather + "<img src =" + 'forcast.day_weather_pic'+"/>"+"<br/> ";
+////							html += `<div>日期：${forcast.day}，温度：${forcast.night_air_temperature}~${forcast.day_air_temperature}，白天天气：${forcast.day_weather} <img src="${forcast.day_weather_pic}" /></div>`;
+//						}
+//					}
+//					// 显示
+////					$("#info").innerHTML = html;
+//					console.log(weather);
+//				}
+//			});
+//		});
+
+	</script>
+</html>

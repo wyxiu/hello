@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<div id="info"></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#txt").onkeyup = function(){
+				var _txt = this.value;
+				var _url ="https://suggest.taobao.com/sug?code=utf-8&q="+_txt +"&callback=test";
+				var _s = document.createElement("script");
+					_s.src = _url;
+					document.body.appendChild(_s);
+					_s.parentNode.removeChild(_s);		
+			}
+			
+			function test(data){
+				var html = "";
+				data.result.forEach(function(curr){
+					html += "<div>"+curr+"</div>";
+				});
+				$("#info").innerHTML = html;
+			}
+			
+			
+		</script>
+	</body>
+</html>

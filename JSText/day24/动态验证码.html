@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>登录页面</h2>
+		<form id="login_form">
+			<input type="text" name="username" id="username" placeholder="用户名" /><br />
+			<input type="password" name="password" id="password" placeholder="登录密码" /><br />
+			<input type="text" name="code" id="code" placeholder="验证码" />
+			<img id="info" src=""/><span id="next">看不清，换一张</span><br/>
+			<div id="code_info" style="color:red;"></div><br />
+			<input type="submit" value="登录" />
+		</form>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = creatCode;
+				$("#next").onclick = creatCode;
+			function creatCode(){
+				
+			var _url = "http://route.showapi.com/932-2?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef";
+				ajax({
+					url:_url,
+					dataType:"json",
+					success:function(resDate){	
+						var data = resDate.showapi_res_body;
+						$("#info").src = data.image;
+						$("#info").sid = data.sid;
+					}
+					
+				});
+			}
+			
+			$("#code").onblur = function (){
+				var _code = $("#code").value;
+				var _sid = $("#info").sid;
+				var _url = "http://route.showapi.com/932-1?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&sid="+_sid+"&checkcode="+_code;
+				ajax({
+					url:_url,
+					dataType:"json",
+					success:function(res){
+						if(res.showapi_res_body.valid)
+							$("#code_info").innerText ="输入正确";
+						else
+							$("#code_info").innerText ="输入错误";
+					}
+				});
+			}
+		</script>
+
+	</body>
+</html>

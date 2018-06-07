@@ -132,6 +132,7 @@
 
 		<script>
 			//正则表达式
+			
 			$("#btn").onclick = function(e) {
 				var _txt = $("#txt").value,
 					_password = $("#password").value;
@@ -160,7 +161,7 @@
 					return false;
 				}
 				//如果验证都正确，点击登录则保存cookie；
-
+				
 				if($("#checkbox").checked === true) {
 					cookie("username", _txt, {
 						expires: 10,
@@ -180,9 +181,11 @@
 						path: "/"
 					});
 				}
+				
 				alert("登录成功");
 				$(".box")[0].style.display = "none";
 			}
+			
 		</script>
 		<script>
 			function random(n) {
