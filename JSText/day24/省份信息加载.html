@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="provence">
+			<option>请选择省份</option>
+		</select>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//创建promise对象
+			function AjaxPromise(url){
+				return new Promise(function(resolve,reject){
+					ajax({
+						type:"get",
+						url = url,
+						dataType = "json",
+						success : function(data){
+							resolve(data);
+						},
+						error : function(err){
+							reject(err);
+						}
+					});
+				});
+			}
+			
+			//为promise对象绑定方法
+			function loadProvence(){
+				var _url1 = "";
+				var _url2 = "";
+				var html = "";
+				/*
+				AjaxPromise(_url1).then(function(data){
+					data.showapi_res_body.data.forEach(function(curr){
+						html += "<option>"+curr.areaName + "</option>";
+					});
+					return AjaxPromise(_url2);
+				}).then(function(data){
+					data,showapi_res_body.data.forEach(function(curr){
+						html += "<option>"+curr.areaName + "</option>";
+					});
+				}).then(function(){
+					$("#provence").innerHTML =html;
+				});
+			}*/
+			Promise.all([AjaxPromise(_url1),AjaxPromise(_url2)]).then(function(array){
+				array[0].showapi_res_body.data.concat().forEach(function(curr){
+					html += "<option>"+curr.areaName + "</option>";
+					
+				})
+					$("#provence").innerHTML =html;
+			});
+			
+			loadProvence();
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
