@@ -28,7 +28,7 @@
 				for(var attr in weather){
 					if(attr.indexOf("f")===0){
 						var forcast = weather[attr];
-						$("#info").innerHTML += "日期："+forcast.day + "温度："+forcast.night_air_temperature + "~"+forcast.day_air_temperature + "；白天天气:"+forcast.day_weather + "<img src =" + forcast.day_weather_pic+"/>"+"<br/> ";
+						$("#info").innerHTML += "日期:"+forcast.day + "温度："+forcast.night_air_temperature + "~"+forcast.day_air_temperature + "；白天天气:"+forcast.day_weather + "<img src =" + forcast.day_weather_pic+"/>"+"<br/> ";
 
 					}
 				}

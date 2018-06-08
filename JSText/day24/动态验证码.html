@@ -36,7 +36,7 @@
 			$("#code").onblur = function (){
 				var _code = $("#code").value;
 				var _sid = $("#info").sid;
-				var _url = "http://route.showapi.com/932-1?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&sid="+_sid+"&checkcode="+_code;
+				var _url ="http://route.showapi.com/932-1?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&sid="+_sid+"&checkcode="+_code;
 				ajax({
 					url:_url,
 					dataType:"json",
