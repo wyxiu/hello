@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<!------动态获取地图宽高------>
-		宽度:<input type="text" id="mp_width" value="300"/><br />
-		高度：<input type="text" id="mp_height" value="400"/><br />
+		宽度:<input type="text" id="mp_width" value="600" /><br /> 高度：
+		<input type="text" id="mp_height" value="800" /><br />
 		<button id="start">开始游戏</button>
 		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/map.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			document.getElementById("start").onclick = function(){
-			const width = document.getElementById("mp_width").value,
-				  height = document.getElementById("mp_height").value;
-			//创建Map对象
-			const map = new Map({width,height});
-			
-			const food = new Food();
-			//添加实物和地图相关联的对象
-			food.map = map;
-			// 显示食物
-			food.createDom();
-			
-			const snake = new Snake();
-			snake.map = map;
-			snake.createDom();
-			
-				  
+			document.getElementById("start").onclick = function() {
+				const width = document.getElementById("mp_width").value,
+					height = document.getElementById("mp_height").value;
+				//创建Map对象
+				const map = new Map({
+					width,
+					height
+				});
+
+				const food = new Food();
+				//添加实物和地图相关联的对象
+				food.map = map;
+				// 显示食物
+				food.createDom();
+
+				const snake = new Snake();
+				snake.map = map;
+				snake.createDom();
+
+				document.onkeydown = function(e) {
+					
+					const code = e.which;
+					snake.setDirection(code);
+				}
+				
+				var timer = setInterval(function() {
+					if(snake.move()){
+						clearInterval(timer);
+						console.log("----end");
+					}
+					
+				}, 200);
+				
+
 			}
 		</script>
 	</body>
+
 </html>
