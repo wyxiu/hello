@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Student(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		Student.prototype.study = function(){
+			console.log(this.name + " 开始学习...");
+		};
+
+		var stu = new Student("张三", 18);
+		console.log(stu.name);
+		console.log(stu.sex); // undefined
+		stu.study();
+
+		// hasOwnProperty()
+		console.log(stu.hasOwnProperty("eat")); // false
+		console.log(stu.hasOwnProperty("name")); // true
+		console.log(stu.hasOwnProperty("toString")); // true
+		console.log(stu.hasOwnProperty("study")); // true
+		// in
+		console.log("name" in stu); // true
+		console.log("study" in stu); // true
+		console.log("toString" in stu); // true
+
+		// isPrototypeOf()
+		console.log(Student.prototype.isPrototypeOf(stu)); // true
+		console.log(Array.prototype.isPrototypeOf(stu)); // false
+		console.log(Object.prototype.isPrototypeOf(stu)); // true
+
+		// Object.create()
+		var stu3 = Object.create(Student.prototype); // stu3.__proto__ = Student.prototype
+		console.log(stu3);
+		stu3.study();
+
+		stu.eat(); // undefined(); 报错
+
+		var stu2 = new Student("李四", 19);
+		stu2.study();
+
+		console.log(stu.study == stu2.study)
+
+		console.log(stu.toString);
+	</script>
+</body>
+</html>

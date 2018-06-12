@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	
+			// 定义Person类
+		class Person {
+			// 构造函数
+			constructor(name, age, sex, address, phone) {
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				this.address = address;
+				this.phone = phone;
+			}
+			// 原型方法
+			eat() {
+				console.log(this.name + "吃饭");
+			}
+			sleep() {
+				console.log(this.name + "睡觉");
+			}
+			play() {
+				console.log(this.name + "玩");
+			}
+		}
+
+		// Student继承自Person
+		class Student extends Person{
+			constructor(name, age, sex, address, phone, grade) {
+				// 使用 super() 表示调用父类的构造函数，这条语句必须作为构造函数中的第一条语句
+				super(name, age, sex, address, phone);
+				this.grade = grade;
+			}
+
+			study () {
+				//super.eat();
+				console.log(this.name + "学习");
+				//super.play();
+			}
+		}
+
+		var stu = new Student("小丁", 15, "男", "成都", "13177665544", "二年级");
+		console.log(stu);
+		 stu.eat();
+		 stu.sleep();
+		 stu.play();
+		stu.study();
+	</script>
+	</body>
+</html>

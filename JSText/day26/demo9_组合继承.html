@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 公共函数
+		function Person(name, age, sex, address, phone) {
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.address = address;
+			this.phone = phone;
+		}
+		Person.prototype.eat = function() {
+			console.log(this.name + "吃饭");
+		};
+		Person.prototype.sleep = function() {
+			console.log(this.name + "睡觉");
+		};
+		Person.prototype.play = function() {
+			console.log(this.name + "打游戏");
+		};
+
+		// 学生
+		// 构造函数继承
+		function Student(name, age, sex, address, phone, grade) {
+			Person.apply(this, arguments);
+			this.grade = grade;
+		}
+		// 原型链继承
+		Student.prototype = Object.create(Person.prototype);
+
+		var stu = new Student("小丁", 15, "男", "成都", "13177665544", "一年级");
+		stu.eat();
+		stu.sleep();
+	</script>
+</body>
+</html>
