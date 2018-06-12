@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 公共函数
+		function Person(name, age, sex, address, phone) {
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.address = address;
+			this.phone = phone;
+		}
+
+		function Teacher(name, age, sex, address, phone, course) {
+			// 当Person函数被调用时，其Person函数体中的this指向的是 Teacher 函数中 this 所表示的对象
+			Person.call(this, name, age, sex, address, phone);
+			this.course = course;
+		}
+
+		
+
+		function Student(name, age, sex, address, phone, grade) {
+			Person.apply(this, arguments);
+			this.grade = grade;
+		}
+
+		function Employee(name, age, sex, address, phone, dep) {
+			Person.apply(this, arguments);
+			this.dep = dep;
+		}
+
+		var t = new Teacher("小丁", 15, "男", "成都", "13177665544", "HTML+CSS");
+		console.log(t);
+		var s = new Student("小丁", 15, "男", "成都", "13177665544", "一年级");
+		console.log(s);
+		var e = new Employee("小丁", 15, "男", "成都", "13177665544", "项目部");
+		console.log(e);
+	</script>
+</body>
+</html>

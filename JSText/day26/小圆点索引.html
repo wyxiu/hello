@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:20px;
+				height: 20px;
+				border-radius: 50%;
+				background: red;
+				margin: 10px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//用this来指向绑定的图
+		/*
+			var divs = $("div");
+			for(var i=0;i<divs.length;i++){
+				divs[i].index = i;
+				divs[i].onclick = function(){
+					console.log("这是第"+(this.index+1)+"张图");
+				}
+			}
+			*/
+			
+			//用let来定义变量
+			/*
+			var divs = $("div");
+			for(let i=0;i<divs.length;i++){
+				divs[i].onclick = function(){
+					console.log("这是第"+(i+1)+"张图");
+				}
+			}
+			*/
+			//用闭包的方式来实现
+			//为每个div绑定时间
+			var divs = $("div");
+			for(var i=0;i<divs.length;i++){
+				divs[i].onclick = over(i);
+			}
+			
+			function over(num){
+				return	function(){
+					console.log("这是第"+(num+1)+"张图");	
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
