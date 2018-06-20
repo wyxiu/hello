@@ -1,0 +1,1 @@
+"use strict";$(function(){console.log("success"),$.getJSON("../mock/list.json",function(t){var s=template("list_template",{list:t.res_body.list});$(".list").html(s)})});

@@ -50,7 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="content">
   <div class="content_box">
 	<ul class="grid_2">
-		<a href="single.html"><li><img src="images/pic2.png" class="img-responsive" alt=""/>
+	
+		<!--<a href="single.html"><li><img src="images/pic2.png" class="img-responsive" alt=""/>
 			<span class="btn5">$120</span>
 			<p>Bikroy Tshirt - Roundneck</p>
 		</li></a>
@@ -69,9 +70,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<a href="single.html"><li class="last1"><img src="images/pic6.png" class="img-responsive" alt=""/>
 			<span class="btn5">$428</span>
 			<p>Strict TshirtSoft, Pure Cotton</p>
-		</li></a>
+		</li></a>-->
 		<div class="clearfix"> </div>
 	</ul>
+		<script type="text/html" id="hot_sale">
+			{{each list pro}}
+			<a href="single.html">
+				<span class="id" style="display: none;">{{pro.id}}</span>
+				<li><img src="./{{pro.img}}" class="img-responsive" alt=""/>
+				<span class="btn5">${{pro.price}}</span>
+				<p>{{pro.title}}</p>
+				</li>
+			</a>
+			{{/each}}
+		</script>
+	
 	<div class="grid_3">
 		<div class="col-md-6 box_2">
 			<div class="section_group"> 
@@ -112,7 +125,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
 </div>	
 <script src="lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="lib/arttemplate/template-web.js"></script>
+<script src="lib/jquery-plugins/jquery.cookie.js" ></script>
 <script src="js/addFooteraddHeader.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>		

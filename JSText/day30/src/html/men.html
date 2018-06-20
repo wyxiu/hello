@@ -173,37 +173,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="clearfix"></div>
 								</div>
+								<div class="list"></div>
 								<script type="text/html" id="list_template">
-									{{each lists products}}
+									{{each list products}}
 									<div class="span_2">
-									{{each products index pro}}
+									{{each products pro index}}
 									<div class="col_1_of_single1 span_1_of_single1">
 										<a href="single.html">
-											<img src="../images/m1.jpg" class="img-responsive" alt="" />
-											<h3>parum clari</h3>
-											<p>Duis autem vel eum iriure</p>
-											<h4>Rs.399</h4>
+											<img src="../{{pro.img}}" class="img-responsive" alt="" />
+											<h3>{{pro.title}}</h3>
+											<p>{{pro.desc}}</p>
+											<h4>Rs.{{pro.price}}</h4>
 										</a>
 									</div>
-									<div class="col_1_of_single1 span_1_of_single1">
-										<a href="single.html">
-											<img src="../images/m2.jpg" class="img-responsive" alt="" />
-											<h3>parum clari</h3>
-											<p>Duis autem vel eum iriure</p>
-											<h4>Rs.399</h4>
-										</a>
-									</div>
-									<div class="col_1_of_single1 span_1_of_single1">
-										<a href="single.html">
-											<img src="../images/m3.jpg" class="img-responsive" alt="" />
-											<h3>parum clari</h3>
-											<p>Duis autem vel eum iriure</p>
-											<h4>Rs.399</h4>
-										</a>
-									</div>
+									{{/each}}
 									<div class="clearfix"></div>
 								</div>
-								{{each}}
+								{{/each}}
 								</script>
 						
 								
