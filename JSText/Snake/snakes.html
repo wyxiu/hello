@@ -5,20 +5,24 @@
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
-
 	<body>
 		<!------动态获取地图宽高------>
-		宽度:<input type="text" id="mp_width" value="600" /><br /> 高度：
-		<input type="text" id="mp_height" value="800" /><br />
-		<button id="start">开始游戏</button>
+		宽度:<input type="text" id="mp_width" value="800" /><br /> 高度：
+		<input type="text" id="mp_height" value="500" /><br />
+		<button id="start">开始游戏</button>积分：<span id="scores">0</span>
 		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/map.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			//Game.addEventListener();
 			document.getElementById("start").onclick = function() {
 				const width = document.getElementById("mp_width").value,
-					height = document.getElementById("mp_height").value;
+					height = document.getElementById("mp_height").value,
+					_myMap = document.getElementById("myMap");
+				if(_myMap) {
+					_myMap.parentNode.removeChild(_myMap);
+				}
 				//创建Map对象
 				const map = new Map({
 					width,
@@ -30,25 +34,64 @@
 				food.map = map;
 				// 显示食物
 				food.createDom();
+				food.changePosition();
 
 				const snake = new Snake();
 				snake.map = map;
 				snake.createDom();
 
 				document.onkeydown = function(e) {
-					
+
 					const code = e.which;
 					snake.setDirection(code);
 				}
-				
+
 				var timer = setInterval(function() {
-					if(snake.move()){
-						clearInterval(timer);
-						console.log("----end");
-					}
-					
+					snake.move();
+					checkWall();
+					eat();
+
 				}, 200);
-				
+
+				//判断是否出Map
+				 function checkWall() {
+						const len = snake.body.length;
+						const head = snake.body[len - 1];
+						//console.log(len);
+						if(head.x < 0 || head.x >=map.width/snake.width) {
+							clearInterval(timer);
+							alert("撞墙了");
+
+						} else if(head.y < 0 || head.y >= map.height/snake.height) {
+							clearInterval(timer);
+							alert("撞墙了");
+							
+						}
+					
+						for(var i = 0; i < len - 1; i++) {
+							if(head.x === snake.body[i].x && head.y === snake.body[i].y) {
+								clearInterval(timer);
+								alert("biteSelf");
+							}
+						}
+					
+					}
+
+					 function eat() {
+					 	const _scores = document.getElementById("scores");
+						const len = snake.body.length;
+						const head = snake.body[len - 1];
+						if(head.x === food.x && head.y === food.y) {
+							_scores.innerHTML ++;
+							snake.body.unshift({
+								x: 0,
+								y: 0,
+								dom: null,
+								background: Tools.randomColor()
+							});
+							food.changePosition();
+						}
+					}
 
 			}
 		</script>

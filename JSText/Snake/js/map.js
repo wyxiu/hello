@@ -15,21 +15,23 @@ Map.prototype = {
 	//设置属性
 	createDom: 　 function() {
 		this.dom = document.createElement("div");
+		this.dom.id = "myMap";
 		Tools.css(this.dom, {
 			width: this.width + "px",
 			height: this.height + "px",
 			background: this.background,
 			position: "relative",
 			margin: "10px auto"
+			
 		});
 		//把map添加到body中显示
 		
-		var children = document.body.children;
-		for(var i=0;i<children.length;i++){
-			if(children[i].nodeName === "DIV"){
-				document.body.removeChild(children[i]);
-			}
-		}
+//		var children = document.body.children;
+//		for(var i=0;i<children.length;i++){
+//			if(children[i].nodeName === "DIV"){
+//				document.body.removeChild(children[i]);
+//			}
+//		}
 		document.body.appendChild(this.dom);
 	},
 	//添加角色在map中
