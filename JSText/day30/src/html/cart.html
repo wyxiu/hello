@@ -186,10 +186,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <div class="content">
   <div class="content_box">
-	<div class="men cart">
+	<div class="men cart cart_empty hide">
 	    <h1>It appears that your cart is currently empty!</h1>
 	    <h2>You can continue browsing <a href="men.html">here</a>.</h2>
     </div>
+    
+    <div class="cartshop hide row">
+    	<table class="table table-bordered table-hover">
+    		<thead>
+    			<tr>
+    				<th class="col-md-1" style="text-align: center;"><label><input type="checkbox">全选</lable></th>
+    				<th class="col-md-2" style="text-align: center;">图片</th>
+    				<th class="col-md-3" style="text-align: center;">标题</th>
+    				<th class="col-md-1" style="text-align: center;">价格</th>
+    				<th class="col-md-2" style="text-align: center;">数量</th>
+    				<th class="col-md-1" style="text-align: center;">小计</th>
+    				<th class="col-md-2" style="text-align: center;">操作</th>
+    				
+    			</tr>
+    		</thead>
+    		<tbody style="text-align: center;">
+    			
+    		</tbody>
+    		<tfoot>
+    			<tr>
+    				<td>合计</td>
+    				<td colspan="6" style="text-align: right;font-size: 16px;color: red;font-weight: 600;">0.00</td>
+    			</tr>
+    		</tfoot>
+    		
+    	</table>
+    </div>
+    <script type="text/html" id="cart_template">
+    	{{each cartshop pro}}
+    	<tr>
+    		<tr data-id="{{pro.id}}">
+			<td><label><input type="checkbox"></lable></td>
+			<td><img src="../{{pro.img}}"</td>
+			<td>{{pro.title}}</td>
+			<td>{{pro.price}}</td>
+			<td>
+			    <div class="input-group">
+			      <div class="input-group-addon minus">-</div>
+			      <input type="text" class="form-control text-center amount"  value="{{pro.amount}}">
+			      <div class="input-group-addon add">+</div>
+			    </div>
+			</td>
+			<td>{{(pro.price*pro.amount).toFixed(2)}}</td>
+			<td><a href="javascript:void(0);">删除</a></td>
+    	</tr>
+    	{{/each}}
+    </script>
+    
 	<div class="footer_top">
 	  <div class="span_of_4">
 		<div class="col-md-3 box_4">
@@ -272,5 +320,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      </div>
    </div>
 </div>	
+<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="../lib/arttemplate/template-web.js" ></script>
+<script src="../lib/jquery-plugins/jquery.cookie.js"></script>
+<script src="../js/cart.js"></script>
+
 </body>
 </html>		
