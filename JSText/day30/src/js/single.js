@@ -1,5 +1,5 @@
 $(function(){
-	$(".btn_form input").on(function(e){
+	$(".btn_form input").on("click",function(e){
 		const end = $(".bag_left").offset();
 			// 动态创建运动图片
 			const flyer = $("<img src='../images/m1.jpg' style='width:40px;'>");

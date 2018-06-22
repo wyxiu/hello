@@ -17,7 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start menu -->
 		<link href="../css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
-</head>
+
 <body>
 <div class="wrap">	
 <div class="container">
@@ -195,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	<table class="table table-bordered table-hover">
     		<thead>
     			<tr>
-    				<th class="col-md-1" style="text-align: center;"><label><input type="checkbox">全选</lable></th>
+    				<th class="col-md-1" style="text-align: center;"><label><input type="checkbox" class="checkall">全选</lable></th>
     				<th class="col-md-2" style="text-align: center;">图片</th>
     				<th class="col-md-3" style="text-align: center;">标题</th>
     				<th class="col-md-1" style="text-align: center;">价格</th>
@@ -211,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		<tfoot>
     			<tr>
     				<td>合计</td>
-    				<td colspan="6" style="text-align: right;font-size: 16px;color: red;font-weight: 600;">0.00</td>
+    				<td colspan="6" style="text-align: right;font-size: 16px;color: red;font-weight: 600;" class="total">0.00</td>
     			</tr>
     		</tfoot>
     		
@@ -219,9 +219,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <script type="text/html" id="cart_template">
     	{{each cartshop pro}}
-    	<tr>
     		<tr data-id="{{pro.id}}">
-			<td><label><input type="checkbox"></lable></td>
+			<td><label><input type="checkbox" class="checksingle"></lable></td>
 			<td><img src="../{{pro.img}}"</td>
 			<td>{{pro.title}}</td>
 			<td>{{pro.price}}</td>
@@ -232,8 +231,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			      <div class="input-group-addon add">+</div>
 			    </div>
 			</td>
-			<td>{{(pro.price*pro.amount).toFixed(2)}}</td>
-			<td><a href="javascript:void(0);">删除</a></td>
+			<td class="sum">{{(pro.price*pro.amount).toFixed(2)}}</td>
+			<td><a href="javascript:void(0);" class="del" >删除</a></td>
     	</tr>
     	{{/each}}
     </script>

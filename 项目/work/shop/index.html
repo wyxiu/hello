@@ -13,125 +13,31 @@
 			<span id="hide">X</span>
 			<img  id="img2" src="img/head_adv2.jpg" style="display: none;"/>
 		</div>
-		<script src="js/js/tools.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-//			var top_banner = document.getElementById("top_banner");
-//			var _pic2=document.getElementById("pic2");
-//			var hide = document.getElementById("hide");
-//			var img1 = document.getElementById("img1");
-//				hide.onclick = function (){
-//				top_banner.style.display="none";
-//				_pic2.style.display="none";	
-//		}
-//				top_banner.onmouseover=function(){
-//						top_banner.style.height="250px";
-//						
-//						 img1.style.width="100%";
-//				top_banner.onmouseout=function(){
-//						top_banner.style.height="80px";
-//						  img1.src = "img/head_adv1.jpg";
-//						  img1.style.width="100%";
-//				}
-//			}
-		$("#top_banner").onmouseover = function(){
-			animate(this,{height:250},1000,function(){
-				$("#img1").style.display="none"
-				$("#img2").style.display="block"
-			});
-			
+			var top_banner = document.getElementById("top_banner");
+			var _pic2=document.getElementById("pic2");
+			var hide = document.getElementById("hide");
+			var img1 = document.getElementById("img1");
+				hide.onclick = function (){
+				top_banner.style.display="none";
+				_pic2.style.display="none";	
 		}
-		
-
+				top_banner.onmouseover=function(){
+						top_banner.style.height="250px";
+						
+						 img1.style.width="100%";
+				top_banner.onmouseout=function(){
+						top_banner.style.height="80px";
+						  img1.src = "img/head_adv1.jpg";
+						  img1.style.width="100%";
+				}
+			}
 		</script>
-		<div class="wraptop_nav">
-			<div class="top_nav">
-				<div class="tn_l">
-				<i class="iconfont icon-dizhi"></i>送货地址：上海
-				</div>
-				<div class="tn_r">
-					<ul>
-						<li><a href="#">Hi,请登录</a></li>
-						<li><a href="#">注册</a></li>
-						<li>
-							<i class="iconfont icon-wodedingdan"></i>
-							<a href="#">我的订单</a>
-						</li>
-						<li><a href="#">客户服务</a></li>
-						<li>
-							<i class="iconfont icon-shouji"></i>
-							<a href="#">App下载</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="wrapheader">
-			<div class="header">
-				<div class="logo">
-					<h1><a href="#"><span>1号店</span></a></h1>
-				</div>
-				<div class="search">
-					<form action="">
-						<input type="text" class="txt" placeholder="美护9.9元秒杀 满199-100"/>
-						<button class="btn">
-							<i class="iconfont icon-sousuo"></i>
-						</button>
-					</form>
-					<p class="sm_nav">
-						<a href="#">空调被</a>
-						<a href="#">调味品</a>
-						<a href="#">自营</a>
-						<a href="#">平板电脑</a>
-						<a href="#">耳机</a>
-						<a href="#">洗衣液凝珠</a>
-						<a href="#">进口饼干</a>
-						<a href="#">糕点</a>
-						<a href="#">牛奶</a>
-						<a href="#">自营纸巾</a>
-					</p>
-					<p class="sb_nav">
-						<a href="#">1号抢购</a>
-						<a href="#">1号团</a>
-						<a href="#">领券中心</a>
-						<a href="#">捡便宜</a>
-						<a href="#">全球进口</a>
-						<a href="#">1号生鲜</a>
-						<a href="#">美妆馆</a>
-						<a href="#">家居馆</a>
-						<a href="#">电器城</a>
-					</p>
-				</div>
-				<div class="shopcar">
-					<i class="iconfont icon-gouwuche"></i>
-					购物车
-				</div>
-			</div>
-		</div>
+		<!-------头部复用---------->
+		<div class="header_temp"></div>
+		<!-------头部复用---------->
 		<div class="banner">
-			<ul class="pages" >	
-				<li><img src="img/banner.jpg"/></li>
-				<li><img src="img/banner1.jpg"/></li>
-				<li><img src="img/banner2.jpg"/></li>
-				<li><img src="img/banner3.jpg"/></li>
-				<li><img src="img/banner5.jpg"/></li>
-				<li><img src="img/banner6.jpg"/></li>
-				<li><img src="img/banner7.jpg"/></li>
-				<li><img src="img/banner8.jpg"/></li>
-				<li><img src="img/banner11.jpg"/></li>
-			</ul>
-			<div id="points">
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-			</div>
-				
-			</div>
+		<img src="img/banner.jpg"/>	
 			<ul>
 				<li>
 					<i class="iconfont icon-jinkouniunai"></i>
@@ -1219,109 +1125,14 @@
 			
 		</div>
 	</div>
+	<!-------尾部复用--------->
+	<div class="footer_temp"></div>
+		<!-------尾部复用--------->
+	<script src="lib/jquery/jquery-1.12.4.min.js" ></script>
+	<script src="js/loadheaderAddFooter.js"></script>
+	<script src="lib/jquery-plugins/carousel.js"></script>
 	
 	
-	<div class="wrapfooter">
-		<div class="footer">
-			<div class="footer_top">
-				<dl>
-					<dt><img src="img/ft1.jpg"/></dt>
-					<dd>
-						<p class="p1">正品保障</p>
-						<p class="p2">正品行货 &nbsp; &nbsp;放心选购</p>
-					</dd>
-				</dl>
-				<dl>
-					<dt><img src="img/ft2.jpg"/></dt>
-					<dd>
-						<p class="p1">满86包邮</p>
-						<p class="p2">正品行货 &nbsp; &nbsp;放心选购</p>
-					</dd>
-				</dl>
-				<dl>
-					<dt><img src="img/ft3.jpg"/></dt>
-					<dd>
-						<p class="p1">正品保障</p>
-						<p class="p2">正品行货 &nbsp; &nbsp;放心选购</p>
-					</dd>
-				</dl>
-				<dl>
-					<dt><img src="img/ft4.jpg"/></dt>
-					<dd>
-						<p class="p1">正品保障</p>
-						<p class="p2">正品行货 &nbsp; &nbsp;放心选购</p>
-					</dd>
-				</dl>
-			</div>
-			<div class="footer_center">
-				<div class="ftc_list">
-					<h5>新手入门</h5>
-					<ul>
-						<li><a href="#">购物流程</a></li>
-						<li><a href="#">会员制度</a></li>
-						<li><a href="#">订单查询</a></li>
-						<li><a href="#">发票制度</a></li>
-						<li><a href="#">网站地图</a></li>
-					</ul>
-				</div>
-				<div class="ftc_list">
-					<h5>新手入门</h5>
-					<ul>
-						<li><a href="#">购物流程</a></li>
-						<li><a href="#">会员制度</a></li>
-						<li><a href="#">订单查询</a></li>
-						<li><a href="#">发票制度</a></li>
-						<li><a href="#">网站地图</a></li>
-					</ul>
-				</div>
-				<div class="ftc_list">
-					<h5>新手入门</h5>
-					<ul>
-						<li><a href="#">购物流程</a></li>
-						<li><a href="#">会员制度</a></li>
-						<li><a href="#">订单查询</a></li>
-						<li><a href="#">发票制度</a></li>
-						<li><a href="#">网站地图</a></li>
-					</ul>
-				</div>
-				<div class="ftc_list">
-					<h5>新手入门</h5>
-					<ul>
-						<li><a href="#">购物流程</a></li>
-						<li><a href="#">会员制度</a></li>
-						<li><a href="#">订单查询</a></li>
-						<li><a href="#">发票制度</a></li>
-						<li><a href="#">网站地图</a></li>
-					</ul>
-				</div>
-				<div class="ftc_list">
-					<h5>新手入门</h5>
-					<img src="img/qryhd.png"/>
-				</div>
-				<div class="ftc_list">
-					<h5>加微信查订单</h5>
-					<img src="img/code.jpg"/>
-				</div>
-			</div>
-			<div class="footer_bottom">
-				<p class="p1">沪ICP备16050468号 | 经营证照 | 互联网药品信息服务资格证 | 违法和不良信息举报电话：0527-88100253 | 沪B2-20170039 | 沪公网安备 31010502002939号 | 友情链接
-				</p>
-				<p class="p2">
-			Copyright© 1号店网上超市 2007-2017，All Rights Reserved
-				</p>
-				<p class="p3">
-					<a href="#">
-						<img src="img/ftb1.jpg"/>
-						<img src="img/ftb2.png"/>
-						<img src="img/ftb3.jpg"/>
-						<img src="img/ftb4.jpg"/>
-						<img src="img/ftb5.jpg"/>
-						<img src="img/ftb6.png"/>
-					</a>
-				</p>
-			</div>
-		</div>
-	</div>
 	</body>
 </html>
 

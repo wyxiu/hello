@@ -1,5 +1,5 @@
 $(function(){
-	$(".header").load("include/header.html",function(){
+	$(".header").load("/day30/src/include/header.html",function(){
 		$(".search :text").on("keyup",function(){
 			const txt = $(this).val();
 			const url =`https://suggest.taobao.com/sug?code=utf-8&q=${txt}&callback=?`;
@@ -40,7 +40,7 @@ $(function(){
 		});
 		
 	});
-	$(".footer").load("include/footer.html");
+	$(".footer").load("/day30/src/include/footer.html");
 });
 
 
