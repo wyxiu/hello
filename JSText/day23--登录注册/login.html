@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>	
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h2>登录页面</h2>
+		<div id="info"></div>
+		<form  id="login_form">
+			<input type="text" name="username" id="username" placeholder="用户名" /><br />
+			<input type="password" name="password" id="password" placeholder="登录密码" /><br />
+			<input type="submit" value="登录" />
+		</form>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			on($("#login_form"), "submit", function(e) {
+				e.preventDefault();
+				var _username = $("#username").value;
+				var _password = $("#password").value;
+				ajax({
+					type: "post",
+					url: "login.php",
+					data: {
+						username:_username,
+						password:_password
+					},
+					dataType: "json",
+					success: function(resData) {
+						if(resData.res_code === 1) {
+							$("#info").innerHTML = "登录成功";
+						} else {
+							$("#info").innerHTML = "登录失败成功";
+						}
+					}
+				});
+			});
+		</script>
+		<script>
+			function ajax(options){
+				var type = (options.type || "get").toUpperCase();
+				var url = options.url;
+				var queryString = null;
+				if(options.data){
+					queryString = [];
+					for(var attr in options.data){
+						queryString.push(attr + "="+options.data[attr]);
+					}
+					queryString=queryString.join("&");
+				}
+				var xhr = XMLHttpRequest;
+				if(type === "GET"){
+					url += queryString;
+					queryString = null;
+				}
+				xhr.open(type,url,true);
+				
+				if(type === "POST"){
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				}
+				xhr.send(queryString);
+				xhr.onRecorderStateChange = function(){
+  	                if(xhr.readyState ===4){
+  	                	if(xhr.status === 200){
+  	              	 var data =xhr.responseText;
+  	              	 if(options.dataType === "json"){
+  	              	 	data = JSON.parse(data);
+  	              	 }
+  	              	 options.success&& options.success(data);
+  	              	} else{
+  	              	 	options.error &&options.error(data.status);
+  	              	  }
+  	                	
+  	                }
+				}
+			}
+		</script>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

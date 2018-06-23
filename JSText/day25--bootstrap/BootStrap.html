@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<h2>
+				<img src="img/logo.png" />
+				<span>易错题目</span>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#addModel">
+					<i class="glyphicon glyphicon-plus"></i> 添加易错题目
+				</button>
+			</h2>	
+		</div>
+		<!---点击button弹出模态框--->
+		<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="addModel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <!-- Modal头部 --> 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加题目</h4>
+      </div>
+      
+      <div class="modal-body">
+      	 <div class="alert alert-danger" role="alert" id="form_info" style="display: none;"></div>
+      <!-- form表单 -->	
+      <form>
+  <div class="form-group">
+    <label for="addQuestion">易错内容</label>
+    <input type="text" class="form-control" id="addQuestion" placeholder="请填写出错的内容">
+  </div>
+   <div class="form-group">
+    <label for="addWheres">易错地方</label>
+    <textarea class="form-control" rows="4" id="addWheres" placeholder="请填写经常出错的地方"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="addHow">如何解决</label>
+    <textarea class="form-control" rows="4" id="addHow" placeholder="请填写如何解决问题的方案"></textarea>
+  </div>
+</form>
+      </div>
+      
+     <!-- Modal尾部 --> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="added">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------body主体表格------>
+<div class="container">
+<table class="table table-bordered" >
+	<thead  >
+		<tr>
+			<th>序号</th>
+			<th>易错内容</th>
+			<th>错在哪里</th>
+			<th>如何解决</th>
+			<th colspan = "2">操作</th>
+		</tr>
+	</thead>
+  <tbody id="add_questions">
+  	<!--<tr>
+  		<td>1</td>
+  		<td>变量未定义</td>
+  		<td>常未定义就使用</td>
+  		<td>查看变量是否定义</td>
+  		<td><a href="javascript:void(0);">修改</a></td>
+  		<td><a href="javascript:void(0);">删除</a></td>
+  	</tr>-->
+  </tbody>
+</table>
+</div>
+
+<!--------点击修改弹出模态框------>
+<div class="modal fade" id="modifyModel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <!-- Modal头部 --> 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加题目</h4>
+      </div>
+      <div class="modal-body">
+      	 <div class="alert alert-danger" role="alert" id="modify_form_info" style="display: none;"></div>
+      <!-- form表单 -->	
+      <form>
+      	<input type="hidden" name="modifyId" id="modifyId" value="" />
+  <div class="form-group">
+    <label for="modifyQuestion">易错内容</label>
+    <input type="text" class="form-control" id="modifyQuestion" placeholder="请填写出错的内容">
+  </div>
+   <div class="form-group">
+    <label for="modifyWheres">易错地方</label>
+    <textarea class="form-control" rows="4" id="modifydWheres" placeholder="请填写经常出错的地方"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="modifyHow">如何解决</label>
+    <textarea class="form-control" rows="4" id="modifyHow" placeholder="请填写如何解决问题的方案"></textarea>
+  </div>
+</form>
+      </div>
+      
+     <!-- Modal尾部 --> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="modifyadded">修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--------翻页效果------>
+<div class="container">
+	<nav aria-label="Page navigation" style="text-align: right;">
+  <ul class="pagination" id="page">
+   <!--<li class="active"><a href="javascript:void(0)">1</a></li>
+    <li><a href="javascript:void(0)">2</a></li>
+    <li><a href="javascript:void(0)">3</a></li>
+    <li><a href="javascript:void(0)">4</a></li>
+    <li><a href="javascript:void(0)">5</a></li>-->
+  </ul>
+</nav>
+</div>
+
+		<script type="text/javascript" src="lib/jquery/jquery-1.12.4.min.js" ></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bts.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

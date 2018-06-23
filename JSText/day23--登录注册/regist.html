@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h2>注册页面</h2>
+		<form action="regist.php" method="post" id="res_form">
+			<input type="text" name="username" id="username" placeholder="用户名" /><span id="username_info"></span><br />
+			<input type="password" name="password" id="password" placeholder="登录密码" /><br />
+			<input type="text" name="nickname" id="nickname" placeholder="昵称" /><br />
+			<input type="submit" value="注册" />
+		</form>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			on($("#username"), "blur", function() {
+				//创建核心对象
+				var xhr = new XMLHttpRequest();
+				//准备建立连接
+				xhr.open("GET", "check.php?username=" + this.value, true);
+				//发送请求
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState === 4 && xhr.status === 200) {
+						//返回文本
+						var data = xhr.responseText;
+						data = JSON.parse(data);
+						//console.log(data);
+						if(data.res_code === 1) {
+							$("#username_info").innerText = "用户名已被占用，请重新输入";
+						} else {
+							$("#username_info").innerText = "用户名正确";
+						}
+						//console.log(data);
+					}
+				}
+			});
+		</script>
+
+		<script type="text/javascript">
+			//表单有默认的提交跳转行为，用AJAX指定跳转
+			on($("#res_form"), "submit", function(e) {
+//				e = e || event;
+//				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+					e.preventDefault();
+				var _username = $("#username").value,
+					_password = $("#password").value,
+					_nickname = $("#nickname").value;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "regist.php", true);
+				var queryString = `username=${_username}&password=${_password}&nickname=${_nickname}`;
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send(queryString);
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState === 4 && xhr.status === 200) {						
+							var data = xhr.responseText;
+							data = JSON.parse(data);
+							if(data.res_code === 1) {
+								location = "sucess.html";
+							} else {
+								alert("注册失败");
+							}
+							console.log(data);						
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>
