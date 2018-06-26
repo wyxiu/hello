@@ -394,6 +394,12 @@ $top_border:1px solid #e5e5e5;
               width: 140px;
           } 
         }
+        .hide{
+            display: none;
+        }
+        .show {
+         display: block;
+    }
     }
 }
 
@@ -439,14 +445,17 @@ $top_border:1px solid #e5e5e5;
     }
     .hotAddNew_hot {
         width: 895px;
-        height: 628px;
+        height: auto;
         border-left: 1px solid #e5e5e5;
+        border-top:1px solid #e5e5e5 ;
+       
         li a {
             display: inline-block;
             width: 223px;
             height: 208px;
             border-right: 1px solid #e5e5e5;
             border-bottom: 1px solid #e5e5e5;
+            
             box-sizing: border-box;
             position: relative;
             overflow: hidden;

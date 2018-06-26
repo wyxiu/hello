@@ -4,56 +4,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">
-			ul {
-				width: 1190px;
-			}
-			
-			ul,
-			li {
-				list-style: none;
-				float: left;
-				width: 200px;
-				overflow: hidden;
-				z-index:999;
-			}
-			
-			ul,
-			li img {
-				position: relative;
-			}
-			
-			ul .current {
-				width: 390px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
 	</head>
 
 	<body>
 		<div class="header"></div>
 
-		<!--<div class="slide">
-			<ul class="slider_list" style="width: 1190px;">
-
-				<li class="current">
-					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
-				</li>
-				<li class="">
-					<a href="#"><img src="img/2017041111111800614400.jpg" /></a>
-				</li>
-				<li class="">
-					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
-				</li>
-				<li class="">
-					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
-				</li>
-			</ul>
-		</div>-->
+		
 
 		<div class="banner-bar">
 			<div class="banner">
 				<ul class="kinds_list" id="kinds_list">
-				<li>
+				<li >
 					<i class="iconfont icon-shuiguo"></i>
 					<a href="#">新鲜蔬果</a>
 				</li>
@@ -95,7 +58,7 @@
 				</li>
 			</ul>
 			
-			<div class="kinds_list_des" id="kinds_list_des">
+			<div class="kinds_list_des hide" id="kinds_list_des">
 				<h5>休闲食品</h5>
 				<ul class="second-list">
 					<li><a href="#">零食</a></li>
@@ -105,6 +68,7 @@
 				</ul>
 				<a href="#"><img src="/img/3xxsp.jpg"></a>
 			</div>
+			
 			
 			<div class="banner_right">
 				<div class="bann_right_top">
@@ -141,36 +105,36 @@
 		<div class="hotAddNew_bar">
 		<div class="hotAddNew_left">
 			<ul class="hotAddNew_nav">
-				<li class="hot_current hot_show1">
+				<li class="hot_current" id="hot_show1">
 					<a href="javascript:void(0);">
 						热销推荐
 					</a>
 				</li>
-				<li class="hot_show2" >
+				<li id="hot_show2" >
 					<a href="javascript:void(0);">
 						新品上市
 					</a>
 				</li>
-				<li class="hot_show3">
+				<li id="hot_show3">
 					<a href="javascript:void(0);">
 						品牌专区
 					</a>
 				</li>
 				
 			</ul>
-			
+		
 			<ul class="hotAddNew_hot">
 				
 			</ul>
-			<ul class="hotAddNew_hot new" id="hot-new">
+			<!--<ul class="hotAddNew_hot new" id="hot-new">
 				
 			</ul>
 			<ul class="hotAddNew_hot brand" id="hot-brand" >
 				
-			</ul>
+			</ul>-->
 			<script type="text/html" id="hotsale_template">
 				{{each list hots }}	
-				<li>	
+				<li>
 				<a href="#">
 					<p class="p1">{{hots.title}}</p>
 					<p class="p2">￥<b>{{hots.price}}</b></p>
@@ -181,13 +145,13 @@
 						加入购物车
 					</div>
 				 </a>
-				</li>
+				</li>	
 				{{/each}}
 			</script>
 			
 			<script type="text/html" id="hotsale_template_new">
 				{{each list_new news }}	
-				<li>	
+				<li>
 				<a href="#">
 					<p class="p1">{{news.title}}</p>
 					<p class="p2">￥<b>{{news.price}}</b></p>
@@ -305,48 +269,10 @@
 	</div>
 	
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
->>>>>>> 1167416c52ab86a041af490fc2ef133e053b098a
-		<div class="footer"></div>
-		<script type="text/javascript" src="lib/jquery/jquery-1.12.4.min.js"></script>
-		<script type="text/javascript">
-			var lis = $("li");
-			$(".slider_list").on("mouseover", "li", function() {
-				
-				if($(this).attr('class') === "current"){
-					return;
-				}
-				$("li").find("img").stop(false,true);
-				$(".current").find("img").animate({left:"0px"},300);
-				$(".current").removeClass("current");
-				$(this).addClass("current");
-				$(this).find("img").animate({left:"-200px"},300);
-			});
-			
-			
-			
-		</script>
 
+		<div class="footer"></div>
+		<script src="/lib/requireJS/require.js" data-main = "/js/index.js"></script>
+		<!--<script type="text/javascript" src="/lib/jquery/jquery-1.12.4.min.js"></script>-->
 	</body>
 
 </html>
