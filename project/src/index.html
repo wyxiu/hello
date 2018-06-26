@@ -8,6 +8,282 @@
 	</head>
 	<body>
 		<div class="header"></div>
+		<div class="banner-bar">
+			<div class="banner">
+				<ul class="kinds_list" id="kinds_list">
+				<li>
+					<i class="iconfont icon-shuiguo"></i>
+					<a href="#">新鲜蔬果</a>
+				</li>
+				<li>
+					<i class="iconfont icon-liangyouganhuo"></i>
+					<a href="#">粮油干货</a>
+				</li>
+				<li>
+					<i class="iconfont icon-huiliuqushipin"></i>
+					<a href="#">休闲食品</a>
+				</li>
+				<li>
+					<i class="iconfont icon-huiliuqushipin"></i>
+					<a href="#">肉禽蛋奶</a>
+				</li>
+				<li>
+					<i class="iconfont icon-ningmeng-"></i>
+					<a href="#">进口食品</a>
+				</li>
+				<li>
+					<i class="iconfont icon-jiushui"></i>
+					<a href="#">酒水茶饮</a>
+				</li>
+				<li>
+					<i class="iconfont icon-jinkouxiuxianshipin"></i>
+					<a href="#">营养食品</a>
+				</li>
+				<li>
+					<i class="iconfont icon-liwu"></i>
+					<a href="#">保健品</a>
+				</li>
+				<li>
+					<i class="iconfont icon-muying"></i>
+					<a href="#">母婴专区</a>
+				</li>
+				<li>
+					<i class="iconfont icon-jiushui"></i>
+					<a href="#">茗茶</a>
+				</li>
+			</ul>
+			
+			<div class="kinds_list_des" id="kinds_list_des">
+				<h5>休闲食品</h5>
+				<ul class="second-list">
+					<li><a href="#">零食</a></li>
+					<li><a href="#">零食</a></li>
+					<li><a href="#">零食</a></li>
+					<li><a href="#">零食</a></li>
+				</ul>
+				<a href="#"><img src="/img/3xxsp.jpg"></a>
+			</div>
+			
+			<div class="banner_right">
+				<div class="bann_right_top">
+					<div class="bann_right_top_top">
+						<i class="iconfont icon-muying"></i>
+						集食慧公告
+					</div>
+					<ul class="bann_tell">
+						<li><a href="#">集采账号介绍</a></li>
+						<li><a href="#">要享团购价,去伙拼专区吧</a></li>
+						<li><a href="#">万企集采.企业会员介绍</a></li>
+					</ul>
+				</div>
+				<div class="bann_right_bottom">
+					<ul class="bann_right_list">
+						<li>
+							<a href="#">
+								<p class="p1">烟台栖霞红富士苹果5斤装（果径80mm）5斤-80mm</p>
+								<span>无添加不勾兑</span>
+								<p class="p2">￥<b>44.9</b></p>
+								<img src="/img/2018021218100110248454.jpg"/>			
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</div>
+			<div class="banners_img">
+			<div class="bann_imgs">
+				<!--<li><a href="#"><img src="img/bann1.jpg" title="banner"/></a></li>-->
+			</div>
+			</div>	
+		</div>
+		<div class="hotAddNew_bar">
+		<div class="hotAddNew_left">
+			<ul class="hotAddNew_nav">
+				<li class="hot_current hot_show1">
+					<a href="javascript:void(0);">
+						热销推荐
+					</a>
+				</li>
+				<li class="hot_show2" >
+					<a href="javascript:void(0);">
+						新品上市
+					</a>
+				</li>
+				<li class="hot_show3">
+					<a href="javascript:void(0);">
+						品牌专区
+					</a>
+				</li>
+				
+			</ul>
+			
+			<ul class="hotAddNew_hot">
+				
+			</ul>
+			<ul class="hotAddNew_hot new" id="hot-new">
+				
+			</ul>
+			<ul class="hotAddNew_hot brand" id="hot-brand" >
+				
+			</ul>
+			<script type="text/html" id="hotsale_template">
+				{{each list hots }}	
+				<li>	
+				<a href="#">
+					<p class="p1">{{hots.title}}</p>
+					<p class="p2">￥<b>{{hots.price}}</b></p>
+					<img src="{{hots.img}}"/>
+					<span>元宝最高抵扣 ￥ <b>{{hots.descount}}</b></span>
+					<div class="hottocart">
+						<i class="iconfont icon-muying"></i>
+						加入购物车
+					</div>
+				 </a>
+				</li>
+				{{/each}}
+			</script>
+			
+			<script type="text/html" id="hotsale_template_new">
+				{{each list_new news }}	
+				<li>	
+				<a href="#">
+					<p class="p1">{{news.title}}</p>
+					<p class="p2">￥<b>{{news.price}}</b></p>
+					<img src="{{news.img}}"/>
+					<span>元宝最高抵扣 ￥ <b>{{news.descount}}</b></span>
+					<div class="hottocart">
+						<i class="iconfont icon-muying"></i>
+						加入购物车
+					</div>
+				 </a>
+				</li>
+				{{/each}}
+			</script>
+			
+			<script type="text/html" id="hotsale_template_brand">
+				{{each list_brand brands }}	
+				<li>	
+				<a href="#">
+					<p class="p1">{{brands.title}}</p>
+					<p class="p2">￥<b>{{brands.price}}</b></p>
+					<img src="{{brands.img}}"/>
+					<span>元宝最高抵扣 ￥ <b>{{brands.descount}}</b></span>
+					<div class="hottocart">
+						<i class="iconfont icon-muying"></i>
+						加入购物车
+					</div>
+				 </a>
+				</li>
+				{{/each}}
+			</script>
+			
+		</div>
+			<div class="hotAddNew_right">
+				<h5>
+					<span>限时</span>抢购
+					<a href="#">下期预告</a>
+				</h5>
+				<div class="hotAddNew_timer">
+					<b>抢购时间</b>
+					<span></span><i>:</i>
+					<span></span><i>:</i>
+					<span></span><i>:</i>
+					<span></span>
+				</div>
+				<img src="/img/2018061915404167998700.png" />
+			</div>
+	</div>
+	
+	<div class="slider">
+		<ul class="slider_list">
+			<li class="active"><a href="#"><img src="/img/2017092817035832989539.jpg"/></a></li>
+			<li ><a href="#"><img src="/img/2017041111111800614400.jpg"/></a></li>
+			<li><a href="#"><img src="/img/2017041111215009230278.jpg"/></a></li>
+			<li><a href="#"><img src="/img/2017092817051373992781.jpg"/></a></li>
+			<li><a href="#"><img src="/img/2017041113104980313374.jpg"/></a></li>
+		</ul>
+	</div>
+	
+	<div class="vegetable">
+		<div class="vegetable_left">
+			<h3>1F果蔬生鲜</h3>
+			<div class="vegetable_slide">
+				<img src="/img/2017040113503868887353.jpg" />
+			</div>
+		</div>
+		<div class="vegetable_right">
+			<div class="vegetable_right_top">
+			<ul class="vgt_r_nav">
+				<li class="vege_current"><a href="#">当季热销</a></li>
+				<li><a href="#">新品上市</a></li>
+				<li><a href="#">生鲜特产</a></li>
+			</ul>
+			<ul class="vgt_r_navs">
+				<li><a href="#">其他水果</a><span>|</span></li>
+				<li><a href="#">苹果</a><span>|</span></li>
+				<li><a href="#">奇异果/猕猴桃</a><span>|</span></li>
+				<li><a href="#">速冻食品</a><span>|</span></li>
+				<li><a href="#">其他水果</a><span>|</span></li>
+				<li><a href="#">其他水果</a></li>
+			</ul>
+		</div>
+			<div class="vegetable_right_bottom">
+				
+					<ul class="vgtrb_lists">
+						<!--<li>	
+						<a href="#">
+							<p class="p1">横都国产冷冻带牛腩快1kg</p>
+							<p class="p2">￥<b>99.00</b></p>
+							<img src="/img/2016092311271515934748.jpg"/>
+							<div class="hottocart">
+								<i class="iconfont icon-muying"></i>
+								加入购物车
+							</div>
+						 </a>
+						</li>-->
+					</ul>
+					<script type="text/html" id="vegetable_template">
+						{{each list_vege vege}}
+						<li>	
+						<a href="#">
+							<p class="p1">{{vege.title}}</p>
+							<p class="p2">￥<b>{{vege.price}}</b></p>
+							<img src="{{vege.img}}"/>
+							<div class="hottocart">
+								<i class="iconfont icon-muying"></i>
+								加入购物车
+							</div>
+						 </a>
+						</li>
+						{{/each}}
+					</script>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<div class="footer"></div>
 		
 		
