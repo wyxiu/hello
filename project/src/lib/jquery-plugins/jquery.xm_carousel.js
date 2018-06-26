@@ -1,7 +1,7 @@
 /* 轮播图插件 */
 (function($){
 	// 构造函数
-	function Carousel({duration, imgs, container, width, height, showBtn}) {
+	function Carousel({duration, imgs, container,width,height, showBtn}) {
 		this.duration = duration; // 配置的切换时间
 		this.imgs = imgs; // 配置的轮播图片相关信息 [{src, href}, {src, href}]
 		this.container = $(container); // 存放轮播图的容器
@@ -43,16 +43,16 @@
 			this.container.html(html);
 			// 设置元素CSS样式
 			// 容器样式
-			this.container.css({
-				position:"relative",
-				width: this.width,
-				height: this.height,
-				overflow : "hidden"
-			});
+//			this.container.css({
+//				position:"relative",
+////				width: this.width,
+////				height: this.height,
+//				overflow : "hidden"
+//			});
 			// 所有li
 			this.lis = $("li", this.container)
 			this.lis.css({
-				width: this.width,
+			width: this.width,
 				height: this.height,
 				position: "absolute",
 				top: 0,
@@ -60,40 +60,45 @@
 				display: "none"
 			}).first().show();
 			// .pages
+			
 			$(".pages", this.container).css({
 				position: "absolute",
 				width: "100%",
 				height: 30,
-				background: "#000",
+				//background: "#000",
 				bottom: 0
 			});
+			
 			// 所有小圆点
 			this.points = $("i", this.container);
 			this.points.css({
 				display: "inline-block",
-				width: 20,
-				height: 20,
+				width: 15,
+				height: 15,
 				margin: 5,
-				borderRadius: 10,
+				borderRadius: "50%",
 				background: "#fff"
 			}).first().css({
 				background:"#f00"
 			});
 			// 向前/后
 			$(".prev,.next", this.container).css({
-				width: 50,
-				height: 100,
+				width: 45,
+				height: 75,
 				background: "#000",
-				lineHeight: "100px",
+				opacity:.5,
+				lineHeight: "75px",
 				textAlign: "center",
 				color: "#fff",
 				position: "absolute",
 				top:0,
 				bottom: 0,
+				left:227,
 				margin:"auto"
 			});
 			$(".next",this.container).css({
-				right: 0
+				right: 0,
+				left:624
 			});
 			// 判断是否显示按钮
 			if (!this.showBtn)
