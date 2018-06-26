@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
-		<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>
+		<style type="text/css">
+			ul {
+				width: 1190px;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				float: left;
+				width: 200px;
+				overflow: hidden;
+				z-index:999;
+			}
+			
+			ul,
+			li img {
+				position: relative;
+			}
+			
+			ul .current {
+				width: 390px;
+			}
+		</style>
 	</head>
+
 	<body>
 		<div class="header"></div>
+		<div class="slide">
+			<ul class="slider_list" style="width: 1190px;">
+
+				<li class="current">
+					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
+				</li>
+				<li class="">
+					<a href="#"><img src="img/2017041111111800614400.jpg" /></a>
+				</li>
+				<li class="">
+					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
+				</li>
+				<li class="">
+					<a href="#"><img src="img/2017092817035832989539.jpg" /></a>
+				</li>
+			</ul>
+		</div>
 		<div class="footer"></div>
-		
-		
-		<script src="lib/requireJS/require.js" data-main="js/index"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript">
+			var lis = $("li");
+			$(".slider_list").on("mouseover", "li", function() {
+				
+				if($(this).attr('class') === "current"){
+					return;
+				}
+				$("li").find("img").stop(false,true);
+				$(".current").find("img").animate({left:"0px"},300);
+				$(".current").removeClass("current");
+				$(this).addClass("current");
+				$(this).find("img").animate({left:"-200px"},300);
+			});
+			
+			
+			
+		</script>
+
 	</body>
+
 </html>
