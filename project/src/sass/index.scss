@@ -280,7 +280,7 @@ $top_border:1px solid #e5e5e5;
     margin: 0 auto;
     width: 1190px;
     position: relative;
-    z-index: 9999;
+    z-index: 1;
     .kinds_list {
         height: 471px;
         width: 190px;
@@ -377,7 +377,7 @@ $top_border:1px solid #e5e5e5;
         background: red;
         top: 0px;
         left: 190px;
-        display: none;
+       // display: none;
         padding: 0 10px;
         h5{
             height: 30px;

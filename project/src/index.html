@@ -69,15 +69,13 @@
 				<a href="#"><img src="/img/3xxsp.jpg"></a>-->
 			</div>
 			<script type="text/html" id="secondMenu_template">
-				{{each list pro}}
-				<h5>休闲食品</h5>
-				{{each pro current index}}
+				<h5>{{typeItem.title}}</h5>
 				<ul class="second-list">
-					<li><a href="#">{{current[index].name}}</a></li>
+					{{each typeItem.items current}}
+					<li><a href="#">{{current.name}}</a></li>
+					{{/each}}
 				</ul>
-				{{/each}}
-				<a href="#"><img src="{{pro.img}}"></a>
-				{{/each}}
+				<a href="#"><img src="{{typeItem.image}}"></a>
 			</script>
 			
 			<div class="banner_right">
@@ -136,60 +134,20 @@
 			<ul class="hotAddNew_hot">
 				
 			</ul>
-			<!--<ul class="hotAddNew_hot new" id="hot-new">
-				
-			</ul>
-			<ul class="hotAddNew_hot brand" id="hot-brand" >
-				
-			</ul>-->
 			<script type="text/html" id="hotsale_template">
-				{{each list hots }}	
+				{{each goods good }}	
 				<li>
-					<span class="id" style="display: none;">{{hots.id}}</span>
-					<p class="p1">{{hots.title}}</p>
-					<p class="p2">￥<b>{{hots.price}}</b></p>
-					<a href="#"><img src="{{hots.img}}"/></a>
-					<span>元宝最高抵扣 ￥ <b>{{hots.descount}}</b></span>
+					<span class="goods_id" style="display: none;">{{good.id}}</span>
+					<p class="p1">{{good.title}}</p>
+					<p class="p2">￥<b class="goods_price">{{good.price}}</b></p>
+					<a href="#"><img src="{{good.img}}"/></a>
+					<span>元宝最高抵扣 ￥ <b>{{good.descount}}</b></span>
 					<div class="hottocart">
 						<i class="iconfont icon-muying"></i>
 						<a href="javascript:void(0);">加入购物车</a>
 					</div>
 				
 				</li>	
-				{{/each}}
-			</script>
-			
-			<script type="text/html" id="hotsale_template_new">
-				{{each list_new news }}	
-				<span class="id" style="display: none;">{{news.id}}</span>
-				<li>					
-					<p class="p1">{{news.title}}</p>
-					<p class="p2">￥<b>{{news.price}}</b></p>
-					<a href="#"><img src="{{news.img}}"/> </a>
-					<span>元宝最高抵扣 ￥ <b>{{news.descount}}</b></span>
-					<div class="hottocart">
-						<i class="iconfont icon-muying"></i>
-							<a href="javascript:void(0);">加入购物车</a>
-					</div>
-				
-				</li>
-				{{/each}}
-			</script>
-			
-			<script type="text/html" id="hotsale_template_brand">
-				{{each list_brand brands }}	
-				<span class="id" style="display: none;">{{brands.id}}</span>
-				<li>						
-					<p class="p1">{{brands.title}}</p>
-					<p class="p2">￥<b>{{brands.price}}</b></p>
-					<a href="#"><img src="{{brands.img}}"/></a>
-					<span>元宝最高抵扣 ￥ <b>{{brands.descount}}</b></span>
-					<div class="hottocart">
-						<i class="iconfont icon-muying"></i>
-						<a href="javascript:void(0);">加入购物车</a>
-					</div>
-				
-				</li>
 				{{/each}}
 			</script>
 			

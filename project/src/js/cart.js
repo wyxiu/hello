@@ -9,6 +9,7 @@ require (["config"],function(){
 		if(cartshop.length === 0){
 		$(".products").html("<tr><td colspan='7'>购物车为空</td></tr>");	
 		}
+		console.log(cartshop);
 		//有选购的商品就渲染模板，，显示
 		const html = template("cart_template",{cartshop});
 		$(".products").html(html);
@@ -22,7 +23,7 @@ require (["config"],function(){
 			cartshop.splice(index,1);
 			$.cookie("products",cartshop,{expires:7,path:"/"});
 			$(this).parents("tr").remove();
-			getTotal()
+			getTotal();
 		});
 		
 			/*********************************************************/
@@ -32,7 +33,7 @@ require (["config"],function(){
 				const status = $(this).prop("checked");
 				$(".ck_single").prop("checked",status);
 				console.log(status);
-				getTotal()
+				getTotal();
 			});
 		
 			/*********************************************************/
@@ -41,7 +42,7 @@ require (["config"],function(){
 			$(".ck_single").click(function(){
 				const len = $(".ck_single:checked").length;
 				$(".ck_all").prop("checked",len === cartshop.length);	
-				getTotal()
+				getTotal();
 			});
 		
 			/*********************************************************/
@@ -63,8 +64,8 @@ require (["config"],function(){
 				}
 				$.cookie("products",cartshop,{expires:7,path:"/"});
 				$(this).siblings(".amount").val(num.amount);
-				$(this).parents("tr").children(".total span").text((num.price*num.amount).toFixed(2));
-				getTotal()
+				$(this).parents("tr").children(".sub_total").text("￥"+(num.price*num.amount).toFixed(2));
+				getTotal();
 			});
 			/*********************************************************/
 			/* 手动修改数量 */
@@ -80,8 +81,8 @@ require (["config"],function(){
 				}
 				num.amount = val;
 				$(this).siblings(".amount").val(num.amount);
-				$(this).parents("tr").children(".total span").text((num.price*num.amount).toFixed(2));
-				getTotal()
+				$(this).parents("tr").children(".sub_total").text((num.price*num.amount).toFixed(2));
+				getTotal();
 			});
 		
 		
@@ -96,14 +97,21 @@ require (["config"],function(){
 			/* 计算合计 */
 			/*********************************************************/	
 		function getTotal(){
-			let sum = 0;
+			let sum = 0,
+				count=0;
 			$(".ck_single:checked").each(function(index,element){
-				sum += Number((elment).parents("tr").find(".subtotal").text());				
+				//console.log(Number($(element).parents("tr").children(".sub_total").text()));
+				
+				sum += Number($(element).parents("tr").find(".sub_total").text().replace("￥",""));
+				count += Number($(element).parents("tr").find(".amount").val());
+				console.log(sum);
 			});
 			
 			$(".total").text(sum.toFixed(2));
+			$(".count").text(count);
 			
 		}
+		
 	
 	});
 	
