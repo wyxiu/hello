@@ -58,17 +58,27 @@
 				</li>
 			</ul>
 			
-			<div class="kinds_list_des hide" id="kinds_list_des">
-				<h5>休闲食品</h5>
+			<div class="kinds_list_des" id="kinds_list_des">
+				<!--<h5>休闲食品</h5>
 				<ul class="second-list">
 					<li><a href="#">零食</a></li>
 					<li><a href="#">零食</a></li>
 					<li><a href="#">零食</a></li>
 					<li><a href="#">零食</a></li>
 				</ul>
-				<a href="#"><img src="/img/3xxsp.jpg"></a>
+				<a href="#"><img src="/img/3xxsp.jpg"></a>-->
 			</div>
-			
+			<script type="text/html" id="secondMenu_template">
+				{{each list pro}}
+				<h5>休闲食品</h5>
+				{{each pro current index}}
+				<ul class="second-list">
+					<li><a href="#">{{current[index].name}}</a></li>
+				</ul>
+				{{/each}}
+				<a href="#"><img src="{{pro.img}}"></a>
+				{{/each}}
+			</script>
 			
 			<div class="banner_right">
 				<div class="bann_right_top">
@@ -135,50 +145,50 @@
 			<script type="text/html" id="hotsale_template">
 				{{each list hots }}	
 				<li>
-				<a href="#">
+					<span class="id" style="display: none;">{{hots.id}}</span>
 					<p class="p1">{{hots.title}}</p>
 					<p class="p2">￥<b>{{hots.price}}</b></p>
-					<img src="{{hots.img}}"/>
+					<a href="#"><img src="{{hots.img}}"/></a>
 					<span>元宝最高抵扣 ￥ <b>{{hots.descount}}</b></span>
 					<div class="hottocart">
 						<i class="iconfont icon-muying"></i>
-						加入购物车
+						<a href="javascript:void(0);">加入购物车</a>
 					</div>
-				 </a>
+				
 				</li>	
 				{{/each}}
 			</script>
 			
 			<script type="text/html" id="hotsale_template_new">
 				{{each list_new news }}	
-				<li>
-				<a href="#">
+				<span class="id" style="display: none;">{{news.id}}</span>
+				<li>					
 					<p class="p1">{{news.title}}</p>
 					<p class="p2">￥<b>{{news.price}}</b></p>
-					<img src="{{news.img}}"/>
+					<a href="#"><img src="{{news.img}}"/> </a>
 					<span>元宝最高抵扣 ￥ <b>{{news.descount}}</b></span>
 					<div class="hottocart">
 						<i class="iconfont icon-muying"></i>
-						加入购物车
+							<a href="javascript:void(0);">加入购物车</a>
 					</div>
-				 </a>
+				
 				</li>
 				{{/each}}
 			</script>
 			
 			<script type="text/html" id="hotsale_template_brand">
 				{{each list_brand brands }}	
-				<li>	
-				<a href="#">
+				<span class="id" style="display: none;">{{brands.id}}</span>
+				<li>						
 					<p class="p1">{{brands.title}}</p>
 					<p class="p2">￥<b>{{brands.price}}</b></p>
-					<img src="{{brands.img}}"/>
+					<a href="#"><img src="{{brands.img}}"/></a>
 					<span>元宝最高抵扣 ￥ <b>{{brands.descount}}</b></span>
 					<div class="hottocart">
 						<i class="iconfont icon-muying"></i>
-						加入购物车
+						<a href="javascript:void(0);">加入购物车</a>
 					</div>
-				 </a>
+				
 				</li>
 				{{/each}}
 			</script>
@@ -235,7 +245,7 @@
 		</div>
 			<div class="vegetable_right_bottom">
 				
-					<ul class="vgtrb_lists">
+					<ul class="hotAddNew_hot vgtrb_lists">
 						<!--<li>	
 						<a href="#">
 							<p class="p1">横都国产冷冻带牛腩快1kg</p>
@@ -250,16 +260,16 @@
 					</ul>
 					<script type="text/html" id="vegetable_template">
 						{{each list_vege vege}}
-						<li>	
-						<a href="#">
+						<span class="id" style="display: none;">{{vege.id}}</span>
+						<li>								
 							<p class="p1">{{vege.title}}</p>
 							<p class="p2">￥<b>{{vege.price}}</b></p>
-							<img src="{{vege.img}}"/>
+							<a href="#"><img src="{{vege.img}}"/> </a>
 							<div class="hottocart">
 								<i class="iconfont icon-muying"></i>
-								加入购物车
+									<a href="javascript:void(0);">加入购物车</a>
 							</div>
-						 </a>
+						
 						</li>
 						{{/each}}
 					</script>
@@ -268,11 +278,21 @@
 		</div>
 	</div>
 	
-	
+	<div class="fixedside">
+		<div class="cart">
+			<i class="iconfont icon-muying"></i>
+			<b class="addcart">加入购物车</b>
+		</div>
+		<div class="fixed-btn">
+			<i class = "iconfont icon-muying"></i>
+			<i class = "iconfont icon-muying"></i>
+			<i class = "iconfont icon-muying"></i>
+		</div>
+	</div>	
 
 		<div class="footer"></div>
 		<script src="/lib/requireJS/require.js" data-main = "/js/index.js"></script>
-		<!--<script type="text/javascript" src="/lib/jquery/jquery-1.12.4.min.js"></script>-->
+		
 	</body>
 
 </html>

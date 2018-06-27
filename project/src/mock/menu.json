@@ -1,0 +1,23 @@
+{
+	"res_code":0,
+	"res_error":"",
+	"res_body": {
+		"list" : [
+			{
+				"id":1,
+				"title":"新鲜果蔬",
+				"name":["水果","蔬菜"],
+				"img":"/img/3xxsp.jpg"
+			},
+			{
+				"id":2",	
+				"title":"粮油干货",
+				"name":["食用油"，"盐","干货"]
+				"img":"/img/3xxsp.jpg"
+			}
+		]
+	}
+	
+}
+
+

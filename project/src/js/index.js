@@ -1,5 +1,5 @@
 require(["config"], function() {
-	require(["jquery", "template", "load", "xm_carousel"], function($, template) {
+	require(["jquery", "template", "load", "xm_carousel","fly","cookie"], function($, template) {
 		//banner轮播图
 
 		$(".bann_imgs").carousel({
@@ -19,12 +19,20 @@ require(["config"], function() {
 			showBtn: true
 		});
 		//二级菜单
-		$('.banner').on('mouseenter', function() {
-			$(".kinds_list_des").removeClass('hide');
-		}).on('mouseleave', function() {
-			$(".kinds_list_des").addClass('hide');
-		})
+//		$('.banner').on('mouseenter', function() {
+//			$(".kinds_list_des").removeClass('hide');
+//		}).on('mouseleave', function() {
+//			$(".kinds_list_des").addClass('hide');
+//		})
 	
+			//console.log("---getHotData");
+			$.getJSON("/mock/menu.json", function(data) {
+				const html = template("secondMenu_template", {
+					list: data.res_body.list
+				});
+				$(".kinds_list_des").html(html);
+			});
+		
 
 		//console.log("success");
 		//animate动画
@@ -57,12 +65,7 @@ require(["config"], function() {
 				getBrandData();
 			}
 		});
-
-		$(".hot_show2").mouseenter(function() {
-			$("#hot-new").css("display", "block");
-			$(".hotAddNew_hot").css("display", "none");
-
-		});
+		
 
 		//		function getFoodTypes() {
 		//			console.log("---getFoodTypes");
@@ -115,6 +118,73 @@ require(["config"], function() {
 			});
 			$(".vgtrb_lists").html(vegetables);
 		});
-
+		
+		//抛物线
+		
+		 $(".hotAddNew_hot").on("click",".hottocart",function(e){
+		 	console.log("success-----");
+		 	
+		 	const end = $(".addcart").offset();
+		
+		
+			const flyer = $("<img src='/img/2018051617074716158779.jpg' style='width:40px;'>");
+		// 运动
+		flyer.fly({
+			start : {
+				left : e.pageX - $(window).scrollLeft(),
+				top : e.pageY - $(window).scrollTop()
+			},
+			end : {
+				left : end.left - $(window).scrollLeft(),
+				top : end.top - $(window).scrollTop()
+			},
+			onEnd : function(){ // 运动结束，销毁资源
+				this.destroy();
+			} 	
+	    });
+	    
+		 	
+	 });
+	 	
+	
+	    //点击加入购物车
+	     $(".hotAddNew_hot").on("click",".hottocart",function(){
+	     	//console.log($(this));
+	     	 //拿出商品信息
+	     	 const shop = {
+	     	 	id:$(this).parents("li").children(".id").text(),
+	     	 	img:$(this).parents("li").children("img").attr("src"),
+	     	 	title:$(this).parents("li").children(".p1").text(),
+	     	 	price:$(this).parents("li").children(".p2 b").text(),
+	     	 	amount:1
+	     	 };
+	     	 console.log(shop);
+	     	 //保存到cookie中
+	     	 $.cookie.json = true;
+	     	 const cartshop = $.cookie("products") || [];
+	     	 //判断商品是否存在
+	     	 const index = exist(shop.id , cartshop);
+	     	 if(index === -1){
+	     	 	cartshop.push(shop);
+	     	 }else{
+	     	 	cartshop[index].amount++;
+	     	 }
+	     	 
+	     	 $.cookie("products",cartshop,{expires:1,path:"/"});
+	     	 
+	     	 return false;
+	     });
+	     
+	     function exist(id,array){
+		for(let i =0;i<array.length;i++){
+			if(id===array[i].id){
+				return i;
+			}
+		}
+				
+		return -1;
+	}
+		 	
+	 });
 	});
-});
+

@@ -3,7 +3,131 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/cart.css"/>
+		
+		
 	</head>
 	<body>
-	</body>
+		<div class="wrapHeader_top">
+	<div class="header_top">
+		<div class="ht_left">
+			<div class="ht_left_addr">
+				<i class="iconfont icon-qicheqianlian-"></i>
+				<span>送至：四川省</span>
+				<i class="iconfont icon-down"></i>
+			</div>
+			<div class="ht_login">
+			<a href="login.html" class="ht_a">登录</a>|
+			<a href ="login.html" class="ht_b">注册</a>
+		</div>
+		<div class="ht_myorder">
+			<i class="iconfont icon-edit"></i>
+			<a href="#">我的订单</a>
+		</div>
+		<div class="ht_shoucang">
+			<i class="iconfont icon-favorfill"></i>
+			<a href="#">收藏本站(ctrl+D)</a>
+		</div>
+		</div>
+		<div class="ht_addr_hide">	</div>		
+		<div class="ht_right">
+			<ul>
+				<li>
+					<i class="iconfont icon-weibiaoti2fuzhi07"></i>
+					<a href="#">手机APP</a>
+				</li>
+				<li>
+					<i class="iconfont icon-down"></i>
+					<a href="#">帮助中心</a>
+				</li>
+				<li>
+					<i class="iconfont icon-favorfill"></i>
+					<a href="#">我要兑换</a>
+				</li>
+				<li>
+					<i class="iconfont icon-msnui-shops"></i>
+					<a href="#">商家中心</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="logo-bars">
+	<div class="logos">
+		<h1><a href="#"><span>集食惠</span></a></h1>
+	</div>
+	<ul class="cart_logo">
+		<li class="step1">
+			<div class="bg_step1"></div>
+			<div class="txt_step1">我的购物车</div>
+		</li>
+		<li class="step2">
+			<div class="bg_step2">2</div>
+			<div class="txt_step2">确认订单信息</div>
+		</li>
+		<li class="step3">
+			<div class="bg_step3">3</div>
+			<div class="txt_step3">提交并结算</div>
+		</li>
+	</ul>
+</div>
+
+
+
+<div class="cart-shop">
+	<table cellpadding="0" cellspacing="0" border="1">
+		<thead >
+			<tr>
+				<th style="width: 100px;">
+					<label><input type="checkbox" class="ck_all">全选</label>
+				</th>
+				<th style="width: 100px;">图片</th>
+				<th style="width: 500px;">描述</th>
+				<th style="width: 100px;">价格</th>
+				<th style="width: 150px;">数量</th>
+				<th style="width: 100px">小计</th>
+				<th style="width: 100px">操作</th>
+			</tr>
+		</thead>
+		<tbody class="products">
+			
+		</tbody>
+		<tfoot>
+			<tr>
+    				<td colspan="4" class="howmany">共<span>0</span>件商品</td>
+    				<td>总计:</td>
+    				<td class="total"><span>￥0.00</span></td>
+    				
+    				<td class="pay">结算</td>
+    		</tr>
+		</tfoot>
+		<script type="text/html" id="cart_template">
+			{{each cartshop pro}}
+			<tr data-id = "{{pro.id}}">
+				<td ><input type="checkbox" class="ck_single"></td>
+				<td><img src="{{pro.img}}"/></td>
+				<td>{{pro.title}}</td>
+				<td>￥{{pro.price}}</td>
+				<td>
+					<div class="input-group">
+					  <span class="minus">-</span>
+					  <input type="text" class="amount" value="{{pro.amount}}">
+					  <span class="add">+</span>
+					</div>
+				</td>
+				<td class="sub_total">￥{{(pro.price*pro.amount).toFixed(2)}}</td>
+				<td><a href="javascript:void(0);" class="del">删除</a></td>
+			</tr>
+			{{/each}}
+		</script>
+	</table>
+</div>
+
+<div class="footer"></div>
+
+<script src="/lib/requireJS/require.js" data-main = "/js/cart.js"></script>
+</body>
+	
 </html>

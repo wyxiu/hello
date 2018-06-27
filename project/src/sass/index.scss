@@ -394,12 +394,6 @@ $top_border:1px solid #e5e5e5;
               width: 140px;
           } 
         }
-        .hide{
-            display: none;
-        }
-        .show {
-         display: block;
-    }
     }
 }
 
@@ -449,7 +443,7 @@ $top_border:1px solid #e5e5e5;
         border-left: 1px solid #e5e5e5;
         border-top:1px solid #e5e5e5 ;
        
-        li a {
+        li {
             display: inline-block;
             width: 223px;
             height: 208px;
@@ -509,10 +503,17 @@ $top_border:1px solid #e5e5e5;
                 font-size: 14px;
                 text-align: center;
                 margin-left: 15px;
-                opacity: .8;
+                //opacity: .8;
                 i {
                     font-size: 18px !important;
                 }
+                a{
+                    color:white;
+                    &:hover{
+                        color: white;
+                    }
+                }
+                
             }
         }
     }
@@ -523,11 +524,10 @@ $top_border:1px solid #e5e5e5;
     width: 223px;
     height: 208px;
 }
-#hot-new{
-    display: none;
-}
-#hot-brand{
-    display: none;
+.hotAddNew_hot li:hover{
+    .hottocart{
+        display: block;
+    }
 }
 .hotAddNew_right {
     width: 270px;
@@ -648,7 +648,7 @@ $top_border:1px solid #e5e5e5;
             .vgtrb_lists {
                 width: 895px;
                 height: 418px;
-                li a {
+                li {
                     display: inline-block;
                     width: 223px;
                     height: 209px;
@@ -697,17 +697,52 @@ $top_border:1px solid #e5e5e5;
                         font-size: 14px;
                         text-align: center;
                         margin-left: 15px;
-                        opacity: .8;
+                        //opacity: .8;
                         i {
                             font-size: 18px !important;
                         }
+                        a{
+                    color:white;
+                    &:hover{
+                        color: white;
+                    }
+                }
                     }
                 }
             }
     }
 }
-
-
+.vegetable_right_bottom .vgtrb_lists li:hover{
+    .hottocart{
+        display: block;
+    }
+}
+.fixedside{
+    width: 35px;
+    height: 100%;
+    z-index: 999;
+    text-align: center;
+    background: #3f3f3f;
+    position: fixed;
+    top:0px;
+    right: 0px;
+    .cart{
+        width: 35px;
+        cursor: pointer;
+        height: 120px;
+        position: absolute;
+        top:150px;
+        color: white;
+       
+        b{
+            display: block;
+            width:22px ;
+             margin-left: 8px;
+             margin-top: 5px;
+        }
+        
+    }
+}
 
 .wrapfooter {
     width: 100%;
