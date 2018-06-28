@@ -16,43 +16,43 @@
 		<div class="banner-bar">
 			<div class="banner">
 				<ul class="kinds_list" id="kinds_list">
-				<li >
+				<li id="type_1">
 					<i class="iconfont icon-shuiguo"></i>
 					<a href="#">新鲜蔬果</a>
 				</li>
-				<li>
+				<li id="type_2">
 					<i class="iconfont icon-liangyouganhuo"></i>
 					<a href="#">粮油干货</a>
 				</li>
-				<li>
+				<li id="type_3">
 					<i class="iconfont icon-huiliuqushipin"></i>
 					<a href="#">休闲食品</a>
 				</li>
-				<li>
+				<li id="type_4">
 					<i class="iconfont icon-huiliuqushipin"></i>
 					<a href="#">肉禽蛋奶</a>
 				</li>
-				<li>
+				<li id="type_5">
 					<i class="iconfont icon-ningmeng-"></i>
 					<a href="#">进口食品</a>
 				</li>
-				<li>
+				<li id="type_6">
 					<i class="iconfont icon-jiushui"></i>
 					<a href="#">酒水茶饮</a>
 				</li>
-				<li>
+				<li id="type_7">
 					<i class="iconfont icon-jinkouxiuxianshipin"></i>
 					<a href="#">营养食品</a>
 				</li>
-				<li>
+				<li id="type_8">
 					<i class="iconfont icon-liwu"></i>
 					<a href="#">保健品</a>
 				</li>
-				<li>
+				<li id="type_9">
 					<i class="iconfont icon-muying"></i>
 					<a href="#">母婴专区</a>
 				</li>
-				<li>
+				<li id="type_10">
 					<i class="iconfont icon-jiushui"></i>
 					<a href="#">茗茶</a>
 				</li>
@@ -75,7 +75,7 @@
 					<li><a href="#">{{current.name}}</a></li>
 					{{/each}}
 				</ul>
-				<a href="#"><img src="{{typeItem.image}}"></a>
+				<a href="#"><img class="second_img" src="{{typeItem.image}}"></a>
 			</script>
 			
 			<div class="banner_right">
@@ -140,7 +140,7 @@
 					<span class="goods_id" style="display: none;">{{good.id}}</span>
 					<p class="p1">{{good.title}}</p>
 					<p class="p2">￥<b class="goods_price">{{good.price}}</b></p>
-					<a href="#"><img src="{{good.img}}"/></a>
+					<a class="good_detail" href="#"><img class="good_img" src="{{good.img}}"/></a>
 					<span>元宝最高抵扣 ￥ <b>{{good.descount}}</b></span>
 					<div class="hottocart">
 						<i class="iconfont icon-muying"></i>

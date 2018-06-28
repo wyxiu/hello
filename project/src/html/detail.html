@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
-		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
-		<link rel="stylesheet" type="text/css" href="/css/detail.css"/>
-		
+		<link rel="stylesheet" type="text/css" href="/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="/css/detail.css" />
+
 	</head>
+
 	<body>
 		<div class="header"></div>
 		<div class="products_detail">
-			<div class="p_d_title">
+			<!--<div class="p_d_title">
 				<a href="/index.html">首页</a>>
 				<span>燕宾SOD蜜洛川苹果家庭装75*24约10斤75*24枚-75mm</span>
 			</div>
 			<div class="p_d_content">
 				<div class="p_d_content_left">
-					<div class="big_img"></div>
+					<div class="big_img">
+						<img id="zoom_03" src='/img/15240379585463.jpg' data-zoom-image="/img/15240379585463.jpg" />
+					</div>
 					<div class="small_img">
-						<div class="s_m_pictures">
-							<ul>
-								<li></li>
-							</ul>
-							<div class="s_m_btn">
-								<span class="prev"><</span>
-								<span class="next">></span>
-							</div>
-						</div>
+						<ul class="s_m_pictures_list">
+							<li><img id="good_fisrt_image" src="/img/15240379585463.jpg" /></li>
+							<li><img src="/img/15262456393887.jpg" /></li>
+							<li><img src="/img/15264426517596.jpg" /></li>
+							<li><img src="/img/15287619686158.jpg" /></li>
+						</ul>
+						<span class="prev"><</span>
+						<span class="next">></span>
 					</div>
 				</div>
 				<div class="p_d_content_center">
+					<span style="display: none;" id="good_id">1</span>
 					<div class="p_d_c_title">
 						燕宾SOD蜜洛川苹果家庭装75*24约10斤75*24枚-75mm
 					</div>
 					<div class="describ">
 						<div class="describ_top">
-							价格<b>￥128</b><del>￥168</del><i>销售价</i>
+							价格<b id="good_price">￥128</b><del>￥168</del><i>销售价</i>
 						</div>
 						<div class="describ_center">元宝最高抵扣8</div>
 						<div class="describ_bottom">
@@ -48,21 +52,78 @@
 					<div class="acount">
 						<div class="acount_left">数量</div>
 						<div class="acount_right">
-							<div><input type="text" class="shuzi" /></div>							
+							<div><input type="text" class="shuzi" /></div>
 							<div class="acount_btn">+</div>
 							<div class="acount_btn">-</div>
 						</div>
 					</div>
-					<div class="add">	
+					<div class="add">
 						<a href="javascript:void(0)">立即购买</a>
-						<a href="/html/cart.html">加入购物车</a>
+						<a href="/html/cart.html" id="addtocart">加入购物车</a>
 					</div>
 				</div>
+
+				<div class="p_d_content_right"></div>
+			</div>-->
+		</div>
+
+		<script type="text/html" id="good_detail">
+			<div class="p_d_title">
+				<a href="/index.html">首页</a>>
+				<span>{{good.title}}</span>
+			</div>
+			<div class="p_d_content">
+				<div class="p_d_content_left">
+					<div class="big_img">
+						<img id="zoom_03" src='{{good.img}}' data-zoom-image="{{good.img}}" />
+					</div>
+					<div class="small_img">
+						<ul class="s_m_pictures_list">
+							<li><img id="good_fisrt_image" src="{{good.img}}" /></li>
+							<li><img src="/img/15262456393887.jpg" /></li>
+							<li><img src="/img/15264426517596.jpg" /></li>
+							<li><img src="/img/15287619686158.jpg" /></li>
+						</ul>
+						<span class="prev"><</span>
+						<span class="next">></span>
+					</div>
+				</div>
+				<div class="p_d_content_center">
+					<span style="display: none;" id="good_id">1</span>
+					<div class="p_d_c_title">
+						{{good.title}}
+					</div>
+					<div class="describ">
+						<div class="describ_top">
+							价格<b id="good_price">￥{{good.price}}</b><del>￥168</del><i>销售价</i>
+						</div>
+						<div class="describ_center">元宝最高抵扣8</div>
+						<div class="describ_bottom">
+							立即<a href="/html/register.html">注册/</a>
+							<a href="/html/login.html">登录/</a>
+						</div>
+					</div>
+					<div class="price"></div>
+					<div class="acount">
+						<div class="acount_left">数量</div>
+						<div class="acount_right">
+							<div><input type="text" class="shuzi" /></div>
+							<div class="acount_btn">+</div>
+							<div class="acount_btn">-</div>
+						</div>
+					</div>
+					<div class="add">
+						<a href="javascript:void(0)">立即购买</a>
+						<a href="/html/cart.html" id="addtocart">加入购物车</a>
+					</div>
+				</div>
+
 				<div class="p_d_content_right"></div>
 			</div>
-		</div>
-		
+		</script>
+
 		<div class="footer"></div>
-		<script src="/lib/requireJS/require.js" data-main = "/js/detail"></script>
+		<script src="/lib/requireJS/require.js" data-main="/js/detail"></script>
 	</body>
+
 </html>

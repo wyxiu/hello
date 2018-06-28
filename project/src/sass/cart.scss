@@ -12,137 +12,129 @@
             display: block;
             width: 290px;
             height: 70px;
-            background: url(/img/logo.png);
+            background: url("/img/logo.png");
             span {
                 display: none;
             }
         }
     }
-    .cart_logo{
-        float:right;
+    .cart_logo {
+        float: right;
         height: 58px;
         width: 560px;
-        li{
+        li {
             float: left;
             height: 58px;
             width: 185px;
         }
-        .step1{
-           // position: relative;
-             background: url(/img/bg-step.jpg) no-repeat 0px -67px;
-        
-        .txt_step1{
-            width: 185px;
-            height: 22px;
-            text-align: center;
-            line-height: 22px;
-            color: red;
-            margin-top: 30px;
+        .step1 {
+            // position: relative;
+            background: url("/img/bg-step.jpg") no-repeat 0 -67px;
+            .txt_step1 {
+                width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: red;
+                margin-top: 30px;
+            }
+        }
+        .step2 {
+            position: relative;
+            background: url("/img/bg-step.jpg") no-repeat -181px 0;
+            .bg_step2 {
+                position: absolute;
+                left: 87px;
+                top: 6px;
+            }
+            .txt_step2 {
+                width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: #969896;
+                margin-top: 30px;
+            }
+        }
+        .step3 {
+            position: relative;
+            background: url("/img/bg-step.jpg") no-repeat -181px 0;
+            .bg_step3 {
+                position: absolute;
+                left: 87px;
+                top: 6px;
+            }
+            .txt_step3 {
+                width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: #969896;
+                margin-top: 30px;
+            }
         }
     }
-    .step2{
-        position: relative;
-         background: url(/img/bg-step.jpg) no-repeat -181px 0px;
-         .bg_step2{
-             position: absolute;
-            left: 87px;
-            top:6px;
-         }
-         .txt_step2{
-             width: 185px;
-            height: 22px;
-            text-align: center;
-            line-height: 22px;
-            color: #969896;
-            margin-top: 30px; 
-         }
-    }
-    
-    .step3{
-       position: relative;
-         background: url(/img/bg-step.jpg) no-repeat -181px 0px;
-         .bg_step3{
-             position: absolute;
-            left: 87px;
-            top:6px;
-         }
-         .txt_step3{
-             width: 185px;
-            height: 22px;
-            text-align: center;
-            line-height: 22px;
-            color: #969896;
-            margin-top: 30px; 
-         } 
-    }
-   }
-    
 }
-
-.cart-shop{
-   width:1190px;
-   margin: 0 auto;
-   margin-bottom: 20px;
-   
-   table{
-       width: 1190px;
-       border:1px solid #e5e5e5;  
-       thead{
-           height: 43px;
+.cart-shop {
+    width: 1190px;
+    margin: 0 auto 20px;
+    table {
+        width: 1190px;
+        border: 1px solid #e5e5e5;
+        thead {
+            height: 43px;
             border-color: inherit;
-           border-bottom: 0; 
-           line-height: 43px;
-           text-align: center;
-           background: #f8f8f8;
-       }
-       tbody{
-           display: table-row-group;
-            vertical-align: middle;
-           border-color: inherit;
+            border-bottom: 0;
+            line-height: 43px;
             text-align: center;
-       }
-       tfoot{
-         display: table-footer-group;
-         vertical-align: middle;
-           border-color: inherit;
-           height:40px;
-           text-align: center;
-           line-height: 40px;
-       }
-       span{
-           color: red;
-           font-weight: 600;
-           padding: 0 5px;
-           
-       }
-
-       .howmany{
-           text-align: right;
-       }
-       .input-group{
-           margin-left: 17px;
-         .minus{
-           width: 22px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            border: 1px solid #e5e5e5;
-            border-right: none;
             background: #f8f8f8;
-            float: left;
-            cursor: pointer;
-       }
-       .amount{
-           width: 28px;
-            height: 22px;
-            line-height: 22px;
-             border: 1px solid #e5e5e5;
-            float: left;
+        }
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
             text-align: center;
-            padding: 0;
-       }
-       .add{
-               width: 22px;
+        }
+        tfoot {
+            display: table-footer-group;
+            vertical-align: middle;
+            border-color: inherit;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        span {
+            color: red;
+            font-weight: 600;
+            padding: 0 5px;
+        }
+        .howmany {
+            text-align: right;
+        }
+        .input-group {
+            margin-left: 17px;
+            .minus {
+                width: 22px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                border: 1px solid #e5e5e5;
+                border-right: none;
+                background: #f8f8f8;
+                float: left;
+                cursor: pointer;
+            }
+            .amount {
+                width: 28px;
+                height: 22px;
+                line-height: 22px;
+                border: 1px solid #e5e5e5;
+                float: left;
+                text-align: center;
+                padding: 0;
+            }
+            .add {
+                width: 22px;
                 height: 20px;
                 line-height: 20px;
                 text-align: center;
@@ -151,8 +143,13 @@
                 background: #f8f8f8;
                 float: left;
                 cursor: pointer;
-       }  
-     }
-       
-   }
+            }
+            
+        }
+        
+        .good_img {
+                width: 80px;
+                height: 80px;
+            }
+    }
 }
