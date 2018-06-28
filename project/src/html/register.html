@@ -3,7 +3,89 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/register.css"/>
 	</head>
-	<body>
-	</body>
+<body>
+<div class="logo-bars">
+	<div class="logos">
+		<h1><a href="#"><span>集食惠</span></a></h1>
+	</div>
+</div>
+<div class="form_all">
+<div class="form_title">
+	<ul class="form_tile_left">
+		<li class="ftl_show1 form_title_active">个人会员</li>
+		<li class="ftl_show2 ">万企集采.企业会员</li>
+		<li class="ftl_show3" >合作伙伴</li>
+	</ul>
+	<div class="form_title_right">
+		<p>我已注册，现在就<a href="/html/login.html">登录</a></p>
+	</div>
+</div>
+
+	<div class="form_context">
+		<form method="get" id="form_regist" onsubmit="return false;">
+			<h5>账户信息</h5>
+			<div class="form_context_message">
+				<label>用户名</label><input type="text" class="inputs" name="username" id="username" placeholder="请输入用户名"></input><br />
+				<span class="info-message" id="usernames">用户名不正确</span>
+			</div>
+			<div class="form_context_message">
+				<label>手机：</label><input type="text" class="inputs" name="phone_txt" id="phone_txt" placeholder="请输入手机号码"></input><br />
+				<span class="info-message " id="phone">手机号码不正确</span>
+			</div>
+			<div class="form_context_message">
+				<label>验证码：</label><input type="text" class="inputs code_txt" name="code_txt" id="code_txt" placeholder="请输入验证码"></input><b class="get_code"></b><i class="next">下一张</i>
+				<span class="info-message" id="code">验证码不正确</span>
+			</div>
+			<div class="form_context_message">
+				<label>请设置密码：</label><input type="password" class="inputs"  name="password" id="password" placeholder="请输入6-20位字符，可使用数字、字母或符号进行组合"></input>
+				<span class="info-message " id="passwords">密码不正确</span>
+			</div>
+			<div class="form_context_message">
+				<label>请确认密码：</label><input type="password"  class="inputs" name="password_conform" id="password_conform" placeholder="请再次确认密码"></input>
+				<span class="info-message" id="comfirm">请确认密码</span>
+			</div>
+			<div class="form_context_message">
+				<input type="checkbox"  class="checkbox"></input>
+				<b class="checked"> 我已阅读并同意<i>《礼仪之邦平台服务协议》</i></b>				
+			</div>
+			<div class="form_context_message">
+				<input type="checkbox"  class="checkbox"></input>
+				<b class="checked"> 我已阅读并同意<i>《礼仪之邦法律声明及隐私权政策》</i></b>				
+			</div>
+			<div class="form_context_message">
+				<a class="btn" href="javascript:void(0);">立即注册</a>	<br />
+				<span class="info-message" id="error"></span>
+			</div>
+			
+			
+		
+				
+		</form>
+	</div>
+</div>
+	<div class="footer_bottom">
+				<p class="p1">关于我们 | 联系我们 | 送礼网 | 兑换册 | 集采账号介绍 | 万企集采.企业会员介绍
+				</p>
+				<p class="p2">
+			Copyright©2016 渝ICP备12002277-5号  经营许可证编号:渝B2-20120008  食品流通许可证:SP5009031110004929
+			公司地址：重庆市两江新区星光大道软件园海王星E区 订购及售后服务电话: 4000-266-357
+				</p>
+				<p class="p3">
+					<a href="#">
+						<img src="/img/315new.gif"/>
+						<img src="/img/hy_124x47.png"/>
+						<img src="/img/footer-believe.jpg"/>						
+						<img src="/img/360Icon.jpg"/>
+						<img src="/img/gf_04.gif"/>
+						<img src="/img/gswjimg.png"/>
+					</a>
+				</p>
+			</div>
+
+<script src="/lib/requireJS/require.js" data-main = "/js/register"></script>
+</body>	
 </html>
+

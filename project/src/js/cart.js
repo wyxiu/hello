@@ -1,6 +1,7 @@
 require (["config"],function(){
 	require(["jquery", "template", "cookie", "load"],function($,template){
-	
+		$(function(){
+			
 			/*********************************************************/
 			/* 读取并渲染购物车 */
 			/*********************************************************/	
@@ -111,7 +112,8 @@ require (["config"],function(){
 			$(".count").text(count);
 			
 		}
-		
+			
+		});
 	
 	});
 	

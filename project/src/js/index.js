@@ -1,6 +1,8 @@
 require(["config"], function() {
 	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie"], function($, template) {
-		//banner轮播图
+		$(function(){
+			
+			//banner轮播图
 
 		$(".bann_imgs").carousel({
 			duration: 3000,
@@ -199,5 +201,8 @@ require(["config"], function() {
 			return -1;
 		}
 
+			
+		});
+		
 	});
 });
