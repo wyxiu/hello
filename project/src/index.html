@@ -4,62 +4,61 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
-		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
+		<!--link <href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"-->>
 	</head>
 
 	<body>
 		<div class="header"></div>
 
-		
-
 		<div class="banner-bar">
 			<div class="banner">
 				<ul class="kinds_list" id="kinds_list">
-				<li id="type_1">
-					<i class="iconfont icon-shuiguo"></i>
-					<a href="#">新鲜蔬果</a>
-				</li>
-				<li id="type_2">
-					<i class="iconfont icon-liangyouganhuo"></i>
-					<a href="#">粮油干货</a>
-				</li>
-				<li id="type_3">
-					<i class="iconfont icon-huiliuqushipin"></i>
-					<a href="#">休闲食品</a>
-				</li>
-				<li id="type_4">
-					<i class="iconfont icon-huiliuqushipin"></i>
-					<a href="#">肉禽蛋奶</a>
-				</li>
-				<li id="type_5">
-					<i class="iconfont icon-ningmeng-"></i>
-					<a href="#">进口食品</a>
-				</li>
-				<li id="type_6">
-					<i class="iconfont icon-jiushui"></i>
-					<a href="#">酒水茶饮</a>
-				</li>
-				<li id="type_7">
-					<i class="iconfont icon-jinkouxiuxianshipin"></i>
-					<a href="#">营养食品</a>
-				</li>
-				<li id="type_8">
-					<i class="iconfont icon-liwu"></i>
-					<a href="#">保健品</a>
-				</li>
-				<li id="type_9">
-					<i class="iconfont icon-muying"></i>
-					<a href="#">母婴专区</a>
-				</li>
-				<li id="type_10">
-					<i class="iconfont icon-jiushui"></i>
-					<a href="#">茗茶</a>
-				</li>
-			</ul>
-			
-			<div class="kinds_list_des" id="kinds_list_des">
-				<!--<h5>休闲食品</h5>
+					<li id="type_1">
+						<i class="iconfont icon-shuiguo"></i>
+						<a href="#">新鲜蔬果</a>
+					</li>
+					<li id="type_2">
+						<i class="iconfont icon-liangyouganhuo"></i>
+						<a href="#">粮油干货</a>
+					</li>
+					<li id="type_3">
+						<i class="iconfont icon-huiliuqushipin"></i>
+						<a href="#">休闲食品</a>
+					</li>
+					<li id="type_4">
+						<i class="iconfont icon-huiliuqushipin"></i>
+						<a href="#">肉禽蛋奶</a>
+					</li>
+					<li id="type_5">
+						<i class="iconfont icon-ningmeng-"></i>
+						<a href="#">进口食品</a>
+					</li>
+					<li id="type_6">
+						<i class="iconfont icon-jiushui"></i>
+						<a href="#">酒水茶饮</a>
+					</li>
+					<li id="type_7">
+						<i class="iconfont icon-jinkouxiuxianshipin"></i>
+						<a href="#">营养食品</a>
+					</li>
+					<li id="type_8">
+						<i class="iconfont icon-liwu"></i>
+						<a href="#">保健品</a>
+					</li>
+					<li id="type_9">
+						<i class="iconfont icon-muying"></i>
+						<a href="#">母婴专区</a>
+					</li>
+					<li id="type_10">
+						<i class="iconfont icon-jiushui"></i>
+						<a href="#">茗茶</a>
+					</li>
+				</ul>
+
+				<div class="kinds_list_des" id="kinds_list_des">
+					<!--<h5>休闲食品</h5>
 				<ul class="second-list">
 					<li><a href="#">零食</a></li>
 					<li><a href="#">零食</a></li>
@@ -67,91 +66,90 @@
 					<li><a href="#">零食</a></li>
 				</ul>
 				<a href="#"><img src="/img/3xxsp.jpg"></a>-->
-			</div>
-			<script type="text/html" id="secondMenu_template">
-				<h5>{{typeItem.title}}</h5>
-				<ul class="second-list">
-					{{each typeItem.items current}}
-					<li><a href="#">{{current.name}}</a></li>
-					{{/each}}
-				</ul>
-				<a href="#"><img class="second_img" src="{{typeItem.image}}"></a>
-			</script>
-			
-			<div class="banner_right">
-				<div class="bann_right_top">
-					<div class="bann_right_top_top">
-						<i class="iconfont icon-muying"></i>
-						集食慧公告
+				</div>
+				<script type="text/html" id="secondMenu_template">
+					<h5>{{typeItem.title}}</h5>
+					<ul class="second-list">
+						{{each typeItem.items current}}
+						<li><a href="#">{{current.name}}</a></li>
+						{{/each}}
+					</ul>
+					<a href="#"><img class="second_img" src="{{typeItem.image}}"></a>
+				</script>
+
+				<div class="banner_right">
+					<div class="bann_right_top">
+						<div class="bann_right_top_top">
+							<i class="iconfont icon-muying"></i> 集食慧公告
+						</div>
+						<ul class="bann_tell">
+							<li><a href="#">集采账号介绍</a></li>
+							<li><a href="#">要享团购价,去伙拼专区吧</a></li>
+							<li><a href="#">万企集采.企业会员介绍</a></li>
+						</ul>
 					</div>
-					<ul class="bann_tell">
-						<li><a href="#">集采账号介绍</a></li>
-						<li><a href="#">要享团购价,去伙拼专区吧</a></li>
-						<li><a href="#">万企集采.企业会员介绍</a></li>
-					</ul>
+					<div class="bann_right_bottom">
+						<ul class="bann_right_list">
+							<li>
+								<a href="#">
+									<p class="p1">烟台栖霞红富士苹果5斤装（果径80mm）5斤-80mm</p>
+									<span>无添加不勾兑</span>
+									<p class="p2">￥<b>44.9</b></p>
+									<img src="/img/2018021218100110248454.jpg" />
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="bann_right_bottom">
-					<ul class="bann_right_list">
-						<li>
-							<a href="#">
-								<p class="p1">烟台栖霞红富士苹果5斤装（果径80mm）5斤-80mm</p>
-								<span>无添加不勾兑</span>
-								<p class="p2">￥<b>44.9</b></p>
-								<img src="/img/2018021218100110248454.jpg"/>			
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
 			</div>
 			<div class="banners_img">
-			<div class="bann_imgs">
-				<!--<li><a href="#"><img src="img/bann1.jpg" title="banner"/></a></li>-->
+				<div class="bann_imgs">
+					<!--<li><a href="#"><img src="img/bann1.jpg" title="banner"/></a></li>-->
+				</div>
 			</div>
-			</div>	
 		</div>
 		<div class="hotAddNew_bar">
-		<div class="hotAddNew_left">
-			<ul class="hotAddNew_nav">
-				<li class="hot_current" id="hot_show1">
-					<a href="javascript:void(0);">
+			<div class="hotAddNew_left">
+				<ul class="hotAddNew_nav">
+					<li class="hot_current" id="hot_show1">
+						<a href="javascript:void(0);">
 						热销推荐
 					</a>
-				</li>
-				<li id="hot_show2" >
-					<a href="javascript:void(0);">
+					</li>
+					<li id="hot_show2">
+						<a href="javascript:void(0);">
 						新品上市
 					</a>
-				</li>
-				<li id="hot_show3">
-					<a href="javascript:void(0);">
+					</li>
+					<li id="hot_show3">
+						<a href="javascript:void(0);">
 						品牌专区
 					</a>
-				</li>
-				
-			</ul>
-		
-			<ul class="hotAddNew_hot" id="hotAddNew_hot">
-				
-			</ul>
-			<script type="text/html" id="hotsale_template">
-				{{each goods good }}	
-				<li>
-					<span class="goods_id" style="display: none;">{{good.id}}</span>
-					<p class="p1">{{good.title}}</p>
-					<p class="p2">￥<b class="goods_price">{{good.price}}</b></p>
-					<a class="good_detail" href="#"><img class="good_img" src="{{good.img}}"/></a>
-					<span>元宝最高抵扣 ￥ <b>{{good.descount}}</b></span>
-					<div class="hottocart">
-						<i class="iconfont icon-muying"></i>
-						<a href="javascript:void(0);">加入购物车</a>
-					</div>
-				
-				</li>	
-				{{/each}}
-			</script>
-			
-		</div>
+					</li>
+
+				</ul>
+
+				<ul class="hotAddNew_hot" id="hotAddNew_hot">
+
+				</ul>
+				<script type="text/html" id="hotsale_template">
+					{{each goods good }}
+					<li>
+						<span class="goods_id" style="display: none;">{{good.id}}</span>
+						<p class="p1">{{good.title}}</p>
+						<p class="p2">￥<b class="goods_price">{{good.price}}</b></p>
+						<a class="good_detail" href="#"><img class="good_img" src="{{good.img}}" /></a>
+						<span>元宝最高抵扣 ￥ <b>{{good.descount}}</b></span>
+						<div class="hottocart">
+							<i class="iconfont icon-muying"></i>
+							<a href="javascript:void(0);">加入购物车</a>
+						</div>
+
+					</li>
+					{{/each}}
+				</script>
+
+			</div>
 			<div class="hotAddNew_right">
 				<h5>
 					<span>限时</span>抢购
@@ -166,156 +164,113 @@
 				</div>
 				<img src="/img/2018061915404167998700.png" />
 			</div>
-	</div>
-	
-	<div class="slider">
-		<ul class="slider_list">
-			<li class="active"><a href="#"><img src="/img/2017092817035832989539.jpg"/></a></li>
-			<li ><a href="#"><img src="/img/2017041111111800614400.jpg"/></a></li>
-			<li><a href="#"><img src="/img/2017041111215009230278.jpg"/></a></li>
-			<li><a href="#"><img src="/img/2017092817051373992781.jpg"/></a></li>
-			<li><a href="#"><img src="/img/2017041113104980313374.jpg"/></a></li>
-		</ul>
-	</div>
-	
-	<div class="floorcontent">
-		
-	</div>
-	
-	<script type="text/html" id="floor_template">
-		<div class="vegetable">
-		<div class="vegetable_left">
-			<h3>{{list.title}}</h3>
-			<div class="vegetable_slide">
-				<img src="{{list.image}}" />
-			</div>
 		</div>
-		<div class="vegetable_right">
-			<div class="vegetable_right_top">
-			<ul class="vgt_r_nav">
-				{{each list.items pro}}
-				<li class=""><a href="#">{{pro.name}}</a></li>
-				{{/each}}
-				<!--<li><a href="#">新品上市</a></li>
-				<li><a href="#">生鲜特产</a></li>-->
+
+		<div class="slider">
+			<ul class="slider_list">
+				<li class="active">
+					<a href="#"><img src="/img/2017092817035832989539.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="/img/2017041111111800614400.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="/img/2017041111215009230278.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="/img/2017092817051373992781.jpg" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="/img/2017041113104980313374.jpg" /></a>
+				</li>
 			</ul>
-			<ul class="vgt_r_navs">
-				{{each list.nav names}}
-				<li><a href="#">{{names.desc}}</a><span>{{names.icons}}</span></li>
-				<!--<li><a href="#">苹果</a><span>|</span></li>
+		</div>
+
+		<div class="floorcontent">
+
+		</div>
+
+		<script type="text/html" id="floor_template">
+			{{each list item}}
+			<div class="vegetable">
+				<div class="vegetable_left">
+					<h3>{{item.title}}</h3>
+					<div class="vegetable_slide">
+						<!--<img src="{{list.image}}" />-->
+					</div>
+				</div>
+				<div class="vegetable_right">
+					<div class="vegetable_right_top">
+						<ul class="vgt_r_nav">
+							{{each item.items pro}}
+							<li class="goods_type_name"><a class="goods_type_name_a" href="javascript:void(0);">{{pro.name}}</a></li>
+							{{/each}}
+							<!--<li><a href="#">新品上市</a></li>
+				<li><a href="#">生鲜特产</a></li>-->
+						</ul>
+						<ul class="hotAddNew_hot vgt_r_navs">
+							{{each item.other names}}
+							<li><a href="#">{{names.desc}}</a><span>{{names.icons}}</span></li>
+							<!--<li><a href="#">苹果</a><span>|</span></li>
 				<li><a href="#">奇异果/猕猴桃</a><span>|</span></li>
 				<li><a href="#">速冻食品</a><span>|</span></li>
 				<li><a href="#">其他水果</a><span>|</span></li>
 				<li><a href="#">其他水果</a></li>-->
+							{{/each}}
+						</ul>
+					</div>
+					<div class="vegetable_right_bottom">
+						{{include 'floor_good_templates' item.items[0].goods}}
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</script>
+
+		<script type="text/html" id="floor_good_templates">
+			<ul class="vgtrb_lists">
+				{{each goods curr}}
+				<li>
+					<a href="#">
+						<p class="p1">{{curr.title}}</p>
+						<p class="p2">￥<b>{{curr.price}}</b></p>
+						<img src="{{curr.img}}" />
+						<div class="hottocart">
+							<i class="iconfont icon-muying"></i>
+							<a href="javascript:void(0);">加入购物车</a>
+						</div>
+					</a>
+				</li>
 				{{/each}}
 			</ul>
-		</div>
-			<div class="vegetable_right_bottom">
-					<ul class="vgtrb_lists">
-						{{each list.list_vege curr}}
-						<li>	
-						<a href="#">
-							<p class="p1">{{curr.title}}</p>
-							<p class="p2">￥<b>{{curr.price}}</b></p>
-							<img src="{{curr.img}}"/>
-							<div class="hottocart">
-								<i class="iconfont icon-muying"></i>
-								<a href="javascript:void(0);">加入购物车</a>
-							</div>
-						 </a>
-						</li>
-						{{/each}}
-					</ul>
+
+		</script>
+		<div class="fixedside">
+			<div class="cart">
+				<i class="iconfont icon-muying"></i>
+				<b class="addcart"><a href="/html/cart.html">加入购物车</a></b>
+			</div>
+			<div class="fixed-btn">
+				<i class="iconfont icon-muying"></i>
+				<i class="iconfont icon-muying"></i>
+				<i class="iconfont icon-muying"></i>
 			</div>
 		</div>
-	</div>
-	</script>
-	
-	<!--<div class="vegetable">
-		<div class="vegetable_left">
-			<h3>1F果蔬生鲜</h3>
-			<div class="vegetable_slide">
-				<img src="/img/2017040113503868887353.jpg" />
-			</div>
-		</div>
-		<div class="vegetable_right">
-			<div class="vegetable_right_top">
-			<ul class="vgt_r_nav">
-				<li class="vege_current"><a href="#">当季热销</a></li>
-				<li><a href="#">新品上市</a></li>
-				<li><a href="#">生鲜特产</a></li>
-			</ul>
-			<ul class="vgt_r_navs">
-				<li><a href="#">其他水果</a><span>|</span></li>
-				<li><a href="#">苹果</a><span>|</span></li>
-				<li><a href="#">奇异果/猕猴桃</a><span>|</span></li>
-				<li><a href="#">速冻食品</a><span>|</span></li>
-				<li><a href="#">其他水果</a><span>|</span></li>
-				<li><a href="#">其他水果</a></li>
+
+		<div class="fixed_floor">
+			<ul class="fixed_floor_box">
+				<li class="floor_current">1F<span>果蔬生鲜</span></li>
+				<li>2F<span>粮油干货</span></li>
+				<li>3F<span>休闲食品</span></li>
 			</ul>
 		</div>
-			<div class="vegetable_right_bottom">
-				
-					<ul class="hotAddNew_hot vgtrb_lists">
-						<li>	
-						<a href="#">
-							<p class="p1">横都国产冷冻带牛腩快1kg</p>
-							<p class="p2">￥<b>99.00</b></p>
-							<img src="/img/2016092311271515934748.jpg"/>
-							<div class="hottocart">
-								<i class="iconfont icon-muying"></i>
-								加入购物车
-							</div>
-						 </a>
-						</li>
-					</ul>
-			</div>
+
+		<div class="fixed_top">
 		</div>
-	</div>-->
-	
-	<!--<script type="text/html" id="vegetable_template">
-						{{each list_vege vege}}
-						<span class="id" style="display: none;">{{vege.id}}</span>
-						<li>								
-							<p class="p1">{{vege.title}}</p>
-							<p class="p2">￥<b>{{vege.price}}</b></p>
-							<a href="#"><img src="{{vege.img}}"/> </a>
-							<div class="hottocart">
-								<i class="iconfont icon-muying"></i>
-									<a href="javascript:void(0);">加入购物车</a>
-							</div>
-						
-						</li>
-						{{/each}}
-					</script>-->
-	
-	
-	<div class="fixedside">
-		<div class="cart">
-			<i class="iconfont icon-muying"></i>
-			<b class="addcart">加入购物车</b>
-		</div>
-		<div class="fixed-btn">
-			<i class = "iconfont icon-muying"></i>
-			<i class = "iconfont icon-muying"></i>
-			<i class = "iconfont icon-muying"></i>
-		</div>
-	</div>	
-	
-	<div class="fixed_floor">
-		<ul class="fixed_floor_box">
-			<li class="floor_current">1F<span>果蔬生鲜</span></li>
-		   <li>2F<span>粮油干货</span></li>
-		   <li>3F<span>休闲食品</span></li>
-		</ul>
-	</div>
-	
-	<div class="fixed_top">
-	</div>
 
 		<div class="footer"></div>
-		<script src="/lib/requireJS/require.js" data-main = "/js/index"></script>
-		
+		<script src="/lib/requireJS/require.js" data-main="/js/index"></script>
+		<!-- 包括所有已编译的插件 -->
 	</body>
 
 </html>

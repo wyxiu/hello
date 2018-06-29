@@ -22,7 +22,7 @@ require(["config"], function() {
 
 			//滑动图
 			$(".slider_list").on("mouseenter", "li", function() {
-				if($(this).attr('class') === 'active') {
+				if ($(this).attr('class') === 'active') {
 					return;
 				}
 				$("li").find("img").stop(false, true);
@@ -42,9 +42,9 @@ require(["config"], function() {
 				$(this).addClass("hot_current");
 				var idStr = $(this).attr("id");
 				$(".hotAddNew_hot").html("");
-				if(idStr == "hot_show1") {
+				if (idStr == "hot_show1") {
 					getHotData();
-				} else if(idStr == "hot_show2") {
+				} else if (idStr == "hot_show2") {
 					getNewData();
 				} else {
 					getBrandData();
@@ -85,21 +85,43 @@ require(["config"], function() {
 			getHotData();
 
 			//动态加载二级菜单
+			//			$(".kinds_list li").hover(function(){
+			//				$(".kinds_list li").animate({left:"30px"},300);
+			//			});
+			//			
 			$(".kinds_list").on("mouseenter", "li", function() {
+				$(this).stop(false, true);
+				$(this).children("i").stop(false, true);
+				$(this).animate({
+					paddingLeft: "58px"
+				}, 300);
+				$(this).children("i").animate({
+					left: "24px"
+				}, 300);
 				$(".kinds_list_des").show();
 				var idStr = $(this).attr("id");
 
-				if(idStr == "type_1") {
+				if (idStr == "type_1") {
 					getSecondMenu(0);
-				} else if(idStr == "type_2") {
+				} else if (idStr == "type_2") {
 					getSecondMenu(1);
-				} else if(idStr == "type_3") {
+				} else if (idStr == "type_3") {
 					getSecondMenu(2);
-				} else if(idStr == "type_4") {
+				} else if (idStr == "type_4") {
 					getSecondMenu(3);
-				} else if(idStr == "type_5") {
+				} else if (idStr == "type_5") {
 					getSecondMenu(4);
 				}
+			});
+			$(".kinds_list").on("mouseleave", "li", function() {
+				$(this).stop();
+				$(this).children("i").stop();
+				$(this).animate({
+					paddingLeft: "48px"
+				}, 300);
+				$(this).children("i").animate({
+					left: "14px"
+				}, 300);
 			});
 
 			$(".kinds_list_des").on("mouseenter", function() {
@@ -132,23 +154,131 @@ require(["config"], function() {
 				$(".vege_current").removeClass("vege_current");
 			});
 
-			function getFloorMenu(i) {
+			function getFloorMenu() {
 				console.log("getFloorMenu")
 				$.getJSON("/mock/floor.json", function(data) {
-					console.log(data.res_body[i]);
+					//console.log(data.res_body[i]);
 					const vegetables = template("floor_template", {
-						list: data.res_body[i]
+						list: data.res_body
 					});
 					$(".floorcontent").html(vegetables);
-					console.log("getFloorMenu(0)")
+
+					$('.vegetable_right_bottom').each(function() {
+						var curTitle = $(this).parents(".vegetable").find("h3").text();
+						for (var i = 0; i < data.res_body.length; i++) {
+							if (data.res_body[i].title == curTitle) {
+								const vegetables = template("floor_good_templates", {
+									goods: data.res_body[i].items[0].goods
+								});
+								$(this).html(vegetables);
+								break;
+							}
+						}
+					});
+
+					$('.vegetable_slide').each(function() {
+						var images = [];
+						//获取当前
+						var curTitle = $(this).parent().children("h3").text();
+						for (var i = 0; i < data.res_body.length; i++) {
+							if (data.res_body[i].title == curTitle) {
+								for (var j = 0; j < data.res_body[i].image.length; j++) {
+									images.push({
+										href: data.res_body[i].image[j].href,
+										src: src = data.res_body[i].image[j].src
+									});
+								}
+								break;
+							}
+						}
+						$(this).carousel({
+							duration: 3000,
+							imgs: images,
+							width: "295px",
+							height: "418px",
+							showBtn: false
+						});
+					});
+
+					$('.goods_type_name').each(function() {
+						$(this).click(function() {
+							$(this).parent().children(".vege_current").removeClass("vege_current");
+							$(this).addClass("vege_current");
+
+							var curTitle = $(this).parents(".vegetable").find("h3").text();
+							var curItem = $(this).children("a").text();
+							console.log(curTitle + "----" + curItem);
+							for (var i = 0; i < data.res_body.length; i++) {
+								if (data.res_body[i].title == curTitle) {
+									for (var j = 0; i < data.res_body[i].items.length; j++) {
+										console.log("000items" + data.res_body[i].items[j].name);
+										if (data.res_body[i].items[j].name == curItem) {
+											console.log(data.res_body[i].items[j].goods);
+											const vegetables = template("floor_good_templates", {
+												goods: data.res_body[i].items[j].goods
+											});
+											$(this).parents(".vegetable").find(".vegetable_right_bottom").html(vegetables);
+											break;
+										}
+									}
+								}
+							}
+						});
+					});
+
+					$(".vgtrb_lists").on("click", ".hottocart", function(e) {
+						//console.log("success-----");
+
+						const end = $(".addcart").offset();
+						//console.log($(this).parent().html());
+						var imgUrl = $(this).parent().children("a").children("img").attr("src");
+						const flyer = $("<img src='" + imgUrl + "' style='width:40px;'>");
+						flyer.css("z-index", "1000");
+						// 运动
+						flyer.fly({
+							start: {
+								left: e.pageX - $(window).scrollLeft(),
+								top: e.pageY - $(window).scrollTop()
+							},
+							end: {
+								left: end.left - $(window).scrollLeft(),
+								top: end.top - $(window).scrollTop()
+							},
+							onEnd: function() { // 运动结束，销毁资源
+								this.destroy();
+							}
+						});
+
+						const shop = {
+							id: $(this).parents("li").children(".goods_id").text(),
+							img: $(this).parents("li").children("a").children("img").attr("src"),
+							title: $(this).parents("li").children(".p1").text(),
+							price: $(this).parents("li").children(".p2").children(".goods_price").text(),
+							amount: 1
+						};
+						//console.log(shop);
+						//保存到cookie中
+						$.cookie.json = true;
+						const cartshop = $.cookie("products") || [];
+						//判断商品是否存在
+						const index = exist(shop.id, cartshop);
+						if (index === -1) {
+							cartshop.push(shop);
+						} else {
+							cartshop[index].amount++;
+						}
+						console.log(cartshop);
+						$.cookie("products", cartshop, {
+							expires: 1,
+							path: "/"
+						});
+					});
 				});
 
 			}
-			getFloorMenu(0);
-			getFloorMenu(1);
+			getFloorMenu();
 
 			//传对象
-
 			$(".hotAddNew_hot").on("click", ".good_img", function(e) {
 				const shop = {
 					id: $(this).parents("li").children(".goods_id").text(),
@@ -165,7 +295,6 @@ require(["config"], function() {
 			});
 
 			//抛物线
-
 			$(".hotAddNew_hot").on("click", ".hottocart", function(e) {
 				//console.log("success-----");
 
@@ -189,12 +318,6 @@ require(["config"], function() {
 					}
 				});
 
-			});
-
-			//点击加入购物车
-			$(".hotAddNew_hot").on("click", ".hottocart", function() {
-				//console.log($(this));
-				//拿出商品信息
 				const shop = {
 					id: $(this).parents("li").children(".goods_id").text(),
 					img: $(this).parents("li").children("a").children("img").attr("src"),
@@ -208,7 +331,7 @@ require(["config"], function() {
 				const cartshop = $.cookie("products") || [];
 				//判断商品是否存在
 				const index = exist(shop.id, cartshop);
-				if(index === -1) {
+				if (index === -1) {
 					cartshop.push(shop);
 				} else {
 					cartshop[index].amount++;
@@ -218,13 +341,42 @@ require(["config"], function() {
 					expires: 1,
 					path: "/"
 				});
-
-				return true;
 			});
 
+			//点击加入购物车
+			//			$(".hotAddNew_hot").on("click", ".hottocart", function() {
+			//				//console.log($(this));
+			//				//拿出商品信息
+			//				const shop = {
+			//					id: $(this).parents("li").children(".goods_id").text(),
+			//					img: $(this).parents("li").children("a").children("img").attr("src"),
+			//					title: $(this).parents("li").children(".p1").text(),
+			//					price: $(this).parents("li").children(".p2").children(".goods_price").text(),
+			//					amount: 1
+			//				};
+			//				//console.log(shop);
+			//				//保存到cookie中
+			//				$.cookie.json = true;
+			//				const cartshop = $.cookie("products") || [];
+			//				//判断商品是否存在
+			//				const index = exist(shop.id, cartshop);
+			//				if (index === -1) {
+			//					cartshop.push(shop);
+			//				} else {
+			//					cartshop[index].amount++;
+			//				}
+			//				console.log(cartshop);
+			//				$.cookie("products", cartshop, {
+			//					expires: 1,
+			//					path: "/"
+			//				});
+			//
+			//				return true;
+			//			});
+
 			function exist(id, array) {
-				for(let i = 0; i < array.length; i++) {
-					if(id === array[i].id) {
+				for (let i = 0; i < array.length; i++) {
+					if (id === array[i].id) {
 						return i;
 					}
 				}
@@ -236,18 +388,20 @@ require(["config"], function() {
 
 			var _index = 0;
 			$(".fixed_floor_box").on("click", "ul li", function() {
-			$(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
+				$(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
 				_index = $(this).index() + 1;
 				//通过拼接字符串获取元素，再取得相对于文档的高度
-				 var _top=$(".vegetable"+_index).offset().top;
-				$("body,html").animate({scrollTop:_top},500);
+				var _top = $(".vegetable" + _index).offset().top;
+				$("body,html").animate({
+					scrollTop: _top
+				}, 500);
 			});
 			var nav = $(".fixed_floor"); //得到导航对象
 			var win = $(window); //得到窗口对象
 			var sc = $(document); //得到document文档对象。
 			win.scroll(function() {
 
-				if(sc.scrollTop() >= 1300) {
+				if (sc.scrollTop() >= 1300) {
 					$(".fixed_floor").show();
 					//获取滚动元素对应的索引!!!重难点
 					var index = Math.floor(sc.scrollTop() / 1300);
@@ -257,21 +411,19 @@ require(["config"], function() {
 					$(".fixed_floor").hide();
 				}
 			});
-			
-			
+
 			//吸顶效果
-			$(window).scroll(function(){
-			// 滚动条距离顶部的距离 大于 200px时
-			if($(window).scrollTop() >= 200){
-			$(".fixed_top").fadeIn(1000); // 开始淡入
-			} else{
-			$(".fixed_top").stop(true,true).fadeOut(1000); // 如果小于等于 200 淡出
-			}
+			$(window).scroll(function() {
+				// 滚动条距离顶部的距离 大于 200px时
+				if ($(window).scrollTop() >= 200) {
+					$(".fixed_top").fadeIn(1000); // 开始淡入
+				} else {
+					$(".fixed_top").stop(true, true).fadeOut(1000); // 如果小于等于 200 淡出
+				}
 			});
-			
-			
+
 			//倒计时
-			const thatDay =  new Date("2018/7/5")
+			const thatDay = new Date("2018/7/5")
 			const timer = setInterval(function() {
 				const nowDay = new Date().getTime();
 				const seconds = Math.ceil((thatDay - nowDay) / 1000);
@@ -279,12 +431,11 @@ require(["config"], function() {
 					min = Math.floor(seconds / 60) % 60,
 					hour = Math.floor(seconds / 3600) % 24,
 					day = Math.floor(seconds / (3600 * 24));
-					$("#days").html("0"+day);
-					$("#houers").html(hour);
-					$("#minuts").html(min);
-					$("#seconds").html(sec);
-	}, 1000);
-					
+				$("#days").html("0" + day);
+				$("#houers").html(hour);
+				$("#minuts").html(min);
+				$("#seconds").html(sec);
+			}, 1000);
 
 		});
 

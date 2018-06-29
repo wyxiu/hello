@@ -274,6 +274,7 @@ $top_border: 1px solid #e5e5e5;
             height: 47px;
             line-height: 47px;
             padding-left: 48px;
+            left: 0px;
             position: relative;
             a {
                 color: white;
@@ -383,13 +384,13 @@ $top_border: 1px solid #e5e5e5;
 }
 .banner .kinds_list li:hover {
     background: url("/img/arr.png") no-repeat 170px center white;
-    padding-left: 58px;
+//  padding-left: 58px;
     a {
         color: red;
     }
     i {
         color: red;
-        left: 24px;
+//      left: 24px;
     }
 }
 .hotAddNew_bar {
@@ -588,6 +589,7 @@ $top_border: 1px solid #e5e5e5;
     .vegetable_slide {
         width: 295px;
         height: 418px;
+        overflow: hidden;
     }
 }
 .vegetable_right {
@@ -729,6 +731,11 @@ $top_border: 1px solid #e5e5e5;
             width: 22px;
             margin-left: 8px;
             margin-top: 5px;
+        }a{
+            color: white;
+        }
+        a:hover{
+            color: white; 
         }
     }
 }
