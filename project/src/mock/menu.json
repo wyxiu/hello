@@ -7,10 +7,8 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "蔬菜"
 				}, {
-					"id": 2,
 					"name": "水果"
 				}
 			]
@@ -20,23 +18,17 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "调味品/果酱"
 				}, {
-					"id": 2,
 					"name": "烘焙原料/辅料/食品添加剂"
 				}, {
-					"id": 2,
 					"name": "米"
 				}, {
-					"id": 2,
 					"name": "面粮"
 				}, {
-					"id": 2,
 					"name": "南北干货/肉类干货"
 				},
 				{
-					"id": 2,
 					"name": "其他食品食用油/调味油杂粮"
 				}
 			]
@@ -46,10 +38,8 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "坚果"
 				}, {
-					"id": 2,
 					"name": "零食"
 				}
 			]
@@ -59,46 +49,32 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "贝类"
 				}, {
-					"id": 2,
 					"name": "蛋类肉"
 				}, {
-					"id": 2,
 					"name": "海参"
 				}, {
-					"id": 2,
 					"name": "其他海鲜肉"
 				}, {
-					"id": 2,
 					"name": "鸡肉"
 				}, {
-					"id": 2,
 					"name": "内脏类"
 				}, {
-					"id": 2,
 					"name": "牛肉"
 				}, {
-					"id": 2,
 					"name": "其他肉禽"
 				}, {
-					"id": 2,
 					"name": "虾类"
 				}, {
-					"id": 2,
 					"name": "蟹类"
 				}, {
-					"id": 2,
 					"name": "鸭肉"
 				}, {
-					"id": 2,
 					"name": "羊肉"
 				}, {
-					"id": 2,
 					"name": "鱼类"
 				}, {
-					"id": 2,
 					"name": "猪肉"
 				}
 			]
@@ -108,10 +84,8 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "蔬菜"
 				}, {
-					"id": 2,
 					"name": "水果"
 				}
 			]
@@ -121,10 +95,8 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "蔬菜"
 				}, {
-					"id": 2,
 					"name": "水果"
 				}
 			]
@@ -134,10 +106,8 @@
 			"image": "/img/1gssx.jpg",
 			"items": [
 				{
-					"id": 1,
 					"name": "蔬菜"
 				}, {
-					"id": 2,
 					"name": "水果"
 				}
 			]

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul li{
+				list-style: none;
+			}
+			#menu{
+			  width:32px;height:360px;
+			  position:fixed;
+			  top:200px;left:0px;
+			  display: none;
+			 }
+			 #menu ul li{
+			  width:32px;height:32px;
+			  list-style-type:none;
+			  color:#8F8583;
+			  text-align:center;
+			  line-height: 32px;
+			  border-bottom:1px dotted #ddd;
+			  position:relative;
+			 }
+			 #menu ul li span{
+			  display:block;width:32px;height:32px;
+			  background:#C81623;
+			  position:absolute;
+			  top:0;left:0;
+			  color:#fff;font-size:12px;
+			  display: none;
+			 }
+			 #menu ul li:hover span{display:block; }
+			 #menu ul li span.active{color:#C81623;background:#fff;display:block;}
+			 #content{
+			  width:1220px;
+			  margin:0 auto;
+			 } 
+			 #footer{width:1220px;height:600px;background:#FE7678;}
+			 .container{margin:0 auto;}
+		</style>
+	</head>
+	<body>
+<div id="menu">
+  <ul>
+   <li>1F<span>服饰</span></li>
+   <li>2F<span>美妆</span></li>
+   <li>3F<span>手机</span></li>
+   <li>4F<span>家电</span></li>
+   <li>5F<span>数码</span></li>
+   <li>6F<span>运动</span></li>
+   <li>7F<span>居家</span></li>
+   <li>8F<span>母婴</span></li>
+   <li>9F<span>食品</span></li>
+   <li>10F<span>图书</span></li>
+   <li>11F<span>服务</span></li>
+  </ul>
+ </div>
+ <!-- 导航菜单 -->
+ <!-- 产品内容 -->
+ <div id="content">
+  <div class="louti" id="louti1"><img src="images/m1.jpg" alt=""></div>
+  <div class="louti" id="louti2"><img src="images/m2.jpg" alt=""></div>
+  <div class="louti" id="louti3"><img src="images/m3.jpg" alt=""></div>
+  <div class="louti" id="louti4"><img src="images/m4.jpg" alt=""></div>
+  <div class="louti" id="louti5"><img src="images/m5.jpg" alt=""></div>
+  <div class="louti" id="louti6"><img src="images/m6.jpg" alt=""></div>
+  <div class="louti" id="louti7"><img src="images/m7.jpg" alt=""></div>
+ </div>
+ <!-- 产品内容 -->
+ <!-- 底部 -->
+ <div id="footer" class="container"></div>
+ <script src="lib/jquery/jquery-1.12.4.min.js"></script>
+ <script>
+ $(function(){
+  var _index=0;
+  $("#menu ul li").click(function(){
+   $(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
+   _index=$(this).index()+1;
+   //通过拼接字符串获取元素，再取得相对于文档的高度
+   var _top=$("#louti"+_index).offset().top;
+   //scrollTop滚动到对应高度
+ $("body,html").animate({scrollTop:_top},500);
+  });
+  var nav=$("#menu"); //得到导航对象
+  var win=$(window); //得到窗口对象
+  var sc=$(document);//得到document文档对象。
+  win.scroll(function(){
+ 
+   if(sc.scrollTop()>=600){
+   $("#menu").show(); 
+   //获取滚动元素对应的索引!!!重难点
+   var index=Math.floor(sc.scrollTop()/600);
+ 
+   $("#menu ul li span").eq(index-1).addClass("active").parent().siblings().find("span").removeClass("active");
+   }else{
+   $("#menu").hide();
+   }
+  });
+ });
+ </script>
+</body>
+</html>

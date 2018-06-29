@@ -527,6 +527,25 @@ $top_border: 1px solid #e5e5e5;
     }
     .hotAddNew_timer {
         height: 32px;
+        b{
+            font-size: 18px;
+        }
+        span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+            background: #fd373e;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-right: 4px;
+        }
+        i{
+            font-size: 16px;
+            color: #fd373e;
+        }
     }
 }
 .slider {
@@ -550,6 +569,8 @@ $top_border: 1px solid #e5e5e5;
         }
     }
 }
+
+
 .vegetable {
     width: 1190px;
     height: 467px;
@@ -573,6 +594,7 @@ $top_border: 1px solid #e5e5e5;
     float: left;
     width: 895px;
     height: 418px;
+    
     .vegetable_right_top {
         width: 895px;
         height: 42px;
@@ -710,6 +732,63 @@ $top_border: 1px solid #e5e5e5;
         }
     }
 }
+
+.fixed_floor{
+    width: 35px;
+    height: 100%;
+    position: fixed;
+    background: #f2f2f2;
+     z-index: 999;
+     top: 0;
+    left: 0;
+    .fixed_floor_box{
+         width: 35px;
+        position: absolute;
+        top: 200px;
+        li{
+            width: 35px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;  
+            height: 50px;   
+            padding: 6px 4px;
+            color: #666;
+            position: relative;
+            span{
+              display: inline-block;
+             // width:35px;
+              height:50px;
+              background:#C81623;
+             color: white;
+                  padding: 6px 4px;
+                  margin-bottom: 10px;
+                border-bottom: 1px solid #e5e5e5;  
+                position: absolute;
+                left: 0px;
+                top:0px;
+                display: none;
+        }
+       
+      }
+
+    } 
+}
+
+.fixed_top{
+    width: 100%;
+    height: 50px;
+    background: #000000;
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    opacity: .8;
+//  display: none;
+}
+
+.fixed_floor_box li:hover span{
+    display: block;
+}
+.fixed_floor_box li span.active{color:#C81623;background:#fff;display:block;}
+
 .wrapfooter {
     width: 100%;
     height: 595px;
