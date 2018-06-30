@@ -83,12 +83,7 @@ require(["config"], function() {
 
 			//		getFoodTypes();
 			getHotData();
-
-			//动态加载二级菜单
-			//			$(".kinds_list li").hover(function(){
-			//				$(".kinds_list li").animate({left:"30px"},300);
-			//			});
-			//			
+			
 			$(".kinds_list").on("mouseenter", "li", function() {
 				$(this).stop(false, true);
 				$(this).children("i").stop(false, true);
@@ -135,7 +130,7 @@ require(["config"], function() {
 			});
 
 			function getSecondMenu(i) {
-				console.log("---getSecondMenu");
+				//console.log("---getSecondMenu");
 				$.getJSON("/mock/menu.json", function(data) {
 					const html = template("secondMenu_template", {
 						typeItem: data.res_body[i]
@@ -148,14 +143,14 @@ require(["config"], function() {
 			//动态加载楼层菜单
 
 			$(".vgtrb_lists").on("mouseenter", "li", function() {
-				console.log("============");
+				//console.log("============");
 				$(this).addClass("vege_current");
 
 				$(".vege_current").removeClass("vege_current");
 			});
 
 			function getFloorMenu() {
-				console.log("getFloorMenu")
+				//console.log("getFloorMenu")
 				$.getJSON("/mock/floor.json", function(data) {
 					//console.log(data.res_body[i]);
 					const vegetables = template("floor_template", {
@@ -207,13 +202,13 @@ require(["config"], function() {
 
 							var curTitle = $(this).parents(".vegetable").find("h3").text();
 							var curItem = $(this).children("a").text();
-							console.log(curTitle + "----" + curItem);
+							//console.log(curTitle + "----" + curItem);
 							for (var i = 0; i < data.res_body.length; i++) {
 								if (data.res_body[i].title == curTitle) {
 									for (var j = 0; i < data.res_body[i].items.length; j++) {
-										console.log("000items" + data.res_body[i].items[j].name);
+										//console.log("000items" + data.res_body[i].items[j].name);
 										if (data.res_body[i].items[j].name == curItem) {
-											console.log(data.res_body[i].items[j].goods);
+											//console.log(data.res_body[i].items[j].goods);
 											const vegetables = template("floor_good_templates", {
 												goods: data.res_body[i].items[j].goods
 											});
@@ -252,10 +247,11 @@ require(["config"], function() {
 						const shop = {
 							id: $(this).parents("li").children(".goods_id").text(),
 							img: $(this).parents("li").children("a").children("img").attr("src"),
-							title: $(this).parents("li").children(".p1").text(),
-							price: $(this).parents("li").children(".p2").children(".goods_price").text(),
+							title: $(this).parents("li").find(".p1").text(),
+							price: $(this).parents("li").find(".goods_price").text(),
 							amount: 1
 						};
+						console.log($(this).parents("li").find(".goods_price").text());
 						//console.log(shop);
 						//保存到cookie中
 						$.cookie.json = true;
@@ -284,7 +280,7 @@ require(["config"], function() {
 					id: $(this).parents("li").children(".goods_id").text(),
 					img: $(this).parents("li").children("a").children("img").attr("src"),
 					title: $(this).parents("li").children(".p1").text(),
-					price: $(this).parents("li").children(".p2").children(".goods_price").text(),
+					price: $(this).parents("li").find(".goods_price").text(),
 					amount: 1
 				};
 				var params = "id=" + shop.id + "&img=" + shop.img + "&title=" +
@@ -343,37 +339,6 @@ require(["config"], function() {
 				});
 			});
 
-			//点击加入购物车
-			//			$(".hotAddNew_hot").on("click", ".hottocart", function() {
-			//				//console.log($(this));
-			//				//拿出商品信息
-			//				const shop = {
-			//					id: $(this).parents("li").children(".goods_id").text(),
-			//					img: $(this).parents("li").children("a").children("img").attr("src"),
-			//					title: $(this).parents("li").children(".p1").text(),
-			//					price: $(this).parents("li").children(".p2").children(".goods_price").text(),
-			//					amount: 1
-			//				};
-			//				//console.log(shop);
-			//				//保存到cookie中
-			//				$.cookie.json = true;
-			//				const cartshop = $.cookie("products") || [];
-			//				//判断商品是否存在
-			//				const index = exist(shop.id, cartshop);
-			//				if (index === -1) {
-			//					cartshop.push(shop);
-			//				} else {
-			//					cartshop[index].amount++;
-			//				}
-			//				console.log(cartshop);
-			//				$.cookie("products", cartshop, {
-			//					expires: 1,
-			//					path: "/"
-			//				});
-			//
-			//				return true;
-			//			});
-
 			function exist(id, array) {
 				for (let i = 0; i < array.length; i++) {
 					if (id === array[i].id) {
@@ -387,11 +352,12 @@ require(["config"], function() {
 			//侧边栏楼层导航
 
 			var _index = 0;
-			$(".fixed_floor_box").on("click", "ul li", function() {
-				$(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
-				_index = $(this).index() + 1;
+			$(".fixed_floor_box").on("click", "li", function() {
+				$(this).find(".active").removeClass("active");
+				$(this).find("span").addClass("active");
+				_index = $(this).index();
 				//通过拼接字符串获取元素，再取得相对于文档的高度
-				var _top = $(".vegetable" + _index).offset().top;
+				var _top = $(".vegetable").offset().top;
 				$("body,html").animate({
 					scrollTop: _top
 				}, 500);
@@ -401,12 +367,12 @@ require(["config"], function() {
 			var sc = $(document); //得到document文档对象。
 			win.scroll(function() {
 
-				if (sc.scrollTop() >= 1300) {
+				if (sc.scrollTop() >= 700) {
 					$(".fixed_floor").show();
 					//获取滚动元素对应的索引!!!重难点
-					var index = Math.floor(sc.scrollTop() / 1300);
+					var index = Math.floor(sc.scrollTop() / 700);
 
-					$(".fixed_floor ul li span").eq(index - 1).addClass("active").parent().siblings().find("span").removeClass("active");
+					$(".fixed_floor span").eq(index - 1).addClass("active").parent().siblings().find("span").removeClass("active");
 				} else {
 					$(".fixed_floor").hide();
 				}
@@ -431,11 +397,29 @@ require(["config"], function() {
 					min = Math.floor(seconds / 60) % 60,
 					hour = Math.floor(seconds / 3600) % 24,
 					day = Math.floor(seconds / (3600 * 24));
-				$("#days").html("0" + day);
-				$("#houers").html(hour);
+					if(day<10){
+						$("#days").html("0"+day);
+					}else{
+						$("#days").html(day);
+					}
+					if(hour<10){
+						$("#houers").html("0"+hour);
+					}else{
+						$("#houers").html(hour);
+					}					
 				$("#minuts").html(min);
 				$("#seconds").html(sec);
 			}, 1000);
+			
+			
+			//包船数据到数据库
+				$(".hotAddNew_hot").on("click", ".hottocart", function(){
+					const goods_id = $(this).parents("li").find("goods_id");
+					$.post("http://localhost/api/goods_shop.php",function(d){
+						
+						
+					),"json"};
+				});
 
 		});
 

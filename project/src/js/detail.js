@@ -34,6 +34,7 @@ require(["config"], function() {
 						good: shop
 					});
 					$(".products_detail").html(hotsbrands);
+					
 					$("#zoom_03").elevateZoom();
 
 				}

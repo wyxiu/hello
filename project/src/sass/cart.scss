@@ -78,9 +78,9 @@
 .cart-shop {
     width: 1190px;
     margin: 0 auto 20px;
+    border: 1px solid #e5e5e5;
     table {
         width: 1190px;
-        border: 1px solid #e5e5e5;
         thead {
             height: 43px;
             border-color: inherit;
@@ -88,6 +88,7 @@
             line-height: 43px;
             text-align: center;
             background: #f8f8f8;
+           
         }
         tbody {
             display: table-row-group;
@@ -102,11 +103,15 @@
             height: 40px;
             text-align: center;
             line-height: 40px;
+            background: #f8f8f8;
         }
         span {
             color: red;
             font-weight: 600;
             padding: 0 5px;
+        }
+        .tr_row{
+            border-bottom: 1px soild #e5e5e5 ;
         }
         .howmany {
             text-align: right;

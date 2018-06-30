@@ -208,7 +208,7 @@
 							<!--<li><a href="#">新品上市</a></li>
 				<li><a href="#">生鲜特产</a></li>-->
 						</ul>
-						<ul class="hotAddNew_hot vgt_r_navs">
+						<ul class="vgt_r_navs">
 							{{each item.other names}}
 							<li><a href="#">{{names.desc}}</a><span>{{names.icons}}</span></li>
 							<!--<li><a href="#">苹果</a><span>|</span></li>
@@ -231,9 +231,10 @@
 			<ul class="vgtrb_lists">
 				{{each goods curr}}
 				<li>
+					<span class="goods_id" style="display: none;">{{curr.id}}</span>
 					<a href="#">
 						<p class="p1">{{curr.title}}</p>
-						<p class="p2">￥<b>{{curr.price}}</b></p>
+						<p class="p2">￥<b class="goods_price">{{curr.price}}</b></p>
 						<img src="{{curr.img}}" />
 						<div class="hottocart">
 							<i class="iconfont icon-muying"></i>

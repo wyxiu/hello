@@ -77,7 +77,7 @@
 
 
 <div class="cart-shop">
-	<table cellpadding="0" cellspacing="0" border="1">
+	<table cellpadding="0" cellspacing="0">
 		<thead >
 			<tr>
 				<th style="width: 100px;">
@@ -105,7 +105,7 @@
 		</tfoot>
 		<script type="text/html" id="cart_template">
 			{{each cartshop pro}}
-			<tr data-id = "{{pro.id}}">
+			<tr data-id = "{{pro.id}}" class="tr_rows">
 				<td ><input type="checkbox" class="ck_single"></td>
 				<td><img class="good_img" src="{{pro.img}}"/></td>
 				<td>{{pro.title}}</td>
