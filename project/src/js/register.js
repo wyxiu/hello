@@ -79,8 +79,10 @@ require (["config"],function(){
 		
 		
 		$(".btn").on("click",function(){
+			console.log("aaaaaaaaaaaaaaaa"+$("#form_regist").serialize());
 			if(a+b+c+d+e===5){
 				$.post("http://localhost/api/register.php",$("#form_regist").serialize(),function(data){
+					console.log("aaaaaaaaaaaaaaaa"+data.res_message);
 					if(data.res_code===1){
 						location.href="/html/login.html";
 					}

@@ -83,7 +83,7 @@ require(["config"], function() {
 
 			//		getFoodTypes();
 			getHotData();
-			
+
 			$(".kinds_list").on("mouseenter", "li", function() {
 				$(this).stop(false, true);
 				$(this).children("i").stop(false, true);
@@ -397,29 +397,37 @@ require(["config"], function() {
 					min = Math.floor(seconds / 60) % 60,
 					hour = Math.floor(seconds / 3600) % 24,
 					day = Math.floor(seconds / (3600 * 24));
-					if(day<10){
-						$("#days").html("0"+day);
-					}else{
-						$("#days").html(day);
-					}
-					if(hour<10){
-						$("#houers").html("0"+hour);
-					}else{
-						$("#houers").html(hour);
-					}					
+				if (day < 10) {
+					$("#days").html("0" + day);
+				} else {
+					$("#days").html(day);
+				}
+				if (hour < 10) {
+					$("#houers").html("0" + hour);
+				} else {
+					$("#houers").html(hour);
+				}
 				$("#minuts").html(min);
 				$("#seconds").html(sec);
 			}, 1000);
-			
-			
+
 			//包船数据到数据库
-				$(".hotAddNew_hot").on("click", ".hottocart", function(){
-					const goods_id = $(this).parents("li").find("goods_id");
-					$.post("http://localhost/api/goods_shop.php",function(d){
-						
-						
-					),"json"};
-				});
+			$(".hotAddNew_hot").on("click", ".hottocart", function() {
+				console.log("successful----------------");
+				$("#cart_form_bianhao").val($(this).parents("li").children(".goods_id").text());
+				$("#cart_form_title").val($(this).parents("li").children(".p1").text());
+				$("#cart_form_img").val($(this).parents("li").children("a").children("img").attr("src"));
+				$("#cart_form_price").val($(this).parents("li").find(".goods_price").text());
+				$("#cart_form_amount").val(1);
+				$.post("http://localhost/api/add.php", $("#cart_form").serialize(), function(d) {
+					if (d.res_code === 1) {
+						console.log("successful----------------");
+					} else {
+						console.log("失败" + d.res_message);
+					}
+
+				}, "json");
+			});
 
 		});
 

@@ -24,17 +24,17 @@ require (["config"],function(){
 		});
 		$(".btn").on("click",function(){
 			console.log("---------------");
-//			const user={
-//				username:$("#username").val(),
-//				password:$("#password").val()
-//			}
-//			const users=[];
-//			users.push(user);
+		const user={
+				username:$("#username").val(),
+				password:$("#password").val()
+			}
+			const users=[];
+			users.push(user);
 			$.post("http://localhost/api/login.php",$("#form_login").serialize(),function(d){
 				if(d.res_code===1){
 					location.href="/index.html";
-//					$.cookie.json=true;
-//					$.cookie("users",users,{expires:7,path:'/'});
+						$.cookie.json=true;
+						$.cookie("users",users,{expires:7,path:'/'});
 				}
 				else{
 					$(".error").show();
