@@ -1,0 +1,1419 @@
+nput {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+fieldset,
+img {
+    border: none;
+}
+
+em,
+i,
+b,
+strong,
+{
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.confirm_contain{
+    width: 990px;
+    margin: 0 auto;
+    height: auto;
+}
+
+
+
+.logo-bars {
+    width: 1190px;
+    height: 140px;
+    padding: 30px 0;
+    margin: 0 auto;
+    .logos {
+        float: left;
+        width: 290px;
+        height: 70px;
+        margin-right: 140px;
+        h1 a {
+            display: block;
+            width: 290px;
+            height: 70px;
+            background: url("/img/logo.png");
+            span {
+                display: none;
+            }
+        }
+    }
+    .cart_logo {
+        float: right;
+        height: 58px;
+        width: 560px;
+        li {
+            float: left;
+            height: 58px;
+            width: 185px;
+        }
+        .step1 {
+             position: relative;
+            background: url("/img/bg-step.jpg") no-repeat 0px 0px;
+             .bg_step1 {
+                position: absolute;
+                left: 87px;
+                top: 6px;
+            }
+            .txt_step1 {
+               width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: #ccc;
+                margin-top: 30px;
+            }
+        }
+        .step2 {
+            position: relative;
+            background: url("/img/bg-step.jpg") no-repeat -181px -67px;
+            .bg_step2 {
+                position: absolute;
+                left: 87px;
+                top: 6px;
+            }
+            .txt_step2 {
+                width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: red;
+                margin-top: 30px;
+            }
+        }
+        .step3 {
+            position: relative;
+            background: url("/img/bg-step.jpg") no-repeat -181px 0;
+            .bg_step3 {
+                position: absolute;
+                left: 87px;
+                top: 6px;
+            }
+            .txt_step3 {
+                width: 185px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: #969896;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+#trade-head {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #ddd
+}
+
+#trade-head .logo {
+    width: 170px;
+    overflow: hidden;
+    float: left;
+    display: inline;
+    margin-top: 15px
+}
+
+#trade-head .name {
+    width: 170px;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+    color: #666;
+    font-size: 22px;
+    margin: 30px 0 0 10px;
+    font-family: "Microsoft Yahei"
+}
+
+.tip-inner {
+    overflow: hidden;
+    font: 12px/16px arial, helvetica, sans-serif
+}
+
+.tip_h1 {
+    z-index: 1000;
+    text-align: left;
+    border: 1px solid #ffdaa2;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 6px 8px;
+    min-width: 50px;
+    color: #000;
+    background-color: ivory;
+    margin: 6px 0
+}
+
+.tip_h2 {
+    *width: 110px;
+    max-width: 380px;
+    z-index: 1000;
+    text-align: left;
+    border: 1px solid #ffdaa2;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 6px 8px;
+    min-width: 50px;
+    color: #000;
+    background-color: ivory;
+    margin: 6px 0;
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    *zoom: 1
+}
+
+.tip_h1 .error,
+.tip_h2 .error {
+    width: 20px;
+    height: 14px;
+    float: left;
+    display: inline;
+    margin: 1px 0 0;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/sr-img.jpg) no-repeat
+}
+
+.tip_h1 .collect-txt,
+.tip_h2 .collect-txt {
+    float: left;
+    display: inline
+}
+
+.tip_h1 a {
+    color: #0079d7
+}
+
+.tip_h1 a:hover {
+    text-decoration: underline
+}
+
+.orderd {
+    width: 100%;
+    margin: 7px 0 20px;
+    position: relative;
+    clear: both;
+}
+
+.orderd h3 {
+    line-height: 30px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #ccc;
+    font-family: "Microsoft Yahei";
+    color: #333
+}
+
+.addset {
+    float: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px
+}
+
+.addset a:hover {
+    color: #0079d7;
+    text-decoration: underline
+}
+
+.addlist {
+    width: 964px;
+    padding: 12px 12px 35px;
+    border: 1px solid #f5f5f5;
+    font-family: "Microsoft Yahei";
+    overflow: hidden;
+    height: 129px;
+    background: #fcfcfc;
+    *zoom: 1
+}
+
+.addlist li {
+    width: 206px;
+    height: 56px;
+    padding: 10px;
+    border: 2px solid #f3f3f3;
+    position: relative;
+    float: left;
+    margin: 0 5px 40px;
+    cursor: pointer
+}
+
+.addlist li:hover {
+    border: 2px solid #e6133c
+}
+
+.addlist li:hover .addwrite {
+    display: block
+}
+
+.addlist li:hover .addnow {
+    display: none
+}
+
+.addlist li.cur {
+    border: 2px solid #e6133c;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico1_16-4.png) no-repeat right bottom
+}
+
+.addlist li.addnot {
+    width: 230px;
+    height: 80px;
+    padding: 0;
+    border: none;
+    background-position: 0 0
+}
+
+.addlist li.addnot:hover {
+    background-position: 0 -80px
+}
+
+.paylist {
+    width: 964px;
+    padding: 12px;
+    border: 1px solid #f5f5f5;
+    font-family: "Microsoft Yahei";
+    float: left;
+    display: inline;
+    background: #fcfcfc
+}
+
+.paylist li {
+    width: 126px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid #f3f3f3;
+    font-size: 14px;
+    color: #333;
+    float: left;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 6px
+}
+
+.paylist li:hover {
+    border: 2px solid #e6133c
+}
+
+.paylist li.cur {
+    border: 2px solid #e6133c;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico1_16-4.png) no-repeat right bottom
+}
+
+.paylist li.cnot {
+    cursor: not-allowed;
+    border: 2px solid #eee;
+    background: #f3f3f3;
+    color: #ccc
+}
+
+.grey {
+    color: #999
+}
+
+
+.paylist li.line-long2 {
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: none
+}
+
+.pro_alink:hover {
+    color: #d62233
+}
+.orderd-content{
+ min-height:800px;
+}
+.pay-form {
+    width: 990px;
+    height: 500px;
+    margin-bottom: 15px;
+    border-top: 1px solid #ccc;
+    float: left;
+}
+
+.pay-form .pslist {
+    width: 294px;
+    font-family: "Microsoft Yahei";
+    float: left;
+    display: inline;
+    padding-left: 15px;
+      height: 500px;
+}
+
+.pay-form .pslist .ps-title {
+    width: 270px;
+    height: 48px;
+    line-height: 48px;
+    float: left;
+    display: inline;
+    font-size: 14px;
+    color: #666;
+    font-weight: 700
+}
+
+.pay-form .pslist li {
+    width: 126px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid #f3f3f3;
+    font-size: 14px;
+    color: #333;
+    float: left;
+    cursor: pointer;
+    font-weight: 700;
+    margin-right: 12px
+}
+
+.pay-form .pslist li:hover {
+    border: 2px solid #e6133c
+}
+
+.pay-form .pslist li.cur {
+    border: 2px solid #e6133c;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico1_16-4.png) no-repeat right bottom
+}
+
+.pay-form .pslist li.cnot {
+    cursor: not-allowed;
+    border: 2px solid #eee;
+    background: #f3f3f3;
+    color: #ccc
+}
+
+.pay-form .pslist li.cnot:hover {
+    border: 2px solid #eee
+}
+
+.pay-form .pslist .ps-text {
+    width: 272px;
+    height: auto;
+    float: left;
+    display: inline;
+    margin-top: 20px;
+    position: relative;
+    line-height: 22px
+}
+
+.pay-form .pslist .ps-text a {
+    color: #0079d7;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.pay-form .pslist .ps-text a:hover {
+    text-decoration: underline
+}
+
+.pay-form .pslist .ps-text .black {
+    color: #333;
+    font-size: 13px
+}
+
+.pay-form .pslist .ps-text .grey {
+    color: #999
+}
+
+.pay-form .pslist .ps-text .red {
+    color: #ff6f6f;
+    font-size: 13px
+}
+
+.item-list {
+    width: 680px;
+    overflow: hidden;
+    float: left;
+    height: 500px;
+    
+}
+
+.pro_list {
+    width: 680px;
+    font-family: "Microsoft Yahei";
+    overflow: hidden;
+    background: #fcfcfc;
+    font-size: 14px;
+    border-top: 2px solid #ccc;
+}
+
+.pro_list h5 {
+    line-height: 48px;
+    padding: 0 0 0 40px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    color: #333;
+    position: relative;
+    font-weight: 700
+}
+
+.pro_list h5 .total {
+    position: absolute;
+    right: 22px;
+    top: 0;
+    font-size: 12px;
+    font-weight: 400
+}
+
+.pro_list .prolist_d {
+    overflow: hidden;
+    border-bottom: 1px dashed #ccc;
+    font-size: 12px
+}
+
+.pro_list .pro_ic1 {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/pro_ic1.jpg) no-repeat 15px 18px
+}
+
+.pro_list .pro_ic2 {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/pro_ic2.jpg) no-repeat 15px 18px
+}
+
+.pro_list .pro_ic3 {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/pro_ic3.jpg) no-repeat 15px 18px
+}
+
+.pro_list .pro_ic4 {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/pro_ic4.jpg) no-repeat 15px 18px
+}
+
+.pro_list .prolist_d_l {
+    width: 420px;
+    float: left;
+    padding: 10px 13px;
+    position: relative
+}
+
+.pro_list .pro_imga {
+    width: 58px;
+    height: 58px;
+    display: inline-block;
+    border: 1px solid #d7d7d7;
+    vertical-align: middle;
+    margin-right: 10px
+}
+
+.pro_list .pro_name {
+    width: 300px;
+    line-height: 20px;
+    color: #333;
+    position: absolute;
+    left: 85px;
+    top: 8px;
+    max-height: 40px;
+    overflow: hidden
+}
+
+.pro_list .pro_name a {
+    color: #999
+}
+
+.pro_list .iname_tit1 {
+    color: #e6133c;
+    padding: 4px 16px;
+    border-radius: 2px;
+    margin-right: 5px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico_hg_165.jpg) no-repeat 0 center
+}
+
+.pro_list .iname_tit2 {
+    color: #fff;
+    padding: 4px 21px;
+    border-radius: 2px;
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico_qqg_165.jpg) no-repeat 0 center
+}
+
+.pro_list .iname_tit3 {
+    color: #e6133c;
+    padding: 4px 16px;
+    border-radius: 2px;
+    margin-right: 5px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico_zp_165.jpg) no-repeat 0 center
+}
+
+.pro_list .iname_tit4 {
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 2px;
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/cart_icon_direct.png) no-repeat 0 center
+}
+
+.pro_list .iname_tit5 {
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 2px;
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/cart_icon_bonded.png) no-repeat 0 center
+}
+
+.pro_list .pro_send {
+    width: 300px;
+    line-height: 20px;
+    position: absolute;
+    left: 85px;
+    top: 50px
+}
+
+.pro_list .pro_sendok {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/prosend_okic_1.png) no-repeat 0 3px;
+    color: #999;
+    padding-left: 15px;
+    margin-right: 10px
+}
+
+.pro_list .pro_sendno {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/prosend_noic_1.png) no-repeat 0 3px;
+    color: #666;
+    padding-left: 15px;
+    margin-right: 10px
+}
+
+.pro_list .prolist_d_r {
+    width: 180px;
+    float: right;
+    padding: 10px 13px
+}
+
+.pro_list .prolist_d_r span {
+    float: left
+}
+
+.pro_list .item_wei {
+    color: #666;
+    width: 124px;
+    display: inline-block;
+    text-indent: 7px;
+    font-weight: 400
+}
+
+.pro_list .item_pri {
+    color: #fa4d4d;
+    width: 133px;
+    display: inline-block;
+    position: relative;
+    font-weight: 700
+}
+
+.pro_list .item_num {
+    color: #333
+}
+
+.pro_list .item_pri_tc {
+    position: absolute;
+    right: 86px;
+    top: 3px
+}
+
+.pro_list .item_num_tc {
+    position: absolute;
+    right: 75px;
+    top: 3px
+}
+
+.pro_list .item_gift {
+    color: #999;
+    margin-left: -5px;
+    margin-top: 5px;
+    height: 16px;
+    line-height: 16px;
+    position: relative
+}
+
+.pro_list .item_gift .gift-price {
+    position: absolute;
+    height: 16px;
+    line-height: 16px;
+    right: -300px;
+    top: 0;
+    width: 134px
+}
+
+
+.totle_pay {
+    line-height: 35px;
+    padding: 5px 15px 0;
+    border-top: 1px solid #ccc;
+    margin-top: -1px;
+    text-align: right;
+    font-size: 12px;
+    position: relative
+}
+
+.ico_time {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico_time_1604.jpg) no-repeat 0 center;
+    padding-left: 20px;
+    color: #333;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    *top: -3px
+}
+
+.totle_pri,
+.totle_sdpri,
+.totle_wei {
+    color: #999;
+    margin-right: 22px
+}
+
+.col_3 {
+    color: #333;
+    font-weight: 400
+}
+
+.col_red {
+    color: #fa4d4d;
+    font-size: 14px
+}
+
+.col_red2 {
+    color: #fa4d4d;
+    font-size: 12px;
+    margin-right: 4px
+}
+
+.no_sdpri {
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico_qu_165.jpg) no-repeat right center;
+    padding: 6px;
+    margin-left: 10px
+}
+
+.bz_info {
+    font-size: 12px;
+    color: #333;
+    padding: 20px;
+    position: relative;
+    border-top: 1px dashed #ccc
+}
+
+.bz_close {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 31px;
+    *right: 51px;
+    top: 26px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/bz_textclose_165.jpg) no-repeat 0 0;
+    display: none
+}
+
+.bz_text {
+    width: 590px;
+    height: 48px;
+    line-height: 24px;
+    font-size: 14px;
+    overflow: hidden;
+    border: 1px solid #c5c5c5;
+    padding: 15px;
+    color: #bbb;
+    margin-left: 15px;
+    vertical-align: top;
+    font-family: "Microsoft Yahei"
+}
+
+.bz_text.cur {
+    border: 1px solid #0079d7;
+    color: #333
+}
+
+
+.trade-list {
+    width: 940px;
+    border: 1px solid #f5f5f5;
+    border-top: 2px solid #ccc;
+    padding: 0 24px;
+    margin-top: 10px;
+    float: left;
+    display: inline;
+    background: #fff
+}
+
+.trade-list .pay-message {
+    width: 940px;
+    padding: 15px 0;
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message a.discount {
+    color: #666;
+    padding: 0 10px 0 6px;
+    width: auto;
+    background: #f4f1e9;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 3px;
+    float: left;
+    display: inline;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message a.discount .txt {
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message a.discount i {
+    float: left;
+    display: inline;
+    width: 8px;
+    height: 4px;
+    margin: 10px 0 0 4px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/discount-arrow.png) no-repeat
+}
+
+.trade-list .pay-message .txt-btn-line {
+    width: 940px;
+    float: left;
+    display: inline;
+    margin-top: 10px
+}
+
+.trade-list .pay-message .ticket {
+    width: 940px;
+    height: auto;
+    float: left;
+    display: none;
+    padding-bottom: 10px
+}
+
+.trade-list .pay-message .ticket a.discount {
+    color: #fff;
+    font-weight: 700;
+    background: #e6133c
+}
+
+.trade-list .pay-message .ticket a.discount i {
+    background-position: 0 -4px
+}
+
+.trade-list .pay-message .ticket .line {
+    width: 940px;
+    padding-bottom: 10px;
+    height: auto;
+    float: left;
+    display: inline;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .ticket .line li {
+    width: 150px;
+    min-height: 40px;
+    margin-top: 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    line-height: 20px;
+    padding: 3px 0 3px 16px;
+    border: 2px dashed #dcd5c4;
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message .ticket .line li .black {
+    color: #333;
+    width: 132px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.trade-list .pay-message .ticket .line li .grey {
+    color: #999;
+    width: 132px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.trade-list .pay-message .ticket .line li.select {
+    border: 2px solid #e6133c;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/ico1_16-4.png) bottom right no-repeat #fef9ee
+}
+
+.trade-list .pay-message .ticket .line li.none {
+    width: 166px;
+    padding-left: 0;
+    line-height: 40px;
+    cursor: not-allowed;
+    color: #333;
+    font-family: "Microsoft YaHei";
+    text-align: center
+}
+
+.trade-list .pay-message .ticket a.more {
+    color: #999;
+    font-family: "Microsoft YaHei";
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message .ticket a.more:hover {
+    color: #b58844
+}
+
+.trade-list .pay-message .point-message-line {
+    width: 940px;
+    height: auto;
+    float: left;
+    display: none;
+    margin-top: 10px
+}
+
+.trade-list .pay-message .point-message-line a.discount {
+    color: #fff;
+    font-weight: 700;
+    border-radius: 3px;
+    background: #e6133c
+}
+
+.trade-list .pay-message .point-message-line a.discount i {
+    background-position: 0 -4px
+}
+
+.trade-list .pay-message .point-message-line label {
+    width: 940px;
+    height: auto;
+    line-height: 22px;
+    padding: 5px 0;
+    float: left;
+    display: inline;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .point-message-line label input.chk {
+    float: left;
+    display: inline;
+    margin: 8px 12px 0 0
+}
+
+.trade-list .pay-message .point-message-line label .txt-line {
+    width: 800px;
+    float: left;
+    display: inline;
+    line-height: 26px
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .txt {
+    width: 800px;
+    float: left;
+    display: inline;
+    color: #666
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .txt .point {
+    color: #6d4433;
+    font-family: verdana;
+    font-weight: 700
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .txt a {
+    color: #0077d7;
+    text-decoration: none;
+    margin-left: 10px
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .txt a:hover {
+    text-decoration: underline
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .txt a.show {
+    display: none
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .grey {
+    color: #999
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .red {
+    color: #e6133c
+}
+
+.trade-list .pay-message .point-message-line label .txt-line input.ipt-text {
+    width: 90px;
+    height: 26px;
+    border: 1px solid #ddd;
+    margin: 0 5px
+}
+
+.trade-list .pay-message .point-message-line label .txt-line .error {
+    color: #e6133c;
+    width: 800px;
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message .price-count {
+    height: auto;
+    float: right;
+    margin-top: 20px;
+    display: inline;
+    padding-left: 620px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd
+}
+
+.trade-list .pay-message .price-count .line {
+    height: 28px;
+    line-height: 28px;
+    float: right;
+    display: inline;
+    *float: none
+}
+
+.trade-list .pay-message .price-count .line .name {
+    width: 140px;
+    height: 28px;
+    line-height: 28px;
+    color: #666;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    text-align: right;
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message .price-count .line .price {
+    width: 140px;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-size: 18px;
+    font-family: Verdana;
+    text-align: right;
+    float: right;
+    display: inline
+}
+
+.trade-list .pay-message .price-count .line .price i {
+    font-size: 12px
+}
+
+.trade-list .pay-message .price-count .line .price strong {
+    font-weight: 400
+}
+
+.trade-list .pay-message .pay-list,
+.trade-list .pay-message .pay-list .pay-line {
+    width: 940px;
+    height: auto;
+    float: left;
+    display: inline
+}
+
+.trade-list .pay-message .pay-list .pay-line a.pay {
+    width: 140px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    display: inline;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    background: #e6133c;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-list .pay-line a.pay:hover {
+    background: #d62233
+}
+
+.trade-list .pay-message .pay-list .pay-line .total {
+    float: right;
+    display: inline;
+    margin-right: 18px;
+    height: 60px;
+    line-height: 60px;
+    position: relative
+}
+
+.trade-list .pay-message .pay-list .pay-line .total .name {
+    color: #333;
+    font-size: 14px;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-list .pay-line .total .price {
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    color: #e6133c
+}
+
+.trade-list .pay-message .pay-list .pay-line .total .price i {
+    font-size: 18px
+}
+
+.trade-list .pay-message .pay-list .pay-line .flash-time {
+    width: 200px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 16px;
+    float: left;
+    display: inline;
+    padding-left: 34px;
+    font-size: 20px;
+    color: #999;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/pay-flash.png) no-repeat
+}
+
+.trade-list .pay-message .pay-list .pay-line .flash-time #j-time {
+    color: #000
+}
+
+.trade-list .pay-message .pay-list .address-line {
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+    margin: 14px 24px 0 0;
+    float: right;
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.trade-list .pay-message .pay-list .address-line .txt {
+    float: left;
+    display: inline;
+    color: #333;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-list .address-line i {
+    width: 20px;
+    height: 18px;
+    margin-top: 10px;
+    float: left;
+    display: inline;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/trade-location.png) no-repeat
+}
+
+.trade-list .pay-message .pay-float {
+    width: 100%;
+    height: 63px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1001;
+    box-shadow: 0 0 2px 1px #eee;
+    border: 0 none
+}
+
+.trade-list .pay-message .pay-float .address-line {
+    display: inline
+}
+
+.trade-list .pay-message .pay-float .pay-line {
+    width: 940px;
+    height: auto;
+    margin: 0 auto;
+    float: none;
+    display: block;
+    clear: both
+}
+
+.trade-list .pay-message .pay-float .pay-line a.pay {
+    width: 140px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    display: inline;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    background: #d62233;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-float .pay-line a.pay:hover {
+    background: #b62222
+}
+
+.trade-list .pay-message .pay-list .pay-line a.disabled {
+    width: 140px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    display: inline;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    background: #bbb;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-list .pay-line a.disabled:hover {
+    background: #bbb
+}
+
+.trade-list .pay-message .pay-float .pay-line .total {
+    float: right;
+    display: inline;
+    margin-right: 18px;
+    height: 60px;
+    line-height: 60px
+}
+
+.trade-list .pay-message .pay-float .pay-line .total .name {
+    color: #333;
+    font-size: 14px;
+    font-family: "Microsoft YaHei"
+}
+
+.trade-list .pay-message .pay-float .pay-line .total .price {
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    color: #d62233
+}
+
+.trade-list .pay-message .pay-float .pay-line .total .price i {
+    font-size: 18px
+}
+.pop-up .caption .text .gold-font {
+    color: #b58844;
+    font-size: 12px
+}
+
+.pop-up .caption .text .red-font {
+    color: #d62233;
+    font-size: 12px
+}
+
+.address-message {
+    width: 470px;
+    height: auto;
+    min-height: 380px;
+    float: left;
+    display: none;
+    padding: 0 40px 60px;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    padding-bottom: 60px
+}
+
+.pop-up .address-message {
+    display: inline
+}
+
+.address-message .center-frame {
+    width: 100%;
+    height: auto;
+    float: left;
+    display: inline;
+    margin-top: 30px
+}
+
+.address-message .center-frame .line-frame {
+    width: 100%;
+    height: auto;
+    float: left;
+    display: inline;
+    margin-top: 10px
+}
+
+.address-message .center-frame .line-frame .line-cate {
+    width: 65px;
+    height: 26px;
+    line-height: 26px;
+    float: left;
+    display: inline;
+    color: #b58844;
+    text-align: right;
+    margin-right: 10px;
+    *width: 70px;
+    *margin-right: 5px
+}
+
+.address-message .center-frame .line-frame .line-cate i {
+    color: #d62233
+}
+
+.address-message .center-frame .line-frame .position-frame {
+    width: 390px;
+    height: auto;
+    float: left;
+    display: inline;
+    position: relative
+}
+
+.address-message .center-frame .line-frame .position-shortframe {
+    width: 155px;
+    height: auto;
+    float: left;
+    display: inline
+}
+
+.address-message .center-frame .line-frame .single-inputbox {
+    width: 380px;
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    display: inline;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 0 5px
+}
+
+.address-message .center-frame .line-frame .half-inputbox {
+    width: 145px;
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    display: inline;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 0 5px
+}
+
+.address-message .center-frame .line-frame .twice-inputbox {
+    width: 380px;
+    height: 48px;
+    line-height: 24px;
+    float: left;
+    display: inline;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 0 5px
+}
+
+.address-message .center-frame .error-frame {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    display: inline;
+    color: #000;
+    background: #fffdeb;
+    font-family: SimSun;
+    font-size: 12px;
+    border: 1px solid #ffba22;
+    overflow: hidden;
+    float: left
+}
+
+.address-message .center-frame .error-frame i {
+    width: 15px;
+    height: 15px;
+    float: left;
+    display: inline;
+    margin: 7px 9px 0 7px;
+    background: url(//img.iblimg.com/respc-1/resources/v4.1/css/i/error0001.png) no-repeat
+}
+
+.address-message .center-frame .prompt-show {
+    width: 100%;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0
+}
+
+.address-message .center-frame .prompt-show i {
+    margin-left: 5px
+}
+
+.address-message .center-frame .line-frame .half-frame {
+    width: 235px;
+    height: auto;
+    float: left;
+    display: inline
+}
+
+.address-message .center-frame .line-frame .choice-frame {
+    width: 390px;
+    height: 30px;
+    float: left;
+    display: inline;
+    line-height: 30px;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: #666
+}
+
+.address-message .center-frame .line-frame .choice-frame .checkbox1 {
+    float: left;
+    display: inline;
+    margin: 10px 5px 0 0;
+    *margin-top: 0
+}
+
+.address-message .center-frame .line-frame .choice-frame .option {
+    width: auto;
+    height: 30px;
+    float: left;
+    display: inline
+}
+
+.address-message .center-frame .line-frame .button-frame {
+    width: 390px;
+    height: 26px;
+    float: left;
+    display: inline;
+    margin-top: 10px
+}
+
+.address-message .center-frame .line-frame .button-frame .button1 {
+    margin-right: 7px;
+    cursor: pointer
+}
+
+.address-message .center-frame .line-frame .button-frame .button2 {
+    width: 60px;
+    height: 24px;
+    float: left;
+    display: inline;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    color: #333;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer
+}
+
+.address-message .center-frame .line-frame .address {
+    width: 363px
+}

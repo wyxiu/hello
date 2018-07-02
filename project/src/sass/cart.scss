@@ -104,6 +104,13 @@
             text-align: center;
             line-height: 40px;
             background: #f8f8f8;
+            .pay{
+            background: red;
+            cursor: pointer;
+            a{
+            color: white;
+            }
+            }
         }
         span {
             color: red;
