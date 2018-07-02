@@ -1,4 +1,4 @@
-require(["config"], function() {
+require(["config", "login"], function() {
 	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie"], function($, template) {
 		$(function() {
 
@@ -22,7 +22,7 @@ require(["config"], function() {
 
 			//滑动图
 			$(".slider_list").on("mouseenter", "li", function() {
-				if($(this).attr('class') === 'active') {
+				if ($(this).attr('class') === 'active') {
 					return;
 				}
 				$("li").find("img").stop(false, true);
@@ -42,9 +42,9 @@ require(["config"], function() {
 				$(this).addClass("hot_current");
 				var idStr = $(this).attr("id");
 				$(".hotAddNew_hot").html("");
-				if(idStr == "hot_show1") {
+				if (idStr == "hot_show1") {
 					getHotData();
-				} else if(idStr == "hot_show2") {
+				} else if (idStr == "hot_show2") {
 					getNewData();
 				} else {
 					getBrandData();
@@ -96,15 +96,15 @@ require(["config"], function() {
 				$(".kinds_list_des").show();
 				var idStr = $(this).attr("id");
 
-				if(idStr == "type_1") {
+				if (idStr == "type_1") {
 					getSecondMenu(0);
-				} else if(idStr == "type_2") {
+				} else if (idStr == "type_2") {
 					getSecondMenu(1);
-				} else if(idStr == "type_3") {
+				} else if (idStr == "type_3") {
 					getSecondMenu(2);
-				} else if(idStr == "type_4") {
+				} else if (idStr == "type_4") {
 					getSecondMenu(3);
-				} else if(idStr == "type_5") {
+				} else if (idStr == "type_5") {
 					getSecondMenu(4);
 				}
 			});
@@ -149,37 +149,68 @@ require(["config"], function() {
 				$(".vege_current").removeClass("vege_current");
 			});
 
-			//集食惠公告
-			(function($) {
-				$.fn.scrollTop = function(options) {
-					var defaults = {
-						speed: 30
-					}
-					var opts = $.extend(defaults, options);
-					this.each(function() {
-						var $timer;
-						var scroll_top = 0;
-						var obj = $(this);
-						var $height = obj.find("ul").height();
-						obj.find("ul").clone().appendTo(obj);
-						obj.hover(function() {
-							clearInterval($timer);
-						}, function() {
-							$timer = setInterval(function() {
-								scroll_top++;
-								if(scroll_top > $height) {
-									scroll_top = 0;
-								}
-								obj.find("ul").first().css("margin-top", -scroll_top);
-							}, opts.speed);
-						}).trigger("mouseleave");
-					})
-				}
-			})(jQuery)
+			//			//集食惠公告
+			//			(function($) {
+			//				$.fn.scrollTop = function(options) {
+			//
+			//					var defaults = {
+			//						speed: 30
+			//					}
+			//					var opts = $.extend(defaults, options);
+			//					this.each(function() {
+			//						var $timer;
+			//						var scroll_top = 0;
+			//						var obj = $(this);
+			//						console.log("-------scrollTop");
+			//						var $height = obj.find("ul").height();
+			//						obj.find("ul").clone().appendTo(obj);
+			//
+			//						obj.hover(function() {
+			//							clearInterval($timer);
+			//						}, function() {
+			//							$timer = setInterval(function() {
+			//								scroll_top++;
+			//								if (scroll_top > $height) {
+			//									scroll_top = 0;
+			//								}
+			//								obj.find("ul").first().css("margin-top", -scroll_top);
+			//
+			//							}, opts.speed);
+			//						}).trigger("mouseleave");
+			//					})
+			//				}
+			//			})(jQuery)
+			//
+			//			$(".bann_tell").scrollTop({
+			//				speed: 35 //数值越大 速度越慢
+			//			});
 
-			$(".bann_tell").scrollTop({
-				speed: 35 //数值越大 速度越慢
-			});
+			function newsScrollTop(options) {
+				var defaults = {
+					speed: 30
+				}
+				var opts = $.extend(defaults, options);
+				var $timer;
+				var scroll_top = 0;
+				var obj = $(".bann_tell");
+				var $height = obj.find("ul").height();
+				obj.find("ul").clone().appendTo(obj);
+
+				obj.hover(function() {
+					clearInterval($timer);
+				}, function() {
+					$timer = setInterval(function() {
+						scroll_top++;
+						if (scroll_top > $height) {
+							scroll_top = 0;
+						}
+						obj.find("ul").first().css("margin-top", -scroll_top);
+
+					}, opts.speed);
+				}).trigger("mouseleave");
+			}
+
+			newsScrollTop(35);
 
 			function getFloorMenu() {
 				//console.log("getFloorMenu")
@@ -192,8 +223,8 @@ require(["config"], function() {
 
 					$('.vegetable_right_bottom').each(function() {
 						var curTitle = $(this).parents(".vegetable").find("h3").text();
-						for(var i = 0; i < data.res_body.length; i++) {
-							if(data.res_body[i].title == curTitle) {
+						for (var i = 0; i < data.res_body.length; i++) {
+							if (data.res_body[i].title == curTitle) {
 								const vegetables = template("floor_good_templates", {
 									goods: data.res_body[i].items[0].goods
 								});
@@ -207,9 +238,9 @@ require(["config"], function() {
 						var images = [];
 						//获取当前
 						var curTitle = $(this).parent().children("h3").text();
-						for(var i = 0; i < data.res_body.length; i++) {
-							if(data.res_body[i].title == curTitle) {
-								for(var j = 0; j < data.res_body[i].image.length; j++) {
+						for (var i = 0; i < data.res_body.length; i++) {
+							if (data.res_body[i].title == curTitle) {
+								for (var j = 0; j < data.res_body[i].image.length; j++) {
 									images.push({
 										href: data.res_body[i].image[j].href,
 										src: src = data.res_body[i].image[j].src
@@ -235,11 +266,11 @@ require(["config"], function() {
 							var curTitle = $(this).parents(".vegetable").find("h3").text();
 							var curItem = $(this).children("a").text();
 							//console.log(curTitle + "----" + curItem);
-							for(var i = 0; i < data.res_body.length; i++) {
-								if(data.res_body[i].title == curTitle) {
-									for(var j = 0; i < data.res_body[i].items.length; j++) {
+							for (var i = 0; i < data.res_body.length; i++) {
+								if (data.res_body[i].title == curTitle) {
+									for (var j = 0; i < data.res_body[i].items.length; j++) {
 										//console.log("000items" + data.res_body[i].items[j].name);
-										if(data.res_body[i].items[j].name == curItem) {
+										if (data.res_body[i].items[j].name == curItem) {
 											//console.log(data.res_body[i].items[j].goods);
 											const vegetables = template("floor_good_templates", {
 												goods: data.res_body[i].items[j].goods
@@ -290,7 +321,7 @@ require(["config"], function() {
 						const cartshop = $.cookie("products") || [];
 						//判断商品是否存在
 						const index = exist(shop.id, cartshop);
-						if(index === -1) {
+						if (index === -1) {
 							cartshop.push(shop);
 						} else {
 							cartshop[index].amount++;
@@ -359,7 +390,7 @@ require(["config"], function() {
 				const cartshop = $.cookie("products") || [];
 				//判断商品是否存在
 				const index = exist(shop.id, cartshop);
-				if(index === -1) {
+				if (index === -1) {
 					cartshop.push(shop);
 				} else {
 					cartshop[index].amount++;
@@ -372,8 +403,8 @@ require(["config"], function() {
 			});
 
 			function exist(id, array) {
-				for(let i = 0; i < array.length; i++) {
-					if(id === array[i].id) {
+				for (let i = 0; i < array.length; i++) {
+					if (id === array[i].id) {
 						return i;
 					}
 				}
@@ -399,7 +430,7 @@ require(["config"], function() {
 			var sc = $(document); //得到document文档对象。
 			win.scroll(function() {
 
-				if(sc.scrollTop() >= 700) {
+				if (sc.scrollTop() >= 700) {
 					$(".fixed_floor").show();
 					//获取滚动元素对应的索引!!!重难点
 					var index = Math.floor(sc.scrollTop() / 700);
@@ -413,7 +444,7 @@ require(["config"], function() {
 			//吸顶效果
 			$(window).scroll(function() {
 				// 滚动条距离顶部的距离 大于 200px时
-				if($(window).scrollTop() >= 200) {
+				if ($(window).scrollTop() >= 200) {
 					$(".fixed_top").fadeIn(1000); // 开始淡入
 				} else {
 					$(".fixed_top").stop(true, true).fadeOut(1000); // 如果小于等于 200 淡出
@@ -429,12 +460,12 @@ require(["config"], function() {
 					min = Math.floor(seconds / 60) % 60,
 					hour = Math.floor(seconds / 3600) % 24,
 					day = Math.floor(seconds / (3600 * 24));
-				if(day < 10) {
+				if (day < 10) {
 					$("#days").html("0" + day);
 				} else {
 					$("#days").html(day);
 				}
-				if(hour < 10) {
+				if (hour < 10) {
 					$("#houers").html("0" + hour);
 				} else {
 					$("#houers").html(hour);
@@ -446,19 +477,29 @@ require(["config"], function() {
 			//数据到数据库
 			$(".hotAddNew_hot").on("click", ".hottocart", function() {
 				console.log("successful----------------");
-				$("#cart_form_bianhao").val($(this).parents("li").children(".goods_id").text());
-				$("#cart_form_title").val($(this).parents("li").children(".p1").text());
-				$("#cart_form_img").val($(this).parents("li").children("a").children("img").attr("src"));
-				$("#cart_form_price").val($(this).parents("li").find(".goods_price").text());
-				$("#cart_form_amount").val(1);
-				$.post("http://localhost/api/add.php", $("#cart_form").serialize(), function(d) {
-					if(d.res_code === 1) {
-						console.log("successful----------------");
-					} else {
-						console.log("失败" + d.res_message);
-					}
+				$.cookie.json = true;
+				const users = $.cookie("users");
 
-				}, "json");
+				console.log(users);
+				if (users == undefined || users.length == 0) {
+						window.location.href = "/html/login.html";
+				} else {
+					$("#cart_form_bianhao").val($(this).parents("li").children(".goods_id").text());
+					$("#cart_form_userID").val(users[0].username);
+					$("#cart_form_title").val($(this).parents("li").children(".p1").text());
+					$("#cart_form_img").val($(this).parents("li").children("a").children("img").attr("src"));
+					$("#cart_form_price").val($(this).parents("li").find(".goods_price").text());
+					$("#cart_form_amount").val(1);
+					console.log($("#cart_form").serialize());
+					$.post("http://localhost/api/add.php", $("#cart_form").serialize(), function(d) {
+						if (d.res_code === 1) {
+							console.log("successful----------------");
+						} else {
+							console.log("失败" + d.res_message);
+						}
+
+					}, "json");
+				}
 			});
 
 		});
