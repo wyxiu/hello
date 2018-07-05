@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var url = "https://www.baidu.com/s?wd=%E7%BE%8E%E5%A5%B3&rsv_spt=1&rsv_iqid=0x9752ce8c00011db0&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=5&rsv_sug1=3&rsv_sug7=100";
+			var obj = {}
+			var index = url.indexOf("?");
+			var str = slice(index+1);
+			var queryString = str.split("&");
+			queryString.forEach(function(curr){
+				var res = curr.split("="),
+				var name = res[0];
+				var value = res[1];
+				obj[name] = value;
+			});
+		</script>
+	</body>
+</html>

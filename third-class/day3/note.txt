@@ -1,0 +1,21 @@
+HTTP请求方式：
+	http://www.runoob.com/http/http-methods.html
+
+箭头函数：
+	https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+NodeJS核心模块：
+	url(网址)：
+		parse(urlString, parseQueryString)
+		format(urlObject)
+		resolve()
+	querystring(查询字符串)：
+		parse()
+		stringify()
+	events(事件)：
+		on()
+		once()
+		emit()
+	fs
+	http
+	https

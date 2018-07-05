@@ -1,0 +1,17 @@
+{
+  "name": "WS_chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^5.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"supervisor index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

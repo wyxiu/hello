@@ -344,7 +344,7 @@ $top_border: 1px solid #e5e5e5;
                 }
             }
         }
-        .bann_tell {
+        .fixed_floor {
             width: 260px;
             height: 125px;
             padding-left: 10px;
@@ -747,35 +747,25 @@ $top_border: 1px solid #e5e5e5;
     position: fixed;
     background: #f2f2f2;
      z-index: 999;
-     top: 0;
-    left: 0;
+     left: 0;
+    top: 0;
+    display: none;
     .fixed_floor_box{
-         width: 35px;
-        position: absolute;
-        top: 200px;
+         position: absolute;
+         width: 35px;  
+         top:200px;  
+         
         li{
             width: 35px;
             margin-bottom: 10px;
             border-bottom: 1px solid #e5e5e5;  
-            height: 50px;   
+            height: 60px;   
             padding: 6px 4px;
-            color: #666;
-            position: relative;
-            span{
-              display: inline-block;
-             // width:35px;
-              height:50px;
-              background:#C81623;
-             color: white;
-                  padding: 6px 4px;
-                  margin-bottom: 10px;
-                border-bottom: 1px solid #e5e5e5;  
-                position: absolute;
-                left: 0px;
-                top:0px;
-                display: none;
-        }
-       
+            color: #666;  
+      }
+      .floor_current{
+          background: red;
+          color: white;
       }
 
     } 

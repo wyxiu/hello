@@ -1,0 +1,6 @@
+systemLog:
+    destination: file
+    path: e:\data\log\mongod.log
+storage:
+    dbPath: e:\data\db
+    

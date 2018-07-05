@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,li{
+				list-style: none;
+			}
+			li{
+				width: 50px;
+				height: 20px;
+				background: aquamarine;
+				margin-bottom: 5px;
+				text-align: center;
+				line-height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+		</ul>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName("li");
+				for(var i=0,len = lis.length;i<len;i++){
+				
+					lis[i].onclick = function(){
+						console.log("这是第"+Array.from(lis).indexOf(this)+"个li")
+					}
+				}
+			
+//			function getChengfa(){
+//				for(var i=1;i<=9;i++){
+//					for(var j=1;j<=i;j++){
+//						res = j*i;
+//						document.write(j+"*"+i+"="+res + " ");
+//					}
+//					document.write("<br/>")
+//					
+//				}
+//			}
+//			getChengfa();
+			
+//			
+//			function getSanjiaoxing(){
+//				for(var i=1;i<=9;i++){
+//					
+//					for(var j=1;j<=i;j++){
+//						document.write("*");
+//					}
+//					document.write("<br />");
+//				}
+//				
+//				
+//			}
+//			getSanjiaoxing();
+//			
+
+//	function show() {
+//			// 打印直角位于左下角的三角形
+//			for (var i = 1; i <= 10; i++) {
+//				var star = "";
+//				for (var j = 1; j <= i; j++) {
+//					star += "*";
+//				}
+//				console.log(star);
+//			}
+//		}
+//
+//		show();
+
+			
+			
+		</script>
+	</body>
+</html>
