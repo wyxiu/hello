@@ -8,6 +8,47 @@
         height: 400px;
         margin: 0 auto;
     }
+    .second_menu{
+        width:1022px;
+        height: 400px;
+        background: green;
+        box-shadow: -1px -1px 1px #888888;
+        position: absolute;
+        top: 0px;
+        left: 237px;
+        z-index: 9999;
+        padding: 15px;
+        .second_menu_left{
+             width: 755px;
+             height: 400px;
+             float: left;
+             border-right: 1px solid #E5E5E5;
+        
+        dl{
+            width: 755px;
+            height: 35px;
+            line-height: 35px;
+            float: left;
+           dt{
+              width: 72px;
+              color: #666666;
+              float: left;
+               font-weight: 600;
+              font-size: 14px;
+           }
+           dd{
+              width:683px ;
+              border-bottom: 1px solid #E5E5E5; 
+              float: left;
+               font-size: 12px;
+              a{
+                 color: #999999; 
+                 margin-right: 10px; 
+              }
+           }
+        }
+      }
+    }
 }
 .banner ul{
     height: 400px;
