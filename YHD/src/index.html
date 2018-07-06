@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/css/base.css"/>
-		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
-		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
 	</head>
+
 	<body>
 		<div id="top_banner">
-		<div id="top_banner_img">
-			<a href="#" class="img1"><img  id="img1" src="/img/head1.jpg"/></a>
-			<span id="hide">X</span>
-			<a href="#" class="img2"><img  id="img2" src="/img/head2.jpg" style="display: none;"/></a>
-		</div>
+			<div id="top_banner_img">
+				<a href="#" class="img1"><img id="img1" src="/img/head1.jpg" /></a>
+				<span id="hide">X</span>
+				<a href="#" class="img2"><img id="img2" src="/img/head2.jpg" style="display: none;" /></a>
+			</div>
 		</div>
 		<!-------头部复用---------->
 		<div class="header_temp"></div>
 		<!-------头部复用---------->
 		<div class="banner">
 			<div class="banner_imgs">
-				
+
 			</div>
-			<ul>
-				<li>
+			<ul class="menus">
+				<!--<li id="show1">
 					<i class="iconfont icon-jinkouniunai"></i>
 					<a href="#">全球进口</a>
 				</li>
-				<li>
+				<li id="show2">
 					<i class="iconfont icon-canju"></i>
 					<a href="#">食品/酒/生鲜</a>
-				</li><li>
+				</li>
+				<li id="show3">
 					<i class="iconfont icon-wanju"></i>
 					<a href="#">母婴 / 玩具 / 童装</a>
 				</li>
-				<li>
+				<li id="show4">
 					<i class="iconfont icon-qingjie"></i>
 					<a href="#">宠物 / 纸巾 / 厨卫清洁</a>
 				</li>
-				<li>
+				<li id="show5">
 					<i class="iconfont icon-jiaju-hui"></i>
 					<a href="#">家居 / 家纺 / 家装</a>
 				</li>
-				<li>
+				<li id="show6">
 					<i class="iconfont icon-meizhuang"></i>
 					<a href="#">美妆个人清洁</a>
 				</li>
-				<li>
+				<li id="show7">
 					<i class="iconfont icon-qunzi"></i>
 					<a href="#">女装 / 男装 / 内衣 / 珠宝</a>
 				</li>
-				<li>
+				<li id="show8">
 					<i class="iconfont icon-xiexiangbao"></i>
 					<a href="#">鞋靴 / 箱包 / 运动户外</a>
 				</li>
-				<li>
+				<li id="show9">
 					<i class="iconfont icon-shouji"></i>
 					<a href="#">手机 / 数码 / 电脑办公</a>
 				</li>
-				<li>
+				<li id="show10">
 					<i class="iconfont icon-jinkouniunai"></i>
 					<a href="#">家用电器 / 汽车用品</a>
 				</li>
-				<li>
+				<li id="show11">
 					<i class="iconfont icon-yangshengbaojian"></i>
 					<a href="#">医药/保健滋补/成人</a>
 				</li>
-				<li>
+				<li id="show12">
 					<i class="iconfont icon-tushu"></i>
 					<a href="#"> 图书</a>
-				</li>
+				</li>-->
 			</ul>
+			<script type="text/html" id="type_menu_arttemplate">
+				{{each list item}}
+				<li id="{{item.id}}">
+					<i class="iconfont {{item.icon}}"></i>
+					<a href="#"> {{item.type}}</a>
+				</li>
+				{{/each}}
+			</script>
 			<div class="second_menu">
 				<div class="second_menu_left">
-				<!--<dl>
+					<!--<dl>
 					<dt>乳品新鲜></dt>
 					<dd>
 						<a href="#">宝宝零食</a>
@@ -88,13 +99,17 @@
 						<a href="#">天然皂粉</a>						
 					</dd>
 				</dl>-->
+				</div>
 				<script type="text/html" id="second_menu_arttemplate">
-					{{each }}
+					{{each list.item curr_item}}
 					<dl>
-					<dt>乳品新鲜></dt>
-					<dd>
-						<a href="#">宝宝零食</a>
-						<a href="#">宝宝零食</a>
+
+						<dt>{{curr_item.title}}></dt>
+
+						<dd>
+							{{each curr_item.items curr}}
+							<a href="#">{{curr.name}}</a> {{/each}}
+							<!--<a href="#">宝宝零食</a>
 						<a href="#">宝宝零食</a>
 						<a href="#">宝宝零食</a>
 						<a href="#">宝宝零食</a>
@@ -102,22 +117,23 @@
 						<a href="#">天然皂粉</a>
 						<a href="#">宝宝零食</a>
 						<a href="#">置物架</a>
-						<a href="#">天然皂粉</a>						
-					</dd>
-				</dl>
+						<a href="#">天然皂粉</a>						-->
+						</dd>
+
+					</dl>
+					{{/each}}
 				</script>
-			</div>
 			</div>
 			<div class="login">
 				<div class="login_top">
-						<a href="#"></a>
-						<p class="p1">Hi~你好！</p>
+					<a href="#"></a>
+					<p class="p1">Hi~你好！</p>
 				</div>
 				<div class="login_form">
-				<form action="">
-					<button>登录</button>
-					<button>注册</button>
-				</form>
+					<form action="">
+						<button>登录</button>
+						<button>注册</button>
+					</form>
 				</div>
 				<div class="login_center">
 					<dl>
@@ -136,7 +152,7 @@
 				<div class="login_bottom">
 					<p class="p3">
 						<a href="#">
-						<span>【优选】</span>品质好物，制造商直供
+							<span>【优选】</span>品质好物，制造商直供
 						</a>
 					</p>
 					<p class="p3">
@@ -148,965 +164,926 @@
 						<a href="#">
 						【优选】品质好物，制造商直供
 						</a>
-					</p>	
+					</p>
 				</div>
-		</div>
-	</div>
-		
-<!--所有内容-->
-	<div class="wrapmain">
-		<div class="main">
-			<div class="sale">
-				<div class="more">
-					<img src="/img/pic1.jpg"/>
-					<a href="#">查看更多></a>
-				</div>
-				<dl>
-					<dt>
-						<p class="p1">
-						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
-						</p>
-						<p class="p2">¥39.8</p>
-						<p class="p3">参考价：¥75.9</p>
-					</dt>
-					<dd>
-						<img src="/img/s1.jpg"/>
-					</dd>
-					<span></span>
-				</dl>
-				<dl>
-					<dt>
-						<p class="p1">
-						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
-						</p>
-						<p class="p2">¥39.8</p>
-						<p class="p3">参考价：¥75.9</p>
-					</dt>
-					<dd>
-						<img src="/img/s1.jpg"/>
-					</dd>
-					<span></span>
-				</dl>
-				<dl>
-					<dt>
-						<p class="p1">
-						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
-						</p>
-						<p class="p2">¥39.8</p>
-						<p class="p3">参考价：¥75.9</p>
-					</dt>
-					<dd>
-						<img src="/img/s1.jpg"/>
-					</dd>
-					<span></span>
-				</dl>
-				<dl>
-					<dt>
-						<p class="p1">
-						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
-						</p>
-						<p class="p2">¥39.8</p>
-						<p class="p3">参考价：¥75.9</p>
-					</dt>
-					<dd>
-						<img src="img/s1.jpg"/>
-					</dd>
-					<span></span>
-				</dl>
 			</div>
-			<div class="festival">
-				<div class="festiva_l">
-					<img src="/img/pic11.jpg"/>
-					<div class="time">
-						<p class="p1">1号闪购</p>
-						<p class="p2">
-							————
-						</p>
-						<p class="p3">每日10:00上新！</p>
-					</div>
-				</div>
-				<div class="festiva_c">
-					<div class="fc_top">
-						<h4>团购</h4>
-					</div>
-					<div class="fc_bottom">
-						<div class="fcb_l">
-							<img src="/img/5af13bd8N35609612.jpg"/>
-						</div>
-						<div class="fcb_r">
-							<dl>
-								<dt>
-									<p class="p1">量贩团</p>
-									<p class="p2">丽芝士直降</p>
-								</dt>
-								
-								<dd>
-									<img src="img/5af291e8N78d69635.jpg"/>
-								</dd>
-							</dl>
-							<dl>
-								<dt>
-									<p class="p1">量贩团</p>
-									<p class="p2">丽芝士直降</p>
-								</dt>
-								
-								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
-				
-				<div class="festiva_r">
-					<div class="fr_top">
-						<h4>排行榜</h4>
+		</div>
+
+		<!--所有内容-->
+		<div class="wrapmain">
+			<div class="main">
+				<div class="sale">
+					<div class="more">
+						<img src="/img/pic1.jpg" />
 						<a href="#">查看更多></a>
 					</div>
-					<div class="fr_nav">
-						<ul>
-							<li><a href="#">饮料冲调</a></li>
-							<li><a href="#">饮料冲调</a></li>
-							<li><a href="#">饮料冲调</a></li>
-							<li><a href="#">饮料冲调</a></li>
-							<li><a href="#">饮料冲调</a></li>
-							
-						</ul>
-					</div>
-					<div class="fr_pic">
-						<ul>
-							<li>
-								<img src="/img/pic9.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-							<li>
-								<img src="/img/pic9.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-							<li>
-								<img src="/img/pic9.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-							<li>
-								<img src="/img/5af25599N0a55765f.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-							<li>
-								<img src="/img/5af25599N0a55765f.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-							<li>
-								<img src="/img/pic9.jpg"/>
-								<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
-							</li>
-						</ul>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="new">
-				<div class="new_l">
-					<img src="/img/pic10.jpg"/>
+					<dl>
+						<dt>
+						<p class="p1">
+						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
+						</p>
+						<p class="p2">¥39.8</p>
+						<p class="p3">参考价：¥75.9</p>
+					</dt>
+						<dd>
+							<img src="/img/s1.jpg" />
+						</dd>
+						<span></span>
+					</dl>
+					<dl>
+						<dt>
+						<p class="p1">
+						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
+						</p>
+						<p class="p2">¥39.8</p>
+						<p class="p3">参考价：¥75.9</p>
+					</dt>
+						<dd>
+							<img src="/img/s1.jpg" />
+						</dd>
+						<span></span>
+					</dl>
+					<dl>
+						<dt>
+						<p class="p1">
+						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
+						</p>
+						<p class="p2">¥39.8</p>
+						<p class="p3">参考价：¥75.9</p>
+					</dt>
+						<dd>
+							<img src="/img/s1.jpg" />
+						</dd>
+						<span></span>
+					</dl>
+					<dl>
+						<dt>
+						<p class="p1">
+						潘婷洗发水丝质顺滑750ml (柔顺 水润 光泽 新老包装随机发货）
+						</p>
+						<p class="p2">¥39.8</p>
+						<p class="p3">参考价：¥75.9</p>
+					</dt>
+						<dd>
+							<img src="img/s1.jpg" />
+						</dd>
+						<span></span>
+					</dl>
 				</div>
-				<div class="new_c">
-					<div class="nc_top">
-						<h4>团购</h4>
+				<div class="festival">
+					<div class="festiva_l">
+						<img src="/img/pic11.jpg" />
+						<div class="time">
+							<p class="p1">1号闪购</p>
+							<p class="p2">
+								————
+							</p>
+							<p class="p3">每日10:00上新！</p>
+						</div>
 					</div>
-					<div class="nc_bottom">
-						<div class="ncb_l">
-							<img src="/img/5af29a36Nc4827326.jpg"/>
+					<div class="festiva_c">
+						<div class="fc_top">
+							<h4>团购</h4>
 						</div>
-						<div class="ncb_r">
-							<dl>
-								<dt>
+						<div class="fc_bottom">
+							<div class="fcb_l">
+								<img src="/img/5af13bd8N35609612.jpg" />
+							</div>
+							<div class="fcb_r">
+								<dl>
+									<dt>
 									<p class="p1">量贩团</p>
 									<p class="p2">丽芝士直降</p>
 								</dt>
-								
-								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
-								</dd>
-							</dl>
-							<dl>
-								<dt>
+
+									<dd>
+										<img src="img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+								<dl>
+									<dt>
 									<p class="p1">量贩团</p>
 									<p class="p2">丽芝士直降</p>
 								</dt>
-								
-								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
-								</dd>
-							</dl>
-							<dl>
-								<dt>
-									<p class="p1">量贩团</p>
-									<p class="p2">丽芝士直降</p>
-								</dt>
-								
-								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
-								</dd>
-							</dl>
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+							</div>
 						</div>
+					</div>
+
+					<div class="festiva_r">
+						<div class="fr_top">
+							<h4>排行榜</h4>
+							<a href="#">查看更多></a>
+						</div>
+						<div class="fr_nav">
+							<ul>
+								<li><a href="#">饮料冲调</a></li>
+								<li><a href="#">饮料冲调</a></li>
+								<li><a href="#">饮料冲调</a></li>
+								<li><a href="#">饮料冲调</a></li>
+								<li><a href="#">饮料冲调</a></li>
+
+							</ul>
+						</div>
+						<div class="fr_pic">
+							<ul>
+								<li>
+									<img src="/img/pic9.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+								<li>
+									<img src="/img/pic9.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+								<li>
+									<img src="/img/pic9.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+								<li>
+									<img src="/img/5af25599N0a55765f.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+								<li>
+									<img src="/img/5af25599N0a55765f.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+								<li>
+									<img src="/img/pic9.jpg" />
+									<span>三剑客&nbsp;&nbsp;&nbsp;美宜畅酸乳</span>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="new_r">
-				<div class="nr_top">
-						<h4>团购</h4>
+
+				<div class="new">
+					<div class="new_l">
+						<img src="/img/pic10.jpg" />
 					</div>
-					<div class="nr_center">
-						<dl class="nrc_l">
-							<dt>
+					<div class="new_c">
+						<div class="nc_top">
+							<h4>团购</h4>
+						</div>
+						<div class="nc_bottom">
+							<div class="ncb_l">
+								<img src="/img/5af29a36Nc4827326.jpg" />
+							</div>
+							<div class="ncb_r">
+								<dl>
+									<dt>
+									<p class="p1">量贩团</p>
+									<p class="p2">丽芝士直降</p>
+								</dt>
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+									<p class="p1">量贩团</p>
+									<p class="p2">丽芝士直降</p>
+								</dt>
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+									<p class="p1">量贩团</p>
+									<p class="p2">丽芝士直降</p>
+								</dt>
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="new_r">
+						<div class="nr_top">
+							<h4>团购</h4>
+						</div>
+						<div class="nr_center">
+							<dl class="nrc_l">
+								<dt>
 								<p class="p1">1号匠造</p>
 								<p class="p2">制造商直供</p>
 							</dt>
-							<dd>
-								<img src="/img/pic12.jpg"/>
-							</dd>
-						</dl>
-						<div class="nrc_r">
-							<dl>
-								<dt>
+								<dd>
+									<img src="/img/pic12.jpg" />
+								</dd>
+							</dl>
+							<div class="nrc_r">
+								<dl>
+									<dt>
 									<p class="p1">量贩团</p>
 									<p class="p2">丽芝士直降</p>
 								</dt>
-								
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+									<p class="p1">量贩团</p>
+									<p class="p2">丽芝士直降</p>
+								</dt>
+
+									<dd>
+										<img src="/img/5af291e8N78d69635.jpg" />
+									</dd>
+								</dl>
+							</div>
+						</div>
+
+						<div class="nr_bottom">
+							<div class="go">
+								<img src="/img/pic8.jpg" />
+								<a href="#">
+						萌宝福利社<br />GO>
+					</a>
+							</div>
+							<div class="go">
+								<img src="/img/pic8.jpg" />
+								<a href="#">
+						萌宝福利社<br />GO>
+					</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="entrance">
+					<img src="/img/c_adv1.jpg" />
+					<h5>全球进口</h5>
+					<div class="entrance_l">
+						<div class="enl_left">
+							<img src="/img/c3_pic1.jpg" />
+							<div class="left_more">
+								<a href="#">进口饼干</a>
+								<a href="#">进口饼干</a>
+								<a href="#">进口饼干</a>
+								<a href="#">进口饼干</a>
+								<a href="#">进口饼干</a>
+								<a href="#">进口饼干</a>
+							</div>
+						</div>
+						<div class="enl_right">
+							<div class="big">
+								<img src="/img/5af14c70N78a520c9.jpg" />
+							</div>
+
+							<dl>
+								<dt>
+							<p class="p1">进口食品</p>
+							<p class="p2">每满199减100</p>
+						</dt>
 								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
+									<img src="/img/c3_pic3.jpg" />
 								</dd>
 							</dl>
 							<dl>
 								<dt>
-									<p class="p1">量贩团</p>
-									<p class="p2">丽芝士直降</p>
-								</dt>
-								
+							<p class="p1">进口食品</p>
+							<p class="p2">每满199减100</p>
+						</dt>
 								<dd>
-									<img src="/img/5af291e8N78d69635.jpg"/>
+									<img src="/img/c3_pic3.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">进口食品</p>
+							<p class="p2">每满199减100</p>
+						</dt>
+								<dd>
+									<img src="/img/c3_pic3.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">进口食品</p>
+							<p class="p2">每满199减100</p>
+						</dt>
+								<dd>
+									<img src="/img/c3_pic3.jpg" />
 								</dd>
 							</dl>
 						</div>
 					</div>
-		
-			<div class="nr_bottom">
-				<div class="go">
-					<img src="/img/pic8.jpg"/>
-					<a href="#">
-						萌宝福利社<br />GO>
-					</a>
-				</div><div class="go">
-					<img src="/img/pic8.jpg"/>
-					<a href="#">
-						萌宝福利社<br />GO>
-					</a>
-				</div>
-			</div>	
-		</div>
-	</div>	
-		<div class="entrance">
-			<img src="/img/c_adv1.jpg"/>
-			<h5>全球进口</h5>
-			<div class="entrance_l">
-				<div class="enl_left">
-					<img src="/img/c3_pic1.jpg"/>
-					<div class="left_more">
-						<a href="#">进口饼干</a>
-						<a href="#">进口饼干</a>
-						<a href="#">进口饼干</a>
-						<a href="#">进口饼干</a>
-						<a href="#">进口饼干</a>
-						<a href="#">进口饼干</a>
-					</div>
-				</div>
-				<div class="enl_right">
-					<div class="big">
-					<img src="/img/5af14c70N78a520c9.jpg"/>
-					</div>
-					
-					<dl >
-						<dt>
-							<p class="p1">进口食品</p>
-							<p class="p2">每满199减100</p>
-						</dt>
-						<dd>
-							<img src="/img/c3_pic3.jpg"/>
-						</dd>
-					</dl>
-					<dl >
-						<dt>
-							<p class="p1">进口食品</p>
-							<p class="p2">每满199减100</p>
-						</dt>
-						<dd>
-							<img src="/img/c3_pic3.jpg"/>
-						</dd>
-					</dl>
-					<dl >
-						<dt>
-							<p class="p1">进口食品</p>
-							<p class="p2">每满199减100</p>
-						</dt>
-						<dd>
-							<img src="/img/c3_pic3.jpg"/>
-						</dd>
-					</dl>
-					<dl >
-						<dt>
-							<p class="p1">进口食品</p>
-							<p class="p2">每满199减100</p>
-						</dt>
-						<dd>
-							<img src="/img/c3_pic3.jpg"/>
-						</dd>
-					</dl>
-				</div>
-			</div>
-			<div class="entrance_r">
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-				<dl>
-					<dt>
-					<p class="p1">进口美护</p>
-					<p class="p2">BEAUTY</p>
-					<p class="p3">——</p>
-					</dt>
-					<dd>
-						<img src="/img/c3_pic7.jpg"/>
-					</dd>
-				</dl>
-			</div>
-		</div>	
-			
-		<div class="chinesefood">
-			<div class="chinesefood_l">
-				<h6><a href="#">国产食品></a></h6>
-				<p><a href="#">国产食品</a></p>
-				<div class="scoll">
-					<p class="p1">伊利经典上新</p>
-					<p class="p2">低至5折</p>
-					<div class="scoll_list">
-						<img src="/img/c4_pic5.jpg"/>
-					</div>
-				</div>
-				<p class="p3">
-						<span><</span>
-							1/3
-						<span>></span>
-					</p>
-				<div class="chfl_bottom">
-				<i class="iconfont icon-wodedingdan"></i>
-				<span></span>
-				<a href="#">休闲食品</a>
-				</div>
-			</div>
-			<div class="chinesefood_c">
-				<p class="chfc_nav">
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>|
-					<a href="#">坚果炒货</a>
-				</p>
-				<div class="chfc_list">
-					<dl>
-						<dt>
-							<p class="p1">粮油米面</p>
-							<p class="p2">低至2件8折</p>
-						</dt>
-						<dd>
-							<img src="/img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<p class="p1">粮油米面</p>
-							<p class="p2">低至2件8折</p>
-						</dt>
-						<dd>
-							<img src="/img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<p class="p1">粮油米面</p>
-							<p class="p2">低至2件8折</p>
-						</dt>
-						<dd>
-							<img src="/img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<p class="p1">粮油米面</p>
-							<p class="p2">低至2件8折</p>
-						</dt>
-						<dd>
-							<img src="/img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<p class="p1">粮油米面</p>
-							<p class="p2">低至2件8折</p>
-						</dt>
-						<dd>
-							<img src="/img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<ul>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic9.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic10.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic11.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic12.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic13.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="/img/c4_pic14.jpg"/>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="chinesefood_r">
-				<h6>热门商品</h6>
-				<div class="chfr_list">
-					<dl>
-						<dt>
-							<img src="/img/c4_pic15.jpg"/>
-						</dt>
-						<dd>
-							<p class="p">
-								农夫山泉 饮用天然水5L*4桶 整箱</p>
-							<p class="p2">¥31.9</p>
-						</dd>
+					<div class="entrance_r">
 						<dl>
-						<dt>
-							<img src="/img/c4_pic15.jpg"/>
-						</dt>
-						<dd>
-							<p class="p">
-								农夫山泉 饮用天然水5L*4桶 整箱</p>
-							<p class="p2">¥31.9</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<img src="/img/c4_pic15.jpg"/>
-						</dt>
-						<dd>
-							<p class="p">
-								农夫山泉 饮用天然水5L*4桶 整箱</p>
-							<p class="p2">¥31.9</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<img src="/img/c4_pic15.jpg"/>
-						</dt>
-						<dd>
-							<p class="p">
-								农夫山泉 饮用天然水5L*4桶 整箱</p>
-							<p class="p2">¥31.9</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<img src="/img/c4_pic15.jpg"/>
-						</dt>
-						<dd>
-							<p class="p">
-								农夫山泉 饮用天然水5L*4桶 整箱</p>
-							<p class="p2">¥31.9</p>
-						</dd>
-					</dl>
-					</dl>
-				</div>
-			</div>
-		</div>	
-			
-	
-	<div class="seafood">
-		<div class="seafood_left">
-			<div class="sfl_top">
-				<h6><a href="#">1号生鲜></a></h6>
-				<p>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a>
-				</p>
-			</div>
-			<div class="sfl_bottom">
-				<div class="sflb_l">
-					<img src="/img/c5_pic4.jpg"/>
-					<div class="descripion">
-						<p class="p1">夏天的味道</p>
-						<p class="p2">59元3件</p>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+					<p class="p1">进口美护</p>
+					<p class="p2">BEAUTY</p>
+					<p class="p3">——</p>
+					</dt>
+							<dd>
+								<img src="/img/c3_pic7.jpg" />
+							</dd>
+						</dl>
 					</div>
 				</div>
-			<div class="sflb_r">
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="/img/c5_pic6.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="img/c5_pic7.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="/img/c5_pic8.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="img/c5_pic9.jpg"/>
-				</a>
-			</div>
-			</div>
-		</div>
-		<div class="seafood_right">
-			<div class="sfr_top">
-				<h6><a href="#">1酒水饮料></a></h6>
-				<p>
-					<a href="#">牛奶乳品</a><span>|</span>
-					<a href="#">酒水</a><span>|</span>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a><span>|</span>
-					<a href="#">新鲜水果</a>
-				</p>
-			</div>
-			<div class="sfr_bottom">
-				<div class="sfrb_l">
-					<img src="/img/c5_pic12.jpg"/>
-					<div class="descripion">
-						<p class="p1">酒水综合会场</p>
-						<p class="p2">满199减100</p>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
+
+				<div class="chinesefood">
+					<div class="chinesefood_l">
+						<h6><a href="#">国产食品></a></h6>
+						<p><a href="#">国产食品</a></p>
+						<div class="scoll">
+							<p class="p1">伊利经典上新</p>
+							<p class="p2">低至5折</p>
+							<div class="scoll_list">
+								<img src="/img/c4_pic5.jpg" />
+							</div>
+						</div>
+						<p class="p3">
+							<span><</span> 1/3
+							<span>></span>
+						</p>
+						<div class="chfl_bottom">
+							<i class="iconfont icon-wodedingdan"></i>
+							<span></span>
+							<a href="#">休闲食品</a>
+						</div>
+					</div>
+					<div class="chinesefood_c">
+						<p class="chfc_nav">
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>|
+							<a href="#">坚果炒货</a>
+						</p>
+						<div class="chfc_list">
+							<dl>
+								<dt>
+							<p class="p1">粮油米面</p>
+							<p class="p2">低至2件8折</p>
+						</dt>
+								<dd>
+									<img src="/img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">粮油米面</p>
+							<p class="p2">低至2件8折</p>
+						</dt>
+								<dd>
+									<img src="/img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">粮油米面</p>
+							<p class="p2">低至2件8折</p>
+						</dt>
+								<dd>
+									<img src="/img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">粮油米面</p>
+							<p class="p2">低至2件8折</p>
+						</dt>
+								<dd>
+									<img src="/img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+							<p class="p1">粮油米面</p>
+							<p class="p2">低至2件8折</p>
+						</dt>
+								<dd>
+									<img src="/img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<ul>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic9.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic10.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic11.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic12.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic13.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/img/c4_pic14.jpg" />
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="chinesefood_r">
+						<h6>热门商品</h6>
+						<div class="chfr_list">
+							<dl>
+								<dt>
+							<img src="/img/c4_pic15.jpg"/>
+						</dt>
+								<dd>
+									<p class="p">
+										农夫山泉 饮用天然水5L*4桶 整箱</p>
+									<p class="p2">¥31.9</p>
+								</dd>
+								<dl>
+									<dt>
+							<img src="/img/c4_pic15.jpg"/>
+						</dt>
+									<dd>
+										<p class="p">
+											农夫山泉 饮用天然水5L*4桶 整箱</p>
+										<p class="p2">¥31.9</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+							<img src="/img/c4_pic15.jpg"/>
+						</dt>
+									<dd>
+										<p class="p">
+											农夫山泉 饮用天然水5L*4桶 整箱</p>
+										<p class="p2">¥31.9</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+							<img src="/img/c4_pic15.jpg"/>
+						</dt>
+									<dd>
+										<p class="p">
+											农夫山泉 饮用天然水5L*4桶 整箱</p>
+										<p class="p2">¥31.9</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+							<img src="/img/c4_pic15.jpg"/>
+						</dt>
+									<dd>
+										<p class="p">
+											农夫山泉 饮用天然水5L*4桶 整箱</p>
+										<p class="p2">¥31.9</p>
+									</dd>
+								</dl>
+							</dl>
+						</div>
 					</div>
 				</div>
-			<div class="sfrb_r">
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="/img/c5_pic13.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="img/c5_pic7.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="/img/c5_pic8.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="/img/c5_pic9.jpg"/>
-				</a>
-			</div>
-			</div>
-		</div>
-	</div>
-	
-	
-	
-	
-<!--美妆护肤	-->
-	
-		<div class="beauty">
-			<div class="beauty_l">
-				<h6><a href="#">美妆个护></a></h6>
-				<p><a href="#">BEAUTY&nbsp;&nbsp;MEKEUP</a></p>
-				<div class="scoll">
-					<p class="p1">欧莱雅x戛纳电影节</p>
-					<p class="p2">美满199减100</p>
-					<div class="scoll_list">
-						<img src="img/c6_pic1.jpg"/>
+
+				<div class="seafood">
+					<div class="seafood_left">
+						<div class="sfl_top">
+							<h6><a href="#">1号生鲜></a></h6>
+							<p>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a>
+							</p>
+						</div>
+						<div class="sfl_bottom">
+							<div class="sflb_l">
+								<img src="/img/c5_pic4.jpg" />
+								<div class="descripion">
+									<p class="p1">夏天的味道</p>
+									<p class="p2">59元3件</p>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+								</div>
+							</div>
+							<div class="sflb_r">
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="/img/c5_pic6.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="img/c5_pic7.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="/img/c5_pic8.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="img/c5_pic9.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="seafood_right">
+						<div class="sfr_top">
+							<h6><a href="#">1酒水饮料></a></h6>
+							<p>
+								<a href="#">牛奶乳品</a><span>|</span>
+								<a href="#">酒水</a><span>|</span>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a><span>|</span>
+								<a href="#">新鲜水果</a>
+							</p>
+						</div>
+						<div class="sfr_bottom">
+							<div class="sfrb_l">
+								<img src="/img/c5_pic12.jpg" />
+								<div class="descripion">
+									<p class="p1">酒水综合会场</p>
+									<p class="p2">满199减100</p>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+								</div>
+							</div>
+							<div class="sfrb_r">
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="/img/c5_pic13.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="img/c5_pic7.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="/img/c5_pic8.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="/img/c5_pic9.jpg" />
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<p class="p3">
-						<span><</span>
-							1/3
-						<span>></span>
-					</p>
-				<div class="btl_bottom">
-				<i class="iconfont icon-wodedingdan"></i>
-				<span></span>
-				<a href="#">体验美妙无比的女性魅力</a>
-				</div>
-			</div>
-			<div class="beauty_c">
-				<p class="btc_nav">
-					<a href="#">滋润面膜</a><span>|</span>
-					<a href="#">爽肤水</a><span>|</span>
-					<a href="#">口腔护理</a><span>|</span>
-					<a href="#">女性护理 </a><span>|</span>
-					<a href="#">美发护发</a><span>|</span>
-					<a href="#">彩妆</a><span>|</span>
-					<a href="#">沐浴用品</a><span>|</span>
-					<a href="#">男士护理</a><span>|</span>
-					<a href="#">身体护理</a>
-				</p>
-				<div class="btc_list">
-					<dl>
-						<dt>
+
+				<!--美妆护肤	-->
+
+				<div class="beauty">
+					<div class="beauty_l">
+						<h6><a href="#">美妆个护></a></h6>
+						<p><a href="#">BEAUTY&nbsp;&nbsp;MEKEUP</a></p>
+						<div class="scoll">
+							<p class="p1">欧莱雅x戛纳电影节</p>
+							<p class="p2">美满199减100</p>
+							<div class="scoll_list">
+								<img src="img/c6_pic1.jpg" />
+							</div>
+						</div>
+						<p class="p3">
+							<span><</span> 1/3
+							<span>></span>
+						</p>
+						<div class="btl_bottom">
+							<i class="iconfont icon-wodedingdan"></i>
+							<span></span>
+							<a href="#">体验美妙无比的女性魅力</a>
+						</div>
+					</div>
+					<div class="beauty_c">
+						<p class="btc_nav">
+							<a href="#">滋润面膜</a><span>|</span>
+							<a href="#">爽肤水</a><span>|</span>
+							<a href="#">口腔护理</a><span>|</span>
+							<a href="#">女性护理 </a><span>|</span>
+							<a href="#">美发护发</a><span>|</span>
+							<a href="#">彩妆</a><span>|</span>
+							<a href="#">沐浴用品</a><span>|</span>
+							<a href="#">男士护理</a><span>|</span>
+							<a href="#">身体护理</a>
+						</p>
+						<div class="btc_list">
+							<dl>
+								<dt>
 							<p class="p1">给妈妈的芬芳呵护</p>
 							<p class="p2">
 							2件8折;3件7折</p>
 						</dt>
-						<dd>
-							<img src="img/c6_pic1.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+								<dd>
+									<img src="img/c6_pic1.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
 							<p class="p1">给妈妈的芬芳呵护</p>
 							<p class="p2">低至2件8折</p>
 						</dt>
-						<dd>
-							<img src="img/c6_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+								<dd>
+									<img src="img/c6_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
 							<p class="p1">口腔女性会场</p>
 							<p class="p2">小妖精的露肉季</p>
 						</dt>
-						<dd>
-							<img src="img/c6_pic2.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+								<dd>
+									<img src="img/c6_pic2.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
 							<p class="p1">粮油米面</p>
 							<p class="p2">低至2件8折</p>
 						</dt>
-						<dd>
-							<img src="img/c6_pic4.jpg"/>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+								<dd>
+									<img src="img/c6_pic4.jpg" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
 							<p class="p1">精致生活每个细节</p>
 							<p class="p2">满199减100</p>
 						</dt>
-						<dd>
-							<img src="img/c4_pic2.jpg"/>
-						</dd>
-					</dl>
-					<ul>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic10.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic11.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic12.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic13.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic14.jpg"/>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="img/c6_pic9.jpg"/>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="beauty_r">
-				<h6>热门商品</h6>
-				<div class="btr_list">
-					<dl>
-						<dt>
+								<dd>
+									<img src="img/c4_pic2.jpg" />
+								</dd>
+							</dl>
+							<ul>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic10.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic11.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic12.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic13.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic14.jpg" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="img/c6_pic9.jpg" />
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="beauty_r">
+						<h6>热门商品</h6>
+						<div class="btr_list">
+							<dl>
+								<dt>
 							<img src="img/c6_pic15.jpg"/>
 						</dt>
-						<dd>
-							<p class="p">
-								清扬(CLEAR)去屑洗发水套装</p>
-							<p class="p2">¥31.9</p>
-						</dd>
-						<dl>
-						<dt>
+								<dd>
+									<p class="p">
+										清扬(CLEAR)去屑洗发水套装</p>
+									<p class="p2">¥31.9</p>
+								</dd>
+								<dl>
+									<dt>
 							<img src="img/c6_pic16.jpg"/>
 						</dt>
-						<dd>
-							<p class="p">								
-								清扬(CLEAR)去屑洗发水套装</p>
-							<p class="p2">¥99.90</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+									<dd>
+										<p class="p">
+											清扬(CLEAR)去屑洗发水套装</p>
+										<p class="p2">¥99.90</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
 							<img src="img/c6_pic17.jpg"/>
 						</dt>
-						<dd>
-							<p class="p">								
-								多芬(DOVE)滋养美肤沐浴露套装</p>
-							<p class="p2">¥78.90</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+									<dd>
+										<p class="p">
+											多芬(DOVE)滋养美肤沐浴露套装</p>
+										<p class="p2">¥78.90</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
 							<img src="img/c6_pic18.jpg"/>
 						</dt>
-						<dd>
-							<p class="p">
-								高露洁（Colgate） 360°口腔健康</p>
-							<p class="p2">¥19.90</p>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
+									<dd>
+										<p class="p">
+											高露洁（Colgate） 360°口腔健康</p>
+										<p class="p2">¥19.90</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
 							<img src="img/c6_pic19.jpg"/>
 						</dt>
-						<dd>
-							<p class="p">								
-						苏菲弹力贴身纤巧日用卫生巾230mm10片*8包</p>
-							<p class="p2">¥65.90</p>
-						</dd>
-					</dl>
-					</dl>
-				</div>
-			</div>
-		</div>	
-		
-		
-	<!--母婴玩具	-->
-	<div class="motherplay">
-		<div class="motherplay_left">
-			<div class="mpl_top">
-				<h6><a href="#">母婴玩具></a></h6>
-				<p>
-					<a href="#">童车安全</a><span>|</span>
-					<a href="#">童车安全</a><span>|</span>
-					<a href="#">洗护清洁</a><span>|</span>
-					<a href="#">玩具乐器</a><span>|</span>
-					<a href="#">营养辅食</a><span>|</span>
-					<a href="#">奶粉</a><span>|</span>
-					<a href="#">尿裤</a>
-				</p>
-			</div>
-			<div class="mpl_bottom">
-				<div class="mplb_l">
-					<img src="img/c5_pic4.jpg"/>
-					<div class="descripion">
-						<p class="p1">尿裤联盟</p>
-						<p class="p2">部分3件8折</p>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
+									<dd>
+										<p class="p">
+											苏菲弹力贴身纤巧日用卫生巾230mm10片*8包</p>
+										<p class="p2">¥65.90</p>
+									</dd>
+								</dl>
+							</dl>
+						</div>
 					</div>
 				</div>
-			<div class="mplb_r">
-				<a href="#">
-					<p class="p1">奶粉大牌</p>
-					<p class="p2">母婴用品中心</p>
-					<img src="img/c5_pic6.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">母婴用品中心</p>
-					<p class="p2">部份3件8折</p>
-					<img src="img/c5_pic7.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">萌娃耍裤</p>
-					<p class="p2">领券199减50</p>
-					<img src="img/c5_pic8.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">尿裤联盟</p>
-					<p class="p2">部分两件8折</p>
-					<img src="img/c5_pic9.jpg"/>
-				</a>
-			</div>
-			</div>
-		</div>
-		<div class="motherplay_right">
-			<div class="mpr_top">
-				<h6><a href="#">厨卫清洁></a></h6>
-				<p>
-					<a href="#">皮具护理</a><span>|</span>
-					<a href="#">一次性用品</a><span>|</span>
-					<a href="#">清洁工具</a><span>|</span>
-					<a href="#">家庭清洁</a><span>|</span>
-					<a href="#">洗衣液</a><span>|</span>
-					<a href="#">纸品湿巾</a>
-				</p>
-			</div>
-			<div class="mpr_bottom">
-				<div class="mprb_l">
-					<img src="img/c5_pic12.jpg"/>
-					<div class="descripion">
-						<p class="p1">纸品中心</p>
-						<p class="p2">潮流洗衣馆</p>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
-						<a href="#"><em></em></a>
+
+				<!--母婴玩具	-->
+				<div class="motherplay">
+					<div class="motherplay_left">
+						<div class="mpl_top">
+							<h6><a href="#">母婴玩具></a></h6>
+							<p>
+								<a href="#">童车安全</a><span>|</span>
+								<a href="#">童车安全</a><span>|</span>
+								<a href="#">洗护清洁</a><span>|</span>
+								<a href="#">玩具乐器</a><span>|</span>
+								<a href="#">营养辅食</a><span>|</span>
+								<a href="#">奶粉</a><span>|</span>
+								<a href="#">尿裤</a>
+							</p>
+						</div>
+						<div class="mpl_bottom">
+							<div class="mplb_l">
+								<img src="img/c5_pic4.jpg" />
+								<div class="descripion">
+									<p class="p1">尿裤联盟</p>
+									<p class="p2">部分3件8折</p>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+								</div>
+							</div>
+							<div class="mplb_r">
+								<a href="#">
+									<p class="p1">奶粉大牌</p>
+									<p class="p2">母婴用品中心</p>
+									<img src="img/c5_pic6.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">母婴用品中心</p>
+									<p class="p2">部份3件8折</p>
+									<img src="img/c5_pic7.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">萌娃耍裤</p>
+									<p class="p2">领券199减50</p>
+									<img src="img/c5_pic8.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">尿裤联盟</p>
+									<p class="p2">部分两件8折</p>
+									<img src="img/c5_pic9.jpg" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="motherplay_right">
+						<div class="mpr_top">
+							<h6><a href="#">厨卫清洁></a></h6>
+							<p>
+								<a href="#">皮具护理</a><span>|</span>
+								<a href="#">一次性用品</a><span>|</span>
+								<a href="#">清洁工具</a><span>|</span>
+								<a href="#">家庭清洁</a><span>|</span>
+								<a href="#">洗衣液</a><span>|</span>
+								<a href="#">纸品湿巾</a>
+							</p>
+						</div>
+						<div class="mpr_bottom">
+							<div class="mprb_l">
+								<img src="img/c5_pic12.jpg" />
+								<div class="descripion">
+									<p class="p1">纸品中心</p>
+									<p class="p2">潮流洗衣馆</p>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+									<a href="#"><em></em></a>
+								</div>
+							</div>
+							<div class="mprb_r">
+								<a href="#">
+									<p class="p1">潮流洗衣馆</p>
+									<p class="p2">爆款低至9.9</p>
+									<img src="img/c5_pic13.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">外婆味美鲜蔬</p>
+									<p class="p2">部分第二件半价</p>
+									<img src="img/c5_pic7.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">蓝月亮</p>
+									<p class="p2">量贩享好价</p>
+									<img src="img/c5_pic8.jpg" />
+								</a>
+								<a href="#">
+									<p class="p1">潮流洗衣馆</p>
+									<p class="p2">明星爆款直降</p>
+									<img src="img/c5_pic9.jpg" />
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-			<div class="mprb_r">
-				<a href="#">
-					<p class="p1">潮流洗衣馆</p>
-					<p class="p2">爆款低至9.9</p>
-					<img src="img/c5_pic13.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">外婆味美鲜蔬</p>
-					<p class="p2">部分第二件半价</p>
-					<img src="img/c5_pic7.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">蓝月亮</p>
-					<p class="p2">量贩享好价</p>
-					<img src="img/c5_pic8.jpg"/>
-				</a>
-				<a href="#">
-					<p class="p1">潮流洗衣馆</p>
-					<p class="p2">明星爆款直降</p>
-					<img src="img/c5_pic9.jpg"/>
-				</a>
-			</div>
 			</div>
 		</div>
-	</div>
-</div>
-	</div>
-	<!-------尾部复用--------->
-	<div class="footer_temp"></div>
+		<!-------尾部复用--------->
+		<div class="footer_temp"></div>
 		<!-------尾部复用--------->
 		<script src="/lib/requireJS/require.js" data-main="/js/index"></script>
 	</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
