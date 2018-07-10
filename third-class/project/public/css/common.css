@@ -5,3 +5,10 @@
 	width: 90%;
 	margin: 0 auto;
 }
+ table{
+ 	text-align: center;
+ }
+table img{
+	width: 45px;
+	height: 19px;
+}
