@@ -1,44 +1,67 @@
-const  mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/position_project");
 
 const schema = mongoose.Schema({
-	position_name:String,
-	company_name:String,
-	expirance:String,
-	position_type:String,
-	address:String,
-	salary:Number,
-	logo:String
+	position_name: String,
+	company_name: String,
+	expirance: String,
+	position_type: String,
+	address: String,
+	salary: Number,
+	username: String,
+	logo: String
 });
 
 //创建数据库中创建文档的模型
-const Position = mongoose.model("position",schema);
+const Position = mongoose.model("position", schema);
 
 //保存用户信息
 const PositionModel = {
-	save :　function(positionInfo,success,error){
+	save: function(positionInfo, success, error) {
 		const pos = new Position(positionInfo);
-		pos.save((err,data)=>{
-			if(err){
+		pos.save((err, data) => {
+			if(err) {
 				error(err);
 				return;
 			}
-			
+
 			success(data);
 		});
 	},
-	findByPage:function(pageIndex,success,err){
+	findByPage: function(params, success, err) {
 		const pageSize = 5; //每页显示的文档数量
 		//查询
-		Position.find().limit(pageSize).skip((pageIndex-1)*pageSize).then(success,err);
+		Position.find({
+			username: params.username
+		}).limit(pageSize).skip((params.pageIndex - 1) * pageSize).then(success, err);
 	},
-	PageList:function(success,err){
-		Position.find().then(success,err);
-	},
-	modifyPosition:function(_id,success,err){
-		Position.findByIdAndUpdate();
-	}
 	
+		
+	PageList: function(username,success, err) {
+			Position.find({username:username}).then(success, err);
+		},
+
+	modify: function(mdInfo, success, err) {
+		console.log("---" + mdInfo.id);
+		Position.update({
+			_id: mdInfo.id
+		}, {
+			position_name: mdInfo.position_name_md,
+			company_name: mdInfo.company_name_md,
+			expirance: mdInfo.expirance_md,
+			position_type: mdInfo.position_type_md,
+			address: mdInfo.address_md,
+			salary: mdInfo.salary_md,
+			logo: mdInfo.logo_md
+		}).then(success, err);
+	},
+
+	delete: function(id, success, err) {
+		Position.findOneAndDelete({
+			_id: id
+		}).then(success, err);
+	}
+
 }
 
 module.exports = PositionModel;

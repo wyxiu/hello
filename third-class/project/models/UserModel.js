@@ -24,6 +24,9 @@ const UserModel = {
 			
 			success(userinfo);
 		});
+	},
+	find:function(loginInfo,success,error){
+		User.find(loginInfo).then(success,error);
 	}
 }
 

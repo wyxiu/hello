@@ -23,7 +23,6 @@ var upload = multer({
 })
 // 路由：post方式请求 /add 资源，添加职位
 // 实现文件上传
-
 router.post("/add",upload.single("logo"), PositionController.add);
 
 //查询职位
@@ -31,6 +30,8 @@ router.get("/list",PositionController.list);
 
 router.get("/page",PositionController.page);
 
-router.get("/modify",PositionController.modify);
+router.get("/deletes",PositionController.deletes);
+
+router.post("/modify",upload.single("logo_md"),PositionController.modify);
 
 module.exports = router;

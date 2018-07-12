@@ -10,14 +10,15 @@
 	</head>
 
 	<body>
+
 		<div class="container header">
 		</div>
 		<div class="container">
 			<h4 class="pull-left">添加职位信息</h4>
 			<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#position_model">
   添加
-</button>		
-		<!---表格部分----->		
+</button>
+			<!---表格部分----->
 			<table class="table table-bordered pos_tab">
 				<thead>
 					<tr>
@@ -29,48 +30,50 @@
 						<td>职位类型</td>
 						<td>工作地点</td>
 						<td>职位薪资</td>
-						<td colspan="2">操作</td> 
+						<td colspan="2">操作</td>
 					</tr>
 				</thead>
-				<tbody>
-					
+				<tbody id="pos_content">
+
 				</tbody>
-				
+
 				<script id="position_list_template" type="text/html">
 					{{each list curr index}}
 					<tr>
-					<td>{{index+1}}</td>
-						<td><img src="{{curr.logo}}"></td>
-						<td>{{curr.position_name}}</td>
-						<td>{{curr.company_name}}</td>
-						<td>{{curr.expirance}}</td>
-						<td>{{curr.position_type}}</td>
-						<td>{{curr.address}}</td>
-						<td>{{curr.salary}}</td>
-						<td class="modify"><a href="javascript:void(0);">修改</a></td>
-						<td><a href="javascript:void(0);">删除</a></td>
+						<td class="posId" style="display: none;">{{curr._id}}</td>
+						<td>{{index+1}}</td>
+						<td class="md_logo"><img src="{{curr.logo}}"></td>
+						<td class="md_pos">{{curr.position_name}}</td>
+						<td class="md_cop">{{curr.company_name}}</td>
+						<td class="md_exp">{{curr.expirance}}</td>
+						<td class="md_type">{{curr.position_type}}</td>
+						<td class="md_addr">{{curr.address}}</td>
+						<td class="md_sal">{{curr.salary}}</td>
+						<td class="modify">
+							<a href="javascript:void(0);">修改</a>
+						</td>
+						<td class="delete">
+							<a href="javascript:void(0);">删除</a>
+						</td>
 					</tr>
 					{{/each}}
 				</script>
 			</table>
-			
-			
+
 			<!----翻页效果----->
 			<nav aria-label="Page navigation" style="text-align: right;">
-			  <ul class="pagination" id="page">
-			   <!--<li class="active"><a href="javascript:void(0)">1</a></li>
+				<ul class="pagination" id="page">
+					<!--<li class="active"><a href="javascript:void(0)">1</a></li>
 			    <li><a href="javascript:void(0)">2</a></li>
 			    <li><a href="javascript:void(0)">3</a></li>
 			    <li><a href="javascript:void(0)">4</a></li>
 			    <li><a href="javascript:void(0)">5</a></li>-->
-			  </ul>
+				</ul>
 			</nav>
 			<!----翻页效果----->
 		</div>
-		
-		
-		
-		<!---点击添加按钮弹出添加模态框----->	
+
+		<!---点击添加按钮弹出添加模态框----->
 		<div class="modal fade" id="position_model">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -79,8 +82,11 @@
 						<h4 class="modal-title" id="myModalLabel-position">职位信息</h4>
 					</div>
 					<div class="modal-body">
+						
 						<div class="alert alert-danger hide reg_error" role="alert">职位添加失败，请稍后重试...</div>
 						<form class="position_form">
+							
+							<!--<input type="text" id="post_username" class="username hide" name="username" value="" />-->
 							<div class="form-group">
 								<label for="logo">公司logo</label>
 								<input type="file" class="form-control" name="logo" id="logo">
@@ -119,9 +125,9 @@
 				</div>
 			</div>
 		</div>
-		<!---点击添加按钮弹出添加模态框----->	
-		
-		<!---点击修改按钮弹出添加模态框----->	
+		<!---点击添加按钮弹出添加模态框----->
+
+		<!---点击修改按钮弹出添加模态框----->
 		<div class="modal fade" id="modify_model">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -131,49 +137,48 @@
 					</div>
 					<div class="modal-body">
 						<div class="alert alert-danger hide reg_error" role="alert">职位修改失败，请稍后重试...</div>
-						<form class="position_form">
+						<form class="modify_form">
+							<input type="text" name="id" class="modifyId hide" value="" />
 							<div class="form-group">
 								<label for="logo">公司logo</label>
-								<input type="file" class="form-control">
+								<input type="file" name="logo_md" id="logo_md" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="position_name">职位名称</label>
-								<input type="text" class="form-control" name="position_name_md" placeholder="请输入职位名称">
+								<input type="text" class="form-control" name="position_name_md" placeholder="请输入职位名称" id="position_name_md">
 							</div>
 							<div class="form-group">
 								<label for="company_name">公司名称</label>
-								<input type="text" class="form-control" name="company_name_md" placeholder="请输入公司名称">
+								<input type="text" class="form-control" name="company_name_md" placeholder="请输入公司名称" id="company_name_md">
 							</div>
 							<div class="form-group">
 								<label for="expirance">工作经验</label>
-								<input type="text" class="form-control" name="expirance_md" placeholder="请输入工作经验">
+								<input type="text" class="form-control" name="expirance_md" placeholder="请输入工作经验" id="expirance_md">
 							</div>
 							<div class="form-group">
 								<label for="position_type">职位类型</label>
-								<input type="text" class="form-control" name="position_type_md" placeholder="请输入职位类型">
+								<input type="text" class="form-control" name="position_type_md" placeholder="请输入职位类型" id="position_type_md">
 							</div>
 							<div class="form-group">
 								<label for="address">工作地点</label>
-								<input type="text" class="form-control" name="address_md" placeholder="请输入工作地点">
+								<input type="text" class="form-control" name="address_md" placeholder="请输入工作地点" id="address_md">
 							</div>
 							<div class="form-group">
 								<label for="silary">岗位薪资</label>
-								<input type="text" class="form-control" name="salary_md" placeholder="请输入岗位薪资">
+								<input type="text" class="form-control" name="salary_md" placeholder="请输入岗位薪资" id="salary_md">
 							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-primary btn_position_modify">修改</button>
+						<button type="button" id="md_update" class="btn btn-primary btn_position_modify">修改</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
-		<!---点击修改按钮弹出添加模态框----->	
-		
-		
-		
+		<!---点击修改按钮弹出添加模态框----->
+
 		<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
 		<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/lib/arttemplate/template-web.js"></script>
