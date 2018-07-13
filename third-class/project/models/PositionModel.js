@@ -17,10 +17,10 @@ const Position = mongoose.model("position", schema);
 
 //保存用户信息
 const PositionModel = {
-	save: function(positionInfo, success, error) {
+	save: function (positionInfo, success, error) {
 		const pos = new Position(positionInfo);
 		pos.save((err, data) => {
-			if(err) {
+			if (err) {
 				error(err);
 				return;
 			}
@@ -28,35 +28,52 @@ const PositionModel = {
 			success(data);
 		});
 	},
-	findByPage: function(params, success, err) {
+	findByPage: function (params, success, err) {
 		const pageSize = 5; //每页显示的文档数量
 		//查询
 		Position.find({
 			username: params.username
 		}).limit(pageSize).skip((params.pageIndex - 1) * pageSize).then(success, err);
 	},
-	
-		
-	PageList: function(username,success, err) {
-			Position.find({username:username}).then(success, err);
-		},
 
-	modify: function(mdInfo, success, err) {
-		console.log("---" + mdInfo.id);
-		Position.update({
-			_id: mdInfo.id
-		}, {
-			position_name: mdInfo.position_name_md,
-			company_name: mdInfo.company_name_md,
-			expirance: mdInfo.expirance_md,
-			position_type: mdInfo.position_type_md,
-			address: mdInfo.address_md,
-			salary: mdInfo.salary_md,
-			logo: mdInfo.logo_md
-		}).then(success, err);
+	//动态加载页数
+	PageList: function (username, success, err) {
+		Position.find({ username: username }).then(success, err);
 	},
 
-	delete: function(id, success, err) {
+
+	//修改
+	modify: function (mdInfo, success, err) {
+		if (mdInfo.logo_md === "") {
+			Position.update({
+				_id: mdInfo.id
+			}, {
+					position_name: mdInfo.position_name_md,
+					company_name: mdInfo.company_name_md,
+					expirance: mdInfo.expirance_md,
+					position_type: mdInfo.position_type_md,
+					address: mdInfo.address_md,
+					salary: mdInfo.salary_md
+				}).then(success, err);
+
+		} else {
+			Position.update({
+				_id: mdInfo.id
+			}, {
+					position_name: mdInfo.position_name_md,
+					company_name: mdInfo.company_name_md,
+					expirance: mdInfo.expirance_md,
+					position_type: mdInfo.position_type_md,
+					address: mdInfo.address_md,
+					salary: mdInfo.salary_md,
+					logo: mdInfo.logo_md
+				}).then(success, err);
+		}
+
+	},
+
+	//删除
+	delete: function (id, success, err) {
 		Position.findOneAndDelete({
 			_id: id
 		}).then(success, err);

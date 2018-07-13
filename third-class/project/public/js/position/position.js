@@ -1,20 +1,20 @@
 function Position() {
 	this.loadHeader();
 	this.addListener();
-	this.findList(1);
-	this.findPage();
+	// this.findList(1);
+	// this.findPage();
 	this.checkPositon();
 }
 
 $.extend(Position.prototype, {
-	loadHeader: function() {
+	loadHeader: function () {
 		new Header();
 		$("#position-nav ul:first li:last").addClass("active").siblings().removeClass("active");
 	},
 
-	checkPositon: function() {
+	checkPositon: function () {
 		$.get("/api/users/check", (data) => {
-			if(data.res_code === -1) {
+			if (data.res_code === -1) {
 				location = "/index.html";
 			} else {
 				this.findList(1);
@@ -24,28 +24,32 @@ $.extend(Position.prototype, {
 		}, "json");
 	},
 
-	addListener: function() {
+	addListener: function () {
+		//添加职位
 		$(".btn_position").on("click", this.handlePosition);
 		const that = this;
-		$(".pagination").on("click", "li", function() {
+		$(".pagination").on("click", "li", function () {
 			const pageList = $(this).find("a").text();
 			$(".active").removeClass("active");
 			$(this).addClass("active");
 			that.findList(pageList);
 		});
-		$("table tbody").on("click", ".delete", function() {
+		//删除
+		$("table tbody").on("click", ".delete", function () {
 			const curr_id = $(this).parents("tr").find(".posId").text();
 			$(this).parents("tr").remove();
 			that.handleDelete(curr_id);
 
 		});
-		$(".table").on("click", ".modify", function() {
+		//修改
+		$(".table").on("click", ".modify", function () {
 			$("#modify_model").modal("show");
 			const curr_id = $(this).parents("tr").find(".posId").text();
-			console.log(curr_id);
+			//console.log(curr_id);
 			$(".modifyId").val(curr_id);
 			//console.log($(".modifyId").val())
-			$("#logo_md").val($(this).parents("tr").find(".md_logo").text());
+			$("#logo_md").val($(this).parents("tr").find("img").attr("src"));
+			console.log($(this).parents("tr").find("img").attr("src"));
 			$("#position_name_md").val($(this).parents("tr").find(".md_pos").text());
 			$("#company_name_md").val($(this).parents("tr").find(".md_cop").text());
 			$("#expirance_md").val($(this).parents("tr").find(".md_exp").text());
@@ -54,15 +58,40 @@ $.extend(Position.prototype, {
 			$("#salary_md").val($(this).parents("tr").find(".md_sal").text());
 		});
 
-		$("#md_update").on("click", function() {
+		$("#md_update").on("click", function () {
 			$("#modify_model").modal("hide");
 			that.handleModify();
 			location.reload("/html/position.html");
 		});
 
-	},
+		$("#page").on("click",".next,.back,.page",function(e){
+			let currentPage = 1;
+			const curr_Page = $(this).siblings(".active").find("a").text(),
+				 all_Page = $(this).siblings(".page:last").find("a").text(),
+				 fuhao = $(this).text();
+			if(fuhao === "»"){
+				if(curr_Page>1){
+					currentPage = curr_Page-1;
+				}else if(curr_Page == all_Page){
+					currentPage = curr_Page
+				}
+			}
+			if(fuhao === "«"){
+				if(curr_Page <=1){
+				 currentPage = curr_Page
+				}else if(curr_Page<all_Page){
+					currentPage = curr_Page-1;
+				}
+			}	 
+			
 
-	handlePosition: function() {
+			that.findList(currentPage);
+			
+	})
+},
+
+	//添加
+	handlePosition:function () {
 		//客户端：FormData + ajax
 		// 创建FormData对象
 		//$("#post_username").val($("#login_success a:first").text());
@@ -77,11 +106,11 @@ $.extend(Position.prototype, {
 			processData: false, // 不需要将data转换为查询字符串
 			contentType: false, // 不设置content-type头
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				console.log(data);
-				if(data.res_code === 0) {
+				if (data.res_code === 0) {
 					$("#position_model").modal("hide");
-						location.reload("/html/position.html");
+					location.reload("/html/position.html");
 				} else {
 					$(".reg_error").removeClass("hide");
 				}
@@ -90,43 +119,51 @@ $.extend(Position.prototype, {
 
 	},
 
-	findList: function(currentPage) {
+	//渲染页面
+	findList: function (currentPage) {
 		currentPage = currentPage || 1;
-		var username =  $("#login_success a:first").text();
+		const pageSize = 5;
+		const currIndex = (currentPage-1)*pageSize;
+		var username = $("#login_success a:first").text();
 		$.get("/api/position/list", {
 			pageIndex: currentPage,
-			username:username
-		}, function(data) {
-			console.log(data);
-			if(data.res_code === 0) {
+			username: username
+		}, function (data) {
+			if (data.res_code === 0) {
 				const html = template("position_list_template", {
 					list: data.res_body
 				});
 				$(".pos_tab tbody").html(html);
 			}
+			let tr = $(".pos_tab tbody tr");
+            $.each(tr,function(index,curr){
+                let num = parseInt($(this).children("td").first().text());
+                num += currIndex;
+                //console.log(num);
+                $(this).children("td").first().text(num);
+            });
 		});
-
 	},
 
-	
-		findPage: function() {
-			var username = $("#login_success a:first").text();
-			$.get("/api/position/page",{username:username}, function(data) {
-				console.log(data.res_body);
-				if(data.res_code === 0) {
-					var index = Math.ceil(data.res_body.length / 5);
-					//console.log(index);
-					var pagelist = "";
-					for(var i = 0; i < index; i++) {
-						pagelist += `<li ><a href="javascript:void(0)">${i+1}</a>`;
-					}
-					$("#page").html(pagelist);
+	//动态加载页码
+	findPage: function () {
+		var username = $("#login_success a:first").text();
+		$.get("/api/position/page", { username: username }, function (data) {
+			//console.log(data.res_body);
+			if (data.res_code === 0) {
+				var index = Math.ceil(data.res_body.length / 5);
+				//console.log(index);
+				var pagelist = "";
+				for (var i = 1; i < index; i++) {
+					pagelist += `<li class="page"><a href="javascript:void(0)">${i + 1}</a>`;
 				}
-			}, "json");
-		},
-		
+				$(pagelist).insertBefore(".next");
+			}
+		}, "json");
+	},
 
-	handleModify: function() {
+	//修改
+	handleModify: function () {
 		var formData = new FormData($(".modify_form").get(0)); //这个写法不行
 		console.log(formData);
 		$.ajax({
@@ -136,9 +173,9 @@ $.extend(Position.prototype, {
 			processData: false, // 不需要将data转换为查询字符串
 			contentType: false, // 不设置content-type头
 			dataType: "json",
-			success: function(data) {
+			success: function (data) {
 				console.log(data);
-				if(data.res_code === 0) {
+				if (data.res_code === 0) {
 					console.log("success");
 				} else {
 					$(".reg_error").removeClass("hide");
@@ -146,12 +183,14 @@ $.extend(Position.prototype, {
 			}
 		});
 	},
-	handleDelete: function(curr_id) {
+
+	//删除
+	handleDelete: function (curr_id) {
 		$.get("/api/position/deletes", {
 			id: curr_id
-		}, function(data) {
+		}, function (data) {
 
-			if(data.res_code === 0) {
+			if (data.res_code === 0) {
 				location.reload("/html/position.html");
 			} else {
 				console.log("fail");

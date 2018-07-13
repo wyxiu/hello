@@ -1,9 +1,6 @@
 function RegisterModel() {
 	this.createDom();
 	this.addListner();
-	this.addPassword();
-	this.addEmail();
-	this.addRePassword();
 }
 RegisterModel.template = `<div class="modal fade" id="register_model">
 			<div class="modal-dialog" role="document">
@@ -21,12 +18,12 @@ RegisterModel.template = `<div class="modal fade" id="register_model">
 							</div>
 							<div class="form-group">
 								<label for="re_password">密码</label><span style="color:red;margin-left:10px;display:none" class="mima">密码错误</span>
-								<input type="password" class="form-control" name="password" id="re_password" placeholder="输入密码">
+								<input type="password" class="form-control" name="password" id="re_password" placeholder="输入6-20位密码">
 							</div>
 							<div class="form-group">
 								<label for="re_password_again">确认密码</label>
 								<span style="color:red;margin-left:10px;display:none" class="queren">两次密码错误</span>
-								<input type="re_password" class="form-control" id="re_password_again" placeholder="请确认密码">
+								<input type="password" class="form-control" id="re_password_again" placeholder="请确认密码">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label>
@@ -47,62 +44,61 @@ $.extend(RegisterModel.prototype, {
 		$(RegisterModel.template).appendTo("body");
 	},
 	//密码判断
-	var a=0,b=0,c=0;
-	addPassword: function() {
-		$("#re_password").on("blur", function() {
-			var val = $(this).val();
+	addPassword: function() {	
+			var val = $("#re_password").val();
 			if(val === "" || !/^.{6,20}$/.test(val)) {
-				$(this).val("");
+				$("#re_password").val("");
 				$(".mima").show();
-				a = 0;
+				return false;
 			} else {
 				$(".mima").hide();
-				a = 1;
+				return true;
 			}
-		});
 	},
 	//email判断
 	addEmail: function() {
-		$("#pos_Email1").on("blur", function() {
-			var val = $(this).val();
+			var val = $("#pos_Email1").val();
 			var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
 			if(val === "" || !reg.test(val)) {
-				$(this).val("");
+				$("#pos_Email1").val("");
 				$(".youxiang").show();
-				b = 0;
+				return false;
 			} else {
 				$(".youxiang").hide();
-				b = 1;
+				return true;
 			}
-		});
 	},
 
 	addRePassword: function() {
-		$("#re_password_again").on("blur", function() {
-			var rePass = $(this).val();
+			var rePass = $("#re_password_again").val();
 			var pass = $("#re_password").val();
 			if(rePass !== pass) {
-				$(this).val("");
+				$("#re_password_again").val("");
 				$(".queren").show();
-				c = 0;
+				return false;
 			} else {
 				$(".queren").hide();
-				c = 1;
+				return true;
 			}
-		});
 
 	},
 
 	addListner: function() {
 		$(".btn_register").on("click", $.proxy(this.handleRegister, this));
-		//console.log("success");
+		$("#re_password").on("blur", $.proxy(this.addPassword, this));
+		$("#pos_Email1").on("blur", $.proxy(this.addEmail, this));
+		$("#re_password_again").on("blur", $.proxy(this.addRePassword, this));
+
 	},
 	//处理注册事件的方法
 	handleRegister: function() {
-		if(a + b + c === 3) {
+			if(!this.addPassword()|| !this.addEmail() || !this.addRePassword()){
+				$(".reg_error").removeClass("hide");
+				return;
+			}
 			$.post("/api/users/register", $(".register_form").serialize(), function(data) {
 				if(data.res_code === 0) {
-					//					console.log("success");
+					//	console.log("success");
 					$("#register_model").modal("hide");
 				} else {
 					$(".reg_error").removeClass("hide");
@@ -111,6 +107,4 @@ $.extend(RegisterModel.prototype, {
 			}, "json");
 
 		}
-
-	}
 });
