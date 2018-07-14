@@ -47,7 +47,7 @@ require(["config"], function() {
 				const bianhao = $(this).parents("tr").attr("data-id");
 				$.post("http://localhost/api/delete.php", "cart_form_bianhao=" + bianhao, function(d) {
 					if (d.res_code === 1) {
-						console.log("successful----------------");
+						//console.log("successful----------------");
 						getCartGoods();
 						getTotal();
 					} else {
@@ -86,7 +86,7 @@ require(["config"], function() {
 				} else {
 					amount++;
 				}
-				console.log(bianhao + "----" + amount);
+				//console.log(bianhao + "----" + amount);
 				$.post("http://localhost/api/update.php", "cart_form_bianhao=" + bianhao + "&cart_form_amount=" + amount, function(d) {
 					if (d.res_code === 1) {
 						$(this).siblings(".amount").val(amount);
@@ -138,7 +138,7 @@ require(["config"], function() {
 
 					sum += Number($(element).parents("tr").find(".sub_total").text().replace("￥", ""));
 					count += Number($(element).parents("tr").find(".amount").val());
-					console.log(sum);
+					//console.log(sum);
 				});
 
 				$(".total").text(sum.toFixed(2));

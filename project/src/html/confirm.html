@@ -1,230 +1,141 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="/css/index.css" />
-		<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
-		<link rel="stylesheet" type="text/css" href="/css/confirm.css" />
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/css/confirm.css" />
 
-	</head>
+</head>
 
-	<body>
-		<div class="wrapHeader_top">
-			<div class="header_top">
-				<div class="ht_left">
-					<div class="ht_left_addr">
-						<i class="iconfont icon-qicheqianlian-"></i>
-						<span>送至：四川省</span>
+<body>
+	<div class="wrapHeader_top">
+		<div class="header_top">
+			<div class="ht_left">
+				<div class="ht_left_addr">
+					<i class="iconfont icon-qicheqianlian-"></i>
+					<span>送至：四川省</span>
+					<i class="iconfont icon-down"></i>
+				</div>
+				<div class="ht_login">
+					<a href="login.html" class="ht_a">登录</a>|
+					<a href="login.html" class="ht_b">注册</a>
+				</div>
+				<div class="ht_myorder">
+					<i class="iconfont icon-edit"></i>
+					<a href="#">我的订单</a>
+				</div>
+				<div class="ht_shoucang">
+					<i class="iconfont icon-favorfill"></i>
+					<a href="#">收藏本站(ctrl+D)</a>
+				</div>
+			</div>
+			<div class="ht_addr_hide"> </div>
+			<div class="ht_right">
+				<ul>
+					<li>
+						<i class="iconfont icon-weibiaoti2fuzhi07"></i>
+						<a href="#">手机APP</a>
+					</li>
+					<li>
 						<i class="iconfont icon-down"></i>
-					</div>
-					<div class="ht_login">
-						<a href="login.html" class="ht_a">登录</a>|
-						<a href="login.html" class="ht_b">注册</a>
-					</div>
-					<div class="ht_myorder">
-						<i class="iconfont icon-edit"></i>
-						<a href="#">我的订单</a>
-					</div>
-					<div class="ht_shoucang">
+						<a href="#">帮助中心</a>
+					</li>
+					<li>
 						<i class="iconfont icon-favorfill"></i>
-						<a href="#">收藏本站(ctrl+D)</a>
-					</div>
-				</div>
-				<div class="ht_addr_hide"> </div>
-				<div class="ht_right">
-					<ul>
-						<li>
-							<i class="iconfont icon-weibiaoti2fuzhi07"></i>
-							<a href="#">手机APP</a>
-						</li>
-						<li>
-							<i class="iconfont icon-down"></i>
-							<a href="#">帮助中心</a>
-						</li>
-						<li>
-							<i class="iconfont icon-favorfill"></i>
-							<a href="#">我要兑换</a>
-						</li>
-						<li>
-							<i class="iconfont icon-msnui-shops"></i>
-							<a href="#">商家中心</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="logo-bars">
-			<div class="logos">
-				<h1><a href="#"><span>集食惠</span></a></h1>
-			</div>
-			<ul class="cart_logo">
-				<li class="step1">
-					<div class="bg_step1">1</div>
-					<div class="txt_step1">我的购物车</div>
-				</li>
-				<li class="step2">
-					<div class="bg_step2"></div>
-					<div class="txt_step2">确认订单信息</div>
-				</li>
-				<li class="step3">
-					<div class="bg_step3">3</div>
-					<div class="txt_step3">提交并结算</div>
-				</li>
-			</ul>
-		</div>
-
-		<div class="confirm_contain">
-			<div class="orderd" id="address">
-				<h3><span class="addset"><a href="javascript:;">+添加新的收货人信息</a> | <a href="javascript:void(0);" class="addressManager">管理</a></span>收货人信息</h3>
-				<ul class="addlist">
-					<li class="addnot" id="addnot"  style="margin: 0px 5px 13px;"></li>
-				</ul>
-				<div class="addbox" >
-					<h3>选择收货地址</h3>
-					<select id="province"><option>请选择省份</option></select>
-					<select id="city"><option>请选择城市</option></select>
-					<select id="district"><option>请选择区县</option></select>
-				</div>
-			</div>
-			<div class="orderd" id="pay-item">
-				<h3>
-	    支付方式
-	 </h3>
-				<ul class="paylist">
-					<input type="hidden" name="isEcp" value="p">
-					<li class="cur" id="payType_0">
-						<input type="hidden" value="0" id="onlinepay">
-						<div class="message-list">
-							<div class="name">在线支付</div>
-							<div class="line">
-
-							</div>
-						</div>
+						<a href="#">我要兑换</a>
 					</li>
-					<li class="cnot" id="payType_1" title="">货到付款
-						<input type="hidden" value="0" id="payTag">
+					<li>
+						<i class="iconfont icon-msnui-shops"></i>
+						<a href="#">商家中心</a>
 					</li>
 				</ul>
 			</div>
-            <div class="orderd-content">
-						<h3>
-							<span class="addset"><a href="/html/cart.html">&lt;返回购物车修改</a></span>
-							
-							商品信息
-								<div class="tip_h1">
-									<div class="tip-inner tip-bg-image">
-										<div class="error"></div>
-										<div class="collect-txt">温馨提示：订单中含有<a href="javascript:;" id="isAgree7Refund">不支持7天无理由退货</a>的商品，请确认相关商品信息后提交订单！</div>
-									</div>
-								</div>
-							</h3>
-					<!-- 包裹 -->
-					<div class="pay-form" id="freight_0">
-						<div class="pslist" id="peisong_0">
-							<div class="ps-title">配送方式</div>
-						<ul>
-								<li class="cur" name="kdSend" >物流配送</li>
-									<li name="ziti2" title="" class="cnot">门店自提</li>
-								</ul>
-							<div name="group_wlps" class="ps-text" style="display: block;">
-								<a href="javascript:void(0);" style="display: none" class="time-edit" >修改</a>
-								<span class="black" name="show">工作日双休日均可送货 </span><br>
-								<span class="red" name="fuwufei"></span><br>
-								<span class="grey">(由集食惠/商家合作的快递为您配送)</span>
-								<input type="hidden" name="sendTime" value="0">
-								<input type="hidden" name="sendDate" value="双休日、工作日均可送货">
-								<!-- 配送时间参数 -->
-								<input type="hidden" name="fee" value="">
-								<input type="hidden" name="startTime" value="">
-								<input type="hidden" name="endTime" value="">
-								<input type="hidden" name="did" value="">
-							</div>
-							<div class="ps-text" style="display: none;">
-								<a href="javascript:void(0);" class="addr-edit">修改</a>
-								<span class="black" name="sname">  </span><br>
-								<span class="grey" name="address"></span><br>
-								<span class="grey" name="time">营业时间：</span><br>
-								<span class="grey" name="phone">联系电话：</span><br>
-							</div>
-							<input type="hidden" name="addressCode" value="">
-							<input type="hidden" name="bizId" value="">
-							<input type="hidden" name="addressName" value="">
+		</div>
+	</div>
+	<div class="logo-bars">
+		<div class="logos">
+			<h1>
+				<a href="#">
+					<span>集食惠</span>
+				</a>
+			</h1>
+		</div>
+		<ul class="cart_logo">
+			<li class="step1">
+				<div class="bg_step1">1</div>
+				<div class="txt_step1">我的购物车</div>
+			</li>
+			<li class="step2">
+				<div class="bg_step2"></div>
+				<div class="txt_step2">确认订单信息</div>
+			</li>
+			<li class="step3">
+				<div class="bg_step3">3</div>
+				<div class="txt_step3">提交并结算</div>
+			</li>
+		</ul>
+	</div>
 
-							<div id="send-choice_0" class="send-choice" style="display: none;">
-									<div class="info message-center">
-										<div class="send-message">
-											温馨提示：我们会努力按照您指定的时间配送，但因天气，交通等各类因素影响，您的订单有可能会有延误现象
-										</div>
-										<div class="send-table">
-											</div>
-										<div class="btn-line clearfix">
-											<div class="line-center">
-												<button type="button" class="btn btn-secondary">确 认</button>
-												<button type="button" class="btn btn-greysubmit">取 消</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>-->
-					<div class="item-list">
-					
-					</div>
-					<script type="text/html" id="confirm_template">
-						{{each cartgoods curr}}
-						<div class="pro_list" id="20150380340">
-								<h5 class="pro_ic1">商家：集食惠(订单)</h5><div class="prolist_d">
-								<div class="prolist_d_l">
-								<div class="prolist_d_item">
-								<a href="http://product.bl.com/3484633.html" class="pro_imga"><img src="{{curr.img}}" width="58" height="58"></a>
-										<div class="pro_name">
-										<a href="http://product.bl.com/3484633.html" target="_blank" class="pro_alink">{{curr.title}}</a>
-															</div>
-															<div class="pro_send">
-																<span class="pro_sendno">不支持自提</span>
-																<span class="pro_sendok">支持7天无理由退货</span>
-																</div>
-														</div>
-														</div>
-													<div class="prolist_d_r">
-														<span class="item_pri">
-											    	  		 
-																	 ￥ {{curr.price}}<span class="item_wei">0.44kg</span>
-											    	   		<b class="pri_ic2">抢购</b>
-															</span>
-														<span class="item_num">{{curr.amount}}</span>
-													</div>
-												</div>
-											<div class="totle_pay">
-										<span class="ico_time" id="20150380340ico_time"></span>
-										<span class="totle_wei">重量小计：<b class="col_3">0.44kg</b></span>
-										<span class="totle_pri">商品价格小计：<b class="col_red">￥
-							    		{{(curr.amount*curr.price).toFixed(2)}}</b></span>
-										<span class="totle_sdpri" id="20150380340goodsGroupdeliveryCharge">运费小计:?</span>
-										</div>
-									<div class="bz_info">
-											<a href="javascript:;" class="bz_close"></a>
-											<span class="col_red2">*</span>备注（非必填）：
-											<textarea class="bz_text" placeholder="" maxlength="85"></textarea>
-										</div>
-									</div>
-						{{/each}}
-					</script>
-					
+	<div class="confirm_contain">		
+			<h5>
+				<span>商品清单</span>
+				<a href="/html/cart.html">&lt;返回购物车修改</a>
+			</h5>
+			<div class="detail">
+				<ul class="detail_title">
+					<li class="title_prods">商品</li>
+					<li class="title_price">单价</li>
+					<li class="title_amount">数量</li>
+					<li class="title_discount">已抵扣元宝金额</li>
+					<li class="title_total">小计</li>
+				</ul>
+				<!-- <ul class="detail_desc">
+					 <li class="desc_prods">
+						<img src="#"/>
+						<span class="title"></span>
+					</li>
+					<li class="desc_price"></li>
+					<li class="desc_amount"></li>
+					<li class="desc_discount"></li>
+					<li class="desc_total"></li> 
+				</ul> -->
+				<div class="list_prods">
+	
 				</div>
-		</div>
-		    
-		</div>
+				<script type="text/html" id="confirm_template">
+					{{each cartgoods curr}}
+					<ul class="detail_desc">
+					<li class="desc_prods">
+							<img src="{{curr.img}}"/>
+							<span class="title">{{curr.title}}</span>
+						</li>
+						<li class="desc_price">￥{{curr.price}}</li>
+						<li class="desc_amount">{{curr.amount}}</li>
+						<li class="desc_discount">0</li>
+						<li class="desc_total">￥{{(curr.amount*curr.price).toFixed(2)}}</li>
+					</ul>						
+					{{/each}}
+			</script>			
+			</div>
+			<div class="list_pay">
+				<ul class="list_pay_list">
+					<li><span>3</span>件商品,商品总金额:￥<b>228.00</b></li>
+					<li>总运费:￥<b>0</b></li>
+					<li>元宝抵扣金额:￥<b>0</b></li>
+					<li>应付总额:￥<b>228</b></li>
+				</ul>
+			</div>
+			
+	</div>
+			
 
-		
-		
-		
-		
 
-		<div class="footer"></div>
+	<div class="footer"></div>
 
-		<script src="/lib/requireJS/require.js" data-main="/js/confirm"></script>
-	</body>
+	<script src="/lib/requireJS/require.js" data-main="/js/confirm"></script>
+</body>
 
 </html>

@@ -292,6 +292,7 @@ $top_border: 1px solid #e5e5e5;
         width: 260px;
         height: 467px;
         .bann_right_top {
+           
             height: 165px;
             width: 260px;
             margin-bottom: 10px;
@@ -302,9 +303,20 @@ $top_border: 1px solid #e5e5e5;
                 line-height: 40px;
                 padding-left: 35px;
                 position: relative;
+               
                 i {
                     position: absolute;
                     left: 10px;
+                }
+            }
+            .bann_tell{
+                height: 125px;
+                width: 100%;
+                overflow: hidden;
+                background:  #fff;
+                line-height: 25px;
+                ul{
+                    background: #fff; 
                 }
             }
         }

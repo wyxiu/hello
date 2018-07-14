@@ -1,7 +1,11 @@
 require(["config", "login"], function() {
 	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie"], function($, template) {
 		$(function() {
-
+			$.cookie.json = true;
+			const users = $.cookie("users");
+			if(users.length===1){
+				$(".ht_login").html("欢迎您："+users[0].username);
+			}
 			//banner轮播图
 			$(".bann_imgs").carousel({
 				duration: 3000,
@@ -279,7 +283,7 @@ require(["config", "login"], function() {
 			//集食惠公告
 			function newsScrollTop(options) {
 				var defaults = {
-					speed: 30
+					speed:40
 				}
 				var opts = $.extend(defaults, options);
 				var $timer;
@@ -302,7 +306,7 @@ require(["config", "login"], function() {
 				}).trigger("mouseleave");
 			}
 
-			newsScrollTop(35);
+			newsScrollTop(40);
 
 			//传对象
 			$(".hotAddNew_hot").on("click", ".good_img", function(e) {
@@ -388,7 +392,9 @@ require(["config", "login"], function() {
 				
 				_index = $(this).index() + 1
 				//通过拼接字符串获取元素，再取得相对于文档的高度
-				var _top = $(".vegetable").offset().top;
+				var vegetable_index = $(".vegetable");
+				var _top=vegetable_index.eq(_index).offset().top;
+				console.log(_top);
 				//scrollTop滚动到对应高度
 				$("body,html").animate({
 					scrollTop: _top
@@ -401,7 +407,6 @@ require(["config", "login"], function() {
 
 				if(sc.scrollTop() >= 600) {
 					$(".fixed_floor").show();
-					//获取滚动元素对应的索引!!!重难点
 					var index = Math.floor(sc.scrollTop() / 600);
 
 					$(".fixed_floor_box li").eq(index - 1).parent().children(".floor_current").removeClass("floor_current");
@@ -424,7 +429,7 @@ require(["config", "login"], function() {
 			});
 
 			//倒计时
-			const thatDay = new Date("2018/7/5")
+			const thatDay = new Date("2018/8/25")
 			const timer = setInterval(function() {
 				const nowDay = new Date().getTime();
 				const seconds = Math.ceil((thatDay - nowDay) / 1000);
@@ -442,9 +447,15 @@ require(["config", "login"], function() {
 				} else {
 					$("#houers").html(hour);
 				}
+				if(seconds<0){
+					clearInterval(timer);
+					$(".hotAddNew_timer").hide();
+					return;
+				}
 				$("#minuts").html(min);
 				$("#seconds").html(sec);
 			}, 1000);
+
 
 			//数据到数据库
 			$(".hotAddNew_hot").on("click", ".hottocart", function() {

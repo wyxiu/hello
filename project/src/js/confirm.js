@@ -9,18 +9,19 @@ require(["config"], function() {
 			function getCartGoods() {
 				$.get("http://localhost/api/select.php", function(cartgoods) {
 					if(cartgoods.length === 0) {
-						$(".item-list").html("没有商品信息");
+						$(".	").html("没有商品信息");
 					}
 					//有选购的商品就渲染模板，，显示
 					const html = template("confirm_template", {
 						cartgoods
 					});
-					$(".item-list").html(html);
+					$(".list_prods").html(html);
 
 				}, "json");
 			}
 			getCartGoods();
 
+			/*
 			function loadProvince() {
 				const url1 = "http://route.showapi.com/1149-1?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&level=1&page=1",
 					url2 = "http://route.showapi.com/1149-1?showapi_appid=29550&showapi_sign=1b9802a551774e3480cb844e18f0ceef&level=1&page=2";
@@ -81,8 +82,9 @@ require(["config"], function() {
 
 			//			var res = $("province").html() + $("city").html()+$("district").html();
 			//			$("addnot").html(res);
-
+*/
 		});
+		
 
 	});
 });

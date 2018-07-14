@@ -27,13 +27,7 @@ $.extend(Position.prototype, {
 	addListener: function () {
 		//添加职位
 		$(".btn_position").on("click", this.handlePosition);
-		const that = this;
-		$(".pagination").on("click", "li", function () {
-			const pageList = $(this).find("a").text();
-			$(".active").removeClass("active");
-			$(this).addClass("active");
-			that.findList(pageList);
-		});
+		 const that = this;
 		//删除
 		$("table tbody").on("click", ".delete", function () {
 			const curr_id = $(this).parents("tr").find(".posId").text();
@@ -48,8 +42,8 @@ $.extend(Position.prototype, {
 			//console.log(curr_id);
 			$(".modifyId").val(curr_id);
 			//console.log($(".modifyId").val())
-			$("#logo_md").val($(this).parents("tr").find("img").attr("src"));
-			console.log($(this).parents("tr").find("img").attr("src"));
+			//$("#logo_md").val($(this).parents("tr").find(".md_logo").test());
+			//console.log($(this).parents("tr").find(".md_logo").test());
 			$("#position_name_md").val($(this).parents("tr").find(".md_pos").text());
 			$("#company_name_md").val($(this).parents("tr").find(".md_cop").text());
 			$("#expirance_md").val($(this).parents("tr").find(".md_exp").text());
@@ -64,27 +58,32 @@ $.extend(Position.prototype, {
 			location.reload("/html/position.html");
 		});
 
-		$("#page").on("click",".next,.back,.page",function(e){
+		//前后翻页
+		$("#page").on("click",".next,.back,li",function(e){
 			let currentPage = 1;
 			const curr_Page = $(this).siblings(".active").find("a").text(),
 				 all_Page = $(this).siblings(".page:last").find("a").text(),
-				 fuhao = $(this).text();
+				 fuhao = $(e.target).html();
 			if(fuhao === "»"){
-				if(curr_Page>1){
-					currentPage = curr_Page-1;
+				if(curr_Page<all_Page){
+					currentPage = parseInt(curr_Page)+1;
 				}else if(curr_Page == all_Page){
-					currentPage = curr_Page
+					currentPage = curr_Page;
 				}
 			}
-			if(fuhao === "«"){
-				if(curr_Page <=1){
-				 currentPage = curr_Page
-				}else if(curr_Page<all_Page){
-					currentPage = curr_Page-1;
+			else if(fuhao === "«"){
+				if(curr_Page >1){
+				 currentPage = curr_Page-1;
 				}
-			}	 
+			}
+			else{
+				currentPage = $(this).find("a").text();	
+			}
+			// console.log("当前页"+currentPage);
+			// console.log("所有页"+all_Page);
+			// console.log(fuhao);
+			$("#page li").eq(currentPage).addClass("active").siblings("li").removeClass("active");
 			
-
 			that.findList(currentPage);
 			
 	})
