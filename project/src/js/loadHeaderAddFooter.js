@@ -3,7 +3,8 @@ define(["jquery","cookie"],function($){
 		$(".header").load("/html/include/header.html");
 		$.cookie.json = true;
 		const users = $.cookie("users");
-		if(users.length===1){
+		console.log(users);
+		if(users !==""){
 			$(".ht_login").html("欢迎您："+users[0].username);
 		}
 
