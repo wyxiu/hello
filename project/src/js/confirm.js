@@ -1,25 +1,38 @@
-require(["config"], function() {
-	require(["jquery", "template", "load"], function($, template) {
+require(["config"], function () {
+	require(["jquery", "template", "load"], function ($, template) {
 
-		$(function() {
+		$(function () {
 
 			/*********************************************************/
 			/* //从数据库渲染到页面读取并渲染购物车 */
 			/*********************************************************/
 			function getCartGoods() {
-				$.get("http://localhost/api/select.php", function(cartgoods) {
-					if(cartgoods.length === 0) {
-						$(".	").html("没有商品信息");
+				$.get("http://localhost/api/select.php", function (cartgoods) {
+					if (cartgoods.length === 0) {
+						$(".list_prods").html("没有商品信息");
 					}
 					//有选购的商品就渲染模板，，显示
 					const html = template("confirm_template", {
 						cartgoods
 					});
 					$(".list_prods").html(html);
+					var number = 0,money = 0,dest=0;
+					 number += Number($(".desc_amount").text()); 
+					 money +=Number($(".desc_total").text().replace("￥",""));
+					$(".list_pay_amont").text(number) 					
+					$(".list_pay_total").text("￥"+money);
+					dest += Number($(".desc_discount").text().replace("￥",""));
+					$(".list_pay_dist").text("￥"+dest);
+					$(".allPay").text($(".list_pay_total").text());
+
 
 				}, "json");
 			}
 			getCartGoods();
+
+				
+				
+					//$(".allPay").text() = $(".list_pay_total").text().slice(1) - $(".list_pay_dist").text().slice(1);
 
 			/*
 			function loadProvince() {
@@ -84,7 +97,7 @@ require(["config"], function() {
 			//			$("addnot").html(res);
 */
 		});
-		
+
 
 	});
 });

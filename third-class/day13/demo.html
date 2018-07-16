@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE</title>
+</head>
+<body>
+    <div id="app">
+      <span :title="tip"> {{msg}}</span> 
+    </div>
+    <div id="app_1">
+        <span v-if="screnn">现在你看到我了</span>
+    </div>
+    <div id="app2">
+        <ul>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
+    <div id="app3">
+        <p>{{message}}</p>
+        <button v-on:click="reverses">逆转消息</button>
+    </div>
+    <div id="app4">
+        <p>{{mesg}}</p>
+        <input v-model="mesg" type="text"> 
+    </div>
+   <script src="lib/vue.js"></script>
+   <script>
+     var app = new Vue({
+           el:"#app",
+            data:{
+                msg:"hello",
+                tip:"这是一段标题内容"
+            }
+       });
+
+    var app_1 = new Vue({
+       el:"#app_1",
+       data:{
+           screnn:true
+       } 
+    });
+    var app2= new Vue({
+       el:"#app2",
+       data:{
+        todos:[
+           {text:"第一个"},
+           {text:"第二个"},
+           {text:"第三个"}
+       ]
+       }
+      
+    });
+    var app3= new Vue({
+       el:"#app3",
+       data:{
+           message: "hello vue.js!"
+       },
+       methods:{
+        reverses:function(){
+            this.message = this.message.split("").reverse().join("");
+        }
+       }
+      
+    });
+    var app4= new Vue({
+       el:"#app4",
+       data:{
+           mesg: "hello vue.js!"
+       }
+      
+    });
+   </script>
+   
+</body>
+</html>

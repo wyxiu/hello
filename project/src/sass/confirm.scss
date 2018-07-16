@@ -1,4 +1,4 @@
-nput {
+input {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -207,11 +207,72 @@ a {
             li{
                 line-height: 25px;
                 text-align: right;
+                width: 100%; 
                 b{
                     color: red;
                 }
+                span{
+                    display: inline-block;
+                    width: 90%;
+                   float: left;
+                }
             }
           }
+      }
+      .liuyan{
+          widows: 100%;
+          height: 150px;
+          margin-bottom: 10px;
+          h5{
+              height: 15px;
+              line-height: 15px;
+              margin-bottom: 10px;
+              color: #666666;
+          }
+          .liuyan_content{
+              border: 1px solid #e5e5e5;
+              width: 98%;
+              height: 112px;
+              float:right;
+              textarea{
+                width: 99%;
+                height: 96%;          
+                border: none; 
+              }
+          }
+      }
+     .pay{
+          height: 80px;
+          width: 100%;
+          margin-bottom: 10px;
+          p{
+              display: inline-block;
+              height: 35px;
+              width: 100%;
+              padding: 0 15px;
+              text-align: right;
+              span{
+                  width: 90%;
+                  float: left;   
+                    font-size: 18px;                     
+           }
+          b{
+              color: #e60012;
+              font-size: 18px;             
+          }
+        }
+        .btn{
+            width: 142px;
+            height: 45px;
+            border-radius: 5px;
+            background: #ff611b;
+            text-align: center;
+            line-height: 45px;
+            color: white;
+            font-size: 16px;
+            float: right;
+            border: none;
+        }
       }
     }
 

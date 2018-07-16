@@ -310,6 +310,7 @@ require(["config", "login"], function() {
 
 			//传对象
 			$(".hotAddNew_hot").on("click", ".good_img", function(e) {
+				
 				const shop = {
 					id: $(this).parents("li").children(".goods_id").text(),
 					img: $(this).parents("li").children("a").children("img").attr("src"),
@@ -317,11 +318,31 @@ require(["config", "login"], function() {
 					price: $(this).parents("li").find(".goods_price").text(),
 					amount: 1
 				};
+				
+				/*
+				var id=$(this).parents("li").children(".goods_id").text(),
+					img=$(this).parents("li").children("a").children("img").attr("src"),
+					title=$(this).parents("li").children(".p1").text(),
+					price=$(this).parents("li").find(".goods_price").text(),
+					amount=1;
+				
+				$.ajax({
+					type:"get",
+					url:"/html/detail.html",
+					data:{id:id,img:img,title:title,price:price,amount:amount},
+					dataType :"json",
+					success:function(data){
+						window.location.href = "/html/detail.html";	
+					}
+				});
+				*/
+				
 				var params = "id=" + shop.id + "&img=" + shop.img + "&title=" +
 					shop.title + "&price=" + shop.price + "&amount=" + shop.amount;
 				console.log("/html/detail.html?" + params);
 				window.location.href = "/html/detail.html?" + params;
 				return true;
+				
 			});
 
 			//抛物线

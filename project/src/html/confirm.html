@@ -114,7 +114,7 @@
 						</li>
 						<li class="desc_price">￥{{curr.price}}</li>
 						<li class="desc_amount">{{curr.amount}}</li>
-						<li class="desc_discount">0</li>
+						<li class="desc_discount">￥0</li>
 						<li class="desc_total">￥{{(curr.amount*curr.price).toFixed(2)}}</li>
 					</ul>						
 					{{/each}}
@@ -122,11 +122,21 @@
 			</div>
 			<div class="list_pay">
 				<ul class="list_pay_list">
-					<li><span>3</span>件商品,商品总金额:￥<b>228.00</b></li>
-					<li>总运费:￥<b>0</b></li>
-					<li>元宝抵扣金额:￥<b>0</b></li>
-					<li>应付总额:￥<b>228</b></li>
+					<li><span><i class="list_pay_amont"></i>件商品,商品总金额:</span><b class="list_pay_total"></b></li>
+					<li><span>总运费:</span><b>￥0.00</b></li>
+					<li><span>元宝抵扣金额:</span><b class="list_pay_dist"></b></li>
+					<li><span>应付总额:</span><b class="allPay"></b></li>
 				</ul>
+			</div>
+			<div class="liuyan">
+				<h5>备注(限100字)</h5>
+				<div class="liuyan_content">
+					<textarea name="txt"></textarea>
+				</div>
+			</div>
+			<div class="pay">
+				<p><span>实付款：</span><b>￥228.00</b></p>
+				<button class="btn">提交订单</button>
 			</div>
 			
 	</div>
@@ -134,7 +144,6 @@
 
 
 	<div class="footer"></div>
-
 	<script src="/lib/requireJS/require.js" data-main="/js/confirm"></script>
 </body>
 
