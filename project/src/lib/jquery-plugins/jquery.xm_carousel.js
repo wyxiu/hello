@@ -93,12 +93,12 @@
 				position: "absolute",
 				top:0,
 				bottom: 0,
-				left:354,
+				left:230,
 				margin:"auto"
 			});
 			$(".next",this.container).css({
 				right: 0,
-				left:624
+				left:698
 			});
 			// 判断是否显示按钮
 			if (!this.showBtn)

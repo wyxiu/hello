@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>请写一个问题:<input type="text" v-model="question"></p>
+        <p>{{ answer }}</p>
+        <p>{{ question }}</p>
+    </div>
+        <script src="lib/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    question:"",
+                    answer:""
+                },
+                watch:{
+                    question:function(val){
+                        if(val.indexOf("?")===-1){
+                            this.answer = "thinking.......";
+                            return;
+                        }
+                        this.answer = Math.random()>0.5?"yes":"no";
+                    }
+                }
+
+            });
+        </script>
+   
+</body>
+</html>

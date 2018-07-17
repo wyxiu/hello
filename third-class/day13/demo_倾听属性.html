@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+                <p>名：{{firstname}}</p>
+                <p>姓：{{lastname}}</p>
+                <p>全名：{{fullname}}</p>
+            </div>
+            <script src="lib/vue.js"></script>
+            <script>
+                var app = new Vue({
+                    el :"#app",
+                    data:{
+                        firstname:"小花",
+                        lastname:"张",
+                        //fullname:"小花,张"
+                    },
+                    computed:{
+                        fullname : {
+                           get : function(){
+                               return this.firstname + "," + this.lastname;
+                           },
+                           set : function(val){
+                               var part = val.split(",");
+                               this.firstname = part[0];
+                               this.lastname = part[part.length-1];
+                           }
+                        }
+                    }
+                    /*
+                    watch:{
+                        firstname:function(val){
+                            this.fullname = val + "," +this.lastname;
+                        },
+                        lastname:function(val){
+                            this.fullname  = this.firstname + "," + val;
+                        }
+                    }
+                    */
+                });
+            </script>
+</body>
+</html>

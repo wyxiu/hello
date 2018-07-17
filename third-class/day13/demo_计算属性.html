@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p><br/>
+        <p>{{reverseMessage}}</p><br/>
+        <p>{{reverseMessages()}}</p>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el :"#app",
+            data:{
+                message:"hello"
+            },
+            computed:{
+                reverseMessage(){
+                   return this.message.split("").reverse().join("");
+                }
+            },
+            methods: {
+                reverseMessages(){
+                    return this.message.split("").reverse().join("");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

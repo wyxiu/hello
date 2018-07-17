@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <template v-if="loginType === 'username'">
+                    <label>Username</label>
+                    <input placeholder="Enter your username" key = "username">
+                  </template>
+                  <template v-else>
+                    <label>Email</label>
+                    <input placeholder="Enter your email address" key = "email">
+             </template>
+             <button @click = "btn">切换</button>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el : "#app",
+            data:{
+                loginType : "username"
+            },
+            methods:{
+                btn:function(){
+                    this.loginType =this.loginType ===  "username"? "email": "username";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

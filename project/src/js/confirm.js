@@ -16,14 +16,14 @@ require(["config"], function () {
 						cartgoods
 					});
 					$(".list_prods").html(html);
-					var number = 0,money = 0,dest=0;
-					 number += Number($(".desc_amount").text()); 
-					 money +=Number($(".desc_total").text().replace("￥",""));
-					$(".list_pay_amont").text(number) 					
-					$(".list_pay_total").text("￥"+money);
-					dest += Number($(".desc_discount").text().replace("￥",""));
-					$(".list_pay_dist").text("￥"+dest);
-					$(".allPay").text($(".list_pay_total").text());
+					// var number = 0,money = 0,dest=0;
+					//  number += Number($(".desc_amount").text()); 
+					//  money +=Number($(".desc_total").text().replace("￥",""));
+					// $(".list_pay_amont").text(number) 					
+					// $(".list_pay_total").text("￥"+money);
+					// dest += Number($(".desc_discount").text().replace("￥",""));
+					// $(".list_pay_dist").text("￥"+dest);
+					// $(".allPay").text($(".list_pay_total").text());
 
 
 				}, "json");

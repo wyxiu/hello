@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p class="static" :class="{active:isActive,'text-denger':hasErr}"></p>
+        <p :class="[active, error]"></p>
+        <p :class="activeobject"></p>
+        <p :style = "{color:activeColor,fontSize :fontSize +'px',background:bg}">hello</p>
+    </div>
+    <script src="lib/vue.js"></script>
+
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isActive:true,
+                hasErr:true,
+                active:"a-link,a-font,a-color",
+                error : "err,err-denger",
+                fontSize:"16px",
+                bg:"#ccc"
+            },
+            computed:{
+                activeobject:function(){
+                    return {
+                        active : this.active,
+                        error : this.error
+                    }
+                },
+                activeColor : function(){
+                    var r = Math.floor(Math.random()*256);
+                    var g = Math.floor(Math.random()*256);
+                    var b = Math.floor(Math.random()*256);
+                    return `rgb(${r} , ${g} , ${b})`;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

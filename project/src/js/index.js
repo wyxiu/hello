@@ -1,12 +1,12 @@
 require(["config", "login"], function() {
 	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie"], function($, template) {
 		$(function() {
-			$.cookie.json = true;
-			const users = $.cookie("users");
-			if (users !== "") {
-				$(".ht_login").html("欢迎您：" + users[0].username);
-			}
-			console.log(users);
+			// $.cookie.json = true;
+			// const users = $.cookie("users");
+			// if (users !== "") {
+			// 	$(".ht_login").html("欢迎您：" + users[0].username);
+			// }
+			// console.log(users);
 			//banner轮播图
 			$(".bann_imgs").carousel({
 				duration: 3000,
@@ -416,7 +416,8 @@ require(["config", "login"], function() {
 				} else {
 					$(".fixed_floor").hide();
 				}
-
+				
+				/*
 				$(".fixed_floor_box").on("click", "li", function() {
 					$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
 					var _top = $(".vegetable").eq($(this).index()).offset().top;
@@ -425,6 +426,7 @@ require(["config", "login"], function() {
 						scrollTop: _top
 					})
 				});
+				*/
 				$(".vegetable").each(function() {
 					var v_top = $(".vegetable").eq($(this).index()).offset().top;
 					if (v_top > $scroll) { //楼层的top大于滚动条的距离
@@ -436,31 +438,15 @@ require(["config", "login"], function() {
 
 			});
 
-			//			var nav = $(".fixed_floor"); //得到导航对象
-			//			var win = $(window); //得到窗口对象
-			//			var sc = $(document); //得到document文档对象。
-			//			win.scroll(function() {
-			//
-			//				if(sc.scrollTop() >= 600) {
-			//					$(".fixed_floor").show();
-			//					var index = Math.floor(sc.scrollTop() / 600);
-			//
-			//					$(".fixed_floor_box li").eq(index - 1).parent().children(".floor_current").removeClass("floor_current");
-			//					$(".fixed_floor_box li").eq(index - 1).addClass("floor_current");
-			//				} else {
-			//					$(".fixed_floor").hide();
-			//				}
-			//			});
-
-			//吸顶效果
-			$(window).scroll(function() {
-				// 滚动条距离顶部的距离 大于 200px时
-				if ($(window).scrollTop() >= 300) {
-					$(".fixed_top").fadeIn(1000); // 开始淡入
-				} else {
-					$(".fixed_top").stop(true, true).fadeOut(1000); // 如果小于等于 200 淡出
-				}
-			});
+			// 吸顶效果
+			// $(window).scroll(function() {
+			// 	// 滚动条距离顶部的距离 大于 200px时
+			// 	if ($(window).scrollTop() >= 300) {
+			// 		$(".fixed_top").fadeIn(1000); // 开始淡入
+			// 	} else {
+			// 		$(".fixed_top").stop(true, true).fadeOut(1000); // 如果小于等于 200 淡出
+			// 	}
+			// });
 
 			//倒计时
 			const thatDay = new Date("2018/8/25")

@@ -237,24 +237,24 @@ $top_border: 1px solid #e5e5e5;
     margin-bottom: 10px;
 }
 .banners_img {
-    width: 100%;
+    width: 1190px;
     height: 471px;
     margin-bottom: 10px;
     text-align: center;
     overflow: hidden;
     position: absolute;
     top: 0;
+    margin: 0 auto;
     .bann_imgs {
         height: 100%;
-        width: 100%;
+        width: 1190px;
         ul {
-            width: 100%;
+            width: 1190px;
             height: 100%;
+            margin: 0 auto;
             img {
-                left: 50%;
-                width: 1960px;
+                width: 100%;
                 height: 471px;
-                margin-left: -320px;
             }
         }
     }

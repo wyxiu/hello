@@ -75,7 +75,39 @@ require(["config"], function () {
 				});
 			}
 
-			getTypes()
+			getTypes();
+
+			$(window).on('scroll', function() {
+				var $scroll = $(this).scrollTop();
+
+				if ($scroll>= 400) {
+					$(".louceng").show();
+				} else {
+					$(".louceng").hide();
+				}
+				
+				$(".louceng").on("click", "li", function() {
+					$(this).addClass("louceng_active").siblings("li").removeClass("louceng_active");
+					var _top = $(".floor").eq($(this).index()).offset().top;
+					console.log(_top);
+					$("html,body").animate({
+						scrollTop: _top
+					})
+				});
+
+
+
+				$(".floor").each(function() {
+					var v_top = $(".floor").eq($(this).index()).offset().top;
+					//console.log(v_top);
+					if (v_top > $scroll) { //楼层的top大于滚动条的距离
+						$('.loceng_box li').removeClass('louceng_active');
+						$('.loceng_box li').eq($(this).index()).addClass('louceng_active');
+						return false; //中断循环
+					}
+				});
+
+			});
 
 		});
 

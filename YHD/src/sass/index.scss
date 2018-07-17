@@ -1804,7 +1804,38 @@
     border-bottom:none;
 }
 
+.louceng{
+    width:30px;
+    height: 100%;
+    background: #666666;
+    position: fixed;
+    top:0;
+    left: 0px;
+    .louceng_box{
+        position: absolute;
+        left: 0px;
+        top:300px;
+      
+        height: 100%;
+        background: #666666;  
+        li{
+            width: 30px;
+            height: 60px;
+            text-align: center;
+            margin-bottom: 3px;
+             background: #0ad09b;
+            color: white;
+            padding: 14px 0px;
+           
+        }
+        .louceng_active{
+            background:red;
+            color: white
+        }
+    }
+    
 
+}
 
 
 
