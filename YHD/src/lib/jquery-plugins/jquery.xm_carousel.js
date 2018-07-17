@@ -14,6 +14,8 @@
 		this.nextIndex = 1; // 即将显示图片的索引
 		this.points = null; // 所有轮播图片对应的小点
 		this.timer = null; // 轮播切换时使用到的计时器
+		
+		
 
 		this.createDom(); // 创建DOM结构
 		this.registerEventListener(); // 注册事件监听
@@ -92,11 +94,11 @@
 				position: "absolute",
 				top:0,
 				bottom: 0,
-				left:238,
+				left:0,
 				margin:"auto"
 			});
 			$(".next",this.container).css({
-				right:-550
+				right:-210
 			});
 			// 判断是否显示按钮
 			if (!this.showBtn)
@@ -116,6 +118,8 @@
 			this.nextIndex++;
 			if (this.nextIndex >= this.len)
 				this.nextIndex = 0;
+				
+			
 		},
 		// 自动轮播
 		autoPlay : function(){
