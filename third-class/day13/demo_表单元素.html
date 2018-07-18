@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p><input type="checkbox" v-model="chk" name="" id="">{{chk}}</p>
+            <p>
+                爱好：
+                <label><input type="checkbox" value="eat" v-model="hobbies" checked="checked">吃饭</label>
+                <label><input type="checkbox" value="sleep" v-model="hobbies">睡觉</label>
+                <label><input type="checkbox" value="play" v-model="hobbies">玩</label>
+                <br>
+                {{ hobbies }}
+            </p>
+            <p>
+                    性别：
+                    <label><input type="radio" value="female" v-model="sex" checked="checked">男</label>
+                    <label><input type="radio" value="male" v-model="sex">女</label>
+                    <label><input type="radio" value="secrect" v-model="sex">保密</label>
+                    <br>
+                    {{ sex }}
+                </p>
+                <p>
+                    选择
+                  <select name="" id="" v-model="selected" >
+                      <option  >四川</option>
+                      <option  value="beijing">北京</option>
+                      <option  value="shanghai">上海</option>
+                  </select>
+                  {{selected}}
+                </p>
+                <p><input type="text" v-model.lazy="msg" name="" id="">
+                    {{msg}}
+                </p>
+                <p><input type="text" v-model.number="num" name="" id="">
+                    {{num + 15}}
+                </p>
+                <p><input type="text" v-model.trim="text" name="" id=""><br>
+                    {{text.length}}--{{text}}
+                </p>
+    
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+           el:"#app",
+           data:{
+            chk:true,
+            hobbies : ["sleep"],
+            sex:"",
+            selected:"",
+            msg:"hekl",
+            num:15,
+            text:"bc"
+           } 
+        });
+    </script>
+</body>
+</html>

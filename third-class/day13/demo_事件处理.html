@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+       <button v-on:click="reverse">反转</button>
+       <p @click.once="say('大家好',$event)">sayhi</p>
+       <textarea cols="30" rows="10"  @keydown.ctrl.enter.exact="show"></textarea>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"您好"
+            },
+            methods:{
+                reverse(){
+                    this.message = this.message.split("").reverse().join("");
+                },
+                say(msg,e){
+                    alert(msg);
+                    alert(e.target);
+                },
+                show(){
+                    console.log("按下了ctrl+enter");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

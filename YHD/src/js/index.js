@@ -35,7 +35,7 @@ require(["config"], function() {
 					src: "/img/banner7.jpg"
 
 				}],
-				width: "1263px",
+				width: "1023px",
 				height: "400px",
 				showBtn: true,
 				function(index) {
@@ -76,6 +76,7 @@ require(["config"], function() {
 						list: data.res_body
 					});
 					$(".menus").html(html);
+					
 				});
 			}
 
@@ -91,15 +92,8 @@ require(["config"], function() {
 				}
 
 				$(".floor").each(function() {
-					var index = $(this).index() - 1;
-					//console.log("---" + $(".floor").size() + "---" + $(this).index())
-					//					if ($(this).index() == 7) {
-					//						console.log("---" + $(".floor").eq($(this).index()));
-					//						return false;
-					//					}
+					var index = $(this).index()-1;
 					var v_top = $(".floor").eq(index).offset().top;
-					//console.log(v_top + "----" + $scroll+"----"+$(this).index())
-					//console.log(v_top);
 					if (v_top > $scroll) { //楼层的top大于滚动条的距离
 						$('.louceng_box li').removeClass('louceng_active');
 						$('.louceng_box li').eq(index).addClass('louceng_active');
@@ -110,9 +104,10 @@ require(["config"], function() {
 			});
 
 			$(".louceng").on("click", "li", function() {
+				var index = $(this).index();
 				console.log("----click--" + $(this).index());
-				$(this).addClass("louceng_active").siblings("li").removeClass("louceng_active");
-				var _top = $(".floor").eq($(this).index()).offset().top;
+				$(this).eq(index+1).addClass("louceng_active").siblings("li").removeClass("louceng_active");
+				var _top = $(".floor").eq(index-1).offset().top;
 				console.log(_top);
 				$("html,body").animate({
 					scrollTop: _top

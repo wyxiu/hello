@@ -82,7 +82,7 @@
 				background:"#f00"
 			});
 			// 向前/后
-			$(".prev,.next", this.container).css({
+			$(".prev", this.container).css({
 				width: 45,
 				height: 75,
 				background: "#000",
@@ -97,8 +97,18 @@
 				margin:"auto"
 			});
 			$(".next",this.container).css({
-				right: 0,
-				left:698
+				width: 45,
+				height: 75,
+				background: "#000",
+				opacity:.5,
+				lineHeight: "75px",
+				textAlign: "center",
+				color: "#fff",
+				position: "absolute",
+				top:0,
+				bottom: 0,
+				margin:"auto",
+				right: 300
 			});
 			// 判断是否显示按钮
 			if (!this.showBtn)

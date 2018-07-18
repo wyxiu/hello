@@ -7,6 +7,7 @@ require(["config", "login"], function() {
 			// 	$(".ht_login").html("欢迎您：" + users[0].username);
 			// }
 			// console.log(users);
+
 			//banner轮播图
 			$(".bann_imgs").carousel({
 				duration: 3000,
@@ -20,8 +21,6 @@ require(["config", "login"], function() {
 					href: "#",
 					src: "/img/bann3.jpg"
 				}],
-				width: "100%",
-				height: "100%",
 				showBtn: true
 			});
 
@@ -206,16 +205,12 @@ require(["config", "login"], function() {
 						$(this).click(function() {
 							$(this).parent().children(".vege_current").removeClass("vege_current");
 							$(this).addClass("vege_current");
-
 							var curTitle = $(this).parents(".vegetable").find("h3").text();
 							var curItem = $(this).children("a").text();
-							//console.log(curTitle + "----" + curItem);
 							for (var i = 0; i < data.res_body.length; i++) {
 								if (data.res_body[i].title == curTitle) {
 									for (var j = 0; i < data.res_body[i].items.length; j++) {
-										//console.log("000items" + data.res_body[i].items[j].name);
 										if (data.res_body[i].items[j].name == curItem) {
-											//console.log(data.res_body[i].items[j].goods);
 											const vegetables = template("floor_good_templates", {
 												goods: data.res_body[i].items[j].goods
 											});
@@ -320,24 +315,6 @@ require(["config", "login"], function() {
 					amount: 1
 				};
 
-				/*
-				var id=$(this).parents("li").children(".goods_id").text(),
-					img=$(this).parents("li").children("a").children("img").attr("src"),
-					title=$(this).parents("li").children(".p1").text(),
-					price=$(this).parents("li").find(".goods_price").text(),
-					amount=1;
-				
-				$.ajax({
-					type:"get",
-					url:"/html/detail.html",
-					data:{id:id,img:img,title:title,price:price,amount:amount},
-					dataType :"json",
-					success:function(data){
-						window.location.href = "/html/detail.html";	
-					}
-				});
-				*/
-
 				var params = "id=" + shop.id + "&img=" + shop.img + "&title=" +
 					shop.title + "&price=" + shop.price + "&amount=" + shop.amount;
 				console.log("/html/detail.html?" + params);
@@ -415,18 +392,7 @@ require(["config", "login"], function() {
 					$(".fixed_floor").show();
 				} else {
 					$(".fixed_floor").hide();
-				}
-				
-				/*
-				$(".fixed_floor_box").on("click", "li", function() {
-					$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
-					var _top = $(".vegetable").eq($(this).index()).offset().top;
-					console.log(_top);
-					$("html,body").animate({
-						scrollTop: _top
-					})
-				});
-				*/
+				}		
 				$(".vegetable").each(function() {
 					var v_top = $(".vegetable").eq($(this).index()).offset().top;
 					if (v_top > $scroll) { //楼层的top大于滚动条的距离
@@ -437,6 +403,17 @@ require(["config", "login"], function() {
 				});
 
 			});
+
+				
+				$(".fixed_floor_box").on("click", "li", function() {
+					$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
+					var _top = $(".vegetable").eq($(this).index()).offset().top;
+					console.log(_top);
+					$("html,body").animate({
+						scrollTop: _top
+					})
+				});
+				
 
 			// 吸顶效果
 			// $(window).scroll(function() {

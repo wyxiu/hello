@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+                <test></test>
+                <test></test>
+                <test></test>
+                <test></test>
+            </div>
+        
+            <script src="lib/vue.js"></script>
+            <script>
+                Vue.component("test",{
+                    template : "<div><button @click='count = count +1 '>被点击次数:{{count}} </button></div>",
+                    data:function(){
+                       return {
+                           count : 0
+                       }
+                    }
+                });
+                var app = new Vue({
+                    el:"#app",
+                    data:{
+                        msg:"hello"
+                    }
+                });
+            </script>
+</body>
+</html>

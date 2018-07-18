@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(i,index) in items" :key="i">{{index}}-{{i}}</li>
+        </ul>
+        <h3>学生信息</h3>
+         <ul>
+             <li v-for="value in stu" >{{value}}</li>
+         </ul>
+         <ul>
+            <template v-for = "stu in students">
+                <li>学生姓名：{{stu.name}}</li>
+                <li>学生年龄：{{stu.age}}</li>
+                <li>--------------</li>
+            </template> 
+         </ul>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                items:['test1','test2','test3','test4'],
+                stu:{
+                    name : 'zhangsan',
+                    age:18,
+                    phone:'18155663882'
+                },
+            students:[
+                {name:'张三',age:18},
+                {name:'李艾',age:20},
+                {name:'王五',age:22},
+
+            ]
+            }
+        });
+    </script>
+</body>
+</html>
