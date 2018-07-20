@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>添加</h3>
+        <form action="" @submit.prevent="add">
+            <input type="text"  v-model.trim="newToDoText">
+            <button>添加</button>
+        </form>
+        <h3>正在进行:{{incomplete.length}}</h3>
+        <ul>
+            <li is="todo-item" v-for="item in incomplete" :key="item.id" v-bind:item="item" @remove="del(item)"></li>
+        </ul>
+        <h3>已完成</h3>
+        <ul>
+            <li is="todo-item" v-for="item in completed" :key="item.id" v-bind:item="item" @remove="del(item)"></li>
+         </ul>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        Vue.component("todo-item",{
+            props: ["item"],
+            template:`<li><input type="checkbox" v-model="item.isComplete"/>{{item.content}}<button @click="$emit('remove')">删除</button></li>`
+                
+           
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                todos:[
+                    {id:1,content:"吃饭",isComplete:false},
+                    {id:2,content:"睡觉",isComplete:false},
+                    {id:3,content:"学习",isComplete:false},
+                    {id:4,content:"玩游戏",isComplete:false}
+                    
+                ],
+                newToDoText : "",
+                nextIndex : 5
+            },
+            methods:{
+                del(item){
+                    var index = this.todos.indexOf(item);
+                    this.todos.splice(index,1);
+                },
+                add(){
+                    if(this.newToDoText.length===0){
+                        return;
+                    }
+                    this.todos.push({id:this.nextIndex++,content:this.newToDoText,isComplete:false});
+                    this.newToDoText = "";
+                }
+            },
+            computed:{
+                incomplete(){
+                    return this.todos.filter((curr)=>!curr.isComplete);
+                },
+                completed(){
+                    return this.todos.filter((curr)=>curr.isComplete);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

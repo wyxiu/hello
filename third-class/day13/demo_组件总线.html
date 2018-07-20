@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <big-brother></big-brother>
+        <hr>
+        <little-brother></little-brother>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        //创建总线对象
+        var bus = new Vue();
+        Vue.component("big-brother",{
+            template:`<div>我是哥哥<button @click="hit">打你</button>{{msg}}</div>`,
+            data(){
+                return {
+                    msg : ""
+                }
+            },
+           methods: {
+               hit(){
+                   bus.$emit("cry");
+               },
+               run(){
+                   this.msg="跑跑跑跑跑跑跑"
+               }
+           },
+           mounted() {
+               bus.$on("run",this.run)
+           }
+        });
+        Vue.component("little-brother",{
+            template:`<div>我是弟弟<button @click="bite">咬你</button>{{msg}}</div>`,
+            data(){
+                return {
+                    msg : ""
+                }
+            },
+            methods:{
+                bite(){
+                    bus.$emit("run");
+                },
+                cry(){                 
+                      this.msg="哭哭哭哭哭哭哭"                    
+                }
+            },
+            mounted() {
+               bus.$on("cry",this.cry)
+           }
+            
+        });
+        var app = new Vue({
+            el:"#app"
+        })
+    </script>
+</body>
+</html>

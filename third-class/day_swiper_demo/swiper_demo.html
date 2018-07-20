@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css" type="text/css">
+    <style>
+        .swiper-container {
+            width: 590px;
+			height: 470px;
+}  
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img-list></img-list> 
+    </div>
+        <template id="img_temp">
+                <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for = "list in lists">
+                                <img :src="list.img"/>
+                            </div>
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+                        
+                        <!-- 如果需要导航按钮 -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>s
+                    </div>
+        </template>
+    <script src="lib/vue.js"></script>
+    <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+        Vue.component("img-list",{
+            template:"#img_temp",
+            data(){
+                return{
+                    lists:[]
+                }
+            },
+            methods:{
+                loadImg(){
+                    axios.get("./imgs.json").then(data=>{
+                        this.lists = data.res_body.lists;
+                    })
+                }
+            },
+            created() {
+                this.loadImg();
+            },
+            updated() {
+                 new Swiper ('.swiper-container', {
+                    direction: 'vertical',
+                    loop: true,
+                    
+                    // 如果需要分页器
+                    pagination: {
+                    el: '.swiper-pagination',
+                    },
+                    
+                    // 如果需要前进后退按钮
+                    navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                    }
+  })        
+            },
+        });
+        new Vue({
+            el:"#app"
+        })
+    </script>
+</body>
+</html>

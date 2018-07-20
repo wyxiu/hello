@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+            <div :style="{fontSize: fontSize + 'px'}">
+                <post-list v-for="post in posts" :key="post.id" :message="post.message" @chg="chg"></post-list>
+            </div>
+            </div>
+                <script src="lib/vue.js"></script>
+                <script>                  
+                    Vue.component("post-list",{
+                        props:["message"],
+                        template:`<div>{{message}}<button @click="change">点击字体变大</button></div>`,
+                        methods:{
+                            change(){
+                                this.$emit("chg",7);
+                            }
+                        }
+                    });
+                    var app = new Vue({
+                    el:"#app",
+                        data:{
+                        fontSize : 20,
+                        posts : [
+                        {id : 1,message : "消息1"},
+                        {id : 2,message : "消息2"},
+                        {id : 3,message : "消息3"},
+				    ]
+                    },
+                    methods:{
+                        chg(val){
+                            this.fontSize +=val;
+                        }
+                    }
+                   
+                    })
+
+                </script>
+</body>
+</html>

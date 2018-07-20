@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <h3>添加</h3>
+        <form action="" @submit.prevent>
+            <input type="text" v-model="newText"><button @click = "add">添加</button>
+        </form>
+        <h3>正在进行:({{unComplete.length}})</h3>
+            <ul>
+                <li is="list-item" v-for = "(item,index) in unComplete" 
+                :key="item.id" :item="item" @remove="del(index)" @update="update(item)"></li>            
+            </ul>
+        <h3>已经完成:({{complated.length}})</h3>
+            <ul>
+                 <li is="list-item" v-for = "(item,index) in complated" 
+                 :key="item.id" :item="item" @remove="del(index)"></li>  
+            </ul>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        Vue.component("list-item",{
+            props:["item"],
+            template:
+            `<li>
+                <input type="checkbox" v-model="item.isComplete">
+                {{item.content}}
+                <input type="text" v-show="this.curr === item.content">
+                <button @click="$emit('remove')">delete</button>
+                <button @click="$emit('update')">edit</button>
+            </li>`
+
+        });
+        new Vue({
+            el : "#box",
+            data:{
+                items:[
+                    {id:1,content:"吃饭",isComplete:false},
+                    {id:2,content:"睡觉",isComplete:false},
+                    {id:3,content:"学习",isComplete:false},
+                    {id:4,content:"玩游戏",isComplete:false}
+                ],
+                newText : "",
+                nextIndex : 5,
+                curr : ""
+            },
+            methods: {
+
+                add(){
+                    this.items.push({id:this.nextIndex++,content:this.newText,isComplete:false});
+                    this.newText = ""
+                },
+                del(index){
+                   // var index = this.items.indexOf(item);
+                    this.items.splice(index,1);
+                },
+                update(item){
+                    this.curr = item.content;
+                }
+            },
+            computed:{
+                unComplete(){
+                    return this.items.filter(curr=>!curr.isComplete);
+                },
+                complated(){
+                    return this.items.filter(curr=>curr.isComplete);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

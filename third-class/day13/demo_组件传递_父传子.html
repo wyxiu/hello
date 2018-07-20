@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <post-list v-for="post in posts" :key="post.id" :post="post"></post-list>
+        </ul>
+    </div>
+        <script src="lib/vue.js"></script>
+        <script>
+           
+            Vue.component("post-list",{
+                 props : ["post"],
+                props: {
+				post : Object
+			},
+                template:
+                    `<div>
+                        <li>编号：{{post.id}}</li>
+                        <li>标题：{{post.title}}</li>
+                        <li>描述：{{post.desc}}</li>
+                    </div>`
+                
+            });
+       
+       /*
+        Vue.component("post-list", {
+			props : ["id", "title", "desc"],
+			template : `
+				<div>
+					<li>编号：{{id}}</li>
+					<li>标题：{{title}}</li>
+					<li>描述：{{desc}}</li>
+				</div>`
+        });
+        */
+            var app = new Vue({
+               el:"#app",
+               data:{
+                 posts : [
+					{id: 1, title: "第一篇", desc: "这是第一篇文章"},
+					{id: 2, title: "第2篇", desc: "这是第2篇文章"},
+					{id: 3, title: "第3篇", desc: "这是第3篇文章"},
+					{id: 4, title: "第4篇", desc: "这是第4篇文章"}
+				] 
+               } 
+            });
+        </script>
+</body>
+</html>
