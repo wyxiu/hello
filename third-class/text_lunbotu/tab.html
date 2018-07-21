@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .tab ul{
+                padding:0;
+                margin:0;
+                list-style: none;
+            }
+            .tab ul li {
+                float:left;
+                width:35px;
+                text-align: center;
+            }
+            .tab ul .curli{
+                color:red;
+            }
+            .content{
+                clear:both;
+            }
+            .content div{
+                width:300px;
+                height: 200px;
+                border: 1px solid #000;
+                display: none;
+            }
+            .content .curdiv{
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <div id="box">
+       <tab :titles="['aa','bb','cc']" :contents="['aa content','bb content','cc content']"></tab>
+    </div>
+    <script src="js/vue.js"></script> 
+    <script>
+        var tab = {
+            props:["titles","contents"],
+            data(){
+                return{
+                    cur:0
+                }
+            },
+            template:
+                `<div class="tab">
+                <ul>
+                    <li :class="{'curli':index===cur}" 
+                    v-for="(item,index) in titles" 
+                    :key="index" @click="change(index)">{{item}}</li>
+                 </ul>
+                 <div class="content">
+                    <div v-for="(item,index) in contents" :class="{'curdiv':index===cur}">
+                        {{item}}
+                    </div>
+
+                </div>
+            </div>`,
+            methods:{
+                change(index){
+                    this.cur = index
+                }
+            }
+            
+        };
+        new Vue({
+            el:"#box",
+            components:{
+                tab
+            }
+        })
+    </script>
+</body>
+</html>

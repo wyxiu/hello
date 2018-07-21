@@ -37,11 +37,7 @@ require(["config"], function() {
 				}],
 				width: "1023px",
 				height: "400px",
-				showBtn: true,
-				function(index) {
-					console.log("---" + index);
-					$(".banner").css("background-color", "yellow");
-				}
+				showBtn: true
 			});
 
 			$(".menus").on("mouseenter", "li", function() {

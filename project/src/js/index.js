@@ -1,5 +1,5 @@
 require(["config", "login"], function() {
-	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie"], function($, template) {
+	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie","swiper"], function($, template) {
 		$(function() {
 			// $.cookie.json = true;
 			// const users = $.cookie("users");
@@ -39,6 +39,16 @@ require(["config", "login"], function() {
 					left: "-200px"
 				}, 500);
 			});
+
+			$(function(){
+				var mySwiper = new Swiper ('.swiper-container', {
+					loop: true,
+					autoplay:true,
+				  })        
+
+			});
+
+				  
 
 			//动态加载热搜数据
 			$(".hotAddNew_nav").on("mouseenter", "li", function() {

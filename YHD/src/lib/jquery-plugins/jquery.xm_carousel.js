@@ -14,9 +14,7 @@
 		this.nextIndex = 1; // 即将显示图片的索引
 		this.points = null; // 所有轮播图片对应的小点
 		this.timer = null; // 轮播切换时使用到的计时器
-		
-		
-
+		this.color = ["#6bb4f0","#e9f2ed","#374045","#41badc","#e8e3dc","#fff"];
 		this.createDom(); // 创建DOM结构
 		this.registerEventListener(); // 注册事件监听
 	}
@@ -116,10 +114,9 @@
 			// 修改索引
 			this.currentIndex = this.nextIndex;
 			this.nextIndex++;
-			if (this.nextIndex >= this.len)
+			if (this.nextIndex >= this.len||this.nextIndex >= this.color)
 				this.nextIndex = 0;
-				
-			
+	
 		},
 		// 自动轮播
 		autoPlay : function(){

@@ -8,7 +8,8 @@ require.config({
 		cookie : "lib/jquery-plugins/jquery.cookie",
 		fly : "lib/jquery-plugins/jquery.fly.min",
 		zoom : "lib/jquery-plugins/jquery.elevateZoom-3.0.8.min",
-		bootstrap:"lib/bootstrap/js/bootstrap.min"
+		swiper:"lib/jquery-plugins/swiper.min"
+	
 	},
 	shim:{
 		xm_carousel : {
@@ -20,7 +21,7 @@ require.config({
 		zoom : {
 			deps : ["jquery"]
 		},
-		bootstrap : {
+		swiper:{
 			deps : ["jquery"]
 		}
 	}

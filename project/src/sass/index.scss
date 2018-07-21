@@ -321,10 +321,11 @@ $top_border: 1px solid #e5e5e5;
                 }
             }
         }
-        .bann_right_bottom {
+        .swiper-container {
             height: 290px;
             background: white;
-            .bann_right_list {
+        
+            .swiper-slide {
                 padding-top: 20px;
                 padding-left: 10px;
                 position: relative;
@@ -356,6 +357,7 @@ $top_border: 1px solid #e5e5e5;
                     top: 110px;
                 }
             }
+        
         }
         .fixed_floor {
             width: 260px;
@@ -368,6 +370,7 @@ $top_border: 1px solid #e5e5e5;
             }
         }
     }
+   
     .kinds_list_des {
         width: 440px;
         height: 471px;

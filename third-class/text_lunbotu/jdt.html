@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+    <style>
+            .progress{
+                margin-top: 10px;
+            }
+     </style>
+    
+</head>
+<body>
+    <div id="box">
+        <div class="container">
+            <jdu  v-for="(item,index) in list" :num="index+1" @finished="finish" :jd="item" :key="index"></jdu>
+            <p>这是第{{num}}个完成任务</p>
+        </div>
+    </div>
+  <script src="js/vue.js"></script>
+  <script>
+      var jdu = {
+          props:["jd","num"],
+          data(){
+             
+              return{
+                  x:this.jd
+              }
+          },
+          template:`<div class='progress'>
+					<div class='progress-bar' :style="{'width':x+'%'}">{{x}}%</div>
+                </div>`,
+            created() {
+                let timer = setInterval(()=>{
+                    this.x++;
+                if(this.x === 100){
+                    clearInterval(timer);
+                    this.$emit("finished",this.num);
+
+                }
+                },200);
+            },
+      }
+      new Vue({
+          el:"#box",
+          components:{
+              jdu,
+          },
+          data:{
+              list : [20,40,50,18],
+              num:0
+          },
+          methods: {
+              finish(n){
+                  this.num = n;
+              }
+          }
+      })
+  </script>
+</body>
+</html>
