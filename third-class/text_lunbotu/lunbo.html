@@ -79,7 +79,7 @@
                         <span>无添加不勾兑</span>
                         <p class="p2">￥<b>44.9</b></p>
                         <div class="progress jdt">
-                            <div class="progress-bar"  style="width: 2%;"> </div>                         
+                            <div class="progress-bar jd"  style="width: 2%;"> </div>                         
                         </div>
                         <div class="progress jdt2">
                                 <div class="progress-bar jd"  style="width: 2%;"> </div>                         
@@ -95,10 +95,10 @@
                         <span>无添加不勾兑</span>
                         <p class="p2">￥<b>44.9</b></p>
                         <div class="progress jdt">
-                                <div class="progress-bar"  style="width:2%;"> </div>                         
+                                <div class="progress-bar jd"  style="width:2%;"> </div>                         
                             </div>
                             <div class="progress jdt2">
-                                    <div class="progress-bar"  style="width:2%;"> </div>                         
+                                    <div class="progress-bar jd"  style="width:2%;"> </div>                         
                              </div>
                         <img src="./imgs/2018021217532341781591.jpg" />
                     </a>
@@ -114,8 +114,8 @@
   }); 
         
             var timer = setInterval(function(){
-              var widths =  document.getElementsByClassName("progress-bar")[0].width;
-              console.log(widths);
+              var widths =  document.getElementsByClassName("jd")[0].width;
+              console.log(document.getElementsByClassName("jd")[0]);
                  widths++;
                 if(widths===100){
                     clearInterval(timer);

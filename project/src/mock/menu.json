@@ -2,7 +2,8 @@
 	"res_code": 0,
 	"res_error": "",
 	"res_body": [
-		{
+		{	
+			"id":"type_1",
 			"title": "蔬菜水果",
 			"image": "/img/2lygh.jpg",
 			"items": [
@@ -13,7 +14,8 @@
 				}
 			]
 		},
-		{
+		{	
+			"id":"type_2",
 			"title": "粮油干活",
 			"image": "/img/1gssx.jpg",
 			"items": [
@@ -34,6 +36,7 @@
 			]
 		},
 		{
+			"id":"type_3",
 			"title": "休闲食品",
 			"image": "/img/3xxsp.jpg",
 			"items": [
@@ -45,6 +48,7 @@
 			]
 		},
 		{
+			"id":"type_4",
 			"title": "肉禽蛋奶",
 			"image": "/img/4rcdn.jpg",
 			"items": [
@@ -80,35 +84,152 @@
 			]
 		},
 		{
-			"title": "蔬菜水果",
+		    "id":"type_5",
+			"title": "进口食品",
 			"image": "/img/5jksp.jpg",
 			"items": [
 				{
-					"name": "蔬菜"
+					"name": "酒水茶饮"
 				}, {
-					"name": "水果"
-				}
+					"name": "营养食品"
+				},
+				{
+					"name": "保健品"
+				},
+				{
+					"name": "冲饮/咖啡/麦片/乳制品"
+				},
+				{
+					"name": "酒水"
+				},
+				{
+					"name": "茗茶"
+				},
+				{
+					"name": "母婴食品"
+				},
+				{
+					"name": "水产/肉禽蛋类"
+				},
+				{
+					"name": "新鲜蔬果"
+				}			
 			]
 		},
 		{
-			"title": "蔬菜水果",
+		    "id":"type_6",
+			"title": "酒水茶饮",
 			"image": "/img/6jscy.jpg",
 			"items": [
 				{
-					"name": "蔬菜"
+					"name": "白酒"
+				}, {
+					"name": "保健食品酒"
+				}, {
+					"name": "果酒/配制酒"
+				}, {
+					"name": "黄酒/养生酒"
+				}, {
+					"name": "啤酒"
+				}, {
+					"name": "葡萄酒"
+				}, {
+					"name": "洋酒"
+				}
+			]
+		},
+		{
+		    "id":"type_7",
+			"title": "营养食品",
+			"image": "/img/7yysp.jpg",
+			"items": [
+				{
+					"name": "成人奶粉"
+				}, {
+					"name": "保健食品酒"
+				}, {
+					"name": "其它饮品"
+				}, {
+					"name": "乳制品"
+				}, {
+					"name": "速溶咖啡/咖啡豆/咖啡粉"
+				}, {
+					"name": "饮料"
 				}, {
 					"name": "水果"
 				}
 			]
 		},
 		{
-			"title": "蔬菜水果",
+		   "id":"type_8",
+			"title": "保健品",
+			"image": "/img/8lh.jpg",
+			"items": [
+				{
+					"name": "阿胶"
+				}, {
+					"name": "保健食品"
+				}, {
+					"name": "参类滋补品"
+				}, {
+					"name": "藏红花"
+				}, {
+					"name": "传统滋补养品"
+				}, {
+					"name": "冬虫夏草"
+				}, {
+					"name": "营蜂产品"
+				}, {
+					"name": "蜂蜜"
+				}, {
+					"name": "枸杞及其制"
+				}, {
+					"name": "鹿茸"
+				}, {
+					"name": "玛卡其他"
+				}, {
+					"name": "三七膳食"
+				}, {
+					"name": "营养补充食品"
+				}, {
+					"name": "石斛"
+				}, {
+					"name": "天麻"
+				}, {
+					"name": "雪蛤"
+				}
+			]
+		},
+		{	"id":"type_9",
+			"title": "母婴专区",
+			"image": "/img/9myzq.jpg",
+			"items": [
+				{
+					"name": "婴幼儿辅食/"
+				}, {
+					"name": "零食婴幼儿奶粉"
+				}, {
+					"name": "孕婴营养品"
+				}
+			]
+		},
+		{  
+		   "id":"type_10",
+			"title": "名茶",
 			"image": "/img/7yysp.jpg",
 			"items": [
 				{
-					"name": "蔬菜"
+					"name": "铁观音"
 				}, {
-					"name": "水果"
+					"name": "红茶"
+				}, {
+					"name": "龙井"
+				}, {
+					"name": "绿茶"
+				}, {
+					"name": "花茶"
+				}, {
+					"name": "养生茶"
 				}
 			]
 		}

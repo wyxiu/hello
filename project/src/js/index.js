@@ -109,18 +109,19 @@ require(["config", "login"], function() {
 				}, 300);
 				$(".kinds_list_des").show();
 				var idStr = $(this).attr("id");
+				getSecondMenu(idStr);
 
-				if (idStr == "type_1") {
-					getSecondMenu(0);
-				} else if (idStr == "type_2") {
-					getSecondMenu(1);
-				} else if (idStr == "type_3") {
-					getSecondMenu(2);
-				} else if (idStr == "type_4") {
-					getSecondMenu(3);
-				} else if (idStr == "type_5") {
-					getSecondMenu(4);
-				}
+//				if (idStr == "type_1") {
+//					getSecondMenu(0);
+//				} else if (idStr == "type_2") {
+//					getSecondMenu(1);
+//				} else if (idStr == "type_3") {
+//					getSecondMenu(2);
+//				} else if (idStr == "type_4") {
+//					getSecondMenu(3);
+//				} else if (idStr == "type_5") {
+//					getSecondMenu(4);
+//				}
 			});
 			$(".kinds_list").on("mouseleave", "li", function() {
 				$(this).stop();
@@ -143,37 +144,31 @@ require(["config", "login"], function() {
 				$(".kinds_list_des").hide();
 			});
 
-			function getSecondMenu(i) {
+			function getSecondMenu(id) {
 				//console.log("---getSecondMenu");
 				$.getJSON("/mock/menu.json", function(data) {
-					const html = template("secondMenu_template", {
-						typeItem: data.res_body[i]
-					});
-					$(".kinds_list_des").html(html);
+					for(var i=0,len=data.res_body.length;i<len;i++){
+						if(data.res_body[i].id === id){						
+							const html = template("secondMenu_template", {
+							typeItem: data.res_body[i]
+							});
+							$(".kinds_list_des").html(html);
+						return;
+						}
+						
+					}					
+					
 				});
 			}
 			getSecondMenu(0);
 
 			//动态加载楼层菜单
-
-			$(".vgtrb_lists").on("mouseenter", "li", function() {
-				//console.log("============");
-				$(this).addClass("vege_current");
-
-				$(".vege_current").removeClass("vege_current");
-			});
-
-			//
-
 			function getFloorMenu() {
-				//console.log("getFloorMenu")
 				$.getJSON("/mock/floor.json", function(data) {
-					//console.log(data.res_body[i]);
 					const vegetables = template("floor_template", {
 						list: data.res_body
 					});
 					$(".floorcontent").html(vegetables);
-
 					$('.vegetable_right_bottom').each(function() {
 						var curTitle = $(this).parents(".vegetable").find("h3").text();
 						for (var i = 0; i < data.res_body.length; i++) {
@@ -212,7 +207,7 @@ require(["config", "login"], function() {
 					});
 
 					$('.goods_type_name').each(function() {
-						$(this).click(function() {
+						$(this).mouseenter(function() {
 							$(this).parent().children(".vege_current").removeClass("vege_current");
 							$(this).addClass("vege_current");
 							var curTitle = $(this).parents(".vegetable").find("h3").text();
@@ -405,7 +400,7 @@ require(["config", "login"], function() {
 				}		
 				$(".vegetable").each(function() {
 					var v_top = $(".vegetable").eq($(this).index()).offset().top;
-					if (v_top > $scroll) { //楼层的top大于滚动条的距离
+					if (v_top >= $scroll) { //楼层的top大于滚动条的距离
 						$('.fixed_floor_box li').removeClass('floor_current');
 						$('.fixed_floor_box li').eq($(this).index()).addClass('floor_current');
 						return false; //中断循环
@@ -416,7 +411,7 @@ require(["config", "login"], function() {
 
 				
 				$(".fixed_floor_box").on("click", "li", function() {
-					$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
+					//$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
 					var _top = $(".vegetable").eq($(this).index()).offset().top;
 					console.log(_top);
 					$("html,body").animate({
@@ -479,7 +474,7 @@ require(["config", "login"], function() {
 					$("#cart_form_img").val($(this).parents("li").children("a").children("img").attr("src"));
 					$("#cart_form_price").val($(this).parents("li").find(".goods_price").text());
 					$("#cart_form_amount").val(1);
-					console.log($("#cart_form").serialize());
+					//console.log($("#cart_form").serialize());
 					$.post("http://localhost/api/add.php", $("#cart_form").serialize(), function(d) {
 						if (d.res_code === 1) {
 							console.log("successful----------------");
