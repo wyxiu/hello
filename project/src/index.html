@@ -154,7 +154,7 @@
 						<span class="goods_id" style="display: none;">{{good.id}}</span>
 						<p class="p1">{{good.title}}</p>
 						<p class="p2">￥<b class="goods_price">{{good.price}}</b></p>
-						<a class="good_detail" href="#"><img class="good_img" src="{{good.img}}" /></a>
+						<a class="good_detail" href="#"><img class="good_img" data-original="{{good.img}}" src="{{good.img}}" /></a>
 						<span>元宝最高抵扣 ￥ <b>{{good.descount}}</b></span>
 						<div class="hottocart">
 							<i class="iconfont icon-muying"></i>
@@ -256,7 +256,7 @@
 					<a href="#">
 						<p class="p1">{{curr.title}}</p>
 						<p class="p2">￥<b class="goods_price">{{curr.price}}</b></p>
-						<img src="{{curr.img}}" />
+						<img class="good_img" data-original="{{curr.img}}" src="{{curr.img}}" />
 						<div class="hottocart">
 							<i class="iconfont icon-muying"></i>
 							<a href="javascript:void(0);">加入购物车</a>

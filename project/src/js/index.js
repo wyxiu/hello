@@ -1,12 +1,27 @@
 require(["config", "login"], function() {
-	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie","swiper"], function($, template) {
+	require(["jquery", "template", "load", "xm_carousel", "fly", "cookie", "swiper", "lazy"], function($, template) {
 		$(function() {
-			// $.cookie.json = true;
-			// const users = $.cookie("users");
-			// if (users !== "") {
-			// 	$(".ht_login").html("欢迎您：" + users[0].username);
-			// }
-			// console.log(users);
+			$.cookie.json = true;
+			const users = $.cookie("users");
+			if (isEmpty(users)) {
+				//$(".ht_login").html("欢迎您：" + users[0].username);
+			} else {
+				$(".ht_login").html("欢迎您：" + users[0].username);
+			}
+			console.log(users);
+			
+			var mySwiper = new Swiper('.swiper-container', {
+					loop: true,
+					autoplay: true,
+			});
+
+			function isEmpty(obj) {
+				if (typeof obj == "undefined" || obj == null || obj == "") {
+					return true;
+				} else {
+					return false;
+				}
+			}
 
 			//banner轮播图
 			$(".bann_imgs").carousel({
@@ -40,15 +55,13 @@ require(["config", "login"], function() {
 				}, 500);
 			});
 
-			$(function(){
-				var mySwiper = new Swiper ('.swiper-container', {
-					loop: true,
-					autoplay:true,
-				  })        
-
-			});
-
-				  
+//			$(function() {
+//				var mySwiper = new Swiper('.swiper-container', {
+//					loop: true,
+//					autoplay: true,
+//				})
+//
+//			});
 
 			//动态加载热搜数据
 			$(".hotAddNew_nav").on("mouseenter", "li", function() {
@@ -72,6 +85,10 @@ require(["config", "login"], function() {
 						goods: data.res_body.list
 					});
 					$("#hotAddNew_hot").html(html);
+					console.log("-----lazyload3");
+					$("img.good_img").lazyload({　
+						effect: "fadeIn"
+					});
 				});
 			}
 			//渲染模板hotsale		
@@ -82,6 +99,9 @@ require(["config", "login"], function() {
 						goods: data.res_body.list_new
 					});
 					$("#hotAddNew_hot").html(hotsnews);
+					$("img.good_img").lazyload({　
+						effect: "fadeIn"
+					});
 				});
 			}
 
@@ -92,6 +112,10 @@ require(["config", "login"], function() {
 						goods: data.res_body.list_brand
 					});
 					$("#hotAddNew_hot").html(hotsbrands);
+					console.log("------lazyload1");
+					$("img.good_img").lazyload({　
+						effect: "fadeIn"
+					});
 				});
 			}
 
@@ -111,17 +135,17 @@ require(["config", "login"], function() {
 				var idStr = $(this).attr("id");
 				getSecondMenu(idStr);
 
-//				if (idStr == "type_1") {
-//					getSecondMenu(0);
-//				} else if (idStr == "type_2") {
-//					getSecondMenu(1);
-//				} else if (idStr == "type_3") {
-//					getSecondMenu(2);
-//				} else if (idStr == "type_4") {
-//					getSecondMenu(3);
-//				} else if (idStr == "type_5") {
-//					getSecondMenu(4);
-//				}
+				//				if (idStr == "type_1") {
+				//					getSecondMenu(0);
+				//				} else if (idStr == "type_2") {
+				//					getSecondMenu(1);
+				//				} else if (idStr == "type_3") {
+				//					getSecondMenu(2);
+				//				} else if (idStr == "type_4") {
+				//					getSecondMenu(3);
+				//				} else if (idStr == "type_5") {
+				//					getSecondMenu(4);
+				//				}
 			});
 			$(".kinds_list").on("mouseleave", "li", function() {
 				$(this).stop();
@@ -147,17 +171,17 @@ require(["config", "login"], function() {
 			function getSecondMenu(id) {
 				//console.log("---getSecondMenu");
 				$.getJSON("/mock/menu.json", function(data) {
-					for(var i=0,len=data.res_body.length;i<len;i++){
-						if(data.res_body[i].id === id){						
+					for (var i = 0, len = data.res_body.length; i < len; i++) {
+						if (data.res_body[i].id === id) {
 							const html = template("secondMenu_template", {
-							typeItem: data.res_body[i]
+								typeItem: data.res_body[i]
 							});
 							$(".kinds_list_des").html(html);
-						return;
+							return;
 						}
-						
-					}					
-					
+
+					}
+
 				});
 			}
 			getSecondMenu(0);
@@ -220,6 +244,10 @@ require(["config", "login"], function() {
 												goods: data.res_body[i].items[j].goods
 											});
 											$(this).parents(".vegetable").find(".vegetable_right_bottom").html(vegetables);
+											console.log("-------lazyload");
+											$("img.good_img").lazyload({　
+												effect: "fadeIn"
+											});
 											break;
 										}
 									}
@@ -393,11 +421,11 @@ require(["config", "login"], function() {
 			$(window).on('scroll', function() {
 				var $scroll = $(this).scrollTop();
 
-				if ($scroll>= 600) {
+				if ($scroll >= 600) {
 					$(".fixed_floor").show();
 				} else {
 					$(".fixed_floor").hide();
-				}		
+				}
 				$(".vegetable").each(function() {
 					var v_top = $(".vegetable").eq($(this).index()).offset().top;
 					if (v_top >= $scroll) { //楼层的top大于滚动条的距离
@@ -409,16 +437,14 @@ require(["config", "login"], function() {
 
 			});
 
-				
-				$(".fixed_floor_box").on("click", "li", function() {
-					//$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
-					var _top = $(".vegetable").eq($(this).index()).offset().top;
-					console.log(_top);
-					$("html,body").animate({
-						scrollTop: _top
-					})
-				});
-				
+			$(".fixed_floor_box").on("click", "li", function() {
+				//$(this).addClass("floor_current").siblings("li").removeClass("floor_current");
+				var _top = $(".vegetable").eq($(this).index()).offset().top;
+				console.log(_top);
+				$("html,body").animate({
+					scrollTop: _top
+				})
+			});
 
 			// 吸顶效果
 			// $(window).scroll(function() {
