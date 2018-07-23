@@ -104,6 +104,8 @@
 		},
 		// 图片轮播切换
 		move : function(){
+			var that = this;
+			$(".banner").css({background:this.color[that.nextIndex]});
 			// 当前图片淡出
 			$(this.lis[this.currentIndex]).fadeOut();
 			// 即将显示图片淡入

@@ -20,9 +20,6 @@ require.config({
 		},
 		zoom : {
 			deps : ["jquery"]
-		},
-		swiper:{
-			deps : ["jquery"]
 		}
 	}
 });

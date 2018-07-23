@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,119 +9,162 @@
     <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        ul,li{
+
+        ul,
+        li {
             list-style: none;
         }
-         .swiper-container{
+
+        .swiper-container {
             height: 290px;
             width: 260px;
             margin-top: 20px;
-         }
-         .swiper-slide {
-                /* padding-top: 20px; */
-                padding-left: 10px;
-                position: relative;
-            }
-        .swiper-slide  li a {
-                display: block;
-                width: 260px;
-                height: 290px;
-            }
-               
-            .swiper-slide  li a .p1 {
-                    line-height: 25px;
-                    font-size: 14px;
-                    margin-bottom: 5px;
-                }
-             .swiper-slide  li a span {
-                    display: inline-block;
-                    width: 104px;
-                    height: 25px;
-                    background: red;
-                    text-align: center;
-                    line-height: 25px;
-                    color: white;
-                }
-             .swiper-slide  li a .p2 {
-                    position: absolute;
-                    color: red;
-                    top: 110px;
-                }
-            .swiper-slide  li a .jdt{
-                position: relative;
-                top:255px;
-                left: 85px;
-                width: 35px;
-                height: 6px;
-            }
-            .swiper-slide  li a .jdt2{
-                width: 35px;
-                height: 6px;
-               margin-left: 10px;
-            }
-            .swiper-slide  li a  .jd{
-                width: 35px;
-                height: 6px;
-            }
+        }
+
+        .progressindex {
+            /* height: 800px; */
+            width: 35px;
+            height: 15px;
+            margin-top: 50px;
+            position: absolute;
+            left: 610px;
+            top: 143px;
+            z-index: 999;
+        }
+
+        .swiper-slide {
+            /* padding-top: 20px; */
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .swiper-slide li a {
+            display: block;
+            width: 260px;
+            height: 290px;
+        }
+
+        .swiper-slide li a .p1 {
+            line-height: 25px;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .swiper-slide li a span {
+            display: inline-block;
+            width: 104px;
+            height: 25px;
+            background: red;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+        }
+
+        .swiper-slide li a .p2 {
+            position: absolute;
+            color: red;
+            top: 110px;
+        }
+
+        .swiper-slide li a .jdt {
+            position: relative;
+
+            width: 45px;
+            height: 6px;
+        }
+
+        .swiper-slide li a .jdt2 {
+            width: 45px;
+            height: 6px;
+            margin-left: 10px;
+        }
+
+        .swiper-slide li a .jd {
+            width: 35px;
+            height: 6px;
+        }
     </style>
 </head>
+
 <body>
     <div class="swiper-container">
-         <div class="swiper-wrapper">
+        <div class="swiper-wrapper">
             <ul class="swiper-slide">
                 <li>
                     <a href="#">
                         <p class="p1">烟台栖霞红富士苹果5斤装（果径80mm）5斤-80mm</p>
                         <span>无添加不勾兑</span>
-                        <p class="p2">￥<b>44.9</b></p>
-                        <div class="progress jdt">
-                            <div class="progress-bar jd"  style="width: 2%;"> </div>                         
-                        </div>
-                        <div class="progress jdt2">
-                                <div class="progress-bar jd"  style="width: 2%;"> </div>                         
-                         </div>
+                        <p class="p2">￥
+                            <b>44.9</b>
+                        </p>
+
                         <img src="./imgs/1212.jpg" />
                     </a>
                 </li>
-            </ul>          
+            </ul>
             <ul class="swiper-slide">
                 <li>
                     <a href="#">
                         <p class="p1">烟台栖霞红富士苹果5斤装（果径80mm）5斤-80mm</p>
                         <span>无添加不勾兑</span>
-                        <p class="p2">￥<b>44.9</b></p>
-                        <div class="progress jdt">
-                                <div class="progress-bar jd"  style="width:2%;"> </div>                         
-                            </div>
-                            <div class="progress jdt2">
-                                    <div class="progress-bar jd"  style="width:2%;"> </div>                         
-                             </div>
+                        <p class="p2">￥
+                            <b>44.9</b>
+                        </p>
+
                         <img src="./imgs/2018021217532341781591.jpg" />
                     </a>
                 </li>
             </ul>
+        </div>
+
+        <!-- 这个怎么没显示 -->
+
     </div>
+    <div class="progressindex">
+        <div class="progress jdt">
+            <div class="progress-bar jd" style="width:2%;"> </div>
+        </div>
+        <div class="progress jdt2">
+            <div class="progress-bar jd" style="width:2%;"> </div>
+        </div>
     </div>
     <script src="js/swiper.min.js"></script>
     <script>
-         var mySwiper = new Swiper ('.swiper-container', {
+        //这个轮播图间隔时间是多少3秒 3秒是总时间 动画执行时间是多少
+        var mySwiper = new Swiper('.swiper-container', {
             loop: true,
-            autoplay:true,
-  }); 
-        
-            var timer = setInterval(function(){
-              var widths =  document.getElementsByClassName("jd")[0].width;
-              console.log(document.getElementsByClassName("jd")[0]);
-                 widths++;
-                if(widths===100){
-                    clearInterval(timer);
-                }
-            },3000);
+            autoplay: true,
+        });
+        //写一个定时器 跟动画同步
+        var count = 0;
+        var index = 0;//当先执行动画的进度条序列
+        var timer = setInterval(function () {
+            count++;
+            if(count < 100){
+                return;
+            }
+           // document.getElementsByClassName("jd")[(index+1) % 2].style.width = "0%";
+            var widths = document.getElementsByClassName("jd")[index % 2];
+            //你这个是什么意思 
+            widths.style.width = (count-100) + "0%";
+            console.log(widths.style.width);
+            if (count == 110) {
+                //动画执行完了继续执行下一个动画 
+                count = 0;
+                index++;
+                 document.getElementsByClassName("jd")[index % 2].style.width = "0%";
+                // console.log("finish-----"+index%2);
+                //widths.style.width = 0 + "%";
+                //clearInterval(timer);
+            }
+        }, 30);
+
     </script>
 </body>
+
 </html>
