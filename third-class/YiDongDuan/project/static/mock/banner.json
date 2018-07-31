@@ -1,0 +1,23 @@
+[
+    {
+        "id":711,
+        "name":"新卖座卡公告",
+        "url":"https://m.maizuo.com/act/active/1282 ",
+        "imageUrl":"https://pic.maizuo.com/h5PicUpload/062a965ab71db31fe0b7ad6f8c529935.jpg",
+        "weight":1
+    },
+    {
+        "id":712,
+        "name":"7.11-7.31我不是药神",
+        "url":"https://m.maizuo.com/v4/?co=maizuo#!/film/4266",
+        "imageUrl":"https://pic.maizuo.com/h5PicUpload/e83f2a98bf2f21b29fed3eb1b74e2e96.jpg",
+        "weight":1
+    },
+    {
+        "id":713,
+        "name":"7.11-7.23邪不压正",
+        "url":"https://m.maizuo.com/v4/?co=maizuo#!/film/4272",
+        "imageUrl":"https://pic.maizuo.com/h5PicUpload/67f4a60075874c95a018f53313a0d6a6.jpg",
+        "weight":2
+    }
+]

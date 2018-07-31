@@ -1,0 +1,14 @@
+body{
+    background-color: #eeeeee;
+    margin: 0;
+    padding: 0;
+}
+.item-normal{
+    color: #f00;
+    cursor: pointer;
+}
+.item-done{
+    text-decoration: line-through;
+   color:green;
+
+}
