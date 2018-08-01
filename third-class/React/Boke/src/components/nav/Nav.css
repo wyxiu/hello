@@ -1,0 +1,18 @@
+.nav{
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    background:#000; 
+    list-style: none;
+}
+.nav a{
+    color: #808080;
+    text-decoration: none;
+    line-height: 40px;
+    display: flex;
+    padding: 0 10px;
+}
+.nav a:hover{
+    color: #fff;
+    background-color: red;
+}

@@ -17,7 +17,7 @@ export default class ListItem extends Component {
 			onDelete,
 			todo
 		} = this.props;
-		
+
 		onDelete(todo)
 	}
 	hanleUpdate = () => {
@@ -29,24 +29,35 @@ export default class ListItem extends Component {
 		onUpdate(todo)
 	}
 	render() {
-		return ( < li className = {
-				classNames('item-normal', {
+		return (
+		< li className={
+				classNames('item-normal', 
+				{
 					'item-done': this.props.isComplete
 				})
-			} >
-			< input type = "checkbox"
-			onClick = {
-				this.hanleClicks
+		} >
+			< input type="checkbox"
+				onClick={
+					this.hanleClicks
+				}
+			/>
+			{
+				this.props.text
 			}
-			/> {
-			this.props.text
-		} < button onClick = {
-			this.hanleDelete
-		} > del < /button> < button onClick = {
-		this.hanleUpdate
-	} > update < /button>
+			<button onClick={
+				this.hanleDelete
+			} 
+			>
+			 del
+			</button>
+			<button onClick={
+				this.hanleUpdate
+			}
+			 > 
+			update 
+			</button>
 
-	< /li>            
-)
-}
+		</li>
+		)
+	}
 }

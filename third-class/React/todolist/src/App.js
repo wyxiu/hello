@@ -2,7 +2,10 @@ import React, {
 	Component
 } from 'react';
 import "bulma/css/bulma.css";
-import ListItem from './components/ListItem';
+import {
+	InputAdd,
+	ListItem
+} from './components';
 import "./App.css"
 
 export default class App extends Component {
@@ -10,17 +13,16 @@ export default class App extends Component {
 		super();
 		this.state = ({
 			todos: [{
-					id: 1,
-					text: "eat",
-					isComplete: true
-				}, {
-					id: 2,
-					text: "sleep",
-					isComplete: false
-				}
+				id: 1,
+				text: "eat",
+				isComplete: true
+			}, {
+				id: 2,
+				text: "sleep",
+				isComplete: false
+			}
 
 			],
-			valueInput: "",
 			id: 3
 
 		});
@@ -29,29 +31,17 @@ export default class App extends Component {
 		this.delete = this.delete.bind(this);
 	}
 
-	handleAdd() {
-		const {
-			todos,
-			valueInput,
-			id
-		} = this.state;
+	handleAdd(text) {
+		const newtodos = {
+			text,
+			id:this.state.id+1,
+			isComplete: false
+		}
 		this.setState({
-			todos: [...todos, {
-				id: id,
-				text: valueInput,
-				isComplete: false
-			}],
-			id: id + 1,
-			valueInput: ''
+			todos: [...this.state.todos, newtodos],
+			id: this.state.id + 1,
 
 		});
-
-	}
-
-	handleClick(e) {
-		this.setState({
-			valueInput: e.target.value
-		})
 
 	}
 
@@ -86,7 +76,7 @@ export default class App extends Component {
 					...item,
 					isComplete: !item.isComplete
 				} :
-				item
+					item
 			)
 		});
 		this.setState({
@@ -95,15 +85,13 @@ export default class App extends Component {
 	}
 
 	handleUpdate(item) {
-		
-		
 		const newTodos = this.state.todos.map((todo) => {
 			return (
 				item.id === todo.id ? {
 					...todo,
 					text: this.state.valueInput
 				} :
-				todo
+					todo
 			)
 		});
 		console.log(newTodos);
@@ -115,55 +103,36 @@ export default class App extends Component {
 
 	render() {
 		const count = this.state.todos.length;
-		return ( < div >
-			< h3 > todoList,
-
-			完成的总任务数: {
-				count
-			} < /h3> < ul > {
-			this.state.todos.map(
-				(item) => {
-					return ( < ListItem onClick = {
-							this.handleCheckbox.bind(this)
-						}
-						onDelete = {
-							this.delete.bind(this)
-						}
-						onUpdate = {
-							this.handleUpdate.bind(this)
-						}
-						id = {
-							item.id
-						}
-						isComplete = {
-							item.isComplete
-						}
-						key = {
-							item.id
-						}
-						todo = {
-							item
-						}
-						text = {
-							item.text
-						} > < /ListItem>
-
-					)
-
-				})
-		}
-
-		< /ul> < input value = {
-		this.state.valueInput
+		return (
+			<div>
+			< h3 > todoList,完成的总任务数: {
+					count
+				} 
+			</h3> 
+			<InputAdd onSubmit={this.handleAdd}/>
+			<ul> 
+				{
+				this.state.todos.map(
+					(item) => {
+						return (
+							<ListItem onClick={this.handleCheckbox.bind(this)}				
+								onDelete={this.delete.bind(this)}
+								onUpdate={this.handleUpdate.bind(this)}				
+								id={item.id}							
+								isComplete={item.isComplete}					
+								key={item.id}	
+								todo={item}			
+								text={item.text} 	
+								> 
+							</ListItem>		
+							)	
+						})
+				}
+		
+		</ul> 
+				
+		</div >
+							
+			);
 	}
-	onChange = {
-		this.handleClick
-	}
-	type = "text" / >
-		< button onClick = {
-			this.handleAdd
-		} > Add < /button> < /div >
-
-);
-}
 }

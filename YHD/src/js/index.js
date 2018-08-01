@@ -90,9 +90,7 @@ require(["config"], function() {
 				$(".floor").each(function() {
 					var index = $(this).index() - 1;
 					var v_top = $(".floor").eq(index).offset().top;
-					//console.log("------" + $(this).index());
 					if (v_top >= $scroll) { //楼层的top大于滚动条的距离
-						//console.log($(this).index() + "----" + v_top + "----" + $scroll)
 						$('.louceng_box li').removeClass('louceng_active');
 						$('.louceng_box li').eq(index).addClass('louceng_active');
 						return false; //中断循环
@@ -103,9 +101,7 @@ require(["config"], function() {
 
 			$(".louceng").on("click", "li", function() {
 				var index = $(this).index();
-				//console.log("----click--" + $(this).index());
 				var _top = $(".floor").eq(index).offset().top ;
-				//console.log(_top);
 				$("html,body").animate({
 					scrollTop: _top
 				})
