@@ -29,8 +29,9 @@ export default class InputAdd extends Component {
   render() {
     return (
       <div>
-        < input value={this.state.valueInput}
+        < input value={this.state.value}
             onChange={this.handleClick}
+            placeholder="添加一个任务"
             type="text" />
         <button onClick={this.handleAdd} >
             Add
