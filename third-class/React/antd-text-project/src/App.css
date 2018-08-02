@@ -1,0 +1,28 @@
+.layHeader{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: aqua;
+}
+.layHeader .ant-menu{
+    display: flex;
+    align-items: center;
+   background-color: aqua;
+    height: 100%;
+    width: 100%;
+}
+.layHeader .ant-menu li{
+    height: 100%;
+    line-height: 64px;
+}
+.logo{
+    display: flex;
+    padding: 15px 10px;
+    background-color:#1890ff;
+    color: white;
+    justify-content: center;
+    align-items: center; 
+}
+.logo .text{
+    margin-left: 10px;
+}
