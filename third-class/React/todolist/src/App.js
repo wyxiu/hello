@@ -28,7 +28,10 @@ export default class App extends Component {
 
 		});
 		this.handleAdd = this.handleAdd.bind(this);
+<<<<<<< HEAD
 		// this.handleClick = this.handleClick.bind(this);
+=======
+>>>>>>> 48d3c6280eebca3b42246d05dfff8a792e89bae4
 		this.delete = this.delete.bind(this);
 	}
 
@@ -90,7 +93,7 @@ export default class App extends Component {
 			return (
 				item.id === todo.id ? {
 					...todo,
-					text: this.state.valueInput
+					text:item.value
 				} :
 					todo
 			)
@@ -98,7 +101,7 @@ export default class App extends Component {
 		console.log(newTodos);
 		this.setState({
 			todos: newTodos,
-			valueInput: ''
+			value: ''
 		})
 	}
 
