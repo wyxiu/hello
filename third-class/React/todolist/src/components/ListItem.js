@@ -30,8 +30,8 @@ export default class ListItem extends Component {
 	}
 	render() {
 		return (
-		< li className={
-				classNames('item-normal', 
+		<lable className={
+				classNames(this.props.wrappedClassName, 
 				{
 					'item-done': this.props.isComplete
 				})
@@ -57,7 +57,7 @@ export default class ListItem extends Component {
 			update 
 			</button>
 
-		</li>
+		</lable>
 		)
 	}
 }

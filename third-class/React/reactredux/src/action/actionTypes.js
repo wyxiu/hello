@@ -1,0 +1,4 @@
+export const START_GET_POSTS = 'START_GET_POST'
+export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
+export const INCREASE = 'INCREASE'
+export const DECREASE = 'DECREASE'

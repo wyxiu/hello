@@ -28,13 +28,19 @@ export default class InputAdd extends Component {
     }
   render() {
     return (
-      <div>
+        <div className="field has-addons">
+            <div className="control">
         < input value={this.state.valueInput}
             onChange={this.handleClick}
-            type="text" />
-        <button onClick={this.handleAdd} >
+            type="text"
+            className="input is-primary"
+             />
+            </div>
+            <div className="control">
+            <button onClick={this.handleAdd} className="button is-primary">
             Add
-        </button>
+         </button>
+         </div>
       </div>
     )
   }

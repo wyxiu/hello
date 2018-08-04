@@ -4,7 +4,8 @@ import React, {
 import "bulma/css/bulma.css";
 import {
 	InputAdd,
-	ListItem
+	ListItem,
+	Header
 } from './components';
 import "./App.css"
 
@@ -27,7 +28,7 @@ export default class App extends Component {
 
 		});
 		this.handleAdd = this.handleAdd.bind(this);
-		this.handleClick = this.handleClick.bind(this);
+		// this.handleClick = this.handleClick.bind(this);
 		this.delete = this.delete.bind(this);
 	}
 
@@ -105,33 +106,40 @@ export default class App extends Component {
 		const count = this.state.todos.length;
 		return (
 			<div>
-			< h3 > todoList,完成的总任务数: {
-					count
-				} 
-			</h3> 
-			<InputAdd onSubmit={this.handleAdd}/>
-			<ul> 
-				{
-				this.state.todos.map(
-					(item) => {
-						return (
-							<ListItem onClick={this.handleCheckbox.bind(this)}				
-								onDelete={this.delete.bind(this)}
-								onUpdate={this.handleUpdate.bind(this)}				
-								id={item.id}							
-								isComplete={item.isComplete}					
-								key={item.id}	
-								todo={item}			
-								text={item.text} 	
-								> 
-							</ListItem>		
-							)	
-						})
-				}
-		
-		</ul> 
-				
-		</div >
+			<Header/>
+				<div className="container section">
+				<div className="panel">
+					<p className="panel-heading">
+						{new Date().toLocaleDateString()}
+					</p>
+					<div className="panel-block">
+						<InputAdd onSubmit={this.handleAdd} />
+					</div>
+						
+							{
+								this.state.todos.map(
+									(item) => {
+										return (
+											<ListItem onClick={this.handleCheckbox.bind(this)}
+												onDelete={this.delete.bind(this)}
+												onUpdate={this.handleUpdate.bind(this)}
+												id={item.id}
+												isComplete={item.isComplete}
+												key={item.id}
+												todo={item}
+												text={item.text}
+												wrappedClassName="panel-block"
+											>
+											</ListItem>
+										)
+									})
+							}
+
+						</div> 
+				</div>
+			</div>
+					
+	
 							
 			);
 	}
