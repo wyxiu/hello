@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React,{Component} from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import Loading from '../components/loading/Loading';
+import All from '../components/All'
 class Detail extends Component {
     constructor(){
         super();
@@ -24,7 +25,7 @@ class Detail extends Component {
     }
     render() {
         return (
-           <div>    
+           <All>    
             {
                 this.state.isLoading
                 ?
@@ -35,7 +36,7 @@ class Detail extends Component {
                  <p>{this.state.text.body}</p>
                </div>
             }
-            </div>
+            </All>
             
         )
     }

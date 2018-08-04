@@ -1,7 +1,8 @@
-import React, { Component,Fragment } from 'react';
+import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/loading/Loading';
+import All from '../components/All'
  class Blog extends Component {
     constructor(){
         super();
@@ -29,9 +30,8 @@ import Loading from '../components/loading/Loading';
     }
 
     render() {
-    //    console.log(this.state.blogs);
         return (
-            <Fragment>
+            <All>
                 {
                     this.state.isLoading
                     ?
@@ -50,7 +50,7 @@ import Loading from '../components/loading/Loading';
                         }
                     </ul>
                 }             
-            </Fragment>
+            </All>
         )
     }
 }
