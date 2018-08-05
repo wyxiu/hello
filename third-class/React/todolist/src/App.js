@@ -5,7 +5,8 @@ import "bulma/css/bulma.css";
 import {
 	InputAdd,
 	ListItem,
-	Header
+	Header,
+	Counter
 } from './components';
 import "./App.css"
 
@@ -24,15 +25,26 @@ export default class App extends Component {
 			}
 
 			],
-			id: 3
-
+			id: 3,
+			value:''
 		});
-		this.handleAdd = this.handleAdd.bind(this);
-<<<<<<< HEAD
-		// this.handleClick = this.handleClick.bind(this);
-=======
->>>>>>> 48d3c6280eebca3b42246d05dfff8a792e89bae4
 		this.delete = this.delete.bind(this);
+		this.getCounters=this.getCounters.bind(this);
+	}
+//计算完成和未完成的数量
+
+getCounters(){
+const done = this.state.todos.filter(todo=>todo.isComplete).length;
+const unDone = this.state.todos.filter(todo=>!todo.isComplete).length;
+			return {done,
+			        unDone
+			}
+}
+
+	handleChange(text){
+		this.setState({
+            value: text
+        })
 	}
 
 	handleAdd(text) {
@@ -44,23 +56,12 @@ export default class App extends Component {
 		this.setState({
 			todos: [...this.state.todos, newtodos],
 			id: this.state.id + 1,
-
+			value:''
 		});
-
 	}
 
 	delete(item) {
 		console.log(item);
-		//		for (var i = 0; i < this.state.todos.length; i++) {
-		//			if (this.state.todos[i].id === id) {
-		//				console.log("---" + i);
-		//				const newtodos = this.state.todos.splice(i, 1);
-		//				console.log(newtodos);
-		//				this.setState({
-		//					todos: this.state.todos
-		//				})
-		//			}
-		//		}
 		const index = this.state.todos.indexOf(item);
 		console.log(index);
 		this.state.todos.splice(index, 1);
@@ -89,24 +90,26 @@ export default class App extends Component {
 	}
 
 	handleUpdate(item) {
+		console.log(item);
 		const newTodos = this.state.todos.map((todo) => {
 			return (
 				item.id === todo.id ? {
 					...todo,
-					text:item.value
+					text:this.state.value
 				} :
 					todo
 			)
 		});
-		console.log(newTodos);
 		this.setState({
 			todos: newTodos,
-			value: ''
+			value:''		
 		})
+		
 	}
+		
 
 	render() {
-		const count = this.state.todos.length;
+		
 		return (
 			<div>
 			<Header/>
@@ -116,7 +119,7 @@ export default class App extends Component {
 						{new Date().toLocaleDateString()}
 					</p>
 					<div className="panel-block">
-						<InputAdd onSubmit={this.handleAdd} />
+						<InputAdd text={this.state.value} onSubmit={this.handleAdd.bind(this)} onTextChange={this.handleChange.bind(this)} />
 					</div>
 						
 							{
@@ -125,20 +128,21 @@ export default class App extends Component {
 										return (
 											<ListItem onClick={this.handleCheckbox.bind(this)}
 												onDelete={this.delete.bind(this)}
-												onUpdate={this.handleUpdate.bind(this)}
 												id={item.id}
 												isComplete={item.isComplete}
 												key={item.id}
 												todo={item}
 												text={item.text}
+												onUpdate={this.handleUpdate.bind(this)}
 												wrappedClassName="panel-block"
 											>
 											</ListItem>
 										)
 									})
 							}
-
-						</div> 
+							<Counter counterclassName="panel-heading" counter={this.getCounters()}/>		
+						</div> 					
+										
 				</div>
 			</div>
 					

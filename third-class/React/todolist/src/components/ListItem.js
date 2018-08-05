@@ -21,7 +21,6 @@ export default class ListItem extends Component {
 		onDelete(todo)
 	}
 	hanleUpdate = () => {
-		console.log(this.props);
 		const {
 			onUpdate,
 			todo
@@ -30,10 +29,11 @@ export default class ListItem extends Component {
 	}
 	render() {
 		return (
-		<lable className={
+		<div className={
 				classNames(this.props.wrappedClassName, 
 				{
-					'item-done': this.props.isComplete
+					'has-text-primary': !this.props.isComplete,
+					'has-text-danger': this.props.isComplete
 				})
 		} >
 			< input type="checkbox"
@@ -57,7 +57,7 @@ export default class ListItem extends Component {
 			update 
 			</button>
 
-		</lable>
+		</div>
 		)
 	}
 }
