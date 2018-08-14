@@ -19,13 +19,8 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-<<<<<<< HEAD
-          {/* <Logo/>
-          <Frame/> */}
-=======
           <Logo vertical={this.props.verticallogo}/>
-          <Frame/>
->>>>>>> 48d3c6280eebca3b42246d05dfff8a792e89bae4
+          <Fragment/>
          <Switch>
           <Redirect exact to="/home" from=""></Redirect>
           <Route path="/home" component={Home}></Route>
